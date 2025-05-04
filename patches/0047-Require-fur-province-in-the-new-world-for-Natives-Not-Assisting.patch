@@ -1,0 +1,33 @@
+From 8472510b6b279f0cd585d8a8cb158903b39ec9a8 Mon Sep 17 00:00:00 2001
+From: grotaclas <grotaclas@gmail.com>
+Date: Sun, 04 May 2025 19:41:51 -0000
+Subject: [PATCH] Require fur province in the new world for "Natives Not
+ Assisting"
+
+Bugreport: https://forum.paradoxplaza.com/forum/threads/natives-not-assisting-firing-for-non-colonial-nations.1696527/
+---
+ events/RandomEvents.txt | 8 ++++++++
+ 1 file changed, 8 insertions(+)
+
+diff --git a/events/RandomEvents.txt b/events/RandomEvents.txt
+index 49ea48e6..870c22ec 100755
+--- a/events/RandomEvents.txt
++++ b/events/RandomEvents.txt
+@@ -12776,6 +12776,14 @@ country_event = {
+ 				is_subject_of_type = self_governing_colony
+ 			}
+ 		}
++		any_owned_province = {
++			OR = {
++				continent = north_america
++				continent = south_america
++				continent = new_world
++			}
++			trade_goods = fur
++		}
+ 	}
+ 
+ 	is_triggered_only = yes
+-- 
+2.45.2
+
