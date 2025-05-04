@@ -1,0 +1,110 @@
+From 302a7307fe8b84c800052ba24d3e6bf0bc94b92c Mon Sep 17 00:00:00 2001
+From: grotaclas <grotaclas@gmail.com>
+Date: Sun, 04 May 2025 19:41:51 -0000
+Subject: [PATCH] Apply reward from fra_london even if FRA changes tag
+
+Bugreport: https://forum.paradoxplaza.com/forum/threads/the-french-mission-effect-of-london-tower-disappears-when-it-forms-another-tag.1698790/
+---
+ common/great_projects/01_monuments.txt | 51 ++++++++++++++++++++------
+ 1 file changed, 39 insertions(+), 12 deletions(-)
+
+diff --git a/common/great_projects/01_monuments.txt b/common/great_projects/01_monuments.txt
+index fd75513e..dcb5a79b 100755
+--- a/common/great_projects/01_monuments.txt
++++ b/common/great_projects/01_monuments.txt
+@@ -702,9 +702,9 @@ tower_of_london = {
+ 		}
+ 		
+ 		conditional_modifier = {
+-			trigger = {
+-				owner = { 
+-					OR = { 
++			tooltip_potential = {
++				owner = {
++					OR = {
+ 						tag = FRA 
+ 						was_tag = FRA 
+ 						overlord = {
+@@ -715,7 +715,16 @@ tower_of_london = {
+ 						}
+ 					}
+ 				}
+-				FRA = { mission_completed = fra_london }
++			}
++			trigger = {
++				owner = {
++					OR = {
++						mission_completed = fra_london
++						overlord = {
++							mission_completed = fra_london
++						}
++					}
++				}
+ 			}
+ 			modifier = {
+ 				max_absolutism = 5
+@@ -754,9 +763,9 @@ tower_of_london = {
+ 		}
+ 		
+ 		conditional_modifier = {
+-			trigger = {
+-				owner = { 
+-					OR = { 
++			tooltip_potential = {
++				owner = {
++					OR = {
+ 						tag = FRA 
+ 						was_tag = FRA 
+ 						overlord = {
+@@ -767,7 +776,16 @@ tower_of_london = {
+ 						}
+ 					}
+ 				}
+-				FRA = { mission_completed = fra_london }
++			}
++			trigger = {
++				owner = {
++					OR = {
++						mission_completed = fra_london
++						overlord = {
++							mission_completed = fra_london
++						}
++					}
++				}
+ 			}
+ 			modifier = {
+ 				max_absolutism = 10
+@@ -807,9 +825,9 @@ tower_of_london = {
+ 		}
+ 		
+ 		conditional_modifier = {
+-			trigger = {
+-				owner = { 
+-					OR = { 
++			tooltip_potential = {
++				owner = {
++					OR = {
+ 						tag = FRA 
+ 						was_tag = FRA 
+ 						overlord = {
+@@ -820,7 +838,16 @@ tower_of_london = {
+ 						}
+ 					}
+ 				}
+-				FRA = { mission_completed = fra_london }
++			}
++			trigger = {
++				owner = {
++					OR = {
++						mission_completed = fra_london
++						overlord = {
++							mission_completed = fra_london
++						}
++					}
++				}
+ 			}
+ 			modifier = {
+ 				max_absolutism = 10
+-- 
+2.45.2
+
