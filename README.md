@@ -9,6 +9,7 @@ Highlights include:
 * Fix wrong HRE membership after looking at other start dates
 * Fix country renaming to "Seljuk Empire" when forming Rum as Aq/Qara Qoyunlu and "The Hanseatic League" when forming Lübeck
 * Prevent Shwedagon Pagoda monument from getting destroyed by countries which don't own it
+* Fix wrongly broken province names in the tutorial
+* Fix burgundian inheritance for non-monarchies
 
-
-For the full list of fixes and links to their bugreports see [CHANGELOG.txt](CHANGELOG.txt). For a quick overview [CHANGELOG_summary.txt](CHANGELOG_summary.txt) contains one line for each bugfix. Each bugfix also has a patch in the [patches](patches) folder. These patches can be used by the eu4 developers to apply them to their files if they want to release a new version or by mod authors to fix these bugs in their mods if they override the vanilla files.
+For the full list of fixes and links to their patches and bugreports see [CHANGELOG](CHANGELOG.md). For a quick overview [CHANGELOG_summary](CHANGELOG_summary.md) contains one line for each bugfix. Each bugfix also has a patch in the [patches](patches) folder. These patches can be used by the eu4 developers to apply them to their files if they want to release a new version or by mod authors to fix these bugs in their mods if they override the vanilla files.

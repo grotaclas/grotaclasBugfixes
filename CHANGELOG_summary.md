@@ -1,0 +1,87 @@
+# 2025-05-04 (initial release)
+- fix Hanlin Academy modifier for korean and japanese missions
+- prevent event 728 "Claims on Our Rivals!" from firing with no valid province
+- align conditions for "Fate of the Mandate" with its tooltip
+- allow mission "Fate of the Mandate"(fate_of_the_mandate) to be completed by dismantling the mandate
+- partial fix for hussite incident when emperor changes
+- make confucian monuments work with harmonized religious groups
+- Dont remove zoroastrian_prophet_in_the_court when firing different advisor
+- fix branching missions when forming a country while having branching buttons
+- increase manpower from boh_reformatio_sigismundi_hre
+- allow Amsterdam Bourse with roman culture
+- re-enable GC missions for VAL and CAT if DOM is active
+- turn MLO into a monarchy when FRA forms a PU over them
+- fix "Italian Coastal Influence" privilege
+- Fix highlighting for Iroquois missions
+- Allow 150+ dev free company for SWE Engelbrekt mission
+- prevent shwedagon_pagoda from getting destroyed by countries which don't own it
+- prevent Rotten Borough from assigning seat to territory
+- Only allow fifth monarchists reform for christian custom nations
+- fix expand infrastructure effect for Expand the Bogue missions
+- fix or remove outdated dynamic names for the province Dortmund(69)
+- Allow son_modernize_army to be completed without CoC
+- fix tooltip son_own_develop_clothes_and_salt_ct
+- Fix encoding in the tutorial
+- Fix construction of Suez canal with inflation in event flavor_mam.115
+- add missing traits to num_of_ruler_traits
+- let LAE keep BYZ missions if they were created by HAB
+- fix highlighting in mission Korean Self-Reliance (kor_achieve_juche)
+- allow custom nations to keep livonian reforms
+- fix patriarch authority in swedish events/decision
+- avoid permaclaims on sea tiles from GER and JAP missions
+- remove extra spaces before regal numbers
+- Allow France to annex normal vassals without seizing land
+- Fix reconquest war against Kalmyks if the owner doesnt have full cores
+- Fix burgundian inheritance for non-monarchies
+- fix "Seljuk Empire" name when forming Rum as Aq and Qara Qoyunlu
+- update event insight for flavor_ARB.5 in YEM_zaidi_caliphate
+- fix portrait of female Indian master recruiter
+- use mesoamerican advisor portraits for new cultures
+- prevent incan event "Policies of Huascar" after the end of the civil war
+- Prevent burghers agenda "Expand our Colony in x"(estate_burghers_colonial_nation) for countries which can't spawn CNs
+- Prevent eunuchs agenda "Reform the Government" if the examination system reform is not available
+- Align requirements of Eagle of Lübeck mission with tooltip and add fallback if there are no valid rivals
+- give japan claims on korea if DOM is active
+- Do not remove estuary/granary modifiers from flavor_mam.102 if the provinces get conquered
+- Allow anglican and AVE to trigger event "Huguenot Rebels Need Our Help"(tyw_events.12)
+- Apply reward from fra_london even if FRA changes tag
+- Require fur province in the new world for "Natives Not Assisting"
+- Make Persian mission "Checks and Balance" work with all estates
+- Apply and remove DotF bonus correctly for Head of the Patriarchate
+- fix Portuguese missions in RNW games
+- Fix wrong HRE membership after looking at other start dates
+- Fix highlight for prussian_nation_general decision
+- Fix temple bonus when switching between reforms
+- add scrollbar to naval doctrines if there are more than 5
+- Make it more likely that an emperor who has a negative opinion of Burgundy bans their entry in the incident Burgundy and the Empire
+- Do not remove "Expanded Daugava Estuary" modifier from Riga if province changes hands
+- Also allow "Expanded Daugava Estuary" modifier in all triggers which check for the normal modifier
+- Partially fix inflation reduction when repaying loan with economic ideas
+- Make sure that "A Pretender arises" always has an event option
+- fix highlighting in Ottoman base game mission Conquer Greece(conquer_southern_greece)
+- fix highlighting in City of the World's Desire(defeat_the_byzantine_empire)
+- Fix highlighting in "St. Olav Tower"(fin_neva)
+- Fix reward when completing Defense in Depth(BYZ_defence_in_depth) with level 3 "Theodosian Walls"
+- Make reform Ganden Phodrang available to Sino-Tibetan countries
+- Fix devastation trigger and highlighting for "Fortify the Coast" missions
+- Bring tooltips of "Fortify the Coast" missions more in line with the effects
+- Cede goa to the correct nation in the event "Vasco da Gama in India"
+- Allow Portuguese missions to be completed after forming another country
+- Reduce amount of land gain for successful eunuch rebels from 100% to 10%
+- Fix partiarch authority gain when selling titles while having the reform "Superiority of the State" and "Grant Land to the Monasteries"
+- Prevent Hawai'i and Viti formation in random nation games
+- Make "Constitutional Restoration" event give alternative reforms for countries which can't have the Parliamentarism reform
+- Prevent event "A Zoroastrian Identity" during war
+- Custom militarization idea now also gives early/late militarization
+- Give countries with Margravate reform another reform if Domination isn't active
+- Prevent high base unrest from janissary disaster
+- Apply absolutism impact from court ideas to all privileges
+- Add missing perma claims on muslim provinces to arabia mission event "Second Islamic Golden Age"
+- Fix "United Horn" modifier from horn of africa missions
+- Fix highlighting for Restore the Mongol Empire
+- Prevent seven provinces buff from being wrongly applied to conquered provinces of a different culture group
+- Fix renaming to "Lithuanian-Polish Commonwealth" when forming PLC as LIT
+- Fix renaming to "The Hanseatic League" when forming HSA
+- Fix maritime idea reward from venetian mission "Masters of the Sea"
+- Disable privilege "Allow Religious Delegation" for the Papal States
+- Fix second reward for Yuan mission "Reform Civil Registration"
