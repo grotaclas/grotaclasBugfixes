@@ -1,0 +1,70 @@
+From 9ecbafd4f85a7c9ee4de931db5fdbd9cab001290 Mon Sep 17 00:00:00 2001
+From: grotaclas <grotaclas@gmail.com>
+Date: Sun, 04 May 2025 19:41:54 -0000
+Subject: [PATCH] Fix renaming to "Lithuanian-Polish Commonwealth" when forming
+ PLC as LIT
+
+Bugreport: https://forum.paradoxplaza.com/forum/threads/forming-commonwealth-as-lithuania-does-not-change-the-name-to-lithuanian-polish-commonwealth.1711054/
+---
+ decisions/TheCommonwealth.txt | 18 +++++++++---------
+ 1 file changed, 9 insertions(+), 9 deletions(-)
+
+diff --git a/decisions/TheCommonwealth.txt b/decisions/TheCommonwealth.txt
+index f4cbf6f8..caa95ef4 100755
+--- a/decisions/TheCommonwealth.txt
++++ b/decisions/TheCommonwealth.txt
+@@ -219,10 +219,14 @@ country_decisions = {
+ 		}
+ 		effect = {
+ 			change_tag = PLC
++			inherit = POL
++			set_country_flag = pol_chose_pu_flag
++			swap_non_generic_missions = yes
++			on_change_tag_effect = yes
+ 			if = { 
+ 				limit = { 
+ 					OR = { 
+-						tag = LIT
++						is_or_was_tag = { tag = LIT }
+ 						primary_culture = lithuanian 
+ 					}
+ 				}
+@@ -230,10 +234,6 @@ country_decisions = {
+ 				set_country_flag = is_LPC_flag
+ 			}
+ 			else = { restore_country_name = yes }
+-			inherit = POL
+-			set_country_flag = pol_chose_pu_flag
+-			swap_non_generic_missions = yes
+-			on_change_tag_effect = yes
+ 			if = {
+ 				limit = { has_updated_culture = { culture = slavic } }
+ 				add_accepted_culture_or_dip_power = {
+@@ -390,10 +390,13 @@ country_decisions = {
+ 		}
+ 		effect = { 
+ 			change_tag = PLC
++			set_country_flag = pol_chose_pu_flag
++			swap_non_generic_missions = yes
++			on_change_tag_effect = yes
+ 			if = { 
+ 				limit = { 
+ 					OR = { 
+-						tag = LIT 
++						is_or_was_tag = { tag = LIT }
+ 						primary_culture = lithuanian 
+ 					}
+ 				}
+@@ -401,9 +404,6 @@ country_decisions = {
+ 				set_country_flag = is_LPC_flag
+ 			}
+ 			else = { restore_country_name = yes }
+-			set_country_flag = pol_chose_pu_flag
+-			swap_non_generic_missions = yes
+-			on_change_tag_effect = yes
+ 			remove_non_electors_emperors_from_empire_effect = yes
+ 			if = {
+ 				limit = { NOT = { government_rank = 2 } }
+-- 
+2.45.2
+
