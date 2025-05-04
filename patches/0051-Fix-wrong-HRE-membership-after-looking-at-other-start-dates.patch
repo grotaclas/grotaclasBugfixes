@@ -1,0 +1,389 @@
+From 70f854c2260f3413146783c8ef61d2c7a1672bed Mon Sep 17 00:00:00 2001
+From: grotaclas <grotaclas@gmail.com>
+Date: Sun, 04 May 2025 19:41:52 -0000
+Subject: [PATCH] Fix wrong HRE membership after looking at other start dates
+
+The problem was that some provinces have "hre = no" lines in their
+history files on dates where they are not part of the HRE which causes
+eu4 to add the provinces if you go backwards over that date
+---
+ history/provinces/101 - Genoa.txt       | 1 -
+ history/provinces/102 - Nice.txt        | 1 -
+ history/provinces/103 - Piedmont.txt    | 1 -
+ history/provinces/104 - Milan.txt       | 1 -
+ history/provinces/105 - Parma.txt       | 1 -
+ history/provinces/107 - Brescia.txt     | 1 -
+ history/provinces/108 - Verona.txt      | 1 -
+ history/provinces/109 - Mantua.txt      | 1 -
+ history/provinces/111 - Friuli.txt      | 1 -
+ history/provinces/112 - Venezia.txt     | 1 -
+ history/provinces/1774 - Treviso.txt    | 1 -
+ history/provinces/1862 - Cremona.txt    | 1 -
+ history/provinces/1865 - Ghent.txt      | 1 -
+ history/provinces/187 - Barrois.txt     | 1 -
+ history/provinces/1875 - Turin.txt      | 1 -
+ history/provinces/1877 - Charolais.txt  | 1 -
+ history/provinces/201 - Provence.txt    | 1 -
+ history/provinces/205 - Savoie.txt      | 1 -
+ history/provinces/2978 - Arezzo.txt     | 1 -
+ history/provinces/2979 - Novarra.txt    | 1 -
+ history/provinces/2980 - Lucca.txt      | 1 -
+ history/provinces/2991 - Draguignan.txt | 1 -
+ history/provinces/2992 - Albenga.txt    | 1 -
+ history/provinces/4696 - Toulon.txt     | 1 -
+ history/provinces/4719 - Annecy.txt     | 1 -
+ history/provinces/4727 - Saluzzo.txt    | 1 -
+ history/provinces/4728 - Pavia.txt      | 1 -
+ history/provinces/4729 - Padova.txt     | 1 -
+ history/provinces/4739 - Bergamo.txt    | 1 -
+ history/provinces/4740 - Como.txt       | 1 -
+ 30 files changed, 30 deletions(-)
+
+diff --git a/history/provinces/101 - Genoa.txt b/history/provinces/101 - Genoa.txt
+index 28cba53c..0c12c3b8 100755
+--- a/history/provinces/101 - Genoa.txt	
++++ b/history/provinces/101 - Genoa.txt	
+@@ -47,7 +47,6 @@ center_of_trade = 3
+ 	controller = FRA
+ 	add_core = FRA
+ }# Annexed by France
+-1806.7.12 = { hre = no } # The Holy Roman Empire is dissolved
+ 1814.4.11 = {
+ 	owner = SPI
+ 	controller = SPI
+diff --git a/history/provinces/102 - Nice.txt b/history/provinces/102 - Nice.txt
+index 5dd6ca76..e593c214 100755
+--- a/history/provinces/102 - Nice.txt	
++++ b/history/provinces/102 - Nice.txt	
+@@ -34,7 +34,6 @@ discovered_by = ottoman
+ 	remove_core = SIC
+ } # Kingdom of Piedmont-Sardinia
+ 1797.10.17 = { owner = FRA controller = FRA add_core = FRA } # Treaty of Campo Formio
+-1806.7.12 = { hre = no } # The Holy Roman Empire is dissolved
+ 1814.4.11 = {
+ 	owner = SPI
+ 	controller = SPI
+diff --git a/history/provinces/103 - Piedmont.txt b/history/provinces/103 - Piedmont.txt
+index f1753bee..b5f2b7e8 100755
+--- a/history/provinces/103 - Piedmont.txt	
++++ b/history/provinces/103 - Piedmont.txt	
+@@ -43,7 +43,6 @@ discovered_by = ottoman
+ 1792.11.27 = {	owner = FRA
+ 	add_core = FRA
+ } # Savoie is annexed
+-1806.7.12 = { hre = no } # The Holy Roman Empire is dissolved
+ 1814.4.11 = {
+ 	owner = SPI
+ 	controller = SPI
+diff --git a/history/provinces/104 - Milan.txt b/history/provinces/104 - Milan.txt
+index ba736e8d..8d43dac9 100755
+--- a/history/provinces/104 - Milan.txt	
++++ b/history/provinces/104 - Milan.txt	
+@@ -55,7 +55,6 @@ center_of_trade = 2
+ 	controller = ITA
+ 	add_core = ITA
+ } # Cisalpine Republic
+-1806.7.12 = { hre = no } # The Holy Roman Empire is dissolved
+ 1814.4.11 = {
+ 	owner = HAB
+ 	controller = HAB
+diff --git a/history/provinces/105 - Parma.txt b/history/provinces/105 - Parma.txt
+index e1127460..3f194c16 100755
+--- a/history/provinces/105 - Parma.txt	
++++ b/history/provinces/105 - Parma.txt	
+@@ -43,7 +43,6 @@ discovered_by = ottoman
+ 	controller = FRA
+ 	add_core = FRA
+ } # Treaty of Aranjuez, ceded to France
+-1806.7.12 = { hre = no } # The Holy Roman Empire is dissolved
+ 1814.4.11 = {
+ 	owner = PAR
+ 	controller = PAR
+diff --git a/history/provinces/107 - Brescia.txt b/history/provinces/107 - Brescia.txt
+index 33c67667..4c5a2962 100755
+--- a/history/provinces/107 - Brescia.txt	
++++ b/history/provinces/107 - Brescia.txt	
+@@ -42,7 +42,6 @@ discovered_by = ottoman
+ 	add_core = ITA
+ 	remove_core = FRA
+ } # Merged with the Cisalpine Republic
+-1806.7.12 = { hre = no } # The Holy Roman Empire is dissolved
+ 1814.4.11 = {	owner = HAB
+ 	controller = HAB
+ 	add_core = HAB
+diff --git a/history/provinces/108 - Verona.txt b/history/provinces/108 - Verona.txt
+index 463608e2..61f89c14 100755
+--- a/history/provinces/108 - Verona.txt	
++++ b/history/provinces/108 - Verona.txt	
+@@ -40,7 +40,6 @@ center_of_trade = 1
+ 	add_core = ITA
+ 	remove_core = HAB
+ } # Treaty of Pressburg
+-1806.7.12 = { hre = no } # The Holy Roman Empire is dissolved
+ 1814.4.11 = {	owner = HAB
+ 	controller = HAB
+ 	add_core = HAB
+diff --git a/history/provinces/109 - Mantua.txt b/history/provinces/109 - Mantua.txt
+index 16d5af91..5a538346 100755
+--- a/history/provinces/109 - Mantua.txt	
++++ b/history/provinces/109 - Mantua.txt	
+@@ -32,7 +32,6 @@ center_of_trade = 1
+ 	controller = ITA
+ 	add_core = ITA
+ } # Cisalpine Republic
+-1806.7.12 = { hre = no } # The Holy Roman Empire is dissolved
+ 1814.4.11 = {
+ 	owner = HAB
+ 	controller = HAB
+diff --git a/history/provinces/111 - Friuli.txt b/history/provinces/111 - Friuli.txt
+index 432aebbb..b04c8a6c 100755
+--- a/history/provinces/111 - Friuli.txt	
++++ b/history/provinces/111 - Friuli.txt	
+@@ -38,7 +38,6 @@ discovered_by = ottoman
+ 	add_core = ITA
+ 	remove_core = HAB
+ } # Treaty of Pressburg
+-1806.7.12 = { hre = no } # The Holy Roman Empire is dissolved
+ 1814.4.11 = {
+ 	owner = HAB
+ 	controller = HAB
+diff --git a/history/provinces/112 - Venezia.txt b/history/provinces/112 - Venezia.txt
+index c02d84b7..3cde4849 100755
+--- a/history/provinces/112 - Venezia.txt	
++++ b/history/provinces/112 - Venezia.txt	
+@@ -31,7 +31,6 @@ center_of_trade = 3
+ 	add_core = ITA
+ 	remove_core = HAB
+ } # Treaty of Pressburg
+-1806.7.12 = { hre = no } # The Holy Roman Empire is dissolved
+ 1814.4.11 = {
+ 	owner = HAB
+ 	controller = HAB
+diff --git a/history/provinces/1774 - Treviso.txt b/history/provinces/1774 - Treviso.txt
+index 2ba9669a..13068342 100755
+--- a/history/provinces/1774 - Treviso.txt	
++++ b/history/provinces/1774 - Treviso.txt	
+@@ -32,7 +32,6 @@ discovered_by = ottoman
+ 	add_core = ITA
+ 	remove_core = HAB
+ } # Treaty of Pressburg
+-1806.7.12 = { hre = no } # The Holy Roman Empire is dissolved
+ 1814.4.11 = {
+ 	owner = HAB
+ 	controller = HAB
+diff --git a/history/provinces/1862 - Cremona.txt b/history/provinces/1862 - Cremona.txt
+index 46ad199f..c3b7e52c 100755
+--- a/history/provinces/1862 - Cremona.txt	
++++ b/history/provinces/1862 - Cremona.txt	
+@@ -48,7 +48,6 @@ discovered_by = ottoman
+ 	controller = ITA
+ 	add_core = ITA
+ } # Cisalpine Republic
+-1806.7.12 = { hre = no } # The Holy Roman Empire is dissolved
+ 1814.4.11 = {
+ 	owner = HAB
+ 	controller = HAB
+diff --git a/history/provinces/1865 - Ghent.txt b/history/provinces/1865 - Ghent.txt
+index 67414086..5b0e24ad 100755
+--- a/history/provinces/1865 - Ghent.txt	
++++ b/history/provinces/1865 - Ghent.txt	
+@@ -42,7 +42,6 @@ discovered_by = ottoman
+  } # Treaty of Den Haag, ceded to the French Republic
+ 1798.10.12 = { revolt = { type = nationalist_rebels size = 2 } controller = REB } # Revolt against French rule, "Boerenkrijg"
+ 1798.12.1 = { revolt = {} controller = FRA }
+-1806.7.12 = { hre = no } # The Holy Roman Empire is dissolved
+ 1815.3.16 = {
+ 	owner = NED
+ 	controller = NED
+diff --git a/history/provinces/187 - Barrois.txt b/history/provinces/187 - Barrois.txt
+index 798ae255..8a43ec4e 100755
+--- a/history/provinces/187 - Barrois.txt	
++++ b/history/provinces/187 - Barrois.txt	
+@@ -33,4 +33,3 @@ discovered_by = ottoman
+ 1670.6.1 = { owner = FRA controller = FRA }
+ 1697.10.30 = { owner = LOR controller = LOR } # Treaty of Ryswick
+ 1766.2.23 = { owner = FRA controller = FRA }
+-1806.7.12 = { hre = no } # The Holy Roman Empire is dissolved
+diff --git a/history/provinces/1875 - Turin.txt b/history/provinces/1875 - Turin.txt
+index 4f4d6f54..40f8c3a8 100755
+--- a/history/provinces/1875 - Turin.txt	
++++ b/history/provinces/1875 - Turin.txt	
+@@ -41,7 +41,6 @@ discovered_by = ottoman
+ } # Kingdom of Piedmont-Sardinia
+ 1792.9.1 = { controller = FRA } # Conquered by the French
+ 1796.4.25 = { owner = FRA add_core = FRA } # The Republic of Alba
+-1806.7.12 = { hre = no } # The Holy Roman Empire is dissolved
+ 1814.4.11 = {
+ 	owner = SPI
+ 	controller = SPI
+diff --git a/history/provinces/1877 - Charolais.txt b/history/provinces/1877 - Charolais.txt
+index 8ecff16b..75019202 100755
+--- a/history/provinces/1877 - Charolais.txt	
++++ b/history/provinces/1877 - Charolais.txt	
+@@ -25,4 +25,3 @@ discovered_by = ottoman
+ 1670.1.1 = { add_core = FRA } # Louis XIV lays claims through the Chambres de Réunion
+ 1674.9.1 = { controller = FRA } # France captures Franche-Comté 
+ 1678.9.19 = { owner = FRA remove_core = SPA } # Treaty of Nijmegen (FRA-SPA)
+-1806.7.12 = { hre = no } # The Holy Roman Empire is dissolved
+diff --git a/history/provinces/201 - Provence.txt b/history/provinces/201 - Provence.txt
+index 82ff21b4..adbb838e 100755
+--- a/history/provinces/201 - Provence.txt	
++++ b/history/provinces/201 - Provence.txt	
+@@ -49,4 +49,3 @@ add_permanent_province_modifier = {
+ 1659.1.1 = { unrest = 5 }
+ 1662.1.1 = { unrest = 0 }
+ 1715.1.1 = { fort_17th = no fort_18th = yes }
+-1806.7.12 = { hre = no } # The Holy Roman Empire is dissolved
+diff --git a/history/provinces/205 - Savoie.txt b/history/provinces/205 - Savoie.txt
+index c834b9bb..ea0100e6 100755
+--- a/history/provinces/205 - Savoie.txt	
++++ b/history/provinces/205 - Savoie.txt	
+@@ -45,7 +45,6 @@ discovered_by = ottoman
+ 	owner = FRA
+ 	add_core = FRA
+ } # Savoie is annexed
+-1806.7.12 = { hre = no } # The Holy Roman Empire is dissolved
+ 1814.4.11 = {
+ 	owner = SPI
+ 	controller = SPI
+diff --git a/history/provinces/2978 - Arezzo.txt b/history/provinces/2978 - Arezzo.txt
+index 92ec50de..f68ba6e4 100755
+--- a/history/provinces/2978 - Arezzo.txt	
++++ b/history/provinces/2978 - Arezzo.txt	
+@@ -38,7 +38,6 @@ discovered_by = ottoman
+ 	controller = ETR
+ 	add_core = ETR
+ } # The Kingdom of Etruria
+-1806.7.12 = { hre = no } # The Holy Roman Empire is dissolved
+ 1807.12.10 = {
+ 	owner = FRA
+ 	controller = FRA
+diff --git a/history/provinces/2979 - Novarra.txt b/history/provinces/2979 - Novarra.txt
+index 3c81d248..d6cdddbd 100755
+--- a/history/provinces/2979 - Novarra.txt	
++++ b/history/provinces/2979 - Novarra.txt	
+@@ -59,7 +59,6 @@ discovered_by = ottoman
+ 	owner = FRA
+ 	add_core = FRA
+ } # Savoie is annexed
+-1806.7.12 = { hre = no } # The Holy Roman Empire is dissolved
+ 1814.4.11 = {
+ 	owner = SPI
+ 	controller = SPI
+diff --git a/history/provinces/2980 - Lucca.txt b/history/provinces/2980 - Lucca.txt
+index 7ef5a515..70a711f5 100755
+--- a/history/provinces/2980 - Lucca.txt	
++++ b/history/provinces/2980 - Lucca.txt	
+@@ -26,7 +26,6 @@ center_of_trade = 1
+ 	controller = FRA
+ 	add_core = FRA
+ }# Annexed by France
+-1806.7.12 = { hre = no } # The Holy Roman Empire is dissolved
+ 1814.4.11 = {
+ 	owner = LUC
+ 	controller = LUC
+diff --git a/history/provinces/2991 - Draguignan.txt b/history/provinces/2991 - Draguignan.txt
+index abccd9f8..92e4dc3f 100755
+--- a/history/provinces/2991 - Draguignan.txt	
++++ b/history/provinces/2991 - Draguignan.txt	
+@@ -41,4 +41,3 @@ discovered_by = ottoman
+ 1652.10.21 = { unrest = 0 } # The King is allowed to enter Paris again, Mazarin leaves France for good. Second Fronde over.
+ 1659.1.1 = { unrest = 5 }
+ 1662.1.1 = { unrest = 0 }
+-1806.7.12 = { hre = no } # The Holy Roman Empire is dissolved
+diff --git a/history/provinces/2992 - Albenga.txt b/history/provinces/2992 - Albenga.txt
+index 0b938a85..f03c6453 100755
+--- a/history/provinces/2992 - Albenga.txt	
++++ b/history/provinces/2992 - Albenga.txt	
+@@ -45,7 +45,6 @@ discovered_by = ottoman
+ 	controller = FRA
+ 	add_core = FRA
+ }# Annexed by France
+-1806.7.12 = { hre = no } # The Holy Roman Empire is dissolved
+ 1814.4.11 = {
+ 	owner = SPI
+ 	controller = SPI
+diff --git a/history/provinces/4696 - Toulon.txt b/history/provinces/4696 - Toulon.txt
+index 442a4648..34635be1 100755
+--- a/history/provinces/4696 - Toulon.txt	
++++ b/history/provinces/4696 - Toulon.txt	
+@@ -41,4 +41,3 @@ discovered_by = ottoman
+ 1652.10.21 = { unrest = 0 } # The King is allowed to enter Paris again, Mazarin leaves France for good. Second Fronde over.
+ 1659.1.1 = { unrest = 5 }
+ 1662.1.1 = { unrest = 0 }
+-1806.7.12 = { hre = no } # The Holy Roman Empire is dissolved
+diff --git a/history/provinces/4719 - Annecy.txt b/history/provinces/4719 - Annecy.txt
+index 71d015aa..53d2d511 100755
+--- a/history/provinces/4719 - Annecy.txt	
++++ b/history/provinces/4719 - Annecy.txt	
+@@ -42,7 +42,6 @@ discovered_by = ottoman
+ 	owner = FRA
+ 	add_core = FRA
+ } # Savoie is annexed
+-1806.7.12 = { hre = no } # The Holy Roman Empire is dissolved
+ 1814.4.11 = {
+ 	owner = SPI
+ 	controller = SPI
+diff --git a/history/provinces/4727 - Saluzzo.txt b/history/provinces/4727 - Saluzzo.txt
+index 465573fe..c5484f9f 100755
+--- a/history/provinces/4727 - Saluzzo.txt	
++++ b/history/provinces/4727 - Saluzzo.txt	
+@@ -31,7 +31,6 @@ discovered_by = ottoman
+ } # Kingdom of Piedmont-Sardinia
+ 1792.9.1 = { controller = FRA } # Conquered by the French
+ 1798.1.1 = { owner = FRA add_core = FRA } # Stura Department
+-1806.7.12 = { hre = no } # The Holy Roman Empire is dissolved
+ 1814.4.11 = {
+     owner = SPI
+     controller = SPI
+diff --git a/history/provinces/4728 - Pavia.txt b/history/provinces/4728 - Pavia.txt
+index f56ba60e..033252f2 100755
+--- a/history/provinces/4728 - Pavia.txt	
++++ b/history/provinces/4728 - Pavia.txt	
+@@ -59,7 +59,6 @@ discovered_by = ottoman
+ 	owner = FRA
+ 	add_core = FRA
+ } # Savoie is annexed
+-1806.7.12 = { hre = no } # The Holy Roman Empire is dissolved
+ 1814.4.11 = {
+ 	owner = SPI
+ 	controller = SPI
+diff --git a/history/provinces/4729 - Padova.txt b/history/provinces/4729 - Padova.txt
+index 6a802920..845c8e41 100755
+--- a/history/provinces/4729 - Padova.txt	
++++ b/history/provinces/4729 - Padova.txt	
+@@ -32,7 +32,6 @@ discovered_by = ottoman
+ 	add_core = ITA
+ 	remove_core = HAB
+ } # Treaty of Pressburg
+-1806.7.12 = { hre = no } # The Holy Roman Empire is dissolved
+ 1814.4.11 = {	owner = HAB
+ 	controller = HAB
+ 	add_core = HAB
+diff --git a/history/provinces/4739 - Bergamo.txt b/history/provinces/4739 - Bergamo.txt
+index c7957533..66bfb616 100755
+--- a/history/provinces/4739 - Bergamo.txt	
++++ b/history/provinces/4739 - Bergamo.txt	
+@@ -38,7 +38,6 @@ discovered_by = ottoman
+ 	add_core = ITA
+ 	remove_core = FRA
+ } # Merged with the Cisalpine Republic
+-1806.7.12 = { hre = no } # The Holy Roman Empire is dissolved
+ 1814.4.11 = {	owner = HAB
+ 	controller = HAB
+ 	add_core = HAB
+diff --git a/history/provinces/4740 - Como.txt b/history/provinces/4740 - Como.txt
+index e2944d60..7172f192 100755
+--- a/history/provinces/4740 - Como.txt	
++++ b/history/provinces/4740 - Como.txt	
+@@ -51,7 +51,6 @@ discovered_by = ottoman
+ 	controller = ITA
+ 	add_core = ITA
+ } # Cisalpine Republic
+-1806.7.12 = { hre = no } # The Holy Roman Empire is dissolved
+ 1814.4.11 = {
+ 	owner = HAB
+ 	controller = HAB
+-- 
+2.45.2
+
