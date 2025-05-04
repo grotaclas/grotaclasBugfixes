@@ -1,0 +1,120 @@
+From c2fec893f4034126cde0053e857a674464efc0fe Mon Sep 17 00:00:00 2001
+From: grotaclas <grotaclas@gmail.com>
+Date: Sun, 04 May 2025 12:51:06 -0000
+Subject: [PATCH] partial fix for hussite incident when emperor changes
+
+This is related to EUIV-33333, but contrary to what was said in the
+comments of that report, the code is not actually written in a way
+which requires the emperor both have -50% warscore and be an OPM. The
+reason why it is not working in the save of that bugreport is because
+the emperor changed and the previous emperor is not an OPM. But the
+previous emperor is the ROOT scope in the incident. This patch fixes the
+scope, so that the code works as it is written, but it doesn't fix that
+the code is not aligned with the new tooltip. And the warscore condition
+is bugged as well, because checking for warscore in is_in_war seems to
+not work in some cases. EUIV-35830 is another example of that
+---
+ events/Incident_HussiteProtest.txt | 28 ++++++++++++++--------------
+ 1 file changed, 14 insertions(+), 14 deletions(-)
+
+diff --git a/events/Incident_HussiteProtest.txt b/events/Incident_HussiteProtest.txt
+index 944e75a6..62f8fbe4 100755
+--- a/events/Incident_HussiteProtest.txt
++++ b/events/Incident_HussiteProtest.txt
+@@ -71,8 +71,8 @@ country_event = {
+ 						religion = hussite
+ 					}
+ 					OR = {
+-						total_own_and_non_tributary_subject_development = root
+-						army_size = root
++						total_own_and_non_tributary_subject_development = emperor
++						army_size = emperor
+ 					}
+ 				}
+ 			}
+@@ -86,8 +86,8 @@ country_event = {
+ 							religion = hussite
+ 						}
+ 						OR = {
+-							total_own_and_non_tributary_subject_development = root
+-							army_size = root
++							total_own_and_non_tributary_subject_development = emperor
++							army_size = emperor
+ 						}
+ 					}
+ 				}
+@@ -95,19 +95,19 @@ country_event = {
+ 			modifier = {
+ 				factor = 0
+ 				OR = {
+-					NOT = { num_of_cities = 2 }
++					emperor = { NOT = { num_of_cities = 2 } }
+ 					any_country = {
+ 						is_part_of_hre = yes
+ 						religion = hussite
+ 						OR = {
+ 							is_in_war = {
+ 								attacker_leader = this
+-								defenders = root
++								defenders = emperor
+ 								war_score = 50
+ 							}
+ 							is_in_war = {
+ 								defender_leader = this
+-								attackers = root
++								attackers = emperor
+ 								war_score = 50
+ 							}
+ 						}
+@@ -133,8 +133,8 @@ country_event = {
+ 							religion = hussite
+ 						}
+ 						OR = {
+-							total_own_and_non_tributary_subject_development = root
+-							army_size = root
++							total_own_and_non_tributary_subject_development = emperor
++							army_size = emperor
+ 						}
+ 					}
+ 				}
+@@ -142,19 +142,19 @@ country_event = {
+ 			modifier = {
+ 				factor = 0
+ 				OR = {
+-					NOT = { num_of_cities = 2 }
++					emperor = { NOT = { num_of_cities = 2 } }
+ 					any_country = {
+ 						is_part_of_hre = yes
+ 						religion = hussite
+ 						OR = {
+ 							is_in_war = {
+ 								attacker_leader = this
+-								defenders = root
++								defenders = emperor
+ 								war_score = 50
+ 							}
+ 							is_in_war = {
+ 								defender_leader = this
+-								attackers = root
++								attackers = emperor
+ 								war_score = 50
+ 							}
+ 						}
+@@ -182,12 +182,12 @@ country_event = {
+ 							OR = {
+ 								is_in_war = {
+ 									attacker_leader = this
+-									defenders = root
++									defenders = emperor
+ 									war_score = 50
+ 								}
+ 								is_in_war = {
+ 									defender_leader = this
+-									attackers = root
++									attackers = emperor
+ 									war_score = 50
+ 								}
+ 							}
+-- 
+2.45.2
+
