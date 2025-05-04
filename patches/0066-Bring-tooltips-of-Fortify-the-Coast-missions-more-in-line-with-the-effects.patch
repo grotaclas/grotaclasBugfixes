@@ -1,0 +1,100 @@
+From 16b8e6183e2d2fa3baa0a0137e5a4228f7370fba Mon Sep 17 00:00:00 2001
+From: grotaclas <grotaclas@gmail.com>
+Date: Sun, 04 May 2025 19:41:53 -0000
+Subject: [PATCH] Bring tooltips of "Fortify the Coast" missions more in line
+ with the effects
+
+It is still a mess, because they mention a Ming mission in the Korean
+and Japanese version and they don't mention that the province modifier
+requires 20 dev
+---
+ missions/DOM_Chinese_Missions.txt  |  6 +++++-
+ missions/DOM_Japanese_Missions.txt | 12 ++++--------
+ missions/Korean_Missions.txt       | 12 ++++--------
+ 3 files changed, 13 insertions(+), 17 deletions(-)
+
+diff --git a/missions/DOM_Chinese_Missions.txt b/missions/DOM_Chinese_Missions.txt
+index 9ba9f08c..9de60c86 100755
+--- a/missions/DOM_Chinese_Missions.txt
++++ b/missions/DOM_Chinese_Missions.txt
+@@ -6587,8 +6587,12 @@ ming_missions_5_b = {
+ 				if = {
+ 					limit = { has_dlc = "Mandate of Heaven" }
+ 					add_prosperity = 100 
++					add_mandate = 10
++				}
++				else = {
++					add_base_production = 1
++					add_prestige_or_monarch_power = { amount = 25 }
+ 				}
+-				else = { add_base_production = 1 } 
+ 			}
+ 			
+ 			custom_tooltip = mng_repeal_and_replace_reward_policy_tt
+diff --git a/missions/DOM_Japanese_Missions.txt b/missions/DOM_Japanese_Missions.txt
+index 0c5f2ba8..40fe49ea 100755
+--- a/missions/DOM_Japanese_Missions.txt
++++ b/missions/DOM_Japanese_Missions.txt
+@@ -3513,23 +3513,19 @@ japanese_missions_eoc_5 = {
+ 		effect = {
+ 			custom_tooltip = mng_improve_haijin_policy_reward_tt
+ 			tooltip = {
+-				if = {
+-					limit = { has_dlc = "Mandate of Heaven" }
+-					add_prosperity = 100 
+-					add_mandate = 5 
++				add_province_modifier = {
++					name = mng_safe_coasts_modifier
++					duration = 9125
+ 				}
+ 				if = {
+ 					limit = { has_dlc = "Mandate of Heaven" }
++					add_prosperity = 100
+ 					add_mandate = 5 
+ 				}
+ 				else = { 
+ 					add_base_production = 1 
+ 					owner = { add_prestige_or_monarch_power = { amount = 35 } } 
+ 				} 
+-				add_province_modifier = {
+-					name = mng_safe_coasts_modifier
+-					duration = 9125 
+-				}
+ 			}
+ 			
+ 			custom_tooltip = mng_repeal_and_replace_reward_policy_tt
+diff --git a/missions/Korean_Missions.txt b/missions/Korean_Missions.txt
+index fac1e21f..60c0c000 100755
+--- a/missions/Korean_Missions.txt
++++ b/missions/Korean_Missions.txt
+@@ -3001,23 +3001,19 @@ korean_missions_eoc_5 = {
+ 		effect = {
+ 			custom_tooltip = mng_improve_haijin_policy_reward_tt
+ 			tooltip = {
+-				if = {
+-					limit = { has_dlc = "Mandate of Heaven" }
+-					add_prosperity = 100 
+-					add_mandate = 5 
++				add_province_modifier = {
++					name = mng_safe_coasts_modifier
++					duration = 9125
+ 				}
+ 				if = {
+ 					limit = { has_dlc = "Mandate of Heaven" }
++					add_prosperity = 100
+ 					add_mandate = 5 
+ 				}
+ 				else = { 
+ 					add_base_production = 1 
+ 					owner = { add_prestige_or_monarch_power = { amount = 35 } } 
+ 				} 
+-				add_province_modifier = {
+-					name = mng_safe_coasts_modifier
+-					duration = 9125 
+-				}
+ 			}
+ 			
+ 			custom_tooltip = mng_repeal_and_replace_reward_policy_tt
+-- 
+2.45.2
+

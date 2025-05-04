@@ -6587,8 +6587,12 @@ ming_missions_5_b = {
 				if = {
 					limit = { has_dlc = "Mandate of Heaven" }
 					add_prosperity = 100 
+					add_mandate = 10
 				}
-				else = { add_base_production = 1 } 
+				else = {
+					add_base_production = 1
+					add_prestige_or_monarch_power = { amount = 25 }
+				}
 			}
 			
 			custom_tooltip = mng_repeal_and_replace_reward_policy_tt

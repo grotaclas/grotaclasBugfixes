@@ -3001,23 +3001,19 @@ korean_missions_eoc_5 = {
 		effect = {
 			custom_tooltip = mng_improve_haijin_policy_reward_tt
 			tooltip = {
-				if = {
-					limit = { has_dlc = "Mandate of Heaven" }
-					add_prosperity = 100 
-					add_mandate = 5 
+				add_province_modifier = {
+					name = mng_safe_coasts_modifier
+					duration = 9125
 				}
 				if = {
 					limit = { has_dlc = "Mandate of Heaven" }
+					add_prosperity = 100
 					add_mandate = 5 
 				}
 				else = { 
 					add_base_production = 1 
 					owner = { add_prestige_or_monarch_power = { amount = 35 } } 
 				} 
-				add_province_modifier = {
-					name = mng_safe_coasts_modifier
-					duration = 9125 
-				}
 			}
 			
 			custom_tooltip = mng_repeal_and_replace_reward_policy_tt
