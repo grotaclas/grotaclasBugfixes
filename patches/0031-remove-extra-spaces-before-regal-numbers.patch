@@ -1,0 +1,2136 @@
+From ade2e51fc525ca8ef1eda8f11c467d2ee14b81a5 Mon Sep 17 00:00:00 2001
+From: grotaclas <grotaclas@gmail.com>
+Date: Sun, 04 May 2025 12:55:39 -0000
+Subject: [PATCH] remove extra spaces before regal numbers
+
+Bugreport: https://forum.paradoxplaza.com/forum/threads/new-rulers-of-montferrat-have-an-extra-space-in-their-naming-before-their-regnal-number.1735208/
+---
+ common/countries/Aden.txt           |  2 +-
+ common/countries/Alodia.txt         |  2 +-
+ common/countries/Anizah.txt         |  2 +-
+ common/countries/Antemoro.txt       |  4 ++--
+ common/countries/Austria.txt        |  2 +-
+ common/countries/Austriahungary.txt |  2 +-
+ common/countries/Ayyubids.txt       |  2 +-
+ common/countries/Basra.txt          |  2 +-
+ common/countries/Bastar.txt         |  2 +-
+ common/countries/Cajamarca.txt      | 12 ++++++------
+ common/countries/Calchaqui.txt      | 12 ++++++------
+ common/countries/Can Pech.txt       |  2 +-
+ common/countries/Carib.txt          |  6 +++---
+ common/countries/Chachapoya.txt     | 12 ++++++------
+ common/countries/Chactemal.txt      |  2 +-
+ common/countries/Changsheng.txt     | 14 +++++++-------
+ common/countries/Charrua.txt        |  4 ++--
+ common/countries/Chimu.txt          | 12 ++++++------
+ common/countries/Chorti.txt         |  2 +-
+ common/countries/Chu.txt            | 14 +++++++-------
+ common/countries/Cusco.txt          | 12 ++++++------
+ common/countries/Deli.txt           |  2 +-
+ common/countries/Fadl.txt           |  2 +-
+ common/countries/Formosa.txt        | 14 +++++++-------
+ common/countries/Garjat.txt         | 10 +++++-----
+ common/countries/Gingee.txt         |  2 +-
+ common/countries/Haasa.txt          |  2 +-
+ common/countries/Hadramut.txt       |  2 +-
+ common/countries/Huai.txt           | 14 +++++++-------
+ common/countries/Huastec.txt        |  2 +-
+ common/countries/Huyla.txt          | 12 ++++++------
+ common/countries/Inca.txt           | 10 +++++-----
+ common/countries/Iraq.txt           |  2 +-
+ common/countries/Itza.txt           |  2 +-
+ common/countries/Jambi.txt          |  2 +-
+ common/countries/Jhalavad.txt       | 26 +++++++++++++-------------
+ common/countries/Jin.txt            | 14 +++++++-------
+ common/countries/Junagarh.txt       | 26 +++++++++++++-------------
+ common/countries/Kalahandi.txt      | 10 +++++-----
+ common/countries/Kaqchikel.txt      |  2 +-
+ common/countries/Kathiawar.txt      | 26 +++++++++++++-------------
+ common/countries/Kazakh.txt         |  4 ++--
+ common/countries/Khandesh.txt       |  2 +-
+ common/countries/Kiche.txt          |  2 +-
+ common/countries/Kochin.txt         |  2 +-
+ common/countries/Krakow.txt         |  6 +++---
+ common/countries/Lacandon.txt       |  2 +-
+ common/countries/Liang.txt          | 14 +++++++-------
+ common/countries/Limbdi.txt         | 26 +++++++++++++-------------
+ common/countries/Mahafaly.txt       | 26 +++++++++++++-------------
+ common/countries/Mahra.txt          |  2 +-
+ common/countries/Makuria.txt        |  2 +-
+ common/countries/Malwa.txt          |  2 +-
+ common/countries/Marathas.txt       |  2 +-
+ common/countries/Maya.txt           |  2 +-
+ common/countries/Merina.txt         |  4 ++--
+ common/countries/Mikhlaf.txt        |  2 +-
+ common/countries/Min.txt            | 14 +++++++-------
+ common/countries/Ming.txt           | 14 +++++++-------
+ common/countries/Miskito.txt        |  2 +-
+ common/countries/Mogadishu.txt      |  2 +-
+ common/countries/Montferrat.txt     |  4 ++--
+ common/countries/Mushashaiyyah.txt  |  2 +-
+ common/countries/Nagpur.txt         |  2 +-
+ common/countries/Najran.txt         |  2 +-
+ common/countries/Navanagar.txt      | 26 +++++++++++++-------------
+ common/countries/Ning.txt           | 14 +++++++-------
+ common/countries/Nubia.txt          |  2 +-
+ common/countries/Oman.txt           |  2 +-
+ common/countries/Pagarruyung.txt    |  2 +-
+ common/countries/Palembang.txt      |  2 +-
+ common/countries/Palitana.txt       | 22 +++++++++++-----------
+ common/countries/Pasai.txt          |  2 +-
+ common/countries/Patiala.txt        |  2 +-
+ common/countries/Pirates.txt        | 22 +++++++++++-----------
+ common/countries/Porbandar.txt      | 26 +++++++++++++-------------
+ common/countries/Punjab.txt         |  2 +-
+ common/countries/Qi.txt             | 14 +++++++-------
+ common/countries/Qin.txt            | 14 +++++++-------
+ common/countries/Quito.txt          | 12 ++++++------
+ common/countries/Rajkot.txt         | 26 +++++++++++++-------------
+ common/countries/Rassids.txt        |  2 +-
+ common/countries/Rum.txt            |  4 ++--
+ common/countries/Sakalava.txt       | 26 +++++++++++++-------------
+ common/countries/Scotland.txt       |  4 ++--
+ common/countries/Shammar.txt        |  2 +-
+ common/countries/Shu.txt            | 14 +++++++-------
+ common/countries/Shun.txt           | 14 +++++++-------
+ common/countries/Siak.txt           |  2 +-
+ common/countries/Sistan.txt         |  2 +-
+ common/countries/Tairona.txt        |  2 +-
+ common/countries/Tang.txt           | 14 +++++++-------
+ common/countries/Telingana.txt      |  2 +-
+ common/countries/Ternate.txt        |  4 ++--
+ common/countries/Tidore.txt         |  4 ++--
+ common/countries/Touggourt.txt      |  2 +-
+ common/countries/Ulster.txt         |  2 +-
+ common/countries/Wanka.txt          | 12 ++++++------
+ common/countries/Wu.txt             | 14 +++++++-------
+ common/countries/Xi.txt             | 14 +++++++-------
+ common/countries/Xiu.txt            |  2 +-
+ common/countries/Yan.txt            | 14 +++++++-------
+ common/countries/Yas.txt            |  2 +-
+ common/countries/Yemen.txt          |  2 +-
+ common/countries/Yokotan.txt        |  2 +-
+ common/countries/Yue.txt            | 14 +++++++-------
+ common/countries/Zhou.txt           | 14 +++++++-------
+ 107 files changed, 414 insertions(+), 414 deletions(-)
+
+diff --git a/common/countries/Aden.txt b/common/countries/Aden.txt
+index c6da3a1f..c5f823fc 100755
+--- a/common/countries/Aden.txt
++++ b/common/countries/Aden.txt
+@@ -53,7 +53,7 @@ monarch_names = {
+ 	"Fatimah #0" = -1
+ 	"Walida #0" = -1
+ 	"Tahani #0" = -1
+-	"Safaa  #0" = -1
++	"Safaa #0" = -1
+ 	"Randa #0" = -1
+ 	"Qismah #0" = -1
+ 	"Nadirah #0" = -1
+diff --git a/common/countries/Alodia.txt b/common/countries/Alodia.txt
+index a25e6d0d..73200872 100755
+--- a/common/countries/Alodia.txt
++++ b/common/countries/Alodia.txt
+@@ -32,7 +32,7 @@ historical_units = {
+ }
+ 
+ monarch_names = {
+-	"Geôrgiou  #0" = 30
++	"Geôrgiou #0" = 30
+ 	"Ioel #1" = 20
+ 	"Siti #0" = 20
+ 	"Paulos #0" = 10
+diff --git a/common/countries/Anizah.txt b/common/countries/Anizah.txt
+index b9cc23ca..866e74a5 100755
+--- a/common/countries/Anizah.txt
++++ b/common/countries/Anizah.txt
+@@ -61,7 +61,7 @@ monarch_names = {
+ 	"Fatimah #0" = -1
+ 	"Walida #0" = -1
+ 	"Tahani #0" = -1
+-	"Safaa  #0" = -1
++	"Safaa #0" = -1
+ 	"Randa #0" = -1
+ 	"Qismah #0" = -1
+ 	"Nadirah #0" = -1
+diff --git a/common/countries/Antemoro.txt b/common/countries/Antemoro.txt
+index d0ae5f78..b8785cb2 100755
+--- a/common/countries/Antemoro.txt
++++ b/common/countries/Antemoro.txt
+@@ -41,8 +41,8 @@ monarch_names = {
+ 	"Rangita #0" = -10
+ 	"Rafohy #0" = -5
+ 	"Rasoherina #0" = -5
+-	"Ranavalona  #0" = -5
+-	"Randapavola  #0" = -1
++	"Ranavalona #0" = -5
++	"Randapavola #0" = -1
+ }
+ 
+ leader_names = {
+diff --git a/common/countries/Austria.txt b/common/countries/Austria.txt
+index aa847977..7501035d 100755
+--- a/common/countries/Austria.txt
++++ b/common/countries/Austria.txt
+@@ -101,7 +101,7 @@ monarch_names = {
+ 	"Maximiliane #0" = -1
+ 	"Maria Margaret #0" = -1
+ 	"Maria Magdalena #0" = -1
+-	"Cecilia Renata  #0" = -1
++	"Cecilia Renata #0" = -1
+ 	"Anna #0" = -1
+ 	"Eleanor #0" = -1
+ 	"Barbara #0" = -1
+diff --git a/common/countries/Austriahungary.txt b/common/countries/Austriahungary.txt
+index 0e670b15..524868a4 100755
+--- a/common/countries/Austriahungary.txt
++++ b/common/countries/Austriahungary.txt
+@@ -101,7 +101,7 @@ monarch_names = {
+ 	"Maximiliane #0" = -1
+ 	"Maria Margaret #0" = -1
+ 	"Maria Magdalena #0" = -1
+-	"Cecilia Renata  #0" = -1
++	"Cecilia Renata #0" = -1
+ 	"Anna #0" = -1
+ 	"Eleanor #0" = -1
+ 	"Barbara #0" = -1
+diff --git a/common/countries/Ayyubids.txt b/common/countries/Ayyubids.txt
+index 2ca7ffb4..5208fc39 100755
+--- a/common/countries/Ayyubids.txt
++++ b/common/countries/Ayyubids.txt
+@@ -76,7 +76,7 @@ monarch_names = {
+ 	"Fatimah #0" = -1
+ 	"Walida #0" = -1
+ 	"Tahani #0" = -1
+-	"Safaa  #0" = -1
++	"Safaa #0" = -1
+ 	"Randa #0" = -1
+ 	"Qismah #0" = -1
+ 	"Nadirah #0" = -1
+diff --git a/common/countries/Basra.txt b/common/countries/Basra.txt
+index 049d7050..96e99fc4 100755
+--- a/common/countries/Basra.txt
++++ b/common/countries/Basra.txt
+@@ -78,7 +78,7 @@ monarch_names = {
+ 	"Fatimah #0" = -1
+ 	"Walida #0" = -1
+ 	"Tahani #0" = -1
+-	"Safaa  #0" = -1
++	"Safaa #0" = -1
+ 	"Randa #0" = -1
+ 	"Qismah #0" = -1
+ 	"Nadirah #0" = -1
+diff --git a/common/countries/Bastar.txt b/common/countries/Bastar.txt
+index b4e1908a..9a22cd4d 100755
+--- a/common/countries/Bastar.txt
++++ b/common/countries/Bastar.txt
+@@ -44,7 +44,7 @@ monarch_names = {
+ 	"Kalendra #0" = 0
+ 	"Pratap #0" = 0
+ 	"Chandra #0" = 0
+-	"Ghana  #0" = 0
++	"Ghana #0" = 0
+ 	"Baijnath Shekhar #0" = 0
+ 	"Indra Shekhar #0" = 0
+ 	"Parsharam Shekhar #0" = 0
+diff --git a/common/countries/Cajamarca.txt b/common/countries/Cajamarca.txt
+index e038c63b..c7dc0cc5 100755
+--- a/common/countries/Cajamarca.txt
++++ b/common/countries/Cajamarca.txt
+@@ -97,12 +97,12 @@ monarch_names = {
+ 	"Qorihillpay #0" = -1
+ 	"Chimbo #0" = -1
+ 	"Michay #0" = -1
+-	"Chiklla  #0" = -1
+-	"Runu  #0" = -1
+-	"Ocllo  #0" = -1
+-	"Sisa  #0" = -1
+-	"Cusirimay  #0" = -1
+-	"Huipa  #0" = -1
++	"Chiklla #0" = -1
++	"Runu #0" = -1
++	"Ocllo #0" = -1
++	"Sisa #0" = -1
++	"Cusirimay #0" = -1
++	"Huipa #0" = -1
+ }
+ 
+ ship_names = {
+diff --git a/common/countries/Calchaqui.txt b/common/countries/Calchaqui.txt
+index a37dfdf5..0a557049 100755
+--- a/common/countries/Calchaqui.txt
++++ b/common/countries/Calchaqui.txt
+@@ -60,12 +60,12 @@ monarch_names = {
+ 	"Qorihillpay #0" = -1
+ 	"Chimbo #0" = -1
+ 	"Michay #0" = -1
+-	"Chiklla  #0" = -1
+-	"Runu  #0" = -1
+-	"Ocllo  #0" = -1
+-	"Sisa  #0" = -1
+-	"Cusirimay  #0" = -1
+-	"Huipa  #0" = -1
++	"Chiklla #0" = -1
++	"Runu #0" = -1
++	"Ocllo #0" = -1
++	"Sisa #0" = -1
++	"Cusirimay #0" = -1
++	"Huipa #0" = -1
+ }
+ 
+ ship_names = {
+diff --git a/common/countries/Can Pech.txt b/common/countries/Can Pech.txt
+index 22ac3500..5fe37843 100755
+--- a/common/countries/Can Pech.txt	
++++ b/common/countries/Can Pech.txt	
+@@ -87,7 +87,7 @@ monarch_names = {
+ 	
+ 	"Sacnite #0" = -1
+ 	"Namox Chel #0" = -1
+-	"Itzel  #0" = -1
++	"Itzel #0" = -1
+ }
+ 
+ ship_names = {
+diff --git a/common/countries/Carib.txt b/common/countries/Carib.txt
+index 430d5530..78a9bb47 100755
+--- a/common/countries/Carib.txt
++++ b/common/countries/Carib.txt
+@@ -51,9 +51,9 @@ monarch_names = {
+ 	"Semén #0" = 10
+ 	"Waricha #0" = 10
+ 	
+-	"Hayá  #0" = -1
+-	"Isani  #0" = -1
+-	"Woryi  #0" = -1
++	"Hayá #0" = -1
++	"Isani #0" = -1
++	"Woryi #0" = -1
+ }
+ 
+ ship_names = {
+diff --git a/common/countries/Chachapoya.txt b/common/countries/Chachapoya.txt
+index b8345af2..1fdedc0f 100755
+--- a/common/countries/Chachapoya.txt
++++ b/common/countries/Chachapoya.txt
+@@ -86,12 +86,12 @@ monarch_names = {
+ 	"Qorihillpay #0" = -1
+ 	"Chimbo #0" = -1
+ 	"Michay #0" = -1
+-	"Chiklla  #0" = -1
+-	"Runu  #0" = -1
+-	"Ocllo  #0" = -1
+-	"Sisa  #0" = -1
+-	"Cusirimay  #0" = -1
+-	"Huipa  #0" = -1
++	"Chiklla #0" = -1
++	"Runu #0" = -1
++	"Ocllo #0" = -1
++	"Sisa #0" = -1
++	"Cusirimay #0" = -1
++	"Huipa #0" = -1
+ }
+ 
+ ship_names = {
+diff --git a/common/countries/Chactemal.txt b/common/countries/Chactemal.txt
+index 4d74592b..fa9b6404 100755
+--- a/common/countries/Chactemal.txt
++++ b/common/countries/Chactemal.txt
+@@ -87,7 +87,7 @@ monarch_names = {
+ 	
+ 	"Sacnite #0" = -1
+ 	"Namox Chel #0" = -1
+-	"Itzel  #0" = -1
++	"Itzel #0" = -1
+ }
+ 
+ ship_names = {
+diff --git a/common/countries/Changsheng.txt b/common/countries/Changsheng.txt
+index 19a41f76..65d38d86 100755
+--- a/common/countries/Changsheng.txt
++++ b/common/countries/Changsheng.txt
+@@ -274,13 +274,13 @@ monarch_names = {
+ 		"Zhongwen #0" = 0
+ 		"Kexue #0" = 0
+ 		"Yuanjie #0" = 0
+-		"Rucai  #0" = 0
+-		"Kexi  #0" = 0
+-		"Zhongming  #0" = 0
+-		"Jinxing  #0" = 0
+-		"Yan  #0" = 0
+-		"Yingxiang  #0" = 0
+-		"Zongmin  #0" = 0
++		"Rucai #0" = 0
++		"Kexi #0" = 0
++		"Zhongming #0" = 0
++		"Jinxing #0" = 0
++		"Yan #0" = 0
++		"Yingxiang #0" = 0
++		"Zongmin #0" = 0
+ 		"Heying #0" = -1
+ 		"Chunmei #0" = -1
+ 		"Tianhui #0" = -1
+diff --git a/common/countries/Charrua.txt b/common/countries/Charrua.txt
+index 89ec3a2b..d3287189 100755
+--- a/common/countries/Charrua.txt
++++ b/common/countries/Charrua.txt
+@@ -37,8 +37,8 @@ leader_names = {
+ }
+ 
+ monarch_names = {
+-	"Zapicán  #0" = 10
+-	"Abayubá  #0" = 10
++	"Zapicán #0" = 10
++	"Abayubá #0" = 10
+ 	"Vaimaca Perú #0" = 10
+ 	"Senacua #0" = 0
+ 	"Tabaré #0" = 0
+diff --git a/common/countries/Chimu.txt b/common/countries/Chimu.txt
+index c6f5c39f..2970f8ab 100755
+--- a/common/countries/Chimu.txt
++++ b/common/countries/Chimu.txt
+@@ -79,12 +79,12 @@ monarch_names = {
+ 	"Qorihillpay #0" = -1
+ 	"Chimbo #0" = -1
+ 	"Michay #0" = -1
+-	"Chiklla  #0" = -1
+-	"Runu  #0" = -1
+-	"Ocllo  #0" = -1
+-	"Sisa  #0" = -1
+-	"Cusirimay  #0" = -1
+-	"Huipa  #0" = -1
++	"Chiklla #0" = -1
++	"Runu #0" = -1
++	"Ocllo #0" = -1
++	"Sisa #0" = -1
++	"Cusirimay #0" = -1
++	"Huipa #0" = -1
+ }
+ leader_names = {
+ 	Guacricaur
+diff --git a/common/countries/Chorti.txt b/common/countries/Chorti.txt
+index d00dd0a4..72892e3c 100755
+--- a/common/countries/Chorti.txt
++++ b/common/countries/Chorti.txt
+@@ -87,7 +87,7 @@ monarch_names = {
+ 	
+ 	"Sacnite #0" = -1
+ 	"Namox Chel #0" = -1
+-	"Itzel  #0" = -1
++	"Itzel #0" = -1
+ }
+ 
+ ship_names = {
+diff --git a/common/countries/Chu.txt b/common/countries/Chu.txt
+index 418b7df5..c46aff8b 100755
+--- a/common/countries/Chu.txt
++++ b/common/countries/Chu.txt
+@@ -294,13 +294,13 @@ monarch_names = {
+ 		"Zhongwen #0" = 0
+ 		"Kexue #0" = 0
+ 		"Yuanjie #0" = 0
+-		"Rucai  #0" = 0
+-		"Kexi  #0" = 0
+-		"Zhongming  #0" = 0
+-		"Jinxing  #0" = 0
+-		"Yan  #0" = 0
+-		"Yingxiang  #0" = 0
+-		"Zongmin  #0" = 0
++		"Rucai #0" = 0
++		"Kexi #0" = 0
++		"Zhongming #0" = 0
++		"Jinxing #0" = 0
++		"Yan #0" = 0
++		"Yingxiang #0" = 0
++		"Zongmin #0" = 0
+ 		"Heying #0" = -1
+ 		"Chunmei #0" = -1
+ 		"Tianhui #0" = -1
+diff --git a/common/countries/Cusco.txt b/common/countries/Cusco.txt
+index fbdb11b8..e9ef0a87 100755
+--- a/common/countries/Cusco.txt
++++ b/common/countries/Cusco.txt
+@@ -99,12 +99,12 @@ monarch_names = {
+ 	"Qorihillpay #0" = -1
+ 	"Chimbo #0" = -1
+ 	"Michay #0" = -1
+-	"Chiklla  #0" = -1
+-	"Runu  #0" = -1
+-	"Ocllo  #0" = -1
+-	"Sisa  #0" = -1
+-	"Cusirimay  #0" = -1
+-	"Huipa  #0" = -1
++	"Chiklla #0" = -1
++	"Runu #0" = -1
++	"Ocllo #0" = -1
++	"Sisa #0" = -1
++	"Cusirimay #0" = -1
++	"Huipa #0" = -1
+ }
+ 
+ ship_names = {
+diff --git a/common/countries/Deli.txt b/common/countries/Deli.txt
+index 2decafe8..ddf3097c 100755
+--- a/common/countries/Deli.txt
++++ b/common/countries/Deli.txt
+@@ -48,7 +48,7 @@ monarch_names = {
+ 	"Pagaruyung #0" = -1
+ 	"Sori #0" = -1
+ 	"Tembong #0" = -1
+-	"Lenggogeni  #0" = -1
++	"Lenggogeni #0" = -1
+ 	"Saruaso #0" = -1
+ 	"Gapuak #0" = -1
+ 	"Mariam #0" = -1
+diff --git a/common/countries/Fadl.txt b/common/countries/Fadl.txt
+index ab7db07c..a2610e15 100755
+--- a/common/countries/Fadl.txt
++++ b/common/countries/Fadl.txt
+@@ -59,7 +59,7 @@ monarch_names = {
+ 	"Fatimah #0" = -1
+ 	"Walida #0" = -1
+ 	"Tahani #0" = -1
+-	"Safaa  #0" = -1
++	"Safaa #0" = -1
+ 	"Randa #0" = -1
+ 	"Qismah #0" = -1
+ 	"Nadirah #0" = -1
+diff --git a/common/countries/Formosa.txt b/common/countries/Formosa.txt
+index 5e0ffb02..9cf4a59a 100755
+--- a/common/countries/Formosa.txt
++++ b/common/countries/Formosa.txt
+@@ -292,13 +292,13 @@ monarch_names = {
+ 		"Zhongwen #0" = 0
+ 		"Kexue #0" = 0
+ 		"Yuanjie #0" = 0
+-		"Rucai  #0" = 0
+-		"Kexi  #0" = 0
+-		"Zhongming  #0" = 0
+-		"Jinxing  #0" = 0
+-		"Yan  #0" = 0
+-		"Yingxiang  #0" = 0
+-		"Zongmin  #0" = 0
++		"Rucai #0" = 0
++		"Kexi #0" = 0
++		"Zhongming #0" = 0
++		"Jinxing #0" = 0
++		"Yan #0" = 0
++		"Yingxiang #0" = 0
++		"Zongmin #0" = 0
+ 		"Heying #0" = -1
+ 		"Chunmei #0" = -1
+ 		"Tianhui #0" = -1
+diff --git a/common/countries/Garjat.txt b/common/countries/Garjat.txt
+index 23ad9916..fba59ccb 100755
+--- a/common/countries/Garjat.txt
++++ b/common/countries/Garjat.txt
+@@ -28,14 +28,14 @@ historical_units = {
+ 
+ monarch_names = {
+ 	"Haria #1" = 30
+-	"Jugasai  #1" = 30
++	"Jugasai #1" = 30
+ 	"Pratapnayan #1" = 30
+ 	"Harirudra #0" = 30
+-	"Anku  #0" = 30
++	"Anku #0" = 30
+ 	"Raghunath #0" = 30
+-	"Biswambhar  #0" = 30
+-	"Raisingh  #0" = 30
+-	"Dusmant  #0" = 30
++	"Biswambhar #0" = 30
++	"Raisingh #0" = 30
++	"Dusmant #0" = 30
+ 	"Pratap Deo #0" = 10
+ 	"Padman #0" = 10
+ 	"Khadag Rai #0" = 10
+diff --git a/common/countries/Gingee.txt b/common/countries/Gingee.txt
+index a030f417..8d882966 100755
+--- a/common/countries/Gingee.txt
++++ b/common/countries/Gingee.txt
+@@ -49,7 +49,7 @@ monarch_names = {
+ 	"Achyuta #0" = 10
+ 	"Muthialu #0" = 10
+ 	"Venkatappa #0" = 10
+-	"Appa  #0" = 10
++	"Appa #0" = 10
+ 	"Varadappa #0" = 10
+ 	"Ghausia #0" = -1
+ 	"Khair un-Nisa #0" = -1
+diff --git a/common/countries/Haasa.txt b/common/countries/Haasa.txt
+index bed520ae..fb4ae372 100755
+--- a/common/countries/Haasa.txt
++++ b/common/countries/Haasa.txt
+@@ -47,7 +47,7 @@ monarch_names = {
+ 	"Fatimah #0" = -1
+ 	"Walida #0" = -1
+ 	"Tahani #0" = -1
+-	"Safaa  #0" = -1
++	"Safaa #0" = -1
+ 	"Randa #0" = -1
+ 	"Qismah #0" = -1
+ 	"Nadirah #0" = -1
+diff --git a/common/countries/Hadramut.txt b/common/countries/Hadramut.txt
+index 3808035c..5733a1cb 100755
+--- a/common/countries/Hadramut.txt
++++ b/common/countries/Hadramut.txt
+@@ -43,7 +43,7 @@ monarch_names = {
+ 	"Fatimah #0" = -1
+ 	"Walida #0" = -1
+ 	"Tahani #0" = -1
+-	"Safaa  #0" = -1
++	"Safaa #0" = -1
+ 	"Randa #0" = -1
+ 	"Qismah #0" = -1
+ 	"Nadirah #0" = -1
+diff --git a/common/countries/Huai.txt b/common/countries/Huai.txt
+index 0008326b..1bdea073 100755
+--- a/common/countries/Huai.txt
++++ b/common/countries/Huai.txt
+@@ -294,13 +294,13 @@ monarch_names = {
+ 		"Zhongwen #0" = 0
+ 		"Kexue #0" = 0
+ 		"Yuanjie #0" = 0
+-		"Rucai  #0" = 0
+-		"Kexi  #0" = 0
+-		"Zhongming  #0" = 0
+-		"Jinxing  #0" = 0
+-		"Yan  #0" = 0
+-		"Yingxiang  #0" = 0
+-		"Zongmin  #0" = 0
++		"Rucai #0" = 0
++		"Kexi #0" = 0
++		"Zhongming #0" = 0
++		"Jinxing #0" = 0
++		"Yan #0" = 0
++		"Yingxiang #0" = 0
++		"Zongmin #0" = 0
+ 		"Heying #0" = -1
+ 		"Chunmei #0" = -1
+ 		"Tianhui #0" = -1
+diff --git a/common/countries/Huastec.txt b/common/countries/Huastec.txt
+index 6c09d838..8dbf5cc1 100755
+--- a/common/countries/Huastec.txt
++++ b/common/countries/Huastec.txt
+@@ -85,7 +85,7 @@ monarch_names = {
+ 	
+ 	"Sacnite #0" = -1
+ 	"Namox Chel #0" = -1
+-	"Itzel  #0" = -1
++	"Itzel #0" = -1
+ }
+ 
+ ship_names = {
+diff --git a/common/countries/Huyla.txt b/common/countries/Huyla.txt
+index bdaffb6a..831c51b7 100755
+--- a/common/countries/Huyla.txt
++++ b/common/countries/Huyla.txt
+@@ -96,12 +96,12 @@ monarch_names = {
+ 	"Qorihillpay #0" = -1
+ 	"Chimbo #0" = -1
+ 	"Michay #0" = -1
+-	"Chiklla  #0" = -1
+-	"Runu  #0" = -1
+-	"Ocllo  #0" = -1
+-	"Sisa  #0" = -1
+-	"Cusirimay  #0" = -1
+-	"Huipa  #0" = -1
++	"Chiklla #0" = -1
++	"Runu #0" = -1
++	"Ocllo #0" = -1
++	"Sisa #0" = -1
++	"Cusirimay #0" = -1
++	"Huipa #0" = -1
+ }
+ 
+ ship_names = {
+diff --git a/common/countries/Inca.txt b/common/countries/Inca.txt
+index d836490b..4f3d640e 100755
+--- a/common/countries/Inca.txt
++++ b/common/countries/Inca.txt
+@@ -102,11 +102,11 @@ monarch_names = {
+ 	"Qorihillpay #0" = -1
+ 	"Chimbo #0" = -1
+ 	"Michay #0" = -1
+-	"Chiklla  #0" = -1
+-	"Runu  #0" = -1
+-	"Sisa  #0" = -1
+-	"Cusirimay  #0" = -1
+-	"Huipa  #0" = -1
++	"Chiklla #0" = -1
++	"Runu #0" = -1
++	"Sisa #0" = -1
++	"Cusirimay #0" = -1
++	"Huipa #0" = -1
+ }
+ 
+ ship_names = {
+diff --git a/common/countries/Iraq.txt b/common/countries/Iraq.txt
+index c76c2091..6d94b74d 100755
+--- a/common/countries/Iraq.txt
++++ b/common/countries/Iraq.txt
+@@ -77,7 +77,7 @@ monarch_names = {
+ 	"Fatimah #0" = -1
+ 	"Walida #0" = -1
+ 	"Tahani #0" = -1
+-	"Safaa  #0" = -1
++	"Safaa #0" = -1
+ 	"Randa #0" = -1
+ 	"Qismah #0" = -1
+ 	"Nadirah #0" = -1
+diff --git a/common/countries/Itza.txt b/common/countries/Itza.txt
+index 196c100f..1b5d39fb 100755
+--- a/common/countries/Itza.txt
++++ b/common/countries/Itza.txt
+@@ -86,7 +86,7 @@ monarch_names = {
+ 	
+ 	"Sacnite #0" = -1
+ 	"Namox Chel #0" = -1
+-	"Itzel  #0" = -1
++	"Itzel #0" = -1
+ }
+ 
+ ship_names = {
+diff --git a/common/countries/Jambi.txt b/common/countries/Jambi.txt
+index 00d8b1ed..6cf0357c 100755
+--- a/common/countries/Jambi.txt
++++ b/common/countries/Jambi.txt
+@@ -45,7 +45,7 @@ monarch_names = {
+ 	"Pagaruyung #0" = -1
+ 	"Sori #0" = -1
+ 	"Tembong #0" = -1
+-	"Lenggogeni  #0" = -1
++	"Lenggogeni #0" = -1
+ 	"Saruaso #0" = -1
+ 	"Gapuak #0" = -1
+ 	"Mariam #0" = -1
+diff --git a/common/countries/Jhalavad.txt b/common/countries/Jhalavad.txt
+index 64f16f90..7d56eddd 100755
+--- a/common/countries/Jhalavad.txt
++++ b/common/countries/Jhalavad.txt
+@@ -39,19 +39,19 @@ monarch_names = {
+ 	"Jashwantsinhji #0" = 10
+ 	"Hariba #0" = 10
+ 	"Digvijaysinhji #0" = 10
+-	"Kumar  #0" = 0
+-	"Aliaji  #0" = 0
+-	"Panchanji  #0" = 0
+-	"Bharmalji  #0" = 0
+-	"Shri  #0" = 0
+-	"Ramsinhji  #0" = 0
+-	"Bhanaji  #0" = 0
+-	"Ajoji  #0" = 0
+-	"Vibhaji  #0" = 0
+-	"Tamachi  #0" = 0
+-	"Dudoji  #0" = 0
+-	"Ghodaji  #0" = 0
+-	"Rayadhanji  #0" = 0
++	"Kumar #0" = 0
++	"Aliaji #0" = 0
++	"Panchanji #0" = 0
++	"Bharmalji #0" = 0
++	"Shri #0" = 0
++	"Ramsinhji #0" = 0
++	"Bhanaji #0" = 0
++	"Ajoji #0" = 0
++	"Vibhaji #0" = 0
++	"Tamachi #0" = 0
++	"Dudoji #0" = 0
++	"Ghodaji #0" = 0
++	"Rayadhanji #0" = 0
+ 	
+ 	"Sajuba #0" = -1
+ 	"Bairajba #0" = -1
+diff --git a/common/countries/Jin.txt b/common/countries/Jin.txt
+index 1f34909c..f0768919 100755
+--- a/common/countries/Jin.txt
++++ b/common/countries/Jin.txt
+@@ -293,13 +293,13 @@ monarch_names = {
+ 	"Zhongwen #0" = 0
+ 	"Kexue #0" = 0
+ 	"Yuanjie #0" = 0
+-	"Rucai  #0" = 0
+-	"Kexi  #0" = 0
+-	"Zhongming  #0" = 0
+-	"Jinxing  #0" = 0
+-	"Yan  #0" = 0
+-	"Yingxiang  #0" = 0
+-	"Zongmin  #0" = 0
++	"Rucai #0" = 0
++	"Kexi #0" = 0
++	"Zhongming #0" = 0
++	"Jinxing #0" = 0
++	"Yan #0" = 0
++	"Yingxiang #0" = 0
++	"Zongmin #0" = 0
+ 	"Heying #0" = -1
+ 	"Chunmei #0" = -1
+ 	"Tianhui #0" = -1
+diff --git a/common/countries/Junagarh.txt b/common/countries/Junagarh.txt
+index a187fb48..edc922c8 100755
+--- a/common/countries/Junagarh.txt
++++ b/common/countries/Junagarh.txt
+@@ -39,19 +39,19 @@ monarch_names = {
+ 	"Tamachi #0" = 10
+ 	"Raisinhji #0" = 10
+ 	"Hardholji #0" = 10
+-	"Digvijaysinhji  #0" = 10
+-	"Aliaji  #0" = 0
+-	"Panchanji  #0" = 0
+-	"Bharmalji  #0" = 0
+-	"Shri  #0" = 0
+-	"Ramsinhji  #0" = 0
+-	"Bhanaji  #0" = 0
+-	"Ajoji  #0" = 0
+-	"Vibhaji  #0" = 0
+-	"Tamachi  #0" = 0
+-	"Dudoji  #0" = 0
+-	"Ghodaji  #0" = 0
+-	"Rayadhanji  #0" = 0
++	"Digvijaysinhji #0" = 10
++	"Aliaji #0" = 0
++	"Panchanji #0" = 0
++	"Bharmalji #0" = 0
++	"Shri #0" = 0
++	"Ramsinhji #0" = 0
++	"Bhanaji #0" = 0
++	"Ajoji #0" = 0
++	"Vibhaji #0" = 0
++	"Tamachi #0" = 0
++	"Dudoji #0" = 0
++	"Ghodaji #0" = 0
++	"Rayadhanji #0" = 0
+ 	
+ 	"Ranakadevi #0" = -1
+ 	"Bairajba #0" = -1
+diff --git a/common/countries/Kalahandi.txt b/common/countries/Kalahandi.txt
+index dcdb8d7b..50fff4e7 100755
+--- a/common/countries/Kalahandi.txt
++++ b/common/countries/Kalahandi.txt
+@@ -26,14 +26,14 @@ historical_units = {
+ 
+ monarch_names = {
+ 	"Haria #1" = 30
+-	"Jugasai  #1" = 30
++	"Jugasai #1" = 30
+ 	"Pratapnayan #1" = 30
+ 	"Harirudra #0" = 30
+-	"Anku  #0" = 30
++	"Anku #0" = 30
+ 	"Raghunath #0" = 30
+-	"Biswambhar  #0" = 30
+-	"Raisingh  #0" = 30
+-	"Dusmant  #0" = 30
++	"Biswambhar #0" = 30
++	"Raisingh #0" = 30
++	"Dusmant #0" = 30
+ 	"Pratap Deo #0" = 10
+ 	"Padman #0" = 10
+ 	"Khadag Rai #0" = 10
+diff --git a/common/countries/Kaqchikel.txt b/common/countries/Kaqchikel.txt
+index b84da127..b1433566 100755
+--- a/common/countries/Kaqchikel.txt
++++ b/common/countries/Kaqchikel.txt
+@@ -85,7 +85,7 @@ monarch_names = {
+ 	
+ 	"Sacnite #0" = -1
+ 	"Namox Chel #0" = -1
+-	"Itzel  #0" = -1
++	"Itzel #0" = -1
+ }
+ 
+ ship_names = {
+diff --git a/common/countries/Kathiawar.txt b/common/countries/Kathiawar.txt
+index 0b69b0aa..80b78249 100755
+--- a/common/countries/Kathiawar.txt
++++ b/common/countries/Kathiawar.txt
+@@ -47,19 +47,19 @@ monarch_names = {
+ 	"Tamachi Hardholji #0" = 10
+ 	"Jasaji Lakhaji #0" = 10
+ 	"Sataji Lakhaji #0" = 10 
+-	"Kumar  #0" = 0
+-	"Aliaji  #0" = 0
+-	"Panchanji  #0" = 0
+-	"Bharmalji  #0" = 0
+-	"Shri  #0" = 0
+-	"Ramsinhji  #0" = 0
+-	"Bhanaji  #0" = 0
+-	"Ajoji  #0" = 0
+-	"Vibhaji  #0" = 0
+-	"Tamachi  #0" = 0
+-	"Dudoji  #0" = 0
+-	"Ghodaji  #0" = 0
+-	"Rayadhanji  #0" = 0
++	"Kumar #0" = 0
++	"Aliaji #0" = 0
++	"Panchanji #0" = 0
++	"Bharmalji #0" = 0
++	"Shri #0" = 0
++	"Ramsinhji #0" = 0
++	"Bhanaji #0" = 0
++	"Ajoji #0" = 0
++	"Vibhaji #0" = 0
++	"Tamachi #0" = 0
++	"Dudoji #0" = 0
++	"Ghodaji #0" = 0
++	"Rayadhanji #0" = 0
+ 	"Sajuba #0" = -1
+ 	"Bairajba #0" = -1
+ 	"Baijilal Shobha #0" = -1
+diff --git a/common/countries/Kazakh.txt b/common/countries/Kazakh.txt
+index 65ca7de2..8e661adc 100755
+--- a/common/countries/Kazakh.txt
++++ b/common/countries/Kazakh.txt
+@@ -71,8 +71,8 @@ monarch_names = {
+ 
+ 	"Hayfa #0" = -1
+ 	"Aisha #0" = -1
+-	"Zuhra  #0" = -1
+-	"Nigar  #0" = -1
++	"Zuhra #0" = -1
++	"Nigar #0" = -1
+ }
+ 
+ leader_names = { 
+diff --git a/common/countries/Khandesh.txt b/common/countries/Khandesh.txt
+index edb2c0a4..62fd0b15 100755
+--- a/common/countries/Khandesh.txt
++++ b/common/countries/Khandesh.txt
+@@ -44,7 +44,7 @@ monarch_names = {
+ 	"Alam Khan #0" = 15
+ 	"Rajah 'Ali Khan #0" = 15
+ 	"Miran Bahadur Shah #0" = 15
+-	"Mahmud  #0" = 0
++	"Mahmud #0" = 0
+ 	"Ferishta #0" = 0
+ 	"Ghiyas-ud-din #0" = 0
+ 	"Qadir #0" = 0
+diff --git a/common/countries/Kiche.txt b/common/countries/Kiche.txt
+index 03508628..5947cf40 100755
+--- a/common/countries/Kiche.txt
++++ b/common/countries/Kiche.txt
+@@ -86,7 +86,7 @@ monarch_names = {
+ 	
+ 	"Sacnite #0" = -1
+ 	"Namox Chel #0" = -1
+-	"Itzel  #0" = -1
++	"Itzel #0" = -1
+ }
+ 
+ ship_names = {
+diff --git a/common/countries/Kochin.txt b/common/countries/Kochin.txt
+index ab6e5e07..cc839162 100755
+--- a/common/countries/Kochin.txt
++++ b/common/countries/Kochin.txt
+@@ -54,7 +54,7 @@ monarch_names = {
+ 	"Dharma #0" = 0
+ 	"Uthram #0" = 0
+ 	"Goda #0" = 0
+-	"Sakthan  #0" = 0
++	"Sakthan #0" = 0
+ 	"Rama #0" = 0
+ 	"Balarama #0" = 0
+ 	"Kodassery #0" = 0
+diff --git a/common/countries/Krakow.txt b/common/countries/Krakow.txt
+index b5cdef1b..bf47dd37 100755
+--- a/common/countries/Krakow.txt
++++ b/common/countries/Krakow.txt
+@@ -41,9 +41,9 @@ monarch_names = {
+ 	"Grzegorz #0" = 10
+ 	"Jan #0" = 10
+ 	"Bartlomiej #0" = 10
+-	"Bartosz  #0" = 10
+-	"Dominik  #0" = 10
+-	"Igor  #0" = 10
++	"Bartosz #0" = 10
++	"Dominik #0" = 10
++	"Igor #0" = 10
+ 	"Patryk #0" = 10
+ 	"Piotr #0" = 10
+ 	"Robert #0" = 10
+diff --git a/common/countries/Lacandon.txt b/common/countries/Lacandon.txt
+index cf751c6f..dd073cc6 100755
+--- a/common/countries/Lacandon.txt
++++ b/common/countries/Lacandon.txt
+@@ -85,7 +85,7 @@ monarch_names = {
+ 	
+ 	"Sacnite #0" = -1
+ 	"Namox Chel #0" = -1
+-	"Itzel  #0" = -1
++	"Itzel #0" = -1
+ }
+ 
+ ship_names = {
+diff --git a/common/countries/Liang.txt b/common/countries/Liang.txt
+index 75860f75..be4056c4 100755
+--- a/common/countries/Liang.txt
++++ b/common/countries/Liang.txt
+@@ -293,13 +293,13 @@ monarch_names = {
+ 		"Zhongwen #0" = 0
+ 		"Kexue #0" = 0
+ 		"Yuanjie #0" = 0
+-		"Rucai  #0" = 0
+-		"Kexi  #0" = 0
+-		"Zhongming  #0" = 0
+-		"Jinxing  #0" = 0
+-		"Yan  #0" = 0
+-		"Yingxiang  #0" = 0
+-		"Zongmin  #0" = 0
++		"Rucai #0" = 0
++		"Kexi #0" = 0
++		"Zhongming #0" = 0
++		"Jinxing #0" = 0
++		"Yan #0" = 0
++		"Yingxiang #0" = 0
++		"Zongmin #0" = 0
+ 		"Heying #0" = -1
+ 		"Chunmei #0" = -1
+ 		"Tianhui #0" = -1
+diff --git a/common/countries/Limbdi.txt b/common/countries/Limbdi.txt
+index 64f16f90..7d56eddd 100755
+--- a/common/countries/Limbdi.txt
++++ b/common/countries/Limbdi.txt
+@@ -39,19 +39,19 @@ monarch_names = {
+ 	"Jashwantsinhji #0" = 10
+ 	"Hariba #0" = 10
+ 	"Digvijaysinhji #0" = 10
+-	"Kumar  #0" = 0
+-	"Aliaji  #0" = 0
+-	"Panchanji  #0" = 0
+-	"Bharmalji  #0" = 0
+-	"Shri  #0" = 0
+-	"Ramsinhji  #0" = 0
+-	"Bhanaji  #0" = 0
+-	"Ajoji  #0" = 0
+-	"Vibhaji  #0" = 0
+-	"Tamachi  #0" = 0
+-	"Dudoji  #0" = 0
+-	"Ghodaji  #0" = 0
+-	"Rayadhanji  #0" = 0
++	"Kumar #0" = 0
++	"Aliaji #0" = 0
++	"Panchanji #0" = 0
++	"Bharmalji #0" = 0
++	"Shri #0" = 0
++	"Ramsinhji #0" = 0
++	"Bhanaji #0" = 0
++	"Ajoji #0" = 0
++	"Vibhaji #0" = 0
++	"Tamachi #0" = 0
++	"Dudoji #0" = 0
++	"Ghodaji #0" = 0
++	"Rayadhanji #0" = 0
+ 	
+ 	"Sajuba #0" = -1
+ 	"Bairajba #0" = -1
+diff --git a/common/countries/Mahafaly.txt b/common/countries/Mahafaly.txt
+index 4f7acdd9..d086f005 100755
+--- a/common/countries/Mahafaly.txt
++++ b/common/countries/Mahafaly.txt
+@@ -43,19 +43,19 @@ monarch_names = {
+ 	"Trimonongarivo #0" = 5
+ 	"Tsimanatona #0" = 5
+ 	"Andrianbaga #0" = 5
+-	"Adriamandazoala  #0" = 5
+-	"Ranaimo  #0" = 5
+-	"Ramitraho  #0" = 5
+-	"Andriamandisoarivo  #0" = 5
+-	"Andrianamboniarivo  #0" = 5
+-	"Andriamahatindriarivo  #0" = 5
+-	"Andrianahilitsy  #0" = 5
+-	"Andrianiveniarivo  #0" = 5
+-	"Andrianihoatra  #0" = 5
+-	"Andrianikeniarivo  #0" = 5
+-	"Tsimalomo  #0" = 5
+-	"Andrianaresy  #0" = 5
+-	"Andriantsoly  #0" = 5
++	"Adriamandazoala #0" = 5
++	"Ranaimo #0" = 5
++	"Ramitraho #0" = 5
++	"Andriamandisoarivo #0" = 5
++	"Andrianamboniarivo #0" = 5
++	"Andriamahatindriarivo #0" = 5
++	"Andrianahilitsy #0" = 5
++	"Andrianiveniarivo #0" = 5
++	"Andrianihoatra #0" = 5
++	"Andrianikeniarivo #0" = 5
++	"Tsimalomo #0" = 5
++	"Andrianaresy #0" = 5
++	"Andriantsoly #0" = 5
+ 	
+ 	"Ravahiny #0" = -1
+ 	"Andrianaginarivo #0" = -1
+diff --git a/common/countries/Mahra.txt b/common/countries/Mahra.txt
+index 86f29758..47b84c75 100755
+--- a/common/countries/Mahra.txt
++++ b/common/countries/Mahra.txt
+@@ -45,7 +45,7 @@ monarch_names = {
+ 	"Fatimah #0" = -1
+ 	"Walida #0" = -1
+ 	"Tahani #0" = -1
+-	"Safaa  #0" = -1
++	"Safaa #0" = -1
+ 	"Randa #0" = -1
+ 	"Qismah #0" = -1
+ 	"Nadirah #0" = -1
+diff --git a/common/countries/Makuria.txt b/common/countries/Makuria.txt
+index 4219d9db..31962a8a 100755
+--- a/common/countries/Makuria.txt
++++ b/common/countries/Makuria.txt
+@@ -31,7 +31,7 @@ historical_units = {
+ }
+ 
+ monarch_names = {
+-	"Geôrgiou  #0" = 30
++	"Geôrgiou #0" = 30
+ 	"Ioel #1" = 20
+ 	"Siti #0" = 20
+ 	"Paulos #0" = 10
+diff --git a/common/countries/Malwa.txt b/common/countries/Malwa.txt
+index bce941d8..3e7b4873 100755
+--- a/common/countries/Malwa.txt
++++ b/common/countries/Malwa.txt
+@@ -44,7 +44,7 @@ monarch_names = {
+ 	"Qadir Shah #0" = 10
+ 	"Shaja'at Khan #0" = 10
+ 	"Bahadur #0" = 10
+-	"Mahmud  #0" = 0
++	"Mahmud #0" = 0
+ 	"Ferishta #0" = 0
+ 	"Ghiyas-ud-din #0" = 0
+ 	"Qadir #0" = 0
+diff --git a/common/countries/Marathas.txt b/common/countries/Marathas.txt
+index dbafba49..2dba381f 100755
+--- a/common/countries/Marathas.txt
++++ b/common/countries/Marathas.txt
+@@ -54,7 +54,7 @@ monarch_names = {
+ 	"Malhar #0" = 0
+ 	"Tukojirao #0" = 0
+ 	"Haripant #0" = 0
+-	"Yashwantrao  #0" = 0
++	"Yashwantrao #0" = 0
+ 	"Tarabai #0" = -10
+ 	"Soyarabai #0" = -5
+ 	"Tukabai #0" = -1
+diff --git a/common/countries/Maya.txt b/common/countries/Maya.txt
+index d0d81bff..0054e516 100755
+--- a/common/countries/Maya.txt
++++ b/common/countries/Maya.txt
+@@ -87,7 +87,7 @@ monarch_names = {
+ 	
+ 	"Sacnite #0" = -1
+ 	"Namox Chel #0" = -1
+-	"Itzel  #0" = -1
++	"Itzel #0" = -1
+ }
+ 
+ ship_names = {
+diff --git a/common/countries/Merina.txt b/common/countries/Merina.txt
+index 70c2fed1..3dc451d6 100755
+--- a/common/countries/Merina.txt
++++ b/common/countries/Merina.txt
+@@ -54,8 +54,8 @@ monarch_names = {
+ 	"Rangita #0" = -10
+ 	"Rafohy #0" = -5
+ 	"Rasoherina #0" = -5
+-	"Ranavalona  #0" = -5
+-	"Randapavola  #0" = -1
++	"Ranavalona #0" = -5
++	"Randapavola #0" = -1
+ }
+ 
+ leader_names = {
+diff --git a/common/countries/Mikhlaf.txt b/common/countries/Mikhlaf.txt
+index fa23f753..cec39c3f 100755
+--- a/common/countries/Mikhlaf.txt
++++ b/common/countries/Mikhlaf.txt
+@@ -56,7 +56,7 @@ monarch_names = {
+ 	"Fatimah #0" = -1
+ 	"Walida #0" = -1
+ 	"Tahani #0" = -1
+-	"Safaa  #0" = -1
++	"Safaa #0" = -1
+ 	"Randa #0" = -1
+ 	"Qismah #0" = -1
+ 	"Nadirah #0" = -1
+diff --git a/common/countries/Min.txt b/common/countries/Min.txt
+index 72840f05..83044fcd 100755
+--- a/common/countries/Min.txt
++++ b/common/countries/Min.txt
+@@ -293,13 +293,13 @@ monarch_names = {
+ 		"Zhongwen #0" = 0
+ 		"Kexue #0" = 0
+ 		"Yuanjie #0" = 0
+-		"Rucai  #0" = 0
+-		"Kexi  #0" = 0
+-		"Zhongming  #0" = 0
+-		"Jinxing  #0" = 0
+-		"Yan  #0" = 0
+-		"Yingxiang  #0" = 0
+-		"Zongmin  #0" = 0
++		"Rucai #0" = 0
++		"Kexi #0" = 0
++		"Zhongming #0" = 0
++		"Jinxing #0" = 0
++		"Yan #0" = 0
++		"Yingxiang #0" = 0
++		"Zongmin #0" = 0
+ 		"Heying #0" = -1
+ 		"Chunmei #0" = -1
+ 		"Tianhui #0" = -1
+diff --git a/common/countries/Ming.txt b/common/countries/Ming.txt
+index bb937306..93840f2f 100755
+--- a/common/countries/Ming.txt
++++ b/common/countries/Ming.txt
+@@ -296,13 +296,13 @@ monarch_names = {
+ 		"Zhongwen #0" = 0
+ 		"Kexue #0" = 0
+ 		"Yuanjie #0" = 0
+-		"Rucai  #0" = 0
+-		"Kexi  #0" = 0
+-		"Zhongming  #0" = 0
+-		"Jinxing  #0" = 0
+-		"Yan  #0" = 0
+-		"Yingxiang  #0" = 0
+-		"Zongmin  #0" = 0
++		"Rucai #0" = 0
++		"Kexi #0" = 0
++		"Zhongming #0" = 0
++		"Jinxing #0" = 0
++		"Yan #0" = 0
++		"Yingxiang #0" = 0
++		"Zongmin #0" = 0
+ 		"Heying #0" = -1
+ 		"Chunmei #0" = -1
+ 		"Tianhui #0" = -1
+diff --git a/common/countries/Miskito.txt b/common/countries/Miskito.txt
+index b97b0beb..a9fce752 100755
+--- a/common/countries/Miskito.txt
++++ b/common/countries/Miskito.txt
+@@ -85,7 +85,7 @@ monarch_names = {
+ 	
+ 	"Sacnite #0" = -1
+ 	"Namox Chel #0" = -1
+-	"Itzel  #0" = -1
++	"Itzel #0" = -1
+ }
+ 
+ ship_names = {
+diff --git a/common/countries/Mogadishu.txt b/common/countries/Mogadishu.txt
+index 32e26086..2dc296fe 100755
+--- a/common/countries/Mogadishu.txt
++++ b/common/countries/Mogadishu.txt
+@@ -48,7 +48,7 @@ monarch_names = {
+ 	"Abdul #0" = 20
+ 	"Yusuf Ali #0" = 0 
+ 	"Khalid #0" = 0 
+-	"Husayn  #0" = 0 
++	"Husayn #0" = 0 
+ 	"Kadhafo #0" = 0
+ 	"Mukhtar #0" = 0
+ 	"Baziwi #0" = 0
+diff --git a/common/countries/Montferrat.txt b/common/countries/Montferrat.txt
+index 190bcc51..4c7beedc 100755
+--- a/common/countries/Montferrat.txt
++++ b/common/countries/Montferrat.txt
+@@ -34,13 +34,13 @@ historical_units = {
+ 
+ monarch_names = {
+ 	"Theodore #2" = 80
+-	"Giovanni  #3" = 60
++	"Giovanni #3" = 60
+ 	"Otto #0" = 40
+ 	"Guglielmo #0" = 40
+ 	"Boniface #0" = 20
+ 	"Francesco #0" = 20
+ 	"Vincenzo #0" = 20
+-	"Carlo  #0" = 20
++	"Carlo #0" = 20
+ 	"Alberto #0" = 0
+ 	"Benedetto #0" = 0
+ 	"Bonifacio #0" = 0
+diff --git a/common/countries/Mushashaiyyah.txt b/common/countries/Mushashaiyyah.txt
+index 8a99d422..85cb64e2 100755
+--- a/common/countries/Mushashaiyyah.txt
++++ b/common/countries/Mushashaiyyah.txt
+@@ -75,7 +75,7 @@ monarch_names = {
+ 	"Fatimah #0" = -1
+ 	"Walida #0" = -1
+ 	"Tahani #0" = -1
+-	"Safaa  #0" = -1
++	"Safaa #0" = -1
+ 	"Randa #0" = -1
+ 	"Qismah #0" = -1
+ 	"Nadirah #0" = -1
+diff --git a/common/countries/Nagpur.txt b/common/countries/Nagpur.txt
+index 6b44cbf4..c85966be 100755
+--- a/common/countries/Nagpur.txt
++++ b/common/countries/Nagpur.txt
+@@ -61,7 +61,7 @@ monarch_names = {
+ 	"Malhar #0" = 0
+ 	"Tukojirao #0" = 0
+ 	"Haripant #0" = 0
+-	"Yashwantrao  #0" = 0
++	"Yashwantrao #0" = 0
+ 	"Darya Bai #0" = -4
+ 	"Baka Bai #0" = -1
+ 	"Savitri Bai #0" = -1
+diff --git a/common/countries/Najran.txt b/common/countries/Najran.txt
+index de7807d9..6964604a 100755
+--- a/common/countries/Najran.txt
++++ b/common/countries/Najran.txt
+@@ -55,7 +55,7 @@ monarch_names = {
+ 	"Fatimah #0" = -1
+ 	"Walida #0" = -1
+ 	"Tahani #0" = -1
+-	"Safaa  #0" = -1
++	"Safaa #0" = -1
+ 	"Randa #0" = -1
+ 	"Qismah #0" = -1
+ 	"Nadirah #0" = -1
+diff --git a/common/countries/Navanagar.txt b/common/countries/Navanagar.txt
+index dc9ec133..f9b08c0e 100755
+--- a/common/countries/Navanagar.txt
++++ b/common/countries/Navanagar.txt
+@@ -39,19 +39,19 @@ monarch_names = {
+ 	"Tamachi #0" = 10
+ 	"Raisinhji #0" = 10
+ 	"Hardholji #0" = 10
+-	"Digvijaysinhji  #0" = 10
+-	"Aliaji  #0" = 0
+-	"Panchanji  #0" = 0
+-	"Bharmalji  #0" = 0
+-	"Shri  #0" = 0
+-	"Ramsinhji  #0" = 0
+-	"Bhanaji  #0" = 0
+-	"Ajoji  #0" = 0
+-	"Vibhaji  #0" = 0
+-	"Tamachi  #0" = 0
+-	"Dudoji  #0" = 0
+-	"Ghodaji  #0" = 0
+-	"Rayadhanji  #0" = 0
++	"Digvijaysinhji #0" = 10
++	"Aliaji #0" = 0
++	"Panchanji #0" = 0
++	"Bharmalji #0" = 0
++	"Shri #0" = 0
++	"Ramsinhji #0" = 0
++	"Bhanaji #0" = 0
++	"Ajoji #0" = 0
++	"Vibhaji #0" = 0
++	"Tamachi #0" = 0
++	"Dudoji #0" = 0
++	"Ghodaji #0" = 0
++	"Rayadhanji #0" = 0
+ 	
+ 	"Sajuba #0" = -1
+ 	"Bairajba #0" = -1
+diff --git a/common/countries/Ning.txt b/common/countries/Ning.txt
+index a53ee222..23997194 100755
+--- a/common/countries/Ning.txt
++++ b/common/countries/Ning.txt
+@@ -293,13 +293,13 @@ monarch_names = {
+ 		"Zhongwen #0" = 0
+ 		"Kexue #0" = 0
+ 		"Yuanjie #0" = 0
+-		"Rucai  #0" = 0
+-		"Kexi  #0" = 0
+-		"Zhongming  #0" = 0
+-		"Jinxing  #0" = 0
+-		"Yan  #0" = 0
+-		"Yingxiang  #0" = 0
+-		"Zongmin  #0" = 0
++		"Rucai #0" = 0
++		"Kexi #0" = 0
++		"Zhongming #0" = 0
++		"Jinxing #0" = 0
++		"Yan #0" = 0
++		"Yingxiang #0" = 0
++		"Zongmin #0" = 0
+ 		"Heying #0" = -1
+ 		"Chunmei #0" = -1
+ 		"Tianhui #0" = -1
+diff --git a/common/countries/Nubia.txt b/common/countries/Nubia.txt
+index fe35b85d..9e695dfb 100755
+--- a/common/countries/Nubia.txt
++++ b/common/countries/Nubia.txt
+@@ -32,7 +32,7 @@ historical_units = {
+ }
+ 
+ monarch_names = {
+-	"Geôrgiou  #0" = 30
++	"Geôrgiou #0" = 30
+ 	"Ioel #1" = 20
+ 	"Siti #0" = 20
+ 	"Paulos #0" = 10
+diff --git a/common/countries/Oman.txt b/common/countries/Oman.txt
+index 3d1505d4..f7a8fc94 100755
+--- a/common/countries/Oman.txt
++++ b/common/countries/Oman.txt
+@@ -54,7 +54,7 @@ monarch_names = {
+ 	"Fatimah #0" = -1
+ 	"Walida #0" = -1
+ 	"Tahani #0" = -1
+-	"Safaa  #0" = -1
++	"Safaa #0" = -1
+ 	"Randa #0" = -1
+ 	"Qismah #0" = -1
+ 	"Nadirah #0" = -1
+diff --git a/common/countries/Pagarruyung.txt b/common/countries/Pagarruyung.txt
+index 755bcb2f..6863e4da 100755
+--- a/common/countries/Pagarruyung.txt
++++ b/common/countries/Pagarruyung.txt
+@@ -46,7 +46,7 @@ monarch_names = {
+ 	"Pagaruyung #0" = -1
+ 	"Sori #0" = -1
+ 	"Tembong #0" = -1
+-	"Lenggogeni  #0" = -1
++	"Lenggogeni #0" = -1
+ 	"Saruaso #0" = -1
+ 	"Gapuak #0" = -1
+ 	"Mariam #0" = -1
+diff --git a/common/countries/Palembang.txt b/common/countries/Palembang.txt
+index a6cd15ee..5fb0c47b 100755
+--- a/common/countries/Palembang.txt
++++ b/common/countries/Palembang.txt
+@@ -46,7 +46,7 @@ monarch_names = {
+ 	"Pagaruyung #0" = -1
+ 	"Sori #0" = -1
+ 	"Tembong #0" = -1
+-	"Lenggogeni  #0" = -1
++	"Lenggogeni #0" = -1
+ 	"Saruaso #0" = -1
+ 	"Gapuak #0" = -1
+ 	"Mariam #0" = -1
+diff --git a/common/countries/Palitana.txt b/common/countries/Palitana.txt
+index 630ac01a..2ab6cc93 100755
+--- a/common/countries/Palitana.txt
++++ b/common/countries/Palitana.txt
+@@ -39,17 +39,17 @@ monarch_names = {
+ 	"Savaji #0" = 10
+ 	"Hadaji #0" = 10
+ 	"Kandhaji #0" = 10
+-	"Arjanji  #0" = 10
+-	"Prithvaraji  #0" = 10
+-	"Unadji  #0" = 10
+-	"Pratapsinhji  #0" = 10
+-	"Sursunhji  #0" = 10
+-	"Mansinhji  #0" = 10
+-	"Bahadursinhji  #0" = 10
+-	"Tamachi  #0" = 0
+-	"Dudoji  #0" = 0
+-	"Ghodaji  #0" = 0
+-	"Rayadhanji  #0" = 0
++	"Arjanji #0" = 10
++	"Prithvaraji #0" = 10
++	"Unadji #0" = 10
++	"Pratapsinhji #0" = 10
++	"Sursunhji #0" = 10
++	"Mansinhji #0" = 10
++	"Bahadursinhji #0" = 10
++	"Tamachi #0" = 0
++	"Dudoji #0" = 0
++	"Ghodaji #0" = 0
++	"Rayadhanji #0" = 0
+ 	
+ 	"Sajuba #0" = -1
+ 	"Bairajba #0" = -1
+diff --git a/common/countries/Pasai.txt b/common/countries/Pasai.txt
+index caab021b..b20a5002 100755
+--- a/common/countries/Pasai.txt
++++ b/common/countries/Pasai.txt
+@@ -46,7 +46,7 @@ monarch_names = {
+ 	"Pagaruyung #0" = -1
+ 	"Sori #0" = -1
+ 	"Tembong #0" = -1
+-	"Lenggogeni  #0" = -1
++	"Lenggogeni #0" = -1
+ 	"Saruaso #0" = -1
+ 	"Gapuak #0" = -1
+ 	"Mariam #0" = -1
+diff --git a/common/countries/Patiala.txt b/common/countries/Patiala.txt
+index 7f1b1655..5a67e81e 100755
+--- a/common/countries/Patiala.txt
++++ b/common/countries/Patiala.txt
+@@ -47,7 +47,7 @@ monarch_names = {
+ 	"Fakir #0" = 0
+ 	"Gahunia #0" = 0
+ 	"Gian #0" = 0
+-	"Nihang  #0" = 0
++	"Nihang #0" = 0
+ 	"Granth #0" = 0
+ 	"Bhai Bachittar #0" = 0
+ 	"Himmat #0" = 0
+diff --git a/common/countries/Pirates.txt b/common/countries/Pirates.txt
+index 1666a43d..5b9eda03 100755
+--- a/common/countries/Pirates.txt
++++ b/common/countries/Pirates.txt
+@@ -5,17 +5,17 @@ graphical_culture = westerngfx
+ color = { 10  10  10 }
+ 
+ monarch_names = {
+-	"Woodes  #0" = 10
+-	"Black  #0" = 10
+-	"Howell  #0" = 10
+-	"Calico  #0" = 10
+-	"Lessone  #0" = 10
+-	"Lawrence  #0" = 10
+-	"Lewis  #0" = 10
+-	"John  #0" = 10	
+-	"Roche  #0" = 10
+-	"James  #0" = 10
+-	"Assan  #0" = 10
++	"Woodes #0" = 10
++	"Black #0" = 10
++	"Howell #0" = 10
++	"Calico #0" = 10
++	"Lessone #0" = 10
++	"Lawrence #0" = 10
++	"Lewis #0" = 10
++	"John #0" = 10	
++	"Roche #0" = 10
++	"James #0" = 10
++	"Assan #0" = 10
+ 	"Dirck #0" = 10
+ 	
+ 	"Jane #0" = -1
+diff --git a/common/countries/Porbandar.txt b/common/countries/Porbandar.txt
+index 5faae169..96eed176 100755
+--- a/common/countries/Porbandar.txt
++++ b/common/countries/Porbandar.txt
+@@ -39,19 +39,19 @@ monarch_names = {
+ 	"Tamachi #0" = 10
+ 	"Raisinhji #0" = 10
+ 	"Hardholji #0" = 10
+-	"Digvijaysinhji  #0" = 10
+-	"Aliaji  #0" = 0
+-	"Panchanji  #0" = 0
+-	"Bharmalji  #0" = 0
+-	"Shri  #0" = 0
+-	"Ramsinhji  #0" = 0
+-	"Bhanaji  #0" = 0
+-	"Ajoji  #0" = 0
+-	"Vibhaji  #0" = 0
+-	"Tamachi  #0" = 0
+-	"Dudoji  #0" = 0
+-	"Ghodaji  #0" = 0
+-	"Rayadhanji  #0" = 0
++	"Digvijaysinhji #0" = 10
++	"Aliaji #0" = 0
++	"Panchanji #0" = 0
++	"Bharmalji #0" = 0
++	"Shri #0" = 0
++	"Ramsinhji #0" = 0
++	"Bhanaji #0" = 0
++	"Ajoji #0" = 0
++	"Vibhaji #0" = 0
++	"Tamachi #0" = 0
++	"Dudoji #0" = 0
++	"Ghodaji #0" = 0
++	"Rayadhanji #0" = 0
+ 	
+ 	"Ranakadevi #0" = -1
+ 	"Bairajba #0" = -1
+diff --git a/common/countries/Punjab.txt b/common/countries/Punjab.txt
+index b4064605..60eb4e38 100755
+--- a/common/countries/Punjab.txt
++++ b/common/countries/Punjab.txt
+@@ -58,7 +58,7 @@ monarch_names = {
+ 	"Fakir #0" = 0
+ 	"Gahunia #0" = 0
+ 	"Gian #0" = 0
+-	"Nihang  #0" = 0
++	"Nihang #0" = 0
+ 	"Granth #0" = 0
+ 	"Bhai Bachittar #0" = 0
+ 	"Himmat #0" = 0
+diff --git a/common/countries/Qi.txt b/common/countries/Qi.txt
+index e9f304e9..7750115d 100755
+--- a/common/countries/Qi.txt
++++ b/common/countries/Qi.txt
+@@ -293,13 +293,13 @@ monarch_names = {
+ 		"Zhongwen #0" = 0
+ 		"Kexue #0" = 0
+ 		"Yuanjie #0" = 0
+-		"Rucai  #0" = 0
+-		"Kexi  #0" = 0
+-		"Zhongming  #0" = 0
+-		"Jinxing  #0" = 0
+-		"Yan  #0" = 0
+-		"Yingxiang  #0" = 0
+-		"Zongmin  #0" = 0
++		"Rucai #0" = 0
++		"Kexi #0" = 0
++		"Zhongming #0" = 0
++		"Jinxing #0" = 0
++		"Yan #0" = 0
++		"Yingxiang #0" = 0
++		"Zongmin #0" = 0
+ 		"Heying #0" = -1
+ 		"Chunmei #0" = -1
+ 		"Tianhui #0" = -1
+diff --git a/common/countries/Qin.txt b/common/countries/Qin.txt
+index ddc7efd5..80268d0b 100755
+--- a/common/countries/Qin.txt
++++ b/common/countries/Qin.txt
+@@ -293,13 +293,13 @@ monarch_names = {
+ 		"Zhongwen #0" = 0
+ 		"Kexue #0" = 0
+ 		"Yuanjie #0" = 0
+-		"Rucai  #0" = 0
+-		"Kexi  #0" = 0
+-		"Zhongming  #0" = 0
+-		"Jinxing  #0" = 0
+-		"Yan  #0" = 0
+-		"Yingxiang  #0" = 0
+-		"Zongmin  #0" = 0
++		"Rucai #0" = 0
++		"Kexi #0" = 0
++		"Zhongming #0" = 0
++		"Jinxing #0" = 0
++		"Yan #0" = 0
++		"Yingxiang #0" = 0
++		"Zongmin #0" = 0
+ 		"Heying #0" = -1
+ 		"Chunmei #0" = -1
+ 		"Tianhui #0" = -1
+diff --git a/common/countries/Quito.txt b/common/countries/Quito.txt
+index 6b2c6b71..deffcb5e 100755
+--- a/common/countries/Quito.txt
++++ b/common/countries/Quito.txt
+@@ -85,12 +85,12 @@ monarch_names = {
+ 	"Qorihillpay #0" = -1
+ 	"Chimbo #0" = -1
+ 	"Michay #0" = -1
+-	"Chiklla  #0" = -1
+-	"Runu  #0" = -1
+-	"Ocllo  #0" = -1
+-	"Sisa  #0" = -1
+-	"Cusirimay  #0" = -1
+-	"Huipa  #0" = -1
++	"Chiklla #0" = -1
++	"Runu #0" = -1
++	"Ocllo #0" = -1
++	"Sisa #0" = -1
++	"Cusirimay #0" = -1
++	"Huipa #0" = -1
+ }
+ 
+ ship_names = {
+diff --git a/common/countries/Rajkot.txt b/common/countries/Rajkot.txt
+index 1d5fa8f7..7bd8cc85 100755
+--- a/common/countries/Rajkot.txt
++++ b/common/countries/Rajkot.txt
+@@ -39,19 +39,19 @@ monarch_names = {
+ 	"Tamachi #0" = 10
+ 	"Raisinhji #0" = 10
+ 	"Hardholji #0" = 10
+-	"Digvijaysinhji  #0" = 10
+-	"Aliaji  #0" = 0
+-	"Panchanji  #0" = 0
+-	"Bharmalji  #0" = 0
+-	"Shri  #0" = 0
+-	"Ramsinhji  #0" = 0
+-	"Bhanaji  #0" = 0
+-	"Ajoji  #0" = 0
+-	"Vibhaji  #0" = 0
+-	"Tamachi  #0" = 0
+-	"Dudoji  #0" = 0
+-	"Ghodaji  #0" = 0
+-	"Rayadhanji  #0" = 0
++	"Digvijaysinhji #0" = 10
++	"Aliaji #0" = 0
++	"Panchanji #0" = 0
++	"Bharmalji #0" = 0
++	"Shri #0" = 0
++	"Ramsinhji #0" = 0
++	"Bhanaji #0" = 0
++	"Ajoji #0" = 0
++	"Vibhaji #0" = 0
++	"Tamachi #0" = 0
++	"Dudoji #0" = 0
++	"Ghodaji #0" = 0
++	"Rayadhanji #0" = 0
+ 	
+ 	"Sajuba #0" = -1
+ 	"Bairajba #0" = -1
+diff --git a/common/countries/Rassids.txt b/common/countries/Rassids.txt
+index f25834a2..a6c231f9 100755
+--- a/common/countries/Rassids.txt
++++ b/common/countries/Rassids.txt
+@@ -59,7 +59,7 @@ monarch_names = {
+ 	"Fatimah #0" = -1
+ 	"Walida #0" = -1
+ 	"Tahani #0" = -1
+-	"Safaa  #0" = -1
++	"Safaa #0" = -1
+ 	"Randa #0" = -1
+ 	"Qismah #0" = -1
+ 	"Nadirah #0" = -1
+diff --git a/common/countries/Rum.txt b/common/countries/Rum.txt
+index 72512a56..802d727c 100755
+--- a/common/countries/Rum.txt
++++ b/common/countries/Rum.txt
+@@ -35,8 +35,8 @@ monarch_names = {
+ 	"Masud #3" = 40
+ 	"Kaykhusraw #3" = 40
+ 	"Kilij #3" = 40
+-	"Kaykaus  #2" = 20
+-	"Kayqubad  #3" = 40
++	"Kaykaus #2" = 20
++	"Kayqubad #3" = 40
+ 	"Muhammed #0" = 10
+ 	"Izzeddin #0" = 10
+ 	"Taceddin #0" = 10
+diff --git a/common/countries/Sakalava.txt b/common/countries/Sakalava.txt
+index 47f920b3..dbd7091d 100755
+--- a/common/countries/Sakalava.txt
++++ b/common/countries/Sakalava.txt
+@@ -40,19 +40,19 @@ monarch_names = {
+ 	"Trimonongarivo #0" = 5
+ 	"Tsimanatona #0" = 5
+ 	"Andrianbaga #0" = 5
+-	"Adriamandazoala  #0" = 5
+-	"Ranaimo  #0" = 5
+-	"Ramitraho  #0" = 5
+-	"Andriamandisoarivo  #0" = 5
+-	"Andrianamboniarivo  #0" = 5
+-	"Andriamahatindriarivo  #0" = 5
+-	"Andrianahilitsy  #0" = 5
+-	"Andrianiveniarivo  #0" = 5
+-	"Andrianihoatra  #0" = 5
+-	"Andrianikeniarivo  #0" = 5
+-	"Tsimalomo  #0" = 5
+-	"Andrianaresy  #0" = 5
+-	"Andriantsoly  #0" = 5
++	"Adriamandazoala #0" = 5
++	"Ranaimo #0" = 5
++	"Ramitraho #0" = 5
++	"Andriamandisoarivo #0" = 5
++	"Andrianamboniarivo #0" = 5
++	"Andriamahatindriarivo #0" = 5
++	"Andrianahilitsy #0" = 5
++	"Andrianiveniarivo #0" = 5
++	"Andrianihoatra #0" = 5
++	"Andrianikeniarivo #0" = 5
++	"Tsimalomo #0" = 5
++	"Andrianaresy #0" = 5
++	"Andriantsoly #0" = 5
+ 	
+ 	"Ravahiny #0" = -10
+ 	"Andrianaginarivo #0" = -5
+diff --git a/common/countries/Scotland.txt b/common/countries/Scotland.txt
+index 773ce4d6..b32e876f 100755
+--- a/common/countries/Scotland.txt
++++ b/common/countries/Scotland.txt
+@@ -98,9 +98,9 @@ monarch_names = {
+ 	"Wallace #0" = 0
+ 	"Mary #0" = -10
+ 	"Elizabeth #0" = -1
+-	"Margaret  #0" = -1
++	"Margaret #0" = -1
+ 	"Euphemia #0" = -1
+-	"Anabella  #0" = -1
++	"Anabella #0" = -1
+ }
+ 
+ ship_names = {
+diff --git a/common/countries/Shammar.txt b/common/countries/Shammar.txt
+index ebb02d73..013713e6 100755
+--- a/common/countries/Shammar.txt
++++ b/common/countries/Shammar.txt
+@@ -59,7 +59,7 @@ monarch_names = {
+ 	"Fatimah #0" = -1
+ 	"Walida #0" = -1
+ 	"Tahani #0" = -1
+-	"Safaa  #0" = -1
++	"Safaa #0" = -1
+ 	"Randa #0" = -1
+ 	"Qismah #0" = -1
+ 	"Nadirah #0" = -1
+diff --git a/common/countries/Shu.txt b/common/countries/Shu.txt
+index 4c2f228e..3357a426 100755
+--- a/common/countries/Shu.txt
++++ b/common/countries/Shu.txt
+@@ -293,13 +293,13 @@ monarch_names = {
+ 		"Zhongwen #0" = 0
+ 		"Kexue #0" = 0
+ 		"Yuanjie #0" = 0
+-		"Rucai  #0" = 0
+-		"Kexi  #0" = 0
+-		"Zhongming  #0" = 0
+-		"Jinxing  #0" = 0
+-		"Yan  #0" = 0
+-		"Yingxiang  #0" = 0
+-		"Zongmin  #0" = 0
++		"Rucai #0" = 0
++		"Kexi #0" = 0
++		"Zhongming #0" = 0
++		"Jinxing #0" = 0
++		"Yan #0" = 0
++		"Yingxiang #0" = 0
++		"Zongmin #0" = 0
+ 		"Heying #0" = -1
+ 		"Chunmei #0" = -1
+ 		"Tianhui #0" = -1
+diff --git a/common/countries/Shun.txt b/common/countries/Shun.txt
+index d2e277c4..603c1de4 100755
+--- a/common/countries/Shun.txt
++++ b/common/countries/Shun.txt
+@@ -206,13 +206,13 @@ monarch_names = {
+ 		"Zhongwen #0" = 0
+ 		"Kexue #0" = 0
+ 		"Yuanjie #0" = 0
+-		"Rucai  #0" = 0
+-		"Kexi  #0" = 0
+-		"Zhongming  #0" = 0
+-		"Jinxing  #0" = 0
+-		"Yan  #0" = 0
+-		"Yingxiang  #0" = 0
+-		"Zongmin  #0" = 0
++		"Rucai #0" = 0
++		"Kexi #0" = 0
++		"Zhongming #0" = 0
++		"Jinxing #0" = 0
++		"Yan #0" = 0
++		"Yingxiang #0" = 0
++		"Zongmin #0" = 0
+ 		"Yuchun #0" = 0
+ 		"Heying #0" = -1
+ 		"Chunmei #0" = -1
+diff --git a/common/countries/Siak.txt b/common/countries/Siak.txt
+index a3eff0e6..73f404ba 100755
+--- a/common/countries/Siak.txt
++++ b/common/countries/Siak.txt
+@@ -49,7 +49,7 @@ monarch_names = {
+ 	"Pagaruyung #0" = -1
+ 	"Sori #0" = -1
+ 	"Tembong #0" = -1
+-	"Lenggogeni  #0" = -1
++	"Lenggogeni #0" = -1
+ 	"Saruaso #0" = -1
+ 	"Gapuak #0" = -1
+ 	"Mariam #0" = -1
+diff --git a/common/countries/Sistan.txt b/common/countries/Sistan.txt
+index 0d87d9a1..893c9d4d 100755
+--- a/common/countries/Sistan.txt
++++ b/common/countries/Sistan.txt
+@@ -33,7 +33,7 @@ monarch_names = {
+ 	"Yahya #0" = 20
+ 	"Shams al-Din Muhammad #0" = 20
+ 	"Mahmud #0" = 40
+-	"Mas'ud  #0" = 20
++	"Mas'ud #0" = 20
+ 	"Nasir #0" = 20
+ 	"Nusrat #0" = 20
+ 	"Qutb al-Din #0" = 10
+diff --git a/common/countries/Tairona.txt b/common/countries/Tairona.txt
+index 76b16611..f775e7dd 100755
+--- a/common/countries/Tairona.txt
++++ b/common/countries/Tairona.txt
+@@ -85,7 +85,7 @@ monarch_names = {
+ 	
+ 	"Sacnite #0" = -1
+ 	"Namox Chel #0" = -1
+-	"Itzel  #0" = -1
++	"Itzel #0" = -1
+ }
+ 
+ ship_names = {
+diff --git a/common/countries/Tang.txt b/common/countries/Tang.txt
+index dc182216..ce2404d0 100755
+--- a/common/countries/Tang.txt
++++ b/common/countries/Tang.txt
+@@ -293,13 +293,13 @@ monarch_names = {
+ 		"Zhongwen #0" = 0
+ 		"Kexue #0" = 0
+ 		"Yuanjie #0" = 0
+-		"Rucai  #0" = 0
+-		"Kexi  #0" = 0
+-		"Zhongming  #0" = 0
+-		"Jinxing  #0" = 0
+-		"Yan  #0" = 0
+-		"Yingxiang  #0" = 0
+-		"Zongmin  #0" = 0
++		"Rucai #0" = 0
++		"Kexi #0" = 0
++		"Zhongming #0" = 0
++		"Jinxing #0" = 0
++		"Yan #0" = 0
++		"Yingxiang #0" = 0
++		"Zongmin #0" = 0
+ 		"Heying #0" = -1
+ 		"Chunmei #0" = -1
+ 		"Tianhui #0" = -1
+diff --git a/common/countries/Telingana.txt b/common/countries/Telingana.txt
+index e21b914a..9a086bd0 100755
+--- a/common/countries/Telingana.txt
++++ b/common/countries/Telingana.txt
+@@ -28,7 +28,7 @@ monarch_names = {
+ 	"Maada #3" = 30
+ 	"Peda Vedagiri #1" = 30
+ 	"Prataparudra #0" = 30
+-	"Rudra  #0" = 10
++	"Rudra #0" = 10
+ 	"Prasaditya #0" = 10
+ 	"Venna #0" = 10
+ 	"Singama #0" = 10
+diff --git a/common/countries/Ternate.txt b/common/countries/Ternate.txt
+index e870b172..a90b6cde 100755
+--- a/common/countries/Ternate.txt
++++ b/common/countries/Ternate.txt
+@@ -70,8 +70,8 @@ monarch_names = {
+ 	"Cinta #0" = -1
+ 	"Wangi #0" = -1
+ 	"Nukila #0" = -1
+-	"Bayanullah  #0" = -1
+-	"Boki Tanjung  #0" = -1
++	"Bayanullah #0" = -1
++	"Boki Tanjung #0" = -1
+ }
+ 
+ ship_names = {
+diff --git a/common/countries/Tidore.txt b/common/countries/Tidore.txt
+index 7fd70810..6fda6819 100755
+--- a/common/countries/Tidore.txt
++++ b/common/countries/Tidore.txt
+@@ -70,8 +70,8 @@ monarch_names = {
+ 	"Cinta #0" = -1
+ 	"Wangi #0" = -1
+ 	"Nukila #0" = -1
+-	"Bayanullah  #0" = -1
+-	"Boki Tanjung  #0" = -1
++	"Bayanullah #0" = -1
++	"Boki Tanjung #0" = -1
+ }
+ 
+ ship_names = {
+diff --git a/common/countries/Touggourt.txt b/common/countries/Touggourt.txt
+index ee30b038..bd5f7af0 100755
+--- a/common/countries/Touggourt.txt
++++ b/common/countries/Touggourt.txt
+@@ -46,7 +46,7 @@ monarch_names = {
+ 	
+ 	"Werdja #0" = -1
+ 	"Tabassum #0" = -1
+-	"Aisha  #0" = -10
++	"Aisha #0" = -10
+ }
+ 
+ leader_names = {
+diff --git a/common/countries/Ulster.txt b/common/countries/Ulster.txt
+index 72675f59..2dbf5894 100755
+--- a/common/countries/Ulster.txt
++++ b/common/countries/Ulster.txt
+@@ -40,7 +40,7 @@ monarch_names = {
+ 	"Tadhg #0" = 40
+ 	"Hugh #0" = 20
+ 	"Bryan #0" = 20
+-	"Phelim  #0" = 5
++	"Phelim #0" = 5
+ 	"Mathghamhain #0" = 20
+ 	"Ádhamh #0" = 0
+ 	"Ailill #0" = 0
+diff --git a/common/countries/Wanka.txt b/common/countries/Wanka.txt
+index 235693b1..0b9abc75 100755
+--- a/common/countries/Wanka.txt
++++ b/common/countries/Wanka.txt
+@@ -97,12 +97,12 @@ monarch_names = {
+ 	"Qorihillpay #0" = -1
+ 	"Chimbo #0" = -1
+ 	"Michay #0" = -1
+-	"Chiklla  #0" = -1
+-	"Runu  #0" = -1
+-	"Ocllo  #0" = -1
+-	"Sisa  #0" = -1
+-	"Cusirimay  #0" = -1
+-	"Huipa  #0" = -1
++	"Chiklla #0" = -1
++	"Runu #0" = -1
++	"Ocllo #0" = -1
++	"Sisa #0" = -1
++	"Cusirimay #0" = -1
++	"Huipa #0" = -1
+ }
+ 
+ ship_names = {
+diff --git a/common/countries/Wu.txt b/common/countries/Wu.txt
+index cd34aa82..d9f0f97a 100755
+--- a/common/countries/Wu.txt
++++ b/common/countries/Wu.txt
+@@ -293,13 +293,13 @@ monarch_names = {
+ 		"Zhongwen #0" = 0
+ 		"Kexue #0" = 0
+ 		"Yuanjie #0" = 0
+-		"Rucai  #0" = 0
+-		"Kexi  #0" = 0
+-		"Zhongming  #0" = 0
+-		"Jinxing  #0" = 0
+-		"Yan  #0" = 0
+-		"Yingxiang  #0" = 0
+-		"Zongmin  #0" = 0
++		"Rucai #0" = 0
++		"Kexi #0" = 0
++		"Zhongming #0" = 0
++		"Jinxing #0" = 0
++		"Yan #0" = 0
++		"Yingxiang #0" = 0
++		"Zongmin #0" = 0
+ 		"Heying #0" = -1
+ 		"Chunmei #0" = -1
+ 		"Tianhui #0" = -1
+diff --git a/common/countries/Xi.txt b/common/countries/Xi.txt
+index 925534bf..e99b1dd7 100755
+--- a/common/countries/Xi.txt
++++ b/common/countries/Xi.txt
+@@ -206,13 +206,13 @@ monarch_names = {
+ 		"Zhongwen #0" = 0
+ 		"Kexue #0" = 0
+ 		"Yuanjie #0" = 0
+-		"Rucai  #0" = 0
+-		"Kexi  #0" = 0
+-		"Zhongming  #0" = 0
+-		"Jinxing  #0" = 0
+-		"Yan  #0" = 0
+-		"Yingxiang  #0" = 0
+-		"Zongmin  #0" = 0
++		"Rucai #0" = 0
++		"Kexi #0" = 0
++		"Zhongming #0" = 0
++		"Jinxing #0" = 0
++		"Yan #0" = 0
++		"Yingxiang #0" = 0
++		"Zongmin #0" = 0
+ 		"Yuchun #0" = 0
+ 		"Heying #0" = -1
+ 		"Chunmei #0" = -1
+diff --git a/common/countries/Xiu.txt b/common/countries/Xiu.txt
+index 5d3ebebe..e810c5cf 100755
+--- a/common/countries/Xiu.txt
++++ b/common/countries/Xiu.txt
+@@ -86,7 +86,7 @@ monarch_names = {
+ 	
+ 	"Sacnite #0" = -1
+ 	"Namox Chel #0" = -1
+-	"Itzel  #0" = -1
++	"Itzel #0" = -1
+ }
+ 
+ ship_names = {
+diff --git a/common/countries/Yan.txt b/common/countries/Yan.txt
+index d927f212..169dd1ff 100755
+--- a/common/countries/Yan.txt
++++ b/common/countries/Yan.txt
+@@ -293,13 +293,13 @@ monarch_names = {
+ 		"Zhongwen #0" = 0
+ 		"Kexue #0" = 0
+ 		"Yuanjie #0" = 0
+-		"Rucai  #0" = 0
+-		"Kexi  #0" = 0
+-		"Zhongming  #0" = 0
+-		"Jinxing  #0" = 0
+-		"Yan  #0" = 0
+-		"Yingxiang  #0" = 0
+-		"Zongmin  #0" = 0
++		"Rucai #0" = 0
++		"Kexi #0" = 0
++		"Zhongming #0" = 0
++		"Jinxing #0" = 0
++		"Yan #0" = 0
++		"Yingxiang #0" = 0
++		"Zongmin #0" = 0
+ 		"Heying #0" = -1
+ 		"Chunmei #0" = -1
+ 		"Tianhui #0" = -1
+diff --git a/common/countries/Yas.txt b/common/countries/Yas.txt
+index 49362c4d..0e091f57 100755
+--- a/common/countries/Yas.txt
++++ b/common/countries/Yas.txt
+@@ -53,7 +53,7 @@ monarch_names = {
+ 	"Fatimah #0" = -1
+ 	"Walida #0" = -1
+ 	"Tahani #0" = -1
+-	"Safaa  #0" = -1
++	"Safaa #0" = -1
+ 	"Randa #0" = -1
+ 	"Qismah #0" = -1
+ 	"Nadirah #0" = -1
+diff --git a/common/countries/Yemen.txt b/common/countries/Yemen.txt
+index 3d49fe8e..5a4c12ea 100755
+--- a/common/countries/Yemen.txt
++++ b/common/countries/Yemen.txt
+@@ -52,7 +52,7 @@ monarch_names = {
+ 	"Fatimah #0" = -1
+ 	"Walida #0" = -1
+ 	"Tahani #0" = -1
+-	"Safaa  #0" = -1
++	"Safaa #0" = -1
+ 	"Randa #0" = -1
+ 	"Qismah #0" = -1
+ 	"Nadirah #0" = -1
+diff --git a/common/countries/Yokotan.txt b/common/countries/Yokotan.txt
+index ed73230f..d8135cdc 100755
+--- a/common/countries/Yokotan.txt
++++ b/common/countries/Yokotan.txt
+@@ -85,7 +85,7 @@ monarch_names = {
+ 	
+ 	"Sacnite #0" = -1
+ 	"Namox Chel #0" = -1
+-	"Itzel  #0" = -1
++	"Itzel #0" = -1
+ }
+ 
+ ship_names = {
+diff --git a/common/countries/Yue.txt b/common/countries/Yue.txt
+index b50e2455..b201e342 100755
+--- a/common/countries/Yue.txt
++++ b/common/countries/Yue.txt
+@@ -293,13 +293,13 @@ monarch_names = {
+ 		"Zhongwen #0" = 0
+ 		"Kexue #0" = 0
+ 		"Yuanjie #0" = 0
+-		"Rucai  #0" = 0
+-		"Kexi  #0" = 0
+-		"Zhongming  #0" = 0
+-		"Jinxing  #0" = 0
+-		"Yan  #0" = 0
+-		"Yingxiang  #0" = 0
+-		"Zongmin  #0" = 0
++		"Rucai #0" = 0
++		"Kexi #0" = 0
++		"Zhongming #0" = 0
++		"Jinxing #0" = 0
++		"Yan #0" = 0
++		"Yingxiang #0" = 0
++		"Zongmin #0" = 0
+ 		"Heying #0" = -1
+ 		"Chunmei #0" = -1
+ 		"Tianhui #0" = -1
+diff --git a/common/countries/Zhou.txt b/common/countries/Zhou.txt
+index cc97d6a7..f55cc7ad 100755
+--- a/common/countries/Zhou.txt
++++ b/common/countries/Zhou.txt
+@@ -206,13 +206,13 @@ monarch_names = {
+ 		"Zhongwen #0" = 0
+ 		"Kexue #0" = 0
+ 		"Yuanjie #0" = 0
+-		"Rucai  #0" = 0
+-		"Kexi  #0" = 0
+-		"Zhongming  #0" = 0
+-		"Jinxing  #0" = 0
+-		"Yan  #0" = 0
+-		"Yingxiang  #0" = 0
+-		"Zongmin  #0" = 0
++		"Rucai #0" = 0
++		"Kexi #0" = 0
++		"Zhongming #0" = 0
++		"Jinxing #0" = 0
++		"Yan #0" = 0
++		"Yingxiang #0" = 0
++		"Zongmin #0" = 0
+ 		"Yuchun #0" = 0
+ 		"Heying #0" = -1
+ 		"Chunmei #0" = -1
+-- 
+2.45.2
+
