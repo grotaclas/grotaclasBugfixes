@@ -1,0 +1,1423 @@
+From 47addb14d62c939a07c5673cd7dc6c2c6d237d7c Mon Sep 17 00:00:00 2001
+From: grotaclas <grotaclas@gmail.com>
+Date: Sun, 04 May 2025 19:41:03 -0000
+Subject: [PATCH] use mesoamerican advisor portraits for new cultures
+
+The cultures which have been added in mesoamerica in version 1.28 were
+not assigned the mesoamerican advisor portraits. I assigned them for all
+cultures except miskito, because miskito is in the chibchan culture
+group which is shared with south american countries
+
+Bugreport: https://forum.paradoxplaza.com/forum/threads/wrong-advisor-portraits.1732523/
+---
+ .../interface/countryview_mesoamerica.gfx     | 1393 +++++++++++++++++
+ 1 file changed, 1393 insertions(+)
+
+diff --git a/dlc/dlc033_el_dorado/interface/countryview_mesoamerica.gfx b/dlc/dlc033_el_dorado/interface/countryview_mesoamerica.gfx
+index b37324f3..89406137 100755
+--- a/dlc/dlc033_el_dorado/interface/countryview_mesoamerica.gfx
++++ b/dlc/dlc033_el_dorado/interface/countryview_mesoamerica.gfx
+@@ -2399,6 +2399,1399 @@ spriteTypes = {
+ 		loadType = "INGAME"
+ 	}
+ 	
++#matlatzinca
++
++	spriteType = {
++		name = "GFX_advisor_matlatzinca_artist"
++		texturefile = "gfx//interface//advisors//mesoamerica_artist.dds"
++		noOfFrames = 1
++		norefcount = yes
++		effectFile = "gfx/FX/buttonstate.lua"
++		loadType = "INGAME"
++	}
++
++	spriteType = {
++		name = "GFX_advisor_matlatzinca_philosopher"
++		texturefile = "gfx//interface//advisors//mesoamerica_philosopher.dds"
++		noOfFrames = 1
++		norefcount = yes
++		effectFile = "gfx/FX/buttonstate.lua"
++		loadType = "INGAME"
++	}
++
++	spriteType = {
++		name = "GFX_advisor_matlatzinca_natural_scientist"
++		texturefile = "gfx//interface//advisors//mesoamerica_natural_scientist.dds"
++		noOfFrames = 1
++		norefcount = yes
++		effectFile = "gfx/FX/buttonstate.lua"
++		loadType = "INGAME"
++	}
++
++	spriteType = {
++		name = "GFX_advisor_matlatzinca_theologian"
++		texturefile = "gfx//interface//advisors//mesoamerica_theologican.dds"
++		noOfFrames = 1
++		norefcount = yes
++		effectFile = "gfx/FX/buttonstate.lua"
++		loadType = "INGAME"
++	}
++
++	spriteType = {
++		name = "GFX_advisor_matlatzinca_inquisitor"
++		texturefile = "gfx//interface//advisors//mesoamerica_inquisitor.dds"
++		noOfFrames = 1
++		norefcount = yes
++		effectFile = "gfx/FX/buttonstate.lua"
++		loadType = "INGAME"
++	}
++
++	spriteType = {
++		name = "GFX_advisor_matlatzinca_master_of_mint"
++		texturefile = "gfx//interface//advisors//mesoamerica_master_of_mint.dds"
++		noOfFrames = 1
++		norefcount = yes
++		effectFile = "gfx/FX/buttonstate.lua"
++		loadType = "INGAME"
++	}
++
++	spriteType = {
++		name = "GFX_advisor_matlatzinca_treasurer"
++		texturefile = "gfx//interface//advisors//mesoamerica_treasurer.dds"
++		noOfFrames = 1
++		norefcount = yes
++		effectFile = "gfx/FX/buttonstate.lua"
++		loadType = "INGAME"
++	}
++
++	spriteType = {
++		name = "GFX_advisor_matlatzinca_statesman"
++		texturefile = "gfx//interface//advisors//mesoamerica_statesman.dds"
++		noOfFrames = 1
++		norefcount = yes
++		effectFile = "gfx/FX/buttonstate.lua"
++		loadType = "INGAME"
++	}
++
++	spriteType = {
++		name = "GFX_advisor_matlatzinca_colonial_governor"
++		texturefile = "gfx//interface//advisors//mesoamerica_colonial_governor.dds"
++		noOfFrames = 1
++		norefcount = yes
++		effectFile = "gfx/FX/buttonstate.lua"
++		loadType = "INGAME"
++	}
++
++	spriteType = {
++		name = "GFX_advisor_matlatzinca_diplomat"
++		texturefile = "gfx//interface//advisors//mesoamerica_diplomat.dds"
++		noOfFrames = 1
++		norefcount = yes
++		effectFile = "gfx/FX/buttonstate.lua"
++		loadType = "INGAME"
++	}
++
++	spriteType = {
++		name = "GFX_advisor_matlatzinca_naval_reformer"
++		texturefile = "gfx//interface//advisors//mesoamerica_naval_reformer.dds"
++		noOfFrames = 1
++		norefcount = yes
++		effectFile = "gfx/FX/buttonstate.lua"
++		loadType = "INGAME"
++	}
++
++	spriteType = {
++		name = "GFX_advisor_matlatzinca_navigator"
++		texturefile = "gfx//interface//advisors//mesoamerica_navigator.dds"
++		noOfFrames = 1
++		norefcount = yes
++		effectFile = "gfx/FX/buttonstate.lua"
++		loadType = "INGAME"
++	}
++
++	spriteType = {
++		name = "GFX_advisor_matlatzinca_trader"
++		texturefile = "gfx//interface//advisors//mesoamerica_trader.dds"
++		noOfFrames = 1
++		norefcount = yes
++		effectFile = "gfx/FX/buttonstate.lua"
++		loadType = "INGAME"
++	}
++
++	spriteType = {
++		name = "GFX_advisor_matlatzinca_spymaster"
++		texturefile = "gfx//interface//advisors//mesoamerica_spymaster.dds"
++		noOfFrames = 1
++		norefcount = yes
++		effectFile = "gfx/FX/buttonstate.lua"
++		loadType = "INGAME"
++	}
++
++	spriteType = {
++		name = "GFX_advisor_matlatzinca_grand_captain"
++		texturefile = "gfx//interface//advisors//mesoamerica_grand_captain.dds"
++		noOfFrames = 1
++		norefcount = yes
++		effectFile = "gfx/FX/buttonstate.lua"
++		loadType = "INGAME"
++	}
++
++	spriteType = {
++		name = "GFX_advisor_matlatzinca_commandant"
++		texturefile = "gfx//interface//advisors//mesoamerica_commandant.dds"
++		noOfFrames = 1
++		norefcount = yes
++		effectFile = "gfx/FX/buttonstate.lua"
++		loadType = "INGAME"
++	}
++
++	spriteType = {
++		name = "GFX_advisor_matlatzinca_army_organiser"
++		texturefile = "gfx//interface//advisors//mesoamerica_army_organiser.dds"
++		noOfFrames = 1
++		norefcount = yes
++		effectFile = "gfx/FX/buttonstate.lua"
++		loadType = "INGAME"
++	}
++
++	spriteType = {
++		name = "GFX_advisor_matlatzinca_army_reformer"
++		texturefile = "gfx//interface//advisors//mesoamerica_army_reformer.dds"
++		noOfFrames = 1
++		norefcount = yes
++		effectFile = "gfx/FX/buttonstate.lua"
++		loadType = "INGAME"
++	}
++
++	spriteType = {
++		name = "GFX_advisor_matlatzinca_recruitmaster"
++		texturefile = "gfx//interface//advisors//mesoamerica_recruitmaster.dds"
++		noOfFrames = 1
++		norefcount = yes
++		effectFile = "gfx/FX/buttonstate.lua"
++		loadType = "INGAME"
++	}
++
++	spriteType = {
++		name = "GFX_advisor_matlatzinca_fortification_expert"
++		texturefile = "gfx//interface//advisors//mesoamerica_fortification_expert.dds"
++		noOfFrames = 1
++		norefcount = yes
++		effectFile = "gfx/FX/buttonstate.lua"
++		loadType = "INGAME"
++	}
++
++	spriteType = {
++		name = "GFX_advisor_matlatzinca_quartermaster"
++		texturefile = "gfx//interface//advisors//mesoamerica_quartermaster.dds"
++		noOfFrames = 1
++		norefcount = yes
++		effectFile = "gfx/FX/buttonstate.lua"
++		loadType = "INGAME"
++	}
++
++	spriteType = {
++		name = "GFX_advisor_matlatzinca_noAdvisorType"
++		texturefile = "gfx//interface//advisors//mesoamerica_noAdvisorType.dds"
++		noOfFrames = 1
++		norefcount = yes
++		effectFile = "gfx/FX/buttonstate.lua"
++		loadType = "INGAME"
++	}
++#tepic
++
++	spriteType = {
++		name = "GFX_advisor_tepic_artist"
++		texturefile = "gfx//interface//advisors//mesoamerica_artist.dds"
++		noOfFrames = 1
++		norefcount = yes
++		effectFile = "gfx/FX/buttonstate.lua"
++		loadType = "INGAME"
++	}
++
++	spriteType = {
++		name = "GFX_advisor_tepic_philosopher"
++		texturefile = "gfx//interface//advisors//mesoamerica_philosopher.dds"
++		noOfFrames = 1
++		norefcount = yes
++		effectFile = "gfx/FX/buttonstate.lua"
++		loadType = "INGAME"
++	}
++
++	spriteType = {
++		name = "GFX_advisor_tepic_natural_scientist"
++		texturefile = "gfx//interface//advisors//mesoamerica_natural_scientist.dds"
++		noOfFrames = 1
++		norefcount = yes
++		effectFile = "gfx/FX/buttonstate.lua"
++		loadType = "INGAME"
++	}
++
++	spriteType = {
++		name = "GFX_advisor_tepic_theologian"
++		texturefile = "gfx//interface//advisors//mesoamerica_theologican.dds"
++		noOfFrames = 1
++		norefcount = yes
++		effectFile = "gfx/FX/buttonstate.lua"
++		loadType = "INGAME"
++	}
++
++	spriteType = {
++		name = "GFX_advisor_tepic_inquisitor"
++		texturefile = "gfx//interface//advisors//mesoamerica_inquisitor.dds"
++		noOfFrames = 1
++		norefcount = yes
++		effectFile = "gfx/FX/buttonstate.lua"
++		loadType = "INGAME"
++	}
++
++	spriteType = {
++		name = "GFX_advisor_tepic_master_of_mint"
++		texturefile = "gfx//interface//advisors//mesoamerica_master_of_mint.dds"
++		noOfFrames = 1
++		norefcount = yes
++		effectFile = "gfx/FX/buttonstate.lua"
++		loadType = "INGAME"
++	}
++
++	spriteType = {
++		name = "GFX_advisor_tepic_treasurer"
++		texturefile = "gfx//interface//advisors//mesoamerica_treasurer.dds"
++		noOfFrames = 1
++		norefcount = yes
++		effectFile = "gfx/FX/buttonstate.lua"
++		loadType = "INGAME"
++	}
++
++	spriteType = {
++		name = "GFX_advisor_tepic_statesman"
++		texturefile = "gfx//interface//advisors//mesoamerica_statesman.dds"
++		noOfFrames = 1
++		norefcount = yes
++		effectFile = "gfx/FX/buttonstate.lua"
++		loadType = "INGAME"
++	}
++
++	spriteType = {
++		name = "GFX_advisor_tepic_colonial_governor"
++		texturefile = "gfx//interface//advisors//mesoamerica_colonial_governor.dds"
++		noOfFrames = 1
++		norefcount = yes
++		effectFile = "gfx/FX/buttonstate.lua"
++		loadType = "INGAME"
++	}
++
++	spriteType = {
++		name = "GFX_advisor_tepic_diplomat"
++		texturefile = "gfx//interface//advisors//mesoamerica_diplomat.dds"
++		noOfFrames = 1
++		norefcount = yes
++		effectFile = "gfx/FX/buttonstate.lua"
++		loadType = "INGAME"
++	}
++
++	spriteType = {
++		name = "GFX_advisor_tepic_naval_reformer"
++		texturefile = "gfx//interface//advisors//mesoamerica_naval_reformer.dds"
++		noOfFrames = 1
++		norefcount = yes
++		effectFile = "gfx/FX/buttonstate.lua"
++		loadType = "INGAME"
++	}
++
++	spriteType = {
++		name = "GFX_advisor_tepic_navigator"
++		texturefile = "gfx//interface//advisors//mesoamerica_navigator.dds"
++		noOfFrames = 1
++		norefcount = yes
++		effectFile = "gfx/FX/buttonstate.lua"
++		loadType = "INGAME"
++	}
++
++	spriteType = {
++		name = "GFX_advisor_tepic_trader"
++		texturefile = "gfx//interface//advisors//mesoamerica_trader.dds"
++		noOfFrames = 1
++		norefcount = yes
++		effectFile = "gfx/FX/buttonstate.lua"
++		loadType = "INGAME"
++	}
++
++	spriteType = {
++		name = "GFX_advisor_tepic_spymaster"
++		texturefile = "gfx//interface//advisors//mesoamerica_spymaster.dds"
++		noOfFrames = 1
++		norefcount = yes
++		effectFile = "gfx/FX/buttonstate.lua"
++		loadType = "INGAME"
++	}
++
++	spriteType = {
++		name = "GFX_advisor_tepic_grand_captain"
++		texturefile = "gfx//interface//advisors//mesoamerica_grand_captain.dds"
++		noOfFrames = 1
++		norefcount = yes
++		effectFile = "gfx/FX/buttonstate.lua"
++		loadType = "INGAME"
++	}
++
++	spriteType = {
++		name = "GFX_advisor_tepic_commandant"
++		texturefile = "gfx//interface//advisors//mesoamerica_commandant.dds"
++		noOfFrames = 1
++		norefcount = yes
++		effectFile = "gfx/FX/buttonstate.lua"
++		loadType = "INGAME"
++	}
++
++	spriteType = {
++		name = "GFX_advisor_tepic_army_organiser"
++		texturefile = "gfx//interface//advisors//mesoamerica_army_organiser.dds"
++		noOfFrames = 1
++		norefcount = yes
++		effectFile = "gfx/FX/buttonstate.lua"
++		loadType = "INGAME"
++	}
++
++	spriteType = {
++		name = "GFX_advisor_tepic_army_reformer"
++		texturefile = "gfx//interface//advisors//mesoamerica_army_reformer.dds"
++		noOfFrames = 1
++		norefcount = yes
++		effectFile = "gfx/FX/buttonstate.lua"
++		loadType = "INGAME"
++	}
++
++	spriteType = {
++		name = "GFX_advisor_tepic_recruitmaster"
++		texturefile = "gfx//interface//advisors//mesoamerica_recruitmaster.dds"
++		noOfFrames = 1
++		norefcount = yes
++		effectFile = "gfx/FX/buttonstate.lua"
++		loadType = "INGAME"
++	}
++
++	spriteType = {
++		name = "GFX_advisor_tepic_fortification_expert"
++		texturefile = "gfx//interface//advisors//mesoamerica_fortification_expert.dds"
++		noOfFrames = 1
++		norefcount = yes
++		effectFile = "gfx/FX/buttonstate.lua"
++		loadType = "INGAME"
++	}
++
++	spriteType = {
++		name = "GFX_advisor_tepic_quartermaster"
++		texturefile = "gfx//interface//advisors//mesoamerica_quartermaster.dds"
++		noOfFrames = 1
++		norefcount = yes
++		effectFile = "gfx/FX/buttonstate.lua"
++		loadType = "INGAME"
++	}
++
++	spriteType = {
++		name = "GFX_advisor_tepic_noAdvisorType"
++		texturefile = "gfx//interface//advisors//mesoamerica_noAdvisorType.dds"
++		noOfFrames = 1
++		norefcount = yes
++		effectFile = "gfx/FX/buttonstate.lua"
++		loadType = "INGAME"
++	}
++#guamares
++
++	spriteType = {
++		name = "GFX_advisor_guamares_artist"
++		texturefile = "gfx//interface//advisors//mesoamerica_artist.dds"
++		noOfFrames = 1
++		norefcount = yes
++		effectFile = "gfx/FX/buttonstate.lua"
++		loadType = "INGAME"
++	}
++
++	spriteType = {
++		name = "GFX_advisor_guamares_philosopher"
++		texturefile = "gfx//interface//advisors//mesoamerica_philosopher.dds"
++		noOfFrames = 1
++		norefcount = yes
++		effectFile = "gfx/FX/buttonstate.lua"
++		loadType = "INGAME"
++	}
++
++	spriteType = {
++		name = "GFX_advisor_guamares_natural_scientist"
++		texturefile = "gfx//interface//advisors//mesoamerica_natural_scientist.dds"
++		noOfFrames = 1
++		norefcount = yes
++		effectFile = "gfx/FX/buttonstate.lua"
++		loadType = "INGAME"
++	}
++
++	spriteType = {
++		name = "GFX_advisor_guamares_theologian"
++		texturefile = "gfx//interface//advisors//mesoamerica_theologican.dds"
++		noOfFrames = 1
++		norefcount = yes
++		effectFile = "gfx/FX/buttonstate.lua"
++		loadType = "INGAME"
++	}
++
++	spriteType = {
++		name = "GFX_advisor_guamares_inquisitor"
++		texturefile = "gfx//interface//advisors//mesoamerica_inquisitor.dds"
++		noOfFrames = 1
++		norefcount = yes
++		effectFile = "gfx/FX/buttonstate.lua"
++		loadType = "INGAME"
++	}
++
++	spriteType = {
++		name = "GFX_advisor_guamares_master_of_mint"
++		texturefile = "gfx//interface//advisors//mesoamerica_master_of_mint.dds"
++		noOfFrames = 1
++		norefcount = yes
++		effectFile = "gfx/FX/buttonstate.lua"
++		loadType = "INGAME"
++	}
++
++	spriteType = {
++		name = "GFX_advisor_guamares_treasurer"
++		texturefile = "gfx//interface//advisors//mesoamerica_treasurer.dds"
++		noOfFrames = 1
++		norefcount = yes
++		effectFile = "gfx/FX/buttonstate.lua"
++		loadType = "INGAME"
++	}
++
++	spriteType = {
++		name = "GFX_advisor_guamares_statesman"
++		texturefile = "gfx//interface//advisors//mesoamerica_statesman.dds"
++		noOfFrames = 1
++		norefcount = yes
++		effectFile = "gfx/FX/buttonstate.lua"
++		loadType = "INGAME"
++	}
++
++	spriteType = {
++		name = "GFX_advisor_guamares_colonial_governor"
++		texturefile = "gfx//interface//advisors//mesoamerica_colonial_governor.dds"
++		noOfFrames = 1
++		norefcount = yes
++		effectFile = "gfx/FX/buttonstate.lua"
++		loadType = "INGAME"
++	}
++
++	spriteType = {
++		name = "GFX_advisor_guamares_diplomat"
++		texturefile = "gfx//interface//advisors//mesoamerica_diplomat.dds"
++		noOfFrames = 1
++		norefcount = yes
++		effectFile = "gfx/FX/buttonstate.lua"
++		loadType = "INGAME"
++	}
++
++	spriteType = {
++		name = "GFX_advisor_guamares_naval_reformer"
++		texturefile = "gfx//interface//advisors//mesoamerica_naval_reformer.dds"
++		noOfFrames = 1
++		norefcount = yes
++		effectFile = "gfx/FX/buttonstate.lua"
++		loadType = "INGAME"
++	}
++
++	spriteType = {
++		name = "GFX_advisor_guamares_navigator"
++		texturefile = "gfx//interface//advisors//mesoamerica_navigator.dds"
++		noOfFrames = 1
++		norefcount = yes
++		effectFile = "gfx/FX/buttonstate.lua"
++		loadType = "INGAME"
++	}
++
++	spriteType = {
++		name = "GFX_advisor_guamares_trader"
++		texturefile = "gfx//interface//advisors//mesoamerica_trader.dds"
++		noOfFrames = 1
++		norefcount = yes
++		effectFile = "gfx/FX/buttonstate.lua"
++		loadType = "INGAME"
++	}
++
++	spriteType = {
++		name = "GFX_advisor_guamares_spymaster"
++		texturefile = "gfx//interface//advisors//mesoamerica_spymaster.dds"
++		noOfFrames = 1
++		norefcount = yes
++		effectFile = "gfx/FX/buttonstate.lua"
++		loadType = "INGAME"
++	}
++
++	spriteType = {
++		name = "GFX_advisor_guamares_grand_captain"
++		texturefile = "gfx//interface//advisors//mesoamerica_grand_captain.dds"
++		noOfFrames = 1
++		norefcount = yes
++		effectFile = "gfx/FX/buttonstate.lua"
++		loadType = "INGAME"
++	}
++
++	spriteType = {
++		name = "GFX_advisor_guamares_commandant"
++		texturefile = "gfx//interface//advisors//mesoamerica_commandant.dds"
++		noOfFrames = 1
++		norefcount = yes
++		effectFile = "gfx/FX/buttonstate.lua"
++		loadType = "INGAME"
++	}
++
++	spriteType = {
++		name = "GFX_advisor_guamares_army_organiser"
++		texturefile = "gfx//interface//advisors//mesoamerica_army_organiser.dds"
++		noOfFrames = 1
++		norefcount = yes
++		effectFile = "gfx/FX/buttonstate.lua"
++		loadType = "INGAME"
++	}
++
++	spriteType = {
++		name = "GFX_advisor_guamares_army_reformer"
++		texturefile = "gfx//interface//advisors//mesoamerica_army_reformer.dds"
++		noOfFrames = 1
++		norefcount = yes
++		effectFile = "gfx/FX/buttonstate.lua"
++		loadType = "INGAME"
++	}
++
++	spriteType = {
++		name = "GFX_advisor_guamares_recruitmaster"
++		texturefile = "gfx//interface//advisors//mesoamerica_recruitmaster.dds"
++		noOfFrames = 1
++		norefcount = yes
++		effectFile = "gfx/FX/buttonstate.lua"
++		loadType = "INGAME"
++	}
++
++	spriteType = {
++		name = "GFX_advisor_guamares_fortification_expert"
++		texturefile = "gfx//interface//advisors//mesoamerica_fortification_expert.dds"
++		noOfFrames = 1
++		norefcount = yes
++		effectFile = "gfx/FX/buttonstate.lua"
++		loadType = "INGAME"
++	}
++
++	spriteType = {
++		name = "GFX_advisor_guamares_quartermaster"
++		texturefile = "gfx//interface//advisors//mesoamerica_quartermaster.dds"
++		noOfFrames = 1
++		norefcount = yes
++		effectFile = "gfx/FX/buttonstate.lua"
++		loadType = "INGAME"
++	}
++
++	spriteType = {
++		name = "GFX_advisor_guamares_noAdvisorType"
++		texturefile = "gfx//interface//advisors//mesoamerica_noAdvisorType.dds"
++		noOfFrames = 1
++		norefcount = yes
++		effectFile = "gfx/FX/buttonstate.lua"
++		loadType = "INGAME"
++	}
++#otomi
++
++	spriteType = {
++		name = "GFX_advisor_otomi_artist"
++		texturefile = "gfx//interface//advisors//mesoamerica_artist.dds"
++		noOfFrames = 1
++		norefcount = yes
++		effectFile = "gfx/FX/buttonstate.lua"
++		loadType = "INGAME"
++	}
++
++	spriteType = {
++		name = "GFX_advisor_otomi_philosopher"
++		texturefile = "gfx//interface//advisors//mesoamerica_philosopher.dds"
++		noOfFrames = 1
++		norefcount = yes
++		effectFile = "gfx/FX/buttonstate.lua"
++		loadType = "INGAME"
++	}
++
++	spriteType = {
++		name = "GFX_advisor_otomi_natural_scientist"
++		texturefile = "gfx//interface//advisors//mesoamerica_natural_scientist.dds"
++		noOfFrames = 1
++		norefcount = yes
++		effectFile = "gfx/FX/buttonstate.lua"
++		loadType = "INGAME"
++	}
++
++	spriteType = {
++		name = "GFX_advisor_otomi_theologian"
++		texturefile = "gfx//interface//advisors//mesoamerica_theologican.dds"
++		noOfFrames = 1
++		norefcount = yes
++		effectFile = "gfx/FX/buttonstate.lua"
++		loadType = "INGAME"
++	}
++
++	spriteType = {
++		name = "GFX_advisor_otomi_inquisitor"
++		texturefile = "gfx//interface//advisors//mesoamerica_inquisitor.dds"
++		noOfFrames = 1
++		norefcount = yes
++		effectFile = "gfx/FX/buttonstate.lua"
++		loadType = "INGAME"
++	}
++
++	spriteType = {
++		name = "GFX_advisor_otomi_master_of_mint"
++		texturefile = "gfx//interface//advisors//mesoamerica_master_of_mint.dds"
++		noOfFrames = 1
++		norefcount = yes
++		effectFile = "gfx/FX/buttonstate.lua"
++		loadType = "INGAME"
++	}
++
++	spriteType = {
++		name = "GFX_advisor_otomi_treasurer"
++		texturefile = "gfx//interface//advisors//mesoamerica_treasurer.dds"
++		noOfFrames = 1
++		norefcount = yes
++		effectFile = "gfx/FX/buttonstate.lua"
++		loadType = "INGAME"
++	}
++
++	spriteType = {
++		name = "GFX_advisor_otomi_statesman"
++		texturefile = "gfx//interface//advisors//mesoamerica_statesman.dds"
++		noOfFrames = 1
++		norefcount = yes
++		effectFile = "gfx/FX/buttonstate.lua"
++		loadType = "INGAME"
++	}
++
++	spriteType = {
++		name = "GFX_advisor_otomi_colonial_governor"
++		texturefile = "gfx//interface//advisors//mesoamerica_colonial_governor.dds"
++		noOfFrames = 1
++		norefcount = yes
++		effectFile = "gfx/FX/buttonstate.lua"
++		loadType = "INGAME"
++	}
++
++	spriteType = {
++		name = "GFX_advisor_otomi_diplomat"
++		texturefile = "gfx//interface//advisors//mesoamerica_diplomat.dds"
++		noOfFrames = 1
++		norefcount = yes
++		effectFile = "gfx/FX/buttonstate.lua"
++		loadType = "INGAME"
++	}
++
++	spriteType = {
++		name = "GFX_advisor_otomi_naval_reformer"
++		texturefile = "gfx//interface//advisors//mesoamerica_naval_reformer.dds"
++		noOfFrames = 1
++		norefcount = yes
++		effectFile = "gfx/FX/buttonstate.lua"
++		loadType = "INGAME"
++	}
++
++	spriteType = {
++		name = "GFX_advisor_otomi_navigator"
++		texturefile = "gfx//interface//advisors//mesoamerica_navigator.dds"
++		noOfFrames = 1
++		norefcount = yes
++		effectFile = "gfx/FX/buttonstate.lua"
++		loadType = "INGAME"
++	}
++
++	spriteType = {
++		name = "GFX_advisor_otomi_trader"
++		texturefile = "gfx//interface//advisors//mesoamerica_trader.dds"
++		noOfFrames = 1
++		norefcount = yes
++		effectFile = "gfx/FX/buttonstate.lua"
++		loadType = "INGAME"
++	}
++
++	spriteType = {
++		name = "GFX_advisor_otomi_spymaster"
++		texturefile = "gfx//interface//advisors//mesoamerica_spymaster.dds"
++		noOfFrames = 1
++		norefcount = yes
++		effectFile = "gfx/FX/buttonstate.lua"
++		loadType = "INGAME"
++	}
++
++	spriteType = {
++		name = "GFX_advisor_otomi_grand_captain"
++		texturefile = "gfx//interface//advisors//mesoamerica_grand_captain.dds"
++		noOfFrames = 1
++		norefcount = yes
++		effectFile = "gfx/FX/buttonstate.lua"
++		loadType = "INGAME"
++	}
++
++	spriteType = {
++		name = "GFX_advisor_otomi_commandant"
++		texturefile = "gfx//interface//advisors//mesoamerica_commandant.dds"
++		noOfFrames = 1
++		norefcount = yes
++		effectFile = "gfx/FX/buttonstate.lua"
++		loadType = "INGAME"
++	}
++
++	spriteType = {
++		name = "GFX_advisor_otomi_army_organiser"
++		texturefile = "gfx//interface//advisors//mesoamerica_army_organiser.dds"
++		noOfFrames = 1
++		norefcount = yes
++		effectFile = "gfx/FX/buttonstate.lua"
++		loadType = "INGAME"
++	}
++
++	spriteType = {
++		name = "GFX_advisor_otomi_army_reformer"
++		texturefile = "gfx//interface//advisors//mesoamerica_army_reformer.dds"
++		noOfFrames = 1
++		norefcount = yes
++		effectFile = "gfx/FX/buttonstate.lua"
++		loadType = "INGAME"
++	}
++
++	spriteType = {
++		name = "GFX_advisor_otomi_recruitmaster"
++		texturefile = "gfx//interface//advisors//mesoamerica_recruitmaster.dds"
++		noOfFrames = 1
++		norefcount = yes
++		effectFile = "gfx/FX/buttonstate.lua"
++		loadType = "INGAME"
++	}
++
++	spriteType = {
++		name = "GFX_advisor_otomi_fortification_expert"
++		texturefile = "gfx//interface//advisors//mesoamerica_fortification_expert.dds"
++		noOfFrames = 1
++		norefcount = yes
++		effectFile = "gfx/FX/buttonstate.lua"
++		loadType = "INGAME"
++	}
++
++	spriteType = {
++		name = "GFX_advisor_otomi_quartermaster"
++		texturefile = "gfx//interface//advisors//mesoamerica_quartermaster.dds"
++		noOfFrames = 1
++		norefcount = yes
++		effectFile = "gfx/FX/buttonstate.lua"
++		loadType = "INGAME"
++	}
++
++	spriteType = {
++		name = "GFX_advisor_otomi_noAdvisorType"
++		texturefile = "gfx//interface//advisors//mesoamerica_noAdvisorType.dds"
++		noOfFrames = 1
++		norefcount = yes
++		effectFile = "gfx/FX/buttonstate.lua"
++		loadType = "INGAME"
++	}
++#wastek
++
++	spriteType = {
++		name = "GFX_advisor_wastek_artist"
++		texturefile = "gfx//interface//advisors//mesoamerica_artist.dds"
++		noOfFrames = 1
++		norefcount = yes
++		effectFile = "gfx/FX/buttonstate.lua"
++		loadType = "INGAME"
++	}
++
++	spriteType = {
++		name = "GFX_advisor_wastek_philosopher"
++		texturefile = "gfx//interface//advisors//mesoamerica_philosopher.dds"
++		noOfFrames = 1
++		norefcount = yes
++		effectFile = "gfx/FX/buttonstate.lua"
++		loadType = "INGAME"
++	}
++
++	spriteType = {
++		name = "GFX_advisor_wastek_natural_scientist"
++		texturefile = "gfx//interface//advisors//mesoamerica_natural_scientist.dds"
++		noOfFrames = 1
++		norefcount = yes
++		effectFile = "gfx/FX/buttonstate.lua"
++		loadType = "INGAME"
++	}
++
++	spriteType = {
++		name = "GFX_advisor_wastek_theologian"
++		texturefile = "gfx//interface//advisors//mesoamerica_theologican.dds"
++		noOfFrames = 1
++		norefcount = yes
++		effectFile = "gfx/FX/buttonstate.lua"
++		loadType = "INGAME"
++	}
++
++	spriteType = {
++		name = "GFX_advisor_wastek_inquisitor"
++		texturefile = "gfx//interface//advisors//mesoamerica_inquisitor.dds"
++		noOfFrames = 1
++		norefcount = yes
++		effectFile = "gfx/FX/buttonstate.lua"
++		loadType = "INGAME"
++	}
++
++	spriteType = {
++		name = "GFX_advisor_wastek_master_of_mint"
++		texturefile = "gfx//interface//advisors//mesoamerica_master_of_mint.dds"
++		noOfFrames = 1
++		norefcount = yes
++		effectFile = "gfx/FX/buttonstate.lua"
++		loadType = "INGAME"
++	}
++
++	spriteType = {
++		name = "GFX_advisor_wastek_treasurer"
++		texturefile = "gfx//interface//advisors//mesoamerica_treasurer.dds"
++		noOfFrames = 1
++		norefcount = yes
++		effectFile = "gfx/FX/buttonstate.lua"
++		loadType = "INGAME"
++	}
++
++	spriteType = {
++		name = "GFX_advisor_wastek_statesman"
++		texturefile = "gfx//interface//advisors//mesoamerica_statesman.dds"
++		noOfFrames = 1
++		norefcount = yes
++		effectFile = "gfx/FX/buttonstate.lua"
++		loadType = "INGAME"
++	}
++
++	spriteType = {
++		name = "GFX_advisor_wastek_colonial_governor"
++		texturefile = "gfx//interface//advisors//mesoamerica_colonial_governor.dds"
++		noOfFrames = 1
++		norefcount = yes
++		effectFile = "gfx/FX/buttonstate.lua"
++		loadType = "INGAME"
++	}
++
++	spriteType = {
++		name = "GFX_advisor_wastek_diplomat"
++		texturefile = "gfx//interface//advisors//mesoamerica_diplomat.dds"
++		noOfFrames = 1
++		norefcount = yes
++		effectFile = "gfx/FX/buttonstate.lua"
++		loadType = "INGAME"
++	}
++
++	spriteType = {
++		name = "GFX_advisor_wastek_naval_reformer"
++		texturefile = "gfx//interface//advisors//mesoamerica_naval_reformer.dds"
++		noOfFrames = 1
++		norefcount = yes
++		effectFile = "gfx/FX/buttonstate.lua"
++		loadType = "INGAME"
++	}
++
++	spriteType = {
++		name = "GFX_advisor_wastek_navigator"
++		texturefile = "gfx//interface//advisors//mesoamerica_navigator.dds"
++		noOfFrames = 1
++		norefcount = yes
++		effectFile = "gfx/FX/buttonstate.lua"
++		loadType = "INGAME"
++	}
++
++	spriteType = {
++		name = "GFX_advisor_wastek_trader"
++		texturefile = "gfx//interface//advisors//mesoamerica_trader.dds"
++		noOfFrames = 1
++		norefcount = yes
++		effectFile = "gfx/FX/buttonstate.lua"
++		loadType = "INGAME"
++	}
++
++	spriteType = {
++		name = "GFX_advisor_wastek_spymaster"
++		texturefile = "gfx//interface//advisors//mesoamerica_spymaster.dds"
++		noOfFrames = 1
++		norefcount = yes
++		effectFile = "gfx/FX/buttonstate.lua"
++		loadType = "INGAME"
++	}
++
++	spriteType = {
++		name = "GFX_advisor_wastek_grand_captain"
++		texturefile = "gfx//interface//advisors//mesoamerica_grand_captain.dds"
++		noOfFrames = 1
++		norefcount = yes
++		effectFile = "gfx/FX/buttonstate.lua"
++		loadType = "INGAME"
++	}
++
++	spriteType = {
++		name = "GFX_advisor_wastek_commandant"
++		texturefile = "gfx//interface//advisors//mesoamerica_commandant.dds"
++		noOfFrames = 1
++		norefcount = yes
++		effectFile = "gfx/FX/buttonstate.lua"
++		loadType = "INGAME"
++	}
++
++	spriteType = {
++		name = "GFX_advisor_wastek_army_organiser"
++		texturefile = "gfx//interface//advisors//mesoamerica_army_organiser.dds"
++		noOfFrames = 1
++		norefcount = yes
++		effectFile = "gfx/FX/buttonstate.lua"
++		loadType = "INGAME"
++	}
++
++	spriteType = {
++		name = "GFX_advisor_wastek_army_reformer"
++		texturefile = "gfx//interface//advisors//mesoamerica_army_reformer.dds"
++		noOfFrames = 1
++		norefcount = yes
++		effectFile = "gfx/FX/buttonstate.lua"
++		loadType = "INGAME"
++	}
++
++	spriteType = {
++		name = "GFX_advisor_wastek_recruitmaster"
++		texturefile = "gfx//interface//advisors//mesoamerica_recruitmaster.dds"
++		noOfFrames = 1
++		norefcount = yes
++		effectFile = "gfx/FX/buttonstate.lua"
++		loadType = "INGAME"
++	}
++
++	spriteType = {
++		name = "GFX_advisor_wastek_fortification_expert"
++		texturefile = "gfx//interface//advisors//mesoamerica_fortification_expert.dds"
++		noOfFrames = 1
++		norefcount = yes
++		effectFile = "gfx/FX/buttonstate.lua"
++		loadType = "INGAME"
++	}
++
++	spriteType = {
++		name = "GFX_advisor_wastek_quartermaster"
++		texturefile = "gfx//interface//advisors//mesoamerica_quartermaster.dds"
++		noOfFrames = 1
++		norefcount = yes
++		effectFile = "gfx/FX/buttonstate.lua"
++		loadType = "INGAME"
++	}
++
++	spriteType = {
++		name = "GFX_advisor_wastek_noAdvisorType"
++		texturefile = "gfx//interface//advisors//mesoamerica_noAdvisorType.dds"
++		noOfFrames = 1
++		norefcount = yes
++		effectFile = "gfx/FX/buttonstate.lua"
++		loadType = "INGAME"
++	}
++#chontales
++
++	spriteType = {
++		name = "GFX_advisor_chontales_artist"
++		texturefile = "gfx//interface//advisors//mesoamerica_artist.dds"
++		noOfFrames = 1
++		norefcount = yes
++		effectFile = "gfx/FX/buttonstate.lua"
++		loadType = "INGAME"
++	}
++
++	spriteType = {
++		name = "GFX_advisor_chontales_philosopher"
++		texturefile = "gfx//interface//advisors//mesoamerica_philosopher.dds"
++		noOfFrames = 1
++		norefcount = yes
++		effectFile = "gfx/FX/buttonstate.lua"
++		loadType = "INGAME"
++	}
++
++	spriteType = {
++		name = "GFX_advisor_chontales_natural_scientist"
++		texturefile = "gfx//interface//advisors//mesoamerica_natural_scientist.dds"
++		noOfFrames = 1
++		norefcount = yes
++		effectFile = "gfx/FX/buttonstate.lua"
++		loadType = "INGAME"
++	}
++
++	spriteType = {
++		name = "GFX_advisor_chontales_theologian"
++		texturefile = "gfx//interface//advisors//mesoamerica_theologican.dds"
++		noOfFrames = 1
++		norefcount = yes
++		effectFile = "gfx/FX/buttonstate.lua"
++		loadType = "INGAME"
++	}
++
++	spriteType = {
++		name = "GFX_advisor_chontales_inquisitor"
++		texturefile = "gfx//interface//advisors//mesoamerica_inquisitor.dds"
++		noOfFrames = 1
++		norefcount = yes
++		effectFile = "gfx/FX/buttonstate.lua"
++		loadType = "INGAME"
++	}
++
++	spriteType = {
++		name = "GFX_advisor_chontales_master_of_mint"
++		texturefile = "gfx//interface//advisors//mesoamerica_master_of_mint.dds"
++		noOfFrames = 1
++		norefcount = yes
++		effectFile = "gfx/FX/buttonstate.lua"
++		loadType = "INGAME"
++	}
++
++	spriteType = {
++		name = "GFX_advisor_chontales_treasurer"
++		texturefile = "gfx//interface//advisors//mesoamerica_treasurer.dds"
++		noOfFrames = 1
++		norefcount = yes
++		effectFile = "gfx/FX/buttonstate.lua"
++		loadType = "INGAME"
++	}
++
++	spriteType = {
++		name = "GFX_advisor_chontales_statesman"
++		texturefile = "gfx//interface//advisors//mesoamerica_statesman.dds"
++		noOfFrames = 1
++		norefcount = yes
++		effectFile = "gfx/FX/buttonstate.lua"
++		loadType = "INGAME"
++	}
++
++	spriteType = {
++		name = "GFX_advisor_chontales_colonial_governor"
++		texturefile = "gfx//interface//advisors//mesoamerica_colonial_governor.dds"
++		noOfFrames = 1
++		norefcount = yes
++		effectFile = "gfx/FX/buttonstate.lua"
++		loadType = "INGAME"
++	}
++
++	spriteType = {
++		name = "GFX_advisor_chontales_diplomat"
++		texturefile = "gfx//interface//advisors//mesoamerica_diplomat.dds"
++		noOfFrames = 1
++		norefcount = yes
++		effectFile = "gfx/FX/buttonstate.lua"
++		loadType = "INGAME"
++	}
++
++	spriteType = {
++		name = "GFX_advisor_chontales_naval_reformer"
++		texturefile = "gfx//interface//advisors//mesoamerica_naval_reformer.dds"
++		noOfFrames = 1
++		norefcount = yes
++		effectFile = "gfx/FX/buttonstate.lua"
++		loadType = "INGAME"
++	}
++
++	spriteType = {
++		name = "GFX_advisor_chontales_navigator"
++		texturefile = "gfx//interface//advisors//mesoamerica_navigator.dds"
++		noOfFrames = 1
++		norefcount = yes
++		effectFile = "gfx/FX/buttonstate.lua"
++		loadType = "INGAME"
++	}
++
++	spriteType = {
++		name = "GFX_advisor_chontales_trader"
++		texturefile = "gfx//interface//advisors//mesoamerica_trader.dds"
++		noOfFrames = 1
++		norefcount = yes
++		effectFile = "gfx/FX/buttonstate.lua"
++		loadType = "INGAME"
++	}
++
++	spriteType = {
++		name = "GFX_advisor_chontales_spymaster"
++		texturefile = "gfx//interface//advisors//mesoamerica_spymaster.dds"
++		noOfFrames = 1
++		norefcount = yes
++		effectFile = "gfx/FX/buttonstate.lua"
++		loadType = "INGAME"
++	}
++
++	spriteType = {
++		name = "GFX_advisor_chontales_grand_captain"
++		texturefile = "gfx//interface//advisors//mesoamerica_grand_captain.dds"
++		noOfFrames = 1
++		norefcount = yes
++		effectFile = "gfx/FX/buttonstate.lua"
++		loadType = "INGAME"
++	}
++
++	spriteType = {
++		name = "GFX_advisor_chontales_commandant"
++		texturefile = "gfx//interface//advisors//mesoamerica_commandant.dds"
++		noOfFrames = 1
++		norefcount = yes
++		effectFile = "gfx/FX/buttonstate.lua"
++		loadType = "INGAME"
++	}
++
++	spriteType = {
++		name = "GFX_advisor_chontales_army_organiser"
++		texturefile = "gfx//interface//advisors//mesoamerica_army_organiser.dds"
++		noOfFrames = 1
++		norefcount = yes
++		effectFile = "gfx/FX/buttonstate.lua"
++		loadType = "INGAME"
++	}
++
++	spriteType = {
++		name = "GFX_advisor_chontales_army_reformer"
++		texturefile = "gfx//interface//advisors//mesoamerica_army_reformer.dds"
++		noOfFrames = 1
++		norefcount = yes
++		effectFile = "gfx/FX/buttonstate.lua"
++		loadType = "INGAME"
++	}
++
++	spriteType = {
++		name = "GFX_advisor_chontales_recruitmaster"
++		texturefile = "gfx//interface//advisors//mesoamerica_recruitmaster.dds"
++		noOfFrames = 1
++		norefcount = yes
++		effectFile = "gfx/FX/buttonstate.lua"
++		loadType = "INGAME"
++	}
++
++	spriteType = {
++		name = "GFX_advisor_chontales_fortification_expert"
++		texturefile = "gfx//interface//advisors//mesoamerica_fortification_expert.dds"
++		noOfFrames = 1
++		norefcount = yes
++		effectFile = "gfx/FX/buttonstate.lua"
++		loadType = "INGAME"
++	}
++
++	spriteType = {
++		name = "GFX_advisor_chontales_quartermaster"
++		texturefile = "gfx//interface//advisors//mesoamerica_quartermaster.dds"
++		noOfFrames = 1
++		norefcount = yes
++		effectFile = "gfx/FX/buttonstate.lua"
++		loadType = "INGAME"
++	}
++
++	spriteType = {
++		name = "GFX_advisor_chontales_noAdvisorType"
++		texturefile = "gfx//interface//advisors//mesoamerica_noAdvisorType.dds"
++		noOfFrames = 1
++		norefcount = yes
++		effectFile = "gfx/FX/buttonstate.lua"
++		loadType = "INGAME"
++	}
++#lacandon
++
++	spriteType = {
++		name = "GFX_advisor_lacandon_artist"
++		texturefile = "gfx//interface//advisors//mesoamerica_artist.dds"
++		noOfFrames = 1
++		norefcount = yes
++		effectFile = "gfx/FX/buttonstate.lua"
++		loadType = "INGAME"
++	}
++
++	spriteType = {
++		name = "GFX_advisor_lacandon_philosopher"
++		texturefile = "gfx//interface//advisors//mesoamerica_philosopher.dds"
++		noOfFrames = 1
++		norefcount = yes
++		effectFile = "gfx/FX/buttonstate.lua"
++		loadType = "INGAME"
++	}
++
++	spriteType = {
++		name = "GFX_advisor_lacandon_natural_scientist"
++		texturefile = "gfx//interface//advisors//mesoamerica_natural_scientist.dds"
++		noOfFrames = 1
++		norefcount = yes
++		effectFile = "gfx/FX/buttonstate.lua"
++		loadType = "INGAME"
++	}
++
++	spriteType = {
++		name = "GFX_advisor_lacandon_theologian"
++		texturefile = "gfx//interface//advisors//mesoamerica_theologican.dds"
++		noOfFrames = 1
++		norefcount = yes
++		effectFile = "gfx/FX/buttonstate.lua"
++		loadType = "INGAME"
++	}
++
++	spriteType = {
++		name = "GFX_advisor_lacandon_inquisitor"
++		texturefile = "gfx//interface//advisors//mesoamerica_inquisitor.dds"
++		noOfFrames = 1
++		norefcount = yes
++		effectFile = "gfx/FX/buttonstate.lua"
++		loadType = "INGAME"
++	}
++
++	spriteType = {
++		name = "GFX_advisor_lacandon_master_of_mint"
++		texturefile = "gfx//interface//advisors//mesoamerica_master_of_mint.dds"
++		noOfFrames = 1
++		norefcount = yes
++		effectFile = "gfx/FX/buttonstate.lua"
++		loadType = "INGAME"
++	}
++
++	spriteType = {
++		name = "GFX_advisor_lacandon_treasurer"
++		texturefile = "gfx//interface//advisors//mesoamerica_treasurer.dds"
++		noOfFrames = 1
++		norefcount = yes
++		effectFile = "gfx/FX/buttonstate.lua"
++		loadType = "INGAME"
++	}
++
++	spriteType = {
++		name = "GFX_advisor_lacandon_statesman"
++		texturefile = "gfx//interface//advisors//mesoamerica_statesman.dds"
++		noOfFrames = 1
++		norefcount = yes
++		effectFile = "gfx/FX/buttonstate.lua"
++		loadType = "INGAME"
++	}
++
++	spriteType = {
++		name = "GFX_advisor_lacandon_colonial_governor"
++		texturefile = "gfx//interface//advisors//mesoamerica_colonial_governor.dds"
++		noOfFrames = 1
++		norefcount = yes
++		effectFile = "gfx/FX/buttonstate.lua"
++		loadType = "INGAME"
++	}
++
++	spriteType = {
++		name = "GFX_advisor_lacandon_diplomat"
++		texturefile = "gfx//interface//advisors//mesoamerica_diplomat.dds"
++		noOfFrames = 1
++		norefcount = yes
++		effectFile = "gfx/FX/buttonstate.lua"
++		loadType = "INGAME"
++	}
++
++	spriteType = {
++		name = "GFX_advisor_lacandon_naval_reformer"
++		texturefile = "gfx//interface//advisors//mesoamerica_naval_reformer.dds"
++		noOfFrames = 1
++		norefcount = yes
++		effectFile = "gfx/FX/buttonstate.lua"
++		loadType = "INGAME"
++	}
++
++	spriteType = {
++		name = "GFX_advisor_lacandon_navigator"
++		texturefile = "gfx//interface//advisors//mesoamerica_navigator.dds"
++		noOfFrames = 1
++		norefcount = yes
++		effectFile = "gfx/FX/buttonstate.lua"
++		loadType = "INGAME"
++	}
++
++	spriteType = {
++		name = "GFX_advisor_lacandon_trader"
++		texturefile = "gfx//interface//advisors//mesoamerica_trader.dds"
++		noOfFrames = 1
++		norefcount = yes
++		effectFile = "gfx/FX/buttonstate.lua"
++		loadType = "INGAME"
++	}
++
++	spriteType = {
++		name = "GFX_advisor_lacandon_spymaster"
++		texturefile = "gfx//interface//advisors//mesoamerica_spymaster.dds"
++		noOfFrames = 1
++		norefcount = yes
++		effectFile = "gfx/FX/buttonstate.lua"
++		loadType = "INGAME"
++	}
++
++	spriteType = {
++		name = "GFX_advisor_lacandon_grand_captain"
++		texturefile = "gfx//interface//advisors//mesoamerica_grand_captain.dds"
++		noOfFrames = 1
++		norefcount = yes
++		effectFile = "gfx/FX/buttonstate.lua"
++		loadType = "INGAME"
++	}
++
++	spriteType = {
++		name = "GFX_advisor_lacandon_commandant"
++		texturefile = "gfx//interface//advisors//mesoamerica_commandant.dds"
++		noOfFrames = 1
++		norefcount = yes
++		effectFile = "gfx/FX/buttonstate.lua"
++		loadType = "INGAME"
++	}
++
++	spriteType = {
++		name = "GFX_advisor_lacandon_army_organiser"
++		texturefile = "gfx//interface//advisors//mesoamerica_army_organiser.dds"
++		noOfFrames = 1
++		norefcount = yes
++		effectFile = "gfx/FX/buttonstate.lua"
++		loadType = "INGAME"
++	}
++
++	spriteType = {
++		name = "GFX_advisor_lacandon_army_reformer"
++		texturefile = "gfx//interface//advisors//mesoamerica_army_reformer.dds"
++		noOfFrames = 1
++		norefcount = yes
++		effectFile = "gfx/FX/buttonstate.lua"
++		loadType = "INGAME"
++	}
++
++	spriteType = {
++		name = "GFX_advisor_lacandon_recruitmaster"
++		texturefile = "gfx//interface//advisors//mesoamerica_recruitmaster.dds"
++		noOfFrames = 1
++		norefcount = yes
++		effectFile = "gfx/FX/buttonstate.lua"
++		loadType = "INGAME"
++	}
++
++	spriteType = {
++		name = "GFX_advisor_lacandon_fortification_expert"
++		texturefile = "gfx//interface//advisors//mesoamerica_fortification_expert.dds"
++		noOfFrames = 1
++		norefcount = yes
++		effectFile = "gfx/FX/buttonstate.lua"
++		loadType = "INGAME"
++	}
++
++	spriteType = {
++		name = "GFX_advisor_lacandon_quartermaster"
++		texturefile = "gfx//interface//advisors//mesoamerica_quartermaster.dds"
++		noOfFrames = 1
++		norefcount = yes
++		effectFile = "gfx/FX/buttonstate.lua"
++		loadType = "INGAME"
++	}
++
++	spriteType = {
++		name = "GFX_advisor_lacandon_noAdvisorType"
++		texturefile = "gfx//interface//advisors//mesoamerica_noAdvisorType.dds"
++		noOfFrames = 1
++		norefcount = yes
++		effectFile = "gfx/FX/buttonstate.lua"
++		loadType = "INGAME"
++	}
+ 
+ 
+ }
+\ No newline at end of file
+-- 
+2.45.2
+
