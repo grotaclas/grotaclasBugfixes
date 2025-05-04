@@ -1,0 +1,33 @@
+From aea5b5bfd1d0d3b4fb837911c975b5372d3f2c4c Mon Sep 17 00:00:00 2001
+From: grotaclas <grotaclas@gmail.com>
+Date: Sun, 04 May 2025 19:41:53 -0000
+Subject: [PATCH] Cede goa to the correct nation in the event "Vasco da Gama in
+ India"
+
+Both the golden century mission gc_portugal_discovers_india and the
+base game mission portugal_discovers_india trigger the event "Vasco da
+Gama in India", which cedes Goa to Portugal, even if country which
+completed the mission is not Portugal anymore(e.g. because Portugal
+formed Brazil or the Roman Empire which don't give new missions)
+
+Bugreport: https://forum.paradoxplaza.com/forum/threads/portuguese-mission-tree-gives-goa-to-the-wrong-nation.1692350/
+---
+ events/FlavorPOR.txt | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/events/FlavorPOR.txt b/events/FlavorPOR.txt
+index efed8c24..900b96db 100755
+--- a/events/FlavorPOR.txt
++++ b/events/FlavorPOR.txt
+@@ -1109,7 +1109,7 @@ country_event = {
+ 				overextension_percentage = 1.5
+ 			}
+ 		}
+-		2030 = { cede_province = POR }
++		2030 = { cede_province = ROOT }
+ 		add_claim = 2030
+ 		add_prestige = 10
+ 	}
+-- 
+2.45.2
+
