@@ -1,0 +1,49 @@
+From cf76fef3a7203c85ecc80a67bb0d7eeaf66cbb1f Mon Sep 17 00:00:00 2001
+From: grotaclas <grotaclas@gmail.com>
+Date: Sun, 04 May 2025 19:41:51 -0000
+Subject: [PATCH] =?UTF-8?q?Align=20requirements=20of=20Eagle=20of=20L?=
+ =?UTF-8?q?=C3=BCbeck=20mission=20with=20tooltip=20and=20add=20fallback=20?=
+ =?UTF-8?q?if=20there=20are=20no=20valid=20rivals?=
+MIME-Version: 1.0
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
+
+The tooltip hsa_largest_fleet_from_rivals_or_naval_ideas_tt says "Has a
+larger fleet than any §Yrival§! country", but it doesn't check rivals.
+Instead it checks countries which have rivaled Lübeck. This fix checks
+both and adds the option to complete the mission by having the
+biggest navy in the world.
+
+No bugreport, but reddit post: https://www.reddit.com/r/eu4/comments/1k0ufw2/why_cant_i_complete_eagle_of_lubeck_mission/
+---
+ missions/99_Hansa_Missions.txt | 12 +++++++++++-
+ 1 file changed, 11 insertions(+), 1 deletion(-)
+
+diff --git a/missions/99_Hansa_Missions.txt b/missions/99_Hansa_Missions.txt
+index e5ab1882..bfa6568a 100755
+--- a/missions/99_Hansa_Missions.txt
++++ b/missions/99_Hansa_Missions.txt
+@@ -2156,9 +2156,19 @@ lubeck_missions_5 = {
+ 				tooltip = hsa_largest_fleet_from_rivals_or_naval_ideas_tt
+ 				OR = {
+ 					any_country = {
+-						is_rival = ROOT
++						OR = {
++							is_rival = ROOT
++							is_enemy = ROOT
++						}
+ 						NOT = { navy_size = ROOT }
+ 					}
++					NOT = {
++						any_known_country = {
++							NOT = { tag = ROOT }
++							NOT = { is_subject_of = ROOT }
++							navy_size = ROOT
++						}
++					}
+ 					full_idea_group = naval_ideas
+ 				}
+ 			}
+-- 
+2.45.2
+
