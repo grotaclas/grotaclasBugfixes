@@ -1,0 +1,97 @@
+From d568b80dbe5db74ef4a111e1ba17098e8655f2a7 Mon Sep 17 00:00:00 2001
+From: grotaclas <grotaclas@gmail.com>
+Date: Sun, 04 May 2025 12:51:06 -0000
+Subject: [PATCH] make confucian monuments work with harmonized religious
+ groups
+
+they used has_owner_harmonized_religion = yes, but that only works for
+eastern religions which are harmonized individually. It doesn't work
+if the province has a religion whose group was harmonized. Ideally a
+bugfix would change the behavior of has_owner_harmonized_religion, but
+that would need a code change, so this fix uses the following workaround
+instead:
+
+owner = {
+	has_harmonized_with = root
+}
+
+Bugreport is at https://forum.paradoxplaza.com/forum/threads/temple-of-confucius-monument-bug.1725911/
+---
+ common/great_projects/01_monuments.txt | 26 +++++++++++++++++++-------
+ 1 file changed, 19 insertions(+), 7 deletions(-)
+
+diff --git a/common/great_projects/01_monuments.txt b/common/great_projects/01_monuments.txt
+index d4f46d33..08bdc206 100755
+--- a/common/great_projects/01_monuments.txt
++++ b/common/great_projects/01_monuments.txt
+@@ -6393,7 +6393,9 @@ temple_of_confucius = {
+ 			province_is_or_accepts_religion = {
+ 				religion = confucianism
+ 			}	
+-			has_owner_harmonized_religion = yes
++			owner = {
++				has_harmonized_with = root
++			}
+ 		}
+ 	}
+ 
+@@ -6413,7 +6415,9 @@ temple_of_confucius = {
+ 			province_is_or_accepts_religion = {
+ 				religion = confucianism
+ 			}	
+-			has_owner_harmonized_religion = yes
++			owner = {
++				has_harmonized_with = root
++			}
+ 		}
+ 	}
+ 
+@@ -6423,7 +6427,9 @@ temple_of_confucius = {
+ 			province_is_or_accepts_religion = {
+ 				religion = confucianism
+ 			}	
+-			has_owner_harmonized_religion = yes
++			owner = {
++				has_harmonized_with = root
++			}
+ 		}
+ 	}
+ 
+@@ -13067,7 +13073,9 @@ gyeongbok_palace = {
+ 					province_is_or_accepts_religion = {
+ 						religion = confucianism
+ 					}	
+-					has_owner_harmonized_religion = yes
++					owner = {
++						has_harmonized_with = root
++					}
+ 				}	
+ 			}
+ 			owner = {
+@@ -13096,8 +13104,10 @@ gyeongbok_palace = {
+ 				OR = { 
+ 					province_is_or_accepts_religion = {
+ 						religion = confucianism
+-					}	
+-					has_owner_harmonized_religion = yes
++					}
++					owner = {
++						has_harmonized_with = root
++					}
+ 				}	
+ 			}
+ 			owner = {
+@@ -13121,7 +13131,9 @@ gyeongbok_palace = {
+ 					province_is_or_accepts_religion = {
+ 						religion = confucianism
+ 					}	
+-					has_owner_harmonized_religion = yes
++					owner = {
++						has_harmonized_with = root
++					}
+ 				}	
+ 			}
+ 			owner = {
+-- 
+2.45.2
+
