@@ -1,0 +1,31 @@
+From 783f733c698509f29c6d713ead42182ca72d53dc Mon Sep 17 00:00:00 2001
+From: grotaclas <grotaclas@gmail.com>
+Date: Sun, 04 May 2025 19:41:51 -0000
+Subject: [PATCH] Allow anglican and AVE to trigger event "Huguenot Rebels Need
+ Our Help"(tyw_events.12)
+
+Bugreport: https://forum.paradoxplaza.com/forum/threads/a-thirty-years-war-event-does-not-consider-anglicanism.1698943/
+---
+ events/TYWEvents.txt | 2 ++
+ 1 file changed, 2 insertions(+)
+
+diff --git a/events/TYWEvents.txt b/events/TYWEvents.txt
+index 50b5b7cc..c1087678 100755
+--- a/events/TYWEvents.txt
++++ b/events/TYWEvents.txt
+@@ -551,10 +551,12 @@ country_event = {
+ 		OR = {
+ 			tag = ENG
+ 			tag = GBR
++			tag = AVE
+ 		}
+ 		OR = {
+ 			religion = protestant
+ 			religion = reformed
++			religion = anglican
+ 		}
+ 		NOT = { has_country_flag = support_huguenots_decision }
+ 		FRA = {
+-- 
+2.45.2
+
