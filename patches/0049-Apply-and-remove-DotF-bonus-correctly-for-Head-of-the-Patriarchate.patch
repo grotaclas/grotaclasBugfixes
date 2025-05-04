@@ -1,0 +1,46 @@
+From 5dd76e2016520c2f60f50a832093fc38a119f53c Mon Sep 17 00:00:00 2001
+From: grotaclas <grotaclas@gmail.com>
+Date: Sun, 04 May 2025 19:41:52 -0000
+Subject: [PATCH] Apply and remove DotF bonus correctly for Head of the
+ Patriarchate
+
+The reform "Head of the Patriarchate"(head_of_the_patriarchy_reform)
+uses improved_defender_of_faith = yes, but in contrast to the other
+reforms which have that attribute, it didn't add the modifier if the
+country was already the defender of the faith when they enact the reform
+and it didn't remove the modifier if the reform was changed
+
+Bugreport: https://forum.paradoxplaza.com/forum/threads/russia-fate-of-the-peasantry-mission-head-of-the-patriarchate-reform-bugs.1674468/
+---
+ .../government_reforms/06_government_reforms_common.txt   | 8 ++++++++
+ 1 file changed, 8 insertions(+)
+
+diff --git a/common/government_reforms/06_government_reforms_common.txt b/common/government_reforms/06_government_reforms_common.txt
+index 37c91453..c57e42a3 100755
+--- a/common/government_reforms/06_government_reforms_common.txt
++++ b/common/government_reforms/06_government_reforms_common.txt
+@@ -1517,6 +1517,13 @@ head_of_the_patriarchy_reform = {
+ 					duration = -1
+ 				}
+ 			}
++			if = {
++				limit = { is_defender_of_faith = yes }
++				add_country_modifier = {
++					name = gov_improved_defender_of_faith_mod
++					duration = -1
++				}
++			}
+ 		}
+ 	}
+ 	post_removed_effect = {
+@@ -1528,6 +1535,7 @@ head_of_the_patriarchy_reform = {
+ 				remove_province_modifier = gov_expanded_temple_rights_mod
+ 			}
+ 		}
++		remove_country_modifier = gov_improved_defender_of_faith_mod
+ 	}
+ 	ai = {
+ 		factor = 1
+-- 
+2.45.2
+
