@@ -1,0 +1,31 @@
+From d0a1b1d6e0817a68e43d6fc56e71c5c165190ee7 Mon Sep 17 00:00:00 2001
+From: grotaclas <grotaclas@gmail.com>
+Date: Sun, 04 May 2025 12:55:38 -0000
+Subject: [PATCH] fix highlighting in mission Korean Self-Reliance
+ (kor_achieve_juche)
+
+no bugreport, but discussed in https://www.reddit.com/r/eu4/comments/1jmlksv/korean_selfreliance_not_firing/
+---
+ missions/Korean_Missions.txt | 6 ++++--
+ 1 file changed, 4 insertions(+), 2 deletions(-)
+
+diff --git a/missions/Korean_Missions.txt b/missions/Korean_Missions.txt
+index ed12bfb6..11877f7e 100755
+--- a/missions/Korean_Missions.txt
++++ b/missions/Korean_Missions.txt
+@@ -1378,8 +1378,10 @@ korea_economic_social_political_path_1 = {
+ 			OR = {
+ 				NOT = { owned_by = root }
+ 				NOT = { is_core = root }
+-				NOT = { culture = korean }
+-				NOT = { culture = korean_new }
++				AND = {
++					NOT = { culture = korean }
++					NOT = { culture = korean_new }
++				}
+ 				NOT = { development = 8 }
+ 				has_manufactory_trigger = no
+ 			}
+-- 
+2.45.2
+

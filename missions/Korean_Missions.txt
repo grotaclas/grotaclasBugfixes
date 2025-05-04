@@ -1378,8 +1378,10 @@ korea_economic_social_political_path_1 = {
 			OR = {
 				NOT = { owned_by = root }
 				NOT = { is_core = root }
-				NOT = { culture = korean }
-				NOT = { culture = korean_new }
+				AND = {
+					NOT = { culture = korean }
+					NOT = { culture = korean_new }
+				}
 				NOT = { development = 8 }
 				has_manufactory_trigger = no
 			}
