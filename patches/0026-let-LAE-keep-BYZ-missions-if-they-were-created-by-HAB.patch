@@ -1,0 +1,34 @@
+From a5791984cd9075440e748d8529c2ad911d1cadfe Mon Sep 17 00:00:00 2001
+From: grotaclas <grotaclas@gmail.com>
+Date: Sun, 04 May 2025 12:55:38 -0000
+Subject: [PATCH] let LAE keep BYZ missions if they were created by HAB
+
+The Austrian mission hab_eastern_roman_empire turns their subject
+Byzantium into the Latin Empire. It does not change their missions, so
+they keep the Byzantium missions, but if they then try to select a
+mission branch, their mission get reset to the generic missions. Other
+ways in which Byzantium can form the Latin Empire prevent this by
+setting the flag has_byz_missions. This patch adds the effect to set
+the flag to the mission hab_eastern_roman_empire
+
+No bugreport, but a reddit post: https://www.reddit.com/r/eu4/comments/1j7fr9z/my_vassal_the_latin_empire_suddenly_only_has/
+---
+ missions/WoC_Austrian_Missions.txt | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/missions/WoC_Austrian_Missions.txt b/missions/WoC_Austrian_Missions.txt
+index 4ce009d7..a4eb5157 100755
+--- a/missions/WoC_Austrian_Missions.txt
++++ b/missions/WoC_Austrian_Missions.txt
+@@ -1947,7 +1947,7 @@ WoC_austria_2_1 = {
+ 					}
+ 				"
+ 				first_effect = "
+-					BYZ = { change_tag = LAE change_religion = ROOT set_dynasty = ROOT }
++					BYZ = { change_tag = LAE change_religion = ROOT set_dynasty = ROOT set_country_flag = has_byz_missions }
+ 					if = { limit = { is_emperor =  yes } add_scaled_imperial_influence = 5 }
+ 				"
+ 			}
+-- 
+2.45.2
+
