@@ -1,0 +1,31 @@
+From f25b395d9231524acbe20d42865f802e44d72d41 Mon Sep 17 00:00:00 2001
+From: grotaclas <grotaclas@gmail.com>
+Date: Sun, 04 May 2025 19:41:54 -0000
+Subject: [PATCH] Fix "United Horn" modifier from horn of africa missions
+
+It is a country modifier which gave local modifiers instead of global
+modifiers.
+
+Bugreport: https://forum.paradoxplaza.com/forum/threads/horn-of-africa-mission-unify-the-horn-of-africa-gives-wrong-modifier.1714187/
+---
+ common/event_modifiers/01_mission_modifiers.txt | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
+
+diff --git a/common/event_modifiers/01_mission_modifiers.txt b/common/event_modifiers/01_mission_modifiers.txt
+index a7b531a6..87d15e3b 100755
+--- a/common/event_modifiers/01_mission_modifiers.txt
++++ b/common/event_modifiers/01_mission_modifiers.txt
+@@ -7500,8 +7500,8 @@ gen_hoa_great_power_modifier = {
+ }
+ 
+ gen_hoa_unify_horn_modifier = {
+-	local_monthly_devastation = -0.1
+-	local_unrest = -2
++	global_monthly_devastation = -0.1
++	global_unrest = -2
+ 	development_cost = -0.05
+ }
+ 
+-- 
+2.45.2
+
