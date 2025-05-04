@@ -1,0 +1,42 @@
+From 2b0352c7648b1f2e5c357b109623ddf5b6375134 Mon Sep 17 00:00:00 2001
+From: grotaclas <grotaclas@gmail.com>
+Date: Sun, 04 May 2025 12:51:05 -0000
+Subject: [PATCH] prevent event 728 "Claims on Our Rivals!" from firing with no
+ valid province
+
+there was a mismatch between the event trigger and
+the conditions in the random_rival_country in the immediate
+section which selected the event target claims_province
+
+In the case that the only bordering rival province is
+the capital of a country which is not an OPM, it would
+save no country and the event text would use the root country
+instead.
+
+There is no bugreport, but the following reddit post shows the bug in
+action:
+https://www.reddit.com/r/eu4/comments/1gxmox6/orleans_rival_of_orleans/
+---
+ events/RandomEvents.txt | 6 ++++++
+ 1 file changed, 6 insertions(+)
+
+diff --git a/events/RandomEvents.txt b/events/RandomEvents.txt
+index 1a99ef75..49ea48e6 100755
+--- a/events/RandomEvents.txt
++++ b/events/RandomEvents.txt
+@@ -6599,6 +6599,12 @@ country_event = {
+ 				any_neighbor_province = {
+ 					owned_by = ROOT
+ 				}
++				OR = {
++					is_capital = no
++					owner = {
++						NOT = { num_of_cities = 2 }
++					}
++				}
+ 			}
+ 		}
+ 	}
+-- 
+2.45.2
+
