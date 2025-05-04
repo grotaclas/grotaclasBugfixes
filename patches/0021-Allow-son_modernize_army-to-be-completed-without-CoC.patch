@@ -1,0 +1,32 @@
+From e76d6fbe77100b27b9e2947e2964c80b1734d5a6 Mon Sep 17 00:00:00 2001
+From: grotaclas <grotaclas@gmail.com>
+Date: Sun, 04 May 2025 12:51:10 -0000
+Subject: [PATCH] Allow son_modernize_army to be completed without CoC
+
+the mission requires 80% army professionalism. 1.37.0 removed the
+professionialism requirement from the previous mission
+son_military_expertise if the Cradle of Civilization DLC is not active.
+This patch applies the same fix to son_modernize_army
+---
+ missions/AFR_Songhai_Missions.txt | 5 ++++-
+ 1 file changed, 4 insertions(+), 1 deletion(-)
+
+diff --git a/missions/AFR_Songhai_Missions.txt b/missions/AFR_Songhai_Missions.txt
+index 6868f98d..e3efef8b 100755
+--- a/missions/AFR_Songhai_Missions.txt
++++ b/missions/AFR_Songhai_Missions.txt
+@@ -140,7 +140,10 @@ songhai_military_slot = {
+ 		position = 5
+ 		trigger = {
+ 			army_tradition = 75
+-			army_professionalism = 0.8
++			if = {
++				limit = { has_dlc = "Cradle of Civilization" }
++				army_professionalism = 0.8
++			}
+ 			custom_trigger_tooltip = {
+ 				tooltip = son_modernize_army_tt
+ 				NOT = {
+-- 
+2.45.2
+
