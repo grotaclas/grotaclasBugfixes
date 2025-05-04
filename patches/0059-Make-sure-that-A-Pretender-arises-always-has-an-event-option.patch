@@ -1,0 +1,39 @@
+From b4471b471cb2af947f750be46314d2c3e35aa933 Mon Sep 17 00:00:00 2001
+From: grotaclas <grotaclas@gmail.com>
+Date: Sun, 04 May 2025 19:41:53 -0000
+Subject: [PATCH] Make sure that "A Pretender arises" always has an event
+ option
+
+The only event option in "A Pretender arises"(purple_phoenix.1)
+had the trigger that legitimacy must be less than 50, but the event can
+also happen if the country has a regency. From the localisation it looks
+like there was supposed to be a second option "Support the Pretender"(purple_phoenix.1.b),
+which was never implemented. As I don't know what it is supposed to be,
+I went with the safe choice and removed the condition from the first
+option, so that it is always available.
+
+I think this is the oldest unfixed bug in the game. The bugreport is
+from 2014 and the event code is unchanged since the release of the game.
+
+Bugreport: https://forum.paradoxplaza.com/forum/threads/possible-issue-with-event-purple_phoenix-1.775354/
+---
+ events/Purple_Phoenix_events.txt | 3 ---
+ 1 file changed, 3 deletions(-)
+
+diff --git a/events/Purple_Phoenix_events.txt b/events/Purple_Phoenix_events.txt
+index 5b19e396..7235b635 100755
+--- a/events/Purple_Phoenix_events.txt
++++ b/events/Purple_Phoenix_events.txt
+@@ -30,9 +30,6 @@ country_event = {
+ 		
+ 	option = {
+ 		name = "purple_phoenix.1.a"
+-		trigger = {
+-			NOT = { legitimacy = 50 }
+-		}
+ 		random_owned_province = {
+ 			pretender_rebels = 2
+ 		}	
+-- 
+2.45.2
+
