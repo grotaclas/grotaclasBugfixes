@@ -1,0 +1,35 @@
+From e55988907a8f765a2c4f4a9d42264d1ff422972e Mon Sep 17 00:00:00 2001
+From: grotaclas <grotaclas@gmail.com>
+Date: Sun, 04 May 2025 12:51:08 -0000
+Subject: [PATCH] prevent shwedagon_pagoda from getting destroyed by countries
+ which don't own it
+
+china_events.44 could fire for any chinese/eastern country
+if leviathan was active
+
+Bugreports: https://forum.paradoxplaza.com/forum/threads/eu-iv-event-the-gilded-pagoda-can-fire-even-when-you-dont-own-the-province-that-the-great-project-is-in.1579493/
+https://forum.paradoxplaza.com/forum/threads/eu-iv-shwedagon-pagoda-monument-downgrade.1560685/
+---
+ events/ChineseFactions.txt | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/events/ChineseFactions.txt b/events/ChineseFactions.txt
+index b663641f..7cdbaf21 100755
+--- a/events/ChineseFactions.txt
++++ b/events/ChineseFactions.txt
+@@ -2445,11 +2445,11 @@ country_event = {
+ 	picture = SHWEDAGON_PAGON_eventPicture
+ 	fire_only_once = yes 
+ 	trigger = {
++		owns_core_province = 4399
+ 		if = { 
+ 			limit = { 
+ 				NOT = { has_dlc = "Leviathan" } 
+ 			}
+-			owns_core_province = 4399 
+ 			4399 = { development = 35 }
+ 		}
+ 		else = {
+-- 
+2.45.2
+
