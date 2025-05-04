@@ -1,0 +1,41 @@
+From 9a7bc4b1649fec9f186657b0943656b6b8b407ab Mon Sep 17 00:00:00 2001
+From: grotaclas <grotaclas@gmail.com>
+Date: Sun, 04 May 2025 19:41:53 -0000
+Subject: [PATCH] Partially fix inflation reduction when repaying loan with
+ economic ideas
+
+It works now when repaying one loan, but repaying multiple loans with
+the "repay multiple loan(s)" button will only reduce inflation once.
+I don't see a way to change that via script, because on_loan_repaid gets
+only called once. So the player has to pay back each loan separately to
+reduce inflation for each loan
+
+This also fixes the error.log messages:
+    Script error! Script Object Token: "economic_ideas", Error: Trigger condition set on the wrong scope
+
+Bugreport: https://forum.paradoxplaza.com/forum/threads/0-05-inflation-on-loan-repayment-with-4th-eco-idea-does-not-work.1725766/
+---
+ common/on_actions/00_on_actions.txt | 6 ++----
+ 1 file changed, 2 insertions(+), 4 deletions(-)
+
+diff --git a/common/on_actions/00_on_actions.txt b/common/on_actions/00_on_actions.txt
+index 951aa54c..5af31626 100755
+--- a/common/on_actions/00_on_actions.txt
++++ b/common/on_actions/00_on_actions.txt
+@@ -5693,11 +5693,9 @@ on_loan_repaid = {
+ 	on_loan_repaid_estate_privileges_effect = yes
+ 	if = {
+ 		limit = { 
+-			THIS = {
+-				economic_ideas = 4 
+-			}
++			economic_ideas = 4
+ 		}
+-		THIS = { add_inflation = -0.05 }
++		add_inflation = -0.05
+ 	}
+ }
+ 
+-- 
+2.45.2
+
