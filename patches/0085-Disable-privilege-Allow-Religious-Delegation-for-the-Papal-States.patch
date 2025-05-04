@@ -1,0 +1,30 @@
+From 8a27e67110ba5ddc9b5ad4cb5764078bee1edec6 Mon Sep 17 00:00:00 2001
+From: grotaclas <grotaclas@gmail.com>
+Date: Sun, 04 May 2025 19:41:54 -0000
+Subject: [PATCH] Disable privilege "Allow Religious Delegation" for the Papal
+ States
+
+The Papal States is not allowed to use the estate action which is the only real
+effect of the privilege(besides 5% clergy influence), so it does not
+make sense that they can enact the privilege.
+
+Bugreport: https://forum.paradoxplaza.com/forum/threads/allowing-religious-delegation-as-papal-state-doesnt-actually-allow-religious-delegations.1707161/
+---
+ common/estate_privileges/01_church_privileges.txt | 1 +
+ 1 file changed, 1 insertion(+)
+
+diff --git a/common/estate_privileges/01_church_privileges.txt b/common/estate_privileges/01_church_privileges.txt
+index 36bf97a9..24b75454 100755
+--- a/common/estate_privileges/01_church_privileges.txt
++++ b/common/estate_privileges/01_church_privileges.txt
+@@ -2822,6 +2822,7 @@ estate_church_religious_delegation = {
+ 	conditional_modifier = { trigger = { has_absolutism_reduction_for_estate_privileges = yes } modifier = { max_absolutism = 1 } }
+ 	is_valid = {
+ 		has_dlc = "Domination"
++		NOT = { tag = PAP }
+ 	}
+ 	on_granted = {
+ 		enable_estate_action = {
+-- 
+2.45.2
+
