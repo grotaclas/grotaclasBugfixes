@@ -1,0 +1,25 @@
+From 31d46b8a9cf18cfe3c3dbf9d21c3c987e2b014cc Mon Sep 17 00:00:00 2001
+From: grotaclas <grotaclas@gmail.com>
+Date: Sun, 04 May 2025 12:55:48 -0000
+Subject: [PATCH] Allow France to annex normal vassals without seizing land
+
+Bugreport: https://forum.paradoxplaza.com/forum/threads/annexing-french-vassal-require-seize-land.1735199/
+---
+ common/diplomatic_actions/00_diplomatic_actions.txt | 1 +
+ 1 file changed, 1 insertion(+)
+
+diff --git a/common/diplomatic_actions/00_diplomatic_actions.txt b/common/diplomatic_actions/00_diplomatic_actions.txt
+index d8e10e30..274c3511 100755
+--- a/common/diplomatic_actions/00_diplomatic_actions.txt
++++ b/common/diplomatic_actions/00_diplomatic_actions.txt
+@@ -543,6 +543,7 @@ annexationaction = {
+ 		tooltip = NEEDS_TO_HAVE_SEIZED_LAND
+ 		potential = {
+ 			has_government_attribute = has_appanages
++			FROM = { is_subject_of_type = appanage }
+ 			NOT = {
+ 				check_variable = {
+ 					which = can_annex_appanages_points
+-- 
+2.45.2
+
