@@ -1,0 +1,122 @@
+From 32278181e9d8c5278729643be01aa76b089b8f70 Mon Sep 17 00:00:00 2001
+From: grotaclas <grotaclas@gmail.com>
+Date: Sun, 04 May 2025 19:41:52 -0000
+Subject: [PATCH] fix Portuguese missions in RNW games
+
+some missions which were not related to america were in slots which were
+locked behind is_random_new_world = no and some of the missions which
+were still available were not completable, because they needed these
+missions
+
+Bugreport: https://forum.paradoxplaza.com/forum/threads/eu-iv-portuguese-mission-tree-links-are-broken-in-random-new-world.1583931/
+https://forum.paradoxplaza.com/forum/threads/portuguese-mission-are-missing.1686041/
+---
+ missions/GC_Portuguese_Missions.txt | 70 ++++++++++++++++++-----------
+ 1 file changed, 45 insertions(+), 25 deletions(-)
+
+diff --git a/missions/GC_Portuguese_Missions.txt b/missions/GC_Portuguese_Missions.txt
+index fb980f72..298f02b4 100755
+--- a/missions/GC_Portuguese_Missions.txt
++++ b/missions/GC_Portuguese_Missions.txt
+@@ -203,7 +203,28 @@ gc_por_1 = {
+ 			}
+ 		}
+ 	}
+-	
++}
++
++gc_por_1_b = {
++	slot = 1
++	generic = no
++	ai = yes
++	potential_on_load = {
++		OR = {
++			has_dlc = "Domination"
++			has_dlc = "Golden Century"
++		}
++	}
++	potential = {
++		OR = {
++			has_dlc = "Domination"
++			has_dlc = "Golden Century"
++		}
++		tag = POR
++		NOT = { map_setup = map_setup_random }
++	}
++	has_country_shield = yes
++
+ 	gc_por_ceylon = {
+ 		icon = mission_portuguese_ceylon
+ 		required_missions = { gc_por_malabar }
+@@ -574,7 +595,28 @@ gc_por_2_b = {
+ 			}
+ 		}
+ 	}
+-	
++}
++
++gc_por_2_c = {
++	slot = 2
++	generic = no
++	ai = yes
++	potential_on_load = {
++		OR = {
++			has_dlc = "Domination"
++			has_dlc = "Golden Century"
++		}
++	}
++	potential = {
++		OR = {
++			has_dlc = "Domination"
++			has_dlc = "Golden Century"
++		}
++		tag = POR
++		NOT = { map_setup = map_setup_random }
++	}
++	has_country_shield = yes
++
+ 	gc_por_malabar = {
+ 		icon = mission_portuguese_malabar
+ 		required_missions = { gc_portugal_discovers_india }
+@@ -640,7 +682,7 @@ gc_por_2_b = {
+ 			}
+ 		}
+ 	}
+-	
++
+ 	gc_por_surat = {
+ 		icon = mission_control_surat
+ 		required_missions = { gc_por_malabar }
+@@ -694,29 +736,7 @@ gc_por_2_b = {
+ 			}
+ 		}
+ 	}
+-}
+ 
+-gc_por_2_c = {
+-	slot = 2
+-	generic = no
+-	ai = yes
+-	potential_on_load = {
+-		OR = {
+-			has_dlc = "Domination" 
+-			has_dlc = "Golden Century"
+-		}
+-	}
+-	potential = {
+-		OR = {
+-			has_dlc = "Domination" 
+-			has_dlc = "Golden Century"
+-		}
+-		tag = POR
+-		NOT = { map_setup = map_setup_random }
+-		is_random_new_world = no
+-	}
+-	has_country_shield = yes
+-	
+ 	gc_por_build_the_navy = {
+ 		icon = mission_sea_battles
+ 		required_missions = {}
+-- 
+2.45.2
+
