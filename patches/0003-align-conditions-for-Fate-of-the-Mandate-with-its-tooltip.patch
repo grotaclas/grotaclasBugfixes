@@ -1,0 +1,44 @@
+From ba9999b4f1ea57d13dfa9062863bc2479ce573fb Mon Sep 17 00:00:00 2001
+From: grotaclas <grotaclas@gmail.com>
+Date: Sun, 04 May 2025 12:51:05 -0000
+Subject: [PATCH] align conditions for "Fate of the Mandate" with its tooltip
+
+The tooltip says that you need the highest dev and biggest army in
+china, but the actual conditions checked if there is a country in china
+which has less dev and army. So you could complete it with the second
+lowest dev and army, but you could not complete it if you were the only
+country in china
+
+No bugreport, but posted on reddit: https://www.reddit.com/r/eu4/comments/1gxyugc/what_do_you_mean_im_not_the_highest_developed/
+---
+ missions/DOM_Chinese_Missions.txt | 14 +++++++++-----
+ 1 file changed, 9 insertions(+), 5 deletions(-)
+
+diff --git a/missions/DOM_Chinese_Missions.txt b/missions/DOM_Chinese_Missions.txt
+index 6c47f9f7..ee8f394e 100755
+--- a/missions/DOM_Chinese_Missions.txt
++++ b/missions/DOM_Chinese_Missions.txt
+@@ -580,11 +580,15 @@ chinese_kingdoms_1 = {
+ 			}
+ 			custom_trigger_tooltip = {
+ 				tooltip = chi_strongest_warlord_tt
+-				any_country = { 
+-					capital_scope = { superregion = china_superregion }
+-					NOT = { army_size = ROOT } 
+-					NOT = { total_development = ROOT }
+-				}	
++				NOT = {
++					any_country = {
++						capital_scope = { superregion = china_superregion }
++						OR = {
++							army_size = ROOT
++							total_development = ROOT
++						}
++					}
++				}
+ 			}
+ 		}
+ 		effect = {	
+-- 
+2.45.2
+
