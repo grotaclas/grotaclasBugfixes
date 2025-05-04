@@ -1,0 +1,28 @@
+From fa863ad037edace932460bc783b717fde7702f33 Mon Sep 17 00:00:00 2001
+From: grotaclas <grotaclas@gmail.com>
+Date: Sun, 04 May 2025 19:41:53 -0000
+Subject: [PATCH] fix highlighting in Ottoman base game mission Conquer
+ Greece(conquer_southern_greece)
+
+It didn't highlight provinces owned by subjects even though the mission
+requires that they are owned directly
+---
+ missions/Ottoman_Missions.txt | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/missions/Ottoman_Missions.txt b/missions/Ottoman_Missions.txt
+index e229b5e7..82f0558b 100755
+--- a/missions/Ottoman_Missions.txt
++++ b/missions/Ottoman_Missions.txt
+@@ -77,7 +77,7 @@ tur_conquerors_of_the_near_east = {
+ 				province_id = 4699
+ 				province_id = 4698
+ 			}
+-			NOT = { country_or_non_sovereign_subject_holds = ROOT }
++			NOT = { owned_by = ROOT }
+ 		}
+ 		trigger = {
+ 			owns = 145
+-- 
+2.45.2
+
