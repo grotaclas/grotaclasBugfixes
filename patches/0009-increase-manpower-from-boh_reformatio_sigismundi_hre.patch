@@ -1,0 +1,36 @@
+From 5d802825e1cb20b28e152831c73f40d96d1d80ee Mon Sep 17 00:00:00 2001
+From: grotaclas <grotaclas@gmail.com>
+Date: Sun, 04 May 2025 12:51:07 -0000
+Subject: [PATCH] increase manpower from boh_reformatio_sigismundi_hre
+
+The modifier boh_reformatio_sigismundi_hre is one of the possible
+rewards from the WoC mission boh_reformatio_sigismundi. Its
+manpower_against_imperial_enemies = 0.2 literally gives 0.2 max manpower
+while being at war with a non-HRE country. I guess this was meant to be
++20%, but the modifier doesn't work in this way. I choose 20000 as a
+more reasonable amount, because it still starts with a 2 and the only
+other mission which gives this modifier gives 35000. I think 20000 is
+not too much, because the mission requires being emperor which already
+gives a lot of manpower and it requires the 5th HRE reform.
+
+No bugreport, but a reddit discussion: https://www.reddit.com/r/eu4/comments/1i4ben9/what_in_the_name_of_god_is_020_manpower_against/
+---
+ common/event_modifiers/01_mission_modifiers.txt | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/common/event_modifiers/01_mission_modifiers.txt b/common/event_modifiers/01_mission_modifiers.txt
+index 3a8b033e..a7b531a6 100755
+--- a/common/event_modifiers/01_mission_modifiers.txt
++++ b/common/event_modifiers/01_mission_modifiers.txt
+@@ -13828,7 +13828,7 @@ boh_pearl_of_the_baltics = {
+ 
+ boh_reformatio_sigismundi_hre = {
+ 	imperial_authority = 0.1
+-	manpower_against_imperial_enemies = 0.2
++	manpower_against_imperial_enemies = 20000
+ }
+ 
+ boh_cultural_integration = {
+-- 
+2.45.2
+
