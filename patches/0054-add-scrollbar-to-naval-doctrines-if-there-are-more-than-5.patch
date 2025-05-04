@@ -1,0 +1,42 @@
+From e203b6d5037cecb8f5a4b2958845c50affafe151 Mon Sep 17 00:00:00 2001
+From: grotaclas <grotaclas@gmail.com>
+Date: Sun, 04 May 2025 19:41:52 -0000
+Subject: [PATCH] add scrollbar to naval doctrines if there are more than 5
+
+---
+ interface/countrymilitaryview.gui | 7 ++++---
+ 1 file changed, 4 insertions(+), 3 deletions(-)
+
+diff --git a/interface/countrymilitaryview.gui b/interface/countrymilitaryview.gui
+index 38cb2ad8..3daa40d1 100755
+--- a/interface/countrymilitaryview.gui
++++ b/interface/countrymilitaryview.gui
+@@ -2115,13 +2115,14 @@ guiTypes = {
+ 		listboxType = 
+ 		{
+ 			name ="domesticpanel_naval_doctrine_select_list"
+-			position = { x=65 y =208}
++			position = { x=65 y =248}
+ 			backGround=""
+-			size = { x=500 y=0}
++			size = { x=445 y=119}
+ 			Orientation = "UPPER_LEFT"
+ 			horizontal = 1
+ 			spacing = 0
+ 			borderSize = {x = 0 y = 0}
++			scrollbartype = "standardlistbox_slider"
+ 		}
+ 		
+ 		guiButtonType = {
+@@ -2152,7 +2153,7 @@ guiTypes = {
+ 		{
+ 			name ="naval_doctrine_selection_button"
+ 			quadTextureSprite= "GFX_naval_doctrine_icons"
+-			position = { x= 30 y = 40 }
++			position = { x= 30 y = 0 }
+ 			clicksound = preferred_unit
+ 		}
+ 	}
+-- 
+2.45.2
+
