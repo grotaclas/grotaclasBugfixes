@@ -1,0 +1,26 @@
+From a9e467e30914c81027c1fe0ecccb52a48616cb23 Mon Sep 17 00:00:00 2001
+From: grotaclas <grotaclas@gmail.com>
+Date: Sun, 04 May 2025 12:48:00 -0000
+Subject: [PATCH] fix Hanlin Academy modifier for korean and japanese missions
+
+bugreport: https://forum.paradoxplaza.com/forum/threads/event-keju-for-korea-not-giving-province-modifier.1713815/
+---
+ common/province_triggered_modifiers/00_modifiers.txt | 2 ++
+ 1 file changed, 2 insertions(+)
+
+diff --git a/common/province_triggered_modifiers/00_modifiers.txt b/common/province_triggered_modifiers/00_modifiers.txt
+index 1c0ef59b..b50e43af 100755
+--- a/common/province_triggered_modifiers/00_modifiers.txt
++++ b/common/province_triggered_modifiers/00_modifiers.txt
+@@ -1263,6 +1263,8 @@ mng_hanlin_academy_modifier = {
+ 	potential = {
+ 		OR = {
+ 			owner = { mission_completed = mng_examination_system }
++			owner = { mission_completed = mng_examination_system2 }
++			owner = { mission_completed = mng_examination_system3 }
+ 			owner = { mission_completed = yua_examination_system }
+ 		}
+ 	}
+-- 
+2.45.2
+
