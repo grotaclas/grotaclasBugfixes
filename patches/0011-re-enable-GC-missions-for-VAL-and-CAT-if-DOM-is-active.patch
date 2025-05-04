@@ -1,0 +1,91 @@
+From 0e3a9b7a37645168a30eb0a9636ee01f9a63e060 Mon Sep 17 00:00:00 2001
+From: grotaclas <grotaclas@gmail.com>
+Date: Sun, 04 May 2025 12:51:07 -0000
+Subject: [PATCH] re-enable GC missions for VAL and CAT if DOM is active
+
+The aragonese missions from Domination are only for Aragon, so Valencia
+and Catalonia should keep access to the aragonese missions from Golden Century
+which they have without Domination(as long as Golden Century is active)
+
+Bugreport: https://forum.paradoxplaza.com/forum/threads/mission-bugs-report.1697792/
+---
+ missions/GC_Aragonese_Missions.txt | 35 +++++++++++++++++++++++++-----
+ 1 file changed, 30 insertions(+), 5 deletions(-)
+
+diff --git a/missions/GC_Aragonese_Missions.txt b/missions/GC_Aragonese_Missions.txt
+index 93e8a330..1986b2e6 100755
+--- a/missions/GC_Aragonese_Missions.txt
++++ b/missions/GC_Aragonese_Missions.txt
+@@ -20,7 +20,12 @@ gc_aragon_1 = {
+ 			}
+ 		}
+ 		NOT = { map_setup = map_setup_random }
+-		NOT = { has_dlc = "Domination" }
++		OR = {
++			NOT = { has_dlc = "Domination" }
++			# CAT and VAL don't have new missions from Domination
++			tag = CAT
++			tag = VAL
++		}
+ 	}
+ 	has_country_shield = yes
+ 	
+@@ -189,7 +194,12 @@ gc_aragon_2 = {
+ 			}
+ 		}
+ 		NOT = { map_setup = map_setup_random }
+-		NOT = { has_dlc = "Domination" }
++		OR = {
++			NOT = { has_dlc = "Domination" }
++			# CAT and VAL don't have new missions from Domination
++			tag = CAT
++			tag = VAL
++		}
+ 	}
+ 	has_country_shield = yes
+ 	gc_ara_genoa = {
+@@ -462,7 +472,12 @@ gc_aragon_3 = {
+ 			}
+ 		}
+ 		NOT = { map_setup = map_setup_random }
+-		NOT = { has_dlc = "Domination" }
++		OR = {
++			NOT = { has_dlc = "Domination" }
++			# CAT and VAL don't have new missions from Domination
++			tag = CAT
++			tag = VAL
++		}
+ 	}
+ 	has_country_shield = yes
+ 	gc_ara_venice = {
+@@ -773,7 +788,12 @@ gc_aragon_4 = {
+ 			}
+ 		}
+ 		NOT = { map_setup = map_setup_random }
+-		NOT = { has_dlc = "Domination" }
++		OR = {
++			NOT = { has_dlc = "Domination" }
++			# CAT and VAL don't have new missions from Domination
++			tag = CAT
++			tag = VAL
++		}
+ 	}
+ 	has_country_shield = yes
+ 	gc_ara_naples = {
+@@ -1099,7 +1119,12 @@ gc_aragon_5 = {
+ 			}
+ 		}
+ 		NOT = { map_setup = map_setup_random }
+-		NOT = { has_dlc = "Domination" }
++		OR = {
++			NOT = { has_dlc = "Domination" }
++			# CAT and VAL don't have new missions from Domination
++			tag = CAT
++			tag = VAL
++		}
+ 	}
+ 	has_country_shield = yes
+ 	
+-- 
+2.45.2
+
