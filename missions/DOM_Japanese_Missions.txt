@@ -3461,20 +3461,35 @@ japanese_missions_eoc_5 = {
 		position = 11
 		provinces_to_highlight = { 
 			owned_by = ROOT 
-			AND = {
-				has_port = yes 
-				has_coast_defense_building_trigger = no 
-				NOT = { development = 20 }
+			has_port = yes
+			if = {
+				limit = {
+					ROOT = {
+						num_of_owned_provinces_with = {
+							has_coast_defense_building_trigger = yes
+							development = 20
+							value = 8
+						}
+					}
+				}
+				devastation = 1
 			}
-		} 
+			else = {
+				OR = {
+					has_coast_defense_building_trigger = no
+					NOT = { development = 20 }
+					devastation = 1
+				}
+			}
+		}
 		
 		trigger = { 
 			if = {
 				limit = { has_dlc = "Mandate of Heaven" } 
 				NOT = { 
-					num_of_owned_provinces_with = {
+					any_owned_province = {
+						has_port = yes
 						devastation = 1 
-						value = 1 
 					}
 				}
 			}

@@ -6520,10 +6520,24 @@ ming_missions_5_b = {
 		provinces_to_highlight = { 
 			owned_by = ROOT 
 			has_port = yes 
-			OR = {
-				has_coast_defense_building_trigger = no 
-				NOT = { development = 20 }
-				devastation = 1 
+			if = {
+				limit = {
+					ROOT = {
+						num_of_owned_provinces_with = {
+							has_coast_defense_building_trigger = yes
+							development = 20
+							value = 8
+						}
+					}
+				}
+				devastation = 1
+			}
+			else = {
+				OR = {
+					has_coast_defense_building_trigger = no
+					NOT = { development = 20 }
+					devastation = 1
+				}
 			}
 		} 
 		

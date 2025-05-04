@@ -1,0 +1,154 @@
+From 1a4a45a0fe0485a57801ad757c9d195d3f1a783c Mon Sep 17 00:00:00 2001
+From: grotaclas <grotaclas@gmail.com>
+Date: Sun, 04 May 2025 19:41:53 -0000
+Subject: [PATCH] Fix devastation trigger and highlighting for "Fortify the
+ Coast" missions
+
+The devastation trigger for the Ming version(mng_fortify_coast) was fixed
+to only check coastal provinces, but this change was not applied to the
+japanese(mng_fortify_coast2) and korean versions(mng_fortify_coast3).
+
+The highlighting didn't work properly for any case. The Ming version
+highlighted provinces which had no devastation and which didn't have a
+coastal defense building or 20 dev, even if the country already had 8
+provinces to fulfill that part of the condition. This made it hard for
+players to find the provinces with devastation. The japanese and korean
+versions stopped highlighting when the province had either a coastal
+defense or 20 dev and it didn't highlight devastation at all
+
+Bugreport: https://forum.paradoxplaza.com/forum/threads/eu-iv-japanese-mandate-of-heaven-fortify-the-coast-mission-checks-incorrect-provinces-for-devastation.1600486/
+---
+ missions/DOM_Chinese_Missions.txt  | 22 ++++++++++++++++++----
+ missions/DOM_Japanese_Missions.txt | 29 ++++++++++++++++++++++-------
+ missions/Korean_Missions.txt       | 27 +++++++++++++++++++++------
+ 3 files changed, 61 insertions(+), 17 deletions(-)
+
+diff --git a/missions/DOM_Chinese_Missions.txt b/missions/DOM_Chinese_Missions.txt
+index 2788554e..9ba9f08c 100755
+--- a/missions/DOM_Chinese_Missions.txt
++++ b/missions/DOM_Chinese_Missions.txt
+@@ -6520,10 +6520,24 @@ ming_missions_5_b = {
+ 		provinces_to_highlight = { 
+ 			owned_by = ROOT 
+ 			has_port = yes 
+-			OR = {
+-				has_coast_defense_building_trigger = no 
+-				NOT = { development = 20 }
+-				devastation = 1 
++			if = {
++				limit = {
++					ROOT = {
++						num_of_owned_provinces_with = {
++							has_coast_defense_building_trigger = yes
++							development = 20
++							value = 8
++						}
++					}
++				}
++				devastation = 1
++			}
++			else = {
++				OR = {
++					has_coast_defense_building_trigger = no
++					NOT = { development = 20 }
++					devastation = 1
++				}
+ 			}
+ 		} 
+ 		
+diff --git a/missions/DOM_Japanese_Missions.txt b/missions/DOM_Japanese_Missions.txt
+index 6b007662..0c5f2ba8 100755
+--- a/missions/DOM_Japanese_Missions.txt
++++ b/missions/DOM_Japanese_Missions.txt
+@@ -3461,20 +3461,35 @@ japanese_missions_eoc_5 = {
+ 		position = 11
+ 		provinces_to_highlight = { 
+ 			owned_by = ROOT 
+-			AND = {
+-				has_port = yes 
+-				has_coast_defense_building_trigger = no 
+-				NOT = { development = 20 }
++			has_port = yes
++			if = {
++				limit = {
++					ROOT = {
++						num_of_owned_provinces_with = {
++							has_coast_defense_building_trigger = yes
++							development = 20
++							value = 8
++						}
++					}
++				}
++				devastation = 1
+ 			}
+-		} 
++			else = {
++				OR = {
++					has_coast_defense_building_trigger = no
++					NOT = { development = 20 }
++					devastation = 1
++				}
++			}
++		}
+ 		
+ 		trigger = { 
+ 			if = {
+ 				limit = { has_dlc = "Mandate of Heaven" } 
+ 				NOT = { 
+-					num_of_owned_provinces_with = {
++					any_owned_province = {
++						has_port = yes
+ 						devastation = 1 
+-						value = 1 
+ 					}
+ 				}
+ 			}
+diff --git a/missions/Korean_Missions.txt b/missions/Korean_Missions.txt
+index 11877f7e..fac1e21f 100755
+--- a/missions/Korean_Missions.txt
++++ b/missions/Korean_Missions.txt
+@@ -2949,10 +2949,25 @@ korean_missions_eoc_5 = {
+ 		position = 11
+ 		provinces_to_highlight = { 
+ 			owned_by = ROOT 
+-			AND = {
+-				has_port = yes 
+-				has_coast_defense_building_trigger = no 
+-				NOT = { development = 20 }
++			has_port = yes
++			if = {
++				limit = {
++					ROOT = {
++						num_of_owned_provinces_with = {
++							has_coast_defense_building_trigger = yes
++							development = 20
++							value = 8
++						}
++					}
++				}
++				devastation = 1
++			}
++			else = {
++				OR = {
++					has_coast_defense_building_trigger = no
++					NOT = { development = 20 }
++					devastation = 1
++				}
+ 			}
+ 		} 
+ 		
+@@ -2960,9 +2975,9 @@ korean_missions_eoc_5 = {
+ 			if = {
+ 				limit = { has_dlc = "Mandate of Heaven" } 
+ 				NOT = { 
+-					num_of_owned_provinces_with = {
++					any_owned_province = {
++						has_port = yes
+ 						devastation = 1 
+-						value = 1 
+ 					}
+ 				}
+ 			}
+-- 
+2.45.2
+
