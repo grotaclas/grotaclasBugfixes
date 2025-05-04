@@ -5178,7 +5178,7 @@ ming_missions_4_b = {
 		}
 		
 		effect = {
-			custom_tooltip = mng_pearly_estuary_upgraded_tt
+			custom_tooltip = yua_pearly_estuary_upgraded_tt
 			hidden_effect = {
 				667 = {
 					remove_province_modifier = pearl_estuary_modifier
@@ -5187,13 +5187,13 @@ ming_missions_4_b = {
 						duration = -1 
 					}
 				}
-				if = { 
-					limit = { has_dlc = "Leviathan" }
-					custom_tooltip = mng_10_loyalty_for_burghers_on_expand_infr_tt
-					set_country_flag = mng_10_loyalty_for_burghers_on_expand_infr_flag
-				}
-				else = { add_adm_power = 100 }
 			}
+			if = {
+				limit = { has_dlc = "Leviathan" }
+				custom_tooltip = mng_10_loyalty_for_burghers_on_expand_infr_tt
+				set_country_flag = mng_10_loyalty_for_burghers_on_expand_infr_flag
+			}
+			else = { add_adm_power = 100 }
 		}
 	}
 	

@@ -1,0 +1,181 @@
+From 28bd1d9ca29cc75589ed9e296690ab4c269a335e Mon Sep 17 00:00:00 2001
+From: grotaclas <grotaclas@gmail.com>
+Date: Sun, 04 May 2025 12:51:09 -0000
+Subject: [PATCH] fix expand infrastructure effect for Expand the Bogue
+ missions
+
+The following missions had the problem that they had the hidden effect
+to set a flag which was supposed to increase merchant loyalty when
+expanding infrastructure, but that flag was never used. But players
+without Leviathan got the alternative effect of 100 dip:
+ * mng_expand_bogue
+ * mng_expand_bogue2
+ * mng_expand_bogue3
+ * yua_expand_bogue
+
+This patch also moves the effect out of the hidden effects so that its
+custom tooltip is shown. For the other effect of the mission, I changed
+the tooltip from mng_pearly_estuary_upgraded_tt to yua_pearly_estuary_upgraded_tt
+which was already in use in the mission yua_expand_bogue, because it
+explains the actual effects instead of just saying that the estuary will
+be upgraded
+
+Bugreport: EUIV-35604 and https://forum.paradoxplaza.com/forum/threads/expand-the-bogue-eoc-mission-is-weird.1718898/
+---
+ common/on_actions/00_on_actions.txt     | 13 +++++++++++++
+ missions/DOM_Chinese_Missions.txt       | 14 +++++++-------
+ missions/DOM_Japanese_Missions.txt      | 14 +++++++-------
+ missions/Korean_Missions.txt            | 14 +++++++-------
+ missions/zzzz_WoC_EoC_Yuan_Missions.txt | 12 ++++++------
+ 5 files changed, 40 insertions(+), 27 deletions(-)
+
+diff --git a/common/on_actions/00_on_actions.txt b/common/on_actions/00_on_actions.txt
+index 65bf8448..951aa54c 100755
+--- a/common/on_actions/00_on_actions.txt
++++ b/common/on_actions/00_on_actions.txt
+@@ -6100,6 +6100,19 @@ on_expanded_infrastructure = {
+ 			}
+ 		}
+ 	}
++	if = {
++		limit = {
++			FROM = {
++				has_country_flag = mng_10_loyalty_for_burghers_on_expand_infr_flag
++			}
++		}
++		FROM = {
++			add_estate_loyalty = {
++				estate = estate_burghers
++				loyalty = 10
++			}
++		}
++	}
+ }
+ on_expanded_infrastructure_removed = {
+ }
+diff --git a/missions/DOM_Chinese_Missions.txt b/missions/DOM_Chinese_Missions.txt
+index 983ee386..2788554e 100755
+--- a/missions/DOM_Chinese_Missions.txt
++++ b/missions/DOM_Chinese_Missions.txt
+@@ -5178,7 +5178,7 @@ ming_missions_4_b = {
+ 		}
+ 		
+ 		effect = {
+-			custom_tooltip = mng_pearly_estuary_upgraded_tt
++			custom_tooltip = yua_pearly_estuary_upgraded_tt
+ 			hidden_effect = {
+ 				667 = {
+ 					remove_province_modifier = pearl_estuary_modifier
+@@ -5187,13 +5187,13 @@ ming_missions_4_b = {
+ 						duration = -1 
+ 					}
+ 				}
+-				if = { 
+-					limit = { has_dlc = "Leviathan" }
+-					custom_tooltip = mng_10_loyalty_for_burghers_on_expand_infr_tt
+-					set_country_flag = mng_10_loyalty_for_burghers_on_expand_infr_flag
+-				}
+-				else = { add_adm_power = 100 }
+ 			}
++			if = {
++				limit = { has_dlc = "Leviathan" }
++				custom_tooltip = mng_10_loyalty_for_burghers_on_expand_infr_tt
++				set_country_flag = mng_10_loyalty_for_burghers_on_expand_infr_flag
++			}
++			else = { add_adm_power = 100 }
+ 		}
+ 	}
+ 	
+diff --git a/missions/DOM_Japanese_Missions.txt b/missions/DOM_Japanese_Missions.txt
+index 350a9b9f..0be6da0f 100755
+--- a/missions/DOM_Japanese_Missions.txt
++++ b/missions/DOM_Japanese_Missions.txt
+@@ -2470,7 +2470,7 @@ japanese_missions_eoc_4 = {
+ 		}
+ 		
+ 		effect = {
+-			custom_tooltip = mng_pearly_estuary_upgraded_tt
++			custom_tooltip = yua_pearly_estuary_upgraded_tt
+ 			hidden_effect = {
+ 				667 = {
+ 					remove_province_modifier = pearl_estuary_modifier
+@@ -2479,13 +2479,13 @@ japanese_missions_eoc_4 = {
+ 						duration = -1 
+ 					}
+ 				}
+-				if = { 
+-					limit = { has_dlc = "Leviathan" }
+-					custom_tooltip = mng_10_loyalty_for_burghers_on_expand_infr_tt
+-					set_country_flag = mng_10_loyalty_for_burghers_on_expand_infr_flag
+-				}
+-				else = { add_adm_power = 100 }
+ 			}
++			if = {
++				limit = { has_dlc = "Leviathan" }
++				custom_tooltip = mng_10_loyalty_for_burghers_on_expand_infr_tt
++				set_country_flag = mng_10_loyalty_for_burghers_on_expand_infr_flag
++			}
++			else = { add_adm_power = 100 }
+ 		}
+ 	}
+ 	
+diff --git a/missions/Korean_Missions.txt b/missions/Korean_Missions.txt
+index 499e1ad9..ed12bfb6 100755
+--- a/missions/Korean_Missions.txt
++++ b/missions/Korean_Missions.txt
+@@ -2563,7 +2563,7 @@ korean_missions_eoc_4 = {
+ 		}
+ 		
+ 		effect = {
+-			custom_tooltip = mng_pearly_estuary_upgraded_tt
++			custom_tooltip = yua_pearly_estuary_upgraded_tt
+ 			hidden_effect = {
+ 				667 = {
+ 					remove_province_modifier = pearl_estuary_modifier
+@@ -2572,13 +2572,13 @@ korean_missions_eoc_4 = {
+ 						duration = -1 
+ 					}
+ 				}
+-				if = { 
+-					limit = { has_dlc = "Leviathan" }
+-					custom_tooltip = mng_10_loyalty_for_burghers_on_expand_infr_tt
+-					set_country_flag = mng_10_loyalty_for_burghers_on_expand_infr_flag
+-				}
+-				else = { add_adm_power = 100 }
+ 			}
++			if = {
++				limit = { has_dlc = "Leviathan" }
++				custom_tooltip = mng_10_loyalty_for_burghers_on_expand_infr_tt
++				set_country_flag = mng_10_loyalty_for_burghers_on_expand_infr_flag
++			}
++			else = { add_adm_power = 100 }
+ 		}
+ 	}
+ 	
+diff --git a/missions/zzzz_WoC_EoC_Yuan_Missions.txt b/missions/zzzz_WoC_EoC_Yuan_Missions.txt
+index eda6735c..dcec59a4 100755
+--- a/missions/zzzz_WoC_EoC_Yuan_Missions.txt
++++ b/missions/zzzz_WoC_EoC_Yuan_Missions.txt
+@@ -966,13 +966,13 @@ WoC_eoc_yuan_flavor_4 = {
+ 						duration = -1 
+ 					}
+ 				}
+-				if = { 
+-					limit = { has_dlc = "Leviathan" }
+-					custom_tooltip = mng_10_loyalty_for_burghers_on_expand_infr_tt
+-					set_country_flag = mng_10_loyalty_for_burghers_on_expand_infr_flag
+-				}
+-				else = { add_adm_power = 100 }
+ 			}
++			if = {
++				limit = { has_dlc = "Leviathan" }
++				custom_tooltip = mng_10_loyalty_for_burghers_on_expand_infr_tt
++				set_country_flag = mng_10_loyalty_for_burghers_on_expand_infr_flag
++			}
++			else = { add_adm_power = 100 }
+ 		}
+ 	}
+ 	
+-- 
+2.45.2
+
