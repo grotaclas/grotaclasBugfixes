@@ -1,0 +1,33 @@
+From 1273acdeca6b7a90f503047415412b2bfbac6a9b Mon Sep 17 00:00:00 2001
+From: grotaclas <grotaclas@gmail.com>
+Date: Sun, 04 May 2025 12:55:37 -0000
+Subject: [PATCH] add missing traits to num_of_ruler_traits
+
+Bugreport: https://forum.paradoxplaza.com/forum/threads/num_of_ruler_traits-not-having-humane_personality.1730551/
+---
+ common/scripted_triggers/00_scripted_triggers.txt | 9 +++++++++
+ 1 file changed, 9 insertions(+)
+
+diff --git a/common/scripted_triggers/00_scripted_triggers.txt b/common/scripted_triggers/00_scripted_triggers.txt
+index 6c6a9587..48af7a32 100755
+--- a/common/scripted_triggers/00_scripted_triggers.txt
++++ b/common/scripted_triggers/00_scripted_triggers.txt
+@@ -3005,6 +3005,15 @@ num_of_ruler_traits = {
+ 		ruler_has_personality = legendary_conqueror_personality
+ 		ruler_has_personality = great_engineer_personality
+ 		ruler_has_personality = patron_of_arts_personality
++		ruler_has_personality = humane_personality
++		ruler_has_personality = petty_personality
++		ruler_has_personality = papal_puppetmaster_personality
++		ruler_has_personality = iron_crowned_personality
++		ruler_has_personality = peasant_revolt_leader_personality
++		ruler_has_personality = merchant_basileus_personality
++		ruler_has_personality = orangist_stadholder_personality
++		ruler_has_personality = reaver_personality
++		ruler_has_personality = last_knight_personality
+ 		amount = $amount$
+ 	}
+ }
+-- 
+2.45.2
+
