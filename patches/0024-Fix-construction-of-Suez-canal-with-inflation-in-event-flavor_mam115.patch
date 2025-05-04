@@ -1,0 +1,47 @@
+From a3bfc139c5c65964265b075ef8e9cd7b552bb292 Mon Sep 17 00:00:00 2001
+From: grotaclas <grotaclas@gmail.com>
+Date: Sun, 04 May 2025 12:55:37 -0000
+Subject: [PATCH] Fix construction of Suez canal with inflation in event
+ flavor_mam.115
+
+The event uses add_great_project with instant = no which requires that
+you actually have the money to start the construction. The event
+achieves this by giving the country 20k ducats and removing the money
+again afterwards. But the canal costs more than 20k if there are
+increased construction costs(e.g. from inflation). Then the construction
+is not started if the treasury does not have enough money to cover the
+difference.
+
+This fix just gives and removes 100k ducats instead of 20k. This should
+cover all reasonable cost increases.
+
+Bugreport: https://forum.paradoxplaza.com/forum/threads/mamluks-construction-commences-in-sharqiya-event-no-longer-builds-suez-canal.1675359/
+---
+ events/flavorMAM.txt | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
+
+diff --git a/events/flavorMAM.txt b/events/flavorMAM.txt
+index 27d17b57..eadb9cb5 100755
+--- a/events/flavorMAM.txt
++++ b/events/flavorMAM.txt
+@@ -1665,7 +1665,7 @@ country_event = { #Construction Commences in [4316.GetName]
+ 		name = flavor_mam.115.a 
+ 
+ 		hidden_effect = {
+-			add_treasury = 20000
++			add_treasury = 100000
+ 		}
+ 		4316 = {
+ 			add_great_project = {
+@@ -1675,7 +1675,7 @@ country_event = { #Construction Commences in [4316.GetName]
+ 			}
+ 		}
+ 		hidden_effect = {
+-			add_treasury = -20000
++			add_treasury = -100000
+ 		}
+ 	}
+ 	after = {
+-- 
+2.45.2
+
