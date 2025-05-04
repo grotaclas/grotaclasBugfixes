@@ -1,0 +1,35 @@
+From 7d58b0c4ec1cc4dae421e92eabe5baa155fd91af Mon Sep 17 00:00:00 2001
+From: grotaclas <grotaclas@gmail.com>
+Date: Sun, 04 May 2025 12:55:49 -0000
+Subject: [PATCH] update event insight for flavor_ARB.5 in YEM_zaidi_caliphate
+
+The event effect was changed in 1.37.0, but the insight was not updated.
+
+Bugreport about the change of the event effect: https://forum.paradoxplaza.com/forum/threads/minor-bug-for-arabian-event-a-new-caliphate-caliphal-ambitions-mission.1620047/
+---
+ missions/KoK_Yemen_Missions.txt | 9 +--------
+ 1 file changed, 1 insertion(+), 8 deletions(-)
+
+diff --git a/missions/KoK_Yemen_Missions.txt b/missions/KoK_Yemen_Missions.txt
+index 977e5de3..12ac9723 100755
+--- a/missions/KoK_Yemen_Missions.txt
++++ b/missions/KoK_Yemen_Missions.txt
+@@ -1369,14 +1369,7 @@ KoK_YEM_missions_2_RAS_religious = {
+ 					custom_tooltip = \" \"
+ 					if = {
+ 						limit = { has_country_modifier = unified_islam }
+-						add_country_modifier = {
+-							name = ARB_united_islam_upgraded
+-							duration = -1
+-						}
+-					}
+-					else = {
+-						set_country_flag = ARB_upgraded_uniting_islam
+-						custom_tooltip = ARB_uniting_islam_will_now_give_10_warscore_cost_vs_other_religions
++						add_stability_or_adm_power = yes
+ 					}
+ 				"
+ 			}
+-- 
+2.45.2
+
