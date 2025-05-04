@@ -1,0 +1,38 @@
+From 77a74ebe924bd1a85429b64e4558bb2ff890bb3e Mon Sep 17 00:00:00 2001
+From: grotaclas <grotaclas@gmail.com>
+Date: Sun, 04 May 2025 19:41:51 -0000
+Subject: [PATCH] Prevent eunuchs agenda "Reform the Government" if the
+ examination system reform is not available
+
+No bugreport, but reddit post: https://www.reddit.com/r/eu4/comments/1k56z5h/eunuchs_want_a_govt_reform_that_i_dont_have/
+---
+ common/estate_agendas/09_eunuchs_agendas.txt | 13 +++++++++++++
+ 1 file changed, 13 insertions(+)
+
+diff --git a/common/estate_agendas/09_eunuchs_agendas.txt b/common/estate_agendas/09_eunuchs_agendas.txt
+index d34271f8..bad12c7f 100755
+--- a/common/estate_agendas/09_eunuchs_agendas.txt
++++ b/common/estate_agendas/09_eunuchs_agendas.txt
+@@ -156,6 +156,19 @@ estate_eunuchs_gather_x_gov_reform_agenda = {
+ 			is_emperor_of_china = yes 
+ 			mission_completed = mng_examination_system
+ 		}
++		# potential of the reform examination_system_reform:
++		OR = {
++			religion = confucianism
++			primary_culture = vietnamese
++			primary_culture = vietnamese_new
++		}
++		# trigger of the reform examination_system_reform:
++		OR = {
++			has_reform = confucian_bureaucracy
++			has_reform = celestial_empire
++			has_reform = chinese_warlord
++			has_reform = korean_monarchy
++		}
+ 	}
+ 	task_requirements = {
+ 		if = {
+-- 
+2.45.2
+
