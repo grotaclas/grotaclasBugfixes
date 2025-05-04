@@ -1,0 +1,38 @@
+From b14586cc873ce3cf601b639667ea2d5b7748b55a Mon Sep 17 00:00:00 2001
+From: grotaclas <grotaclas@gmail.com>
+Date: Sun, 04 May 2025 12:51:07 -0000
+Subject: [PATCH] turn MLO into a monarchy when FRA forms a PU over them
+
+flavor_fra.109 turns Milan from a vassal into a junior partner without
+checking if they are a monarchy which will break the union when they
+elect a new ruler. This patch forces them to be a monarchy.
+
+Bugreport: https://forum.paradoxplaza.com/forum/threads/playing-as-france-i-got-a-subjication-cassus-belli-through-an-event-when-the-amrosian-republic-fired-i-forced-them-to-become-my-vassal-through-war.1698229/
+and https://forum.paradoxplaza.com/forum/threads/french-event-securing-milanese-lands-personl-union-option-does-not-change-milans-government.1694976/
+---
+ events/FlavorFRA.txt | 9 ++++++++-
+ 1 file changed, 8 insertions(+), 1 deletion(-)
+
+diff --git a/events/FlavorFRA.txt b/events/FlavorFRA.txt
+index 30faf1b8..641ae3d8 100755
+--- a/events/FlavorFRA.txt
++++ b/events/FlavorFRA.txt
+@@ -2247,7 +2247,14 @@ country_event = { #Securing the Milanese Lands
+ 				is_lesser_in_union = no 
+ 			}
+ 		}
+-		
++		hidden_effect = {
++			MLO = {
++				if = {
++					limit = { NOT = { government = monarchy } }
++					change_government = monarchy
++				}
++			}
++		}
+ 		create_union = MLO 
+ 		custom_tooltip = fra_mlo_wont_cost_dip_tt
+ 		hidden_effect = { 
+-- 
+2.45.2
+
