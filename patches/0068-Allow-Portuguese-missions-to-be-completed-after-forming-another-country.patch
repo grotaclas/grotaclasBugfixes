@@ -1,0 +1,66 @@
+From 5cf27f35bbc2aa3df743f58fe9e1c9e1be656d6f Mon Sep 17 00:00:00 2001
+From: grotaclas <grotaclas@gmail.com>
+Date: Sun, 04 May 2025 19:41:53 -0000
+Subject: [PATCH] Allow Portuguese missions to be completed after forming
+ another country
+
+When forming another country as Portugal which does not give new
+missions, all missions should be completable, but the missions
+"Push to India"(gc_portugal_discovers_india, portugal_discovers_india)
+ and "Secure Trade"(gc_por_indonesia_dominance, por_indonesia_dominance)
+had POR in their triggers, so it wasn't possible to complete them(unless
+Portugal also happened to fulfill the conditions)
+
+Bugreport: https://forum.paradoxplaza.com/forum/threads/eu-iv-portuguese-missions-as-non-portugal-are-bugged.1426030/
+---
+ missions/GC_Portuguese_Missions.txt | 4 ++--
+ missions/Portuguese_Missions.txt    | 4 ++--
+ 2 files changed, 4 insertions(+), 4 deletions(-)
+
+diff --git a/missions/GC_Portuguese_Missions.txt b/missions/GC_Portuguese_Missions.txt
+index 298f02b4..92b6a7a1 100755
+--- a/missions/GC_Portuguese_Missions.txt
++++ b/missions/GC_Portuguese_Missions.txt
+@@ -1247,7 +1247,7 @@ gc_por_4 = {
+ 					has_discovered = ROOT
+ 				}
+ 				2030 = {
+-					has_discovered = POR
++					has_discovered = ROOT
+ 				}
+ 			}
+ 		}
+@@ -1909,7 +1909,7 @@ gc_por_5_continued = {
+ 		
+ 		trigger = { 
+ 			1361 = {
+-				is_strongest_trade_power = POR
++				is_strongest_trade_power = ROOT
+ 			}
+ 		}
+ 	
+diff --git a/missions/Portuguese_Missions.txt b/missions/Portuguese_Missions.txt
+index 06ce0e25..110d0dc9 100755
+--- a/missions/Portuguese_Missions.txt
++++ b/missions/Portuguese_Missions.txt
+@@ -447,7 +447,7 @@ por_east_african_ambitions = {
+ 					has_discovered = ROOT
+ 				}
+ 				2030 = {
+-					has_discovered = POR
++					has_discovered = ROOT
+ 				}
+ 			}
+ 		}
+@@ -648,7 +648,7 @@ por_indonesia_trade_dominance = {
+ 		
+ 		trigger = { 
+ 			1361 = {		# Straits of Johor
+-				is_strongest_trade_power = POR
++				is_strongest_trade_power = ROOT
+ 			}
+ 		}
+ 	
+-- 
+2.45.2
+

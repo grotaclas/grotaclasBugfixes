@@ -1247,7 +1247,7 @@ gc_por_4 = {
 					has_discovered = ROOT
 				}
 				2030 = {
-					has_discovered = POR
+					has_discovered = ROOT
 				}
 			}
 		}
@@ -1909,7 +1909,7 @@ gc_por_5_continued = {
 		
 		trigger = { 
 			1361 = {
-				is_strongest_trade_power = POR
+				is_strongest_trade_power = ROOT
 			}
 		}
 	
