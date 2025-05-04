@@ -1,0 +1,183 @@
+From af5a6a2e35915f5707f09976320bf5cb568ed97a Mon Sep 17 00:00:00 2001
+From: grotaclas <grotaclas@gmail.com>
+Date: Sun, 04 May 2025 12:51:09 -0000
+Subject: [PATCH] fix or remove outdated dynamic names for the province
+ Dortmund(69)
+
+The province ID 69 used to be called Oberschwaben before 1.30 and
+Konstanz before patch 1.12. In 1.30 the province 69 was moved from southern
+Germany to northern Germany and renamed to Dortmund. Part of the old
+location of province 69 is the new province Constance(4712) since 1.30.
+I changed all dynamic names which call 69 a variation
+of Constance/Konstanz to 4712 instead(if the culture didn't have a name
+for 4712 already) and removed the entries which called 69 a variation of
+Oberschwaben.
+
+Bugreport: https://forum.paradoxplaza.com/forum/threads/konstanzs-dynamic-name-in-french-is-in-the-wrong-place.1728238/
+---
+ common/province_names/ROM.txt           | 1 -
+ common/province_names/aragonese.txt     | 2 +-
+ common/province_names/castillian.txt    | 2 +-
+ common/province_names/czech.txt         | 1 -
+ common/province_names/czech_new.txt     | 1 -
+ common/province_names/french.txt        | 2 +-
+ common/province_names/irish.txt         | 2 +-
+ common/province_names/mexican.txt       | 2 +-
+ common/province_names/polish.txt        | 1 -
+ common/province_names/polish_new.txt    | 1 -
+ common/province_names/schlesian.txt     | 1 -
+ common/province_names/schlesian_new.txt | 1 -
+ 12 files changed, 5 insertions(+), 12 deletions(-)
+
+diff --git a/common/province_names/ROM.txt b/common/province_names/ROM.txt
+index 5def595f..8ade8ea8 100755
+--- a/common/province_names/ROM.txt
++++ b/common/province_names/ROM.txt
+@@ -325,7 +325,6 @@
+ 64 = "Landishuta"
+ 65 = "Monacum"
+ 68 = "Cassiliacum"
+-69 = "Suebia" #Technically Swabia, not Upper Swabia
+ 70 = "Virtembergia"
+ 71 = "Onoldum"
+ 72 = "Brisgoviae"
+diff --git a/common/province_names/aragonese.txt b/common/province_names/aragonese.txt
+index 2f59c15f..c8cc6c40 100755
+--- a/common/province_names/aragonese.txt
++++ b/common/province_names/aragonese.txt
+@@ -99,7 +99,7 @@
+ 62 = "Lipsia"
+ 65 = "Múnich"
+ 67 = "Núremberg"
+-69 = "Constanza"
++4712 = "Constanza"
+ 72 = "Brisgovia"
+ 75 = "Estrasburgo"
+ 76 = "Salzburgo"
+diff --git a/common/province_names/castillian.txt b/common/province_names/castillian.txt
+index 44cd9159..33a17171 100755
+--- a/common/province_names/castillian.txt
++++ b/common/province_names/castillian.txt
+@@ -101,7 +101,7 @@
+ 62 = { "Lipsia" "Lipsia" }
+ 65 = "Múnich"
+ 67 = "Núremberg"
+-69 = "Constanza"
++4712 = "Constanza"
+ 72 = "Brisgovia"
+ 75 = "Estrasburgo"
+ 76 = "Salzburgo"
+diff --git a/common/province_names/czech.txt b/common/province_names/czech.txt
+index 8fb90827..7e99ae13 100755
+--- a/common/province_names/czech.txt
++++ b/common/province_names/czech.txt
+@@ -19,7 +19,6 @@
+ 65 = "Mnichov"
+ 66 = "Bamberk"
+ 67 = "Norimberk"
+-69 = "Horní Svabsko"
+ 72 = "Breisgavsko"
+ 73 = "Tyrolsko"
+ 74 = "Badensko"
+diff --git a/common/province_names/czech_new.txt b/common/province_names/czech_new.txt
+index 422c7ea4..e44bf9e0 100755
+--- a/common/province_names/czech_new.txt
++++ b/common/province_names/czech_new.txt
+@@ -19,7 +19,6 @@
+ 65 = "Mnichov"
+ 66 = "Bamberk"
+ 67 = "Norimberk"
+-69 = "Horní Svabsko"
+ 72 = "Breisgavsko"
+ 73 = "Tyrolsko"
+ 74 = "Badensko"
+diff --git a/common/province_names/french.txt b/common/province_names/french.txt
+index b272858d..04c1622a 100755
+--- a/common/province_names/french.txt
++++ b/common/province_names/french.txt
+@@ -258,7 +258,7 @@
+ 62 = "Leipsic"
+ 65 = "Munich"
+ 67 = "Nuremberg"
+-69 = "Constance"
++4712 = "Constance"
+ 70 = "Stougard"
+ 72 = "Brisgau"
+ 74 = "Bade"
+diff --git a/common/province_names/irish.txt b/common/province_names/irish.txt
+index 0b87207d..9ac9f17e 100755
+--- a/common/province_names/irish.txt
++++ b/common/province_names/irish.txt
+@@ -18,7 +18,7 @@
+ 248 = "Dun Eideann" #Lothian
+ 253 = "Inse Gall" #Outer Hebridies
+ 4364 = "Na hInse Gall" #Inner Hebridies
+-69 = "Caerfyrddin" #Carmarthen
++4369 = "Caerfyrddin" #Carmarthen
+ 1978 = "Inse Orc" #Orkney
+ 4366 = "An Baile Nua" #Montgomery
+ 240 = "An t-Inbhear" #Shrewsbury
+diff --git a/common/province_names/mexican.txt b/common/province_names/mexican.txt
+index da949f16..e30eb0ef 100755
+--- a/common/province_names/mexican.txt
++++ b/common/province_names/mexican.txt
+@@ -93,7 +93,7 @@
+ 62 = "Lipsia"
+ 65 = "Múnich"
+ 67 = "Núremberg"
+-69 = "Constanza"
++4712 = "Constanza"
+ 72 = "Brisgovia"
+ 75 = "Estrasburgo"
+ 76 = "Salzburgo"
+diff --git a/common/province_names/polish.txt b/common/province_names/polish.txt
+index 54df19bb..fa0229a1 100755
+--- a/common/province_names/polish.txt
++++ b/common/province_names/polish.txt
+@@ -27,7 +27,6 @@
+ 63 = "Jarobród"
+ 65 = "Monachium"
+ 67 = "Norymberga"
+-69 = "Górna Szwabia"
+ 72 = "Bryzgowia"
+ 75 = "Strasburg"
+ 78 = "Moguncja"
+diff --git a/common/province_names/polish_new.txt b/common/province_names/polish_new.txt
+index 54df19bb..fa0229a1 100755
+--- a/common/province_names/polish_new.txt
++++ b/common/province_names/polish_new.txt
+@@ -27,7 +27,6 @@
+ 63 = "Jarobród"
+ 65 = "Monachium"
+ 67 = "Norymberga"
+-69 = "Górna Szwabia"
+ 72 = "Bryzgowia"
+ 75 = "Strasburg"
+ 78 = "Moguncja"
+diff --git a/common/province_names/schlesian.txt b/common/province_names/schlesian.txt
+index 5faf458c..9615d0e3 100755
+--- a/common/province_names/schlesian.txt
++++ b/common/province_names/schlesian.txt
+@@ -26,7 +26,6 @@
+ 63 = "Jarobród"
+ 65 = "Monachium"
+ 67 = "Norymberga"
+-69 = "Górna Szwabia"
+ 72 = "Bryzgowia"
+ 75 = "Strasburg"
+ 78 = "Moguncja"
+diff --git a/common/province_names/schlesian_new.txt b/common/province_names/schlesian_new.txt
+index 5faf458c..9615d0e3 100755
+--- a/common/province_names/schlesian_new.txt
++++ b/common/province_names/schlesian_new.txt
+@@ -26,7 +26,6 @@
+ 63 = "Jarobród"
+ 65 = "Monachium"
+ 67 = "Norymberga"
+-69 = "Górna Szwabia"
+ 72 = "Bryzgowia"
+ 75 = "Strasburg"
+ 78 = "Moguncja"
+-- 
+2.45.2
+
