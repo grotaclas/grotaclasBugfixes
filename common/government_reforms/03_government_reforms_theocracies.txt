@@ -553,6 +553,7 @@ tibetan_dual_government_reform = {
 		NOT = { tag = PAP }
 		OR = {
 			primary_culture = tibetan
+			primary_culture = tibetan_new
 			culture_group = tibetan_group
 		}
 	}
@@ -560,6 +561,7 @@ tibetan_dual_government_reform = {
 		religion_group = eastern
 		OR = {
 			primary_culture = tibetan
+			primary_culture = tibetan_new
 			culture_group = tibetan_group
 		}
 	}

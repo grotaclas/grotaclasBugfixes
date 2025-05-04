@@ -1,0 +1,34 @@
+From e580a5dfed94b7eab46d3637de199b659fd23a60 Mon Sep 17 00:00:00 2001
+From: grotaclas <grotaclas@gmail.com>
+Date: Sun, 04 May 2025 19:41:53 -0000
+Subject: [PATCH] Make reform Ganden Phodrang available to Sino-Tibetan
+ countries
+
+Bugreport: https://forum.paradoxplaza.com/forum/threads/sinicizing-culture-removes-unique-tibet-government-reform.1724362/
+---
+ common/government_reforms/03_government_reforms_theocracies.txt | 2 ++
+ 1 file changed, 2 insertions(+)
+
+diff --git a/common/government_reforms/03_government_reforms_theocracies.txt b/common/government_reforms/03_government_reforms_theocracies.txt
+index a376f0cf..f9bac2e7 100755
+--- a/common/government_reforms/03_government_reforms_theocracies.txt
++++ b/common/government_reforms/03_government_reforms_theocracies.txt
+@@ -553,6 +553,7 @@ tibetan_dual_government_reform = {
+ 		NOT = { tag = PAP }
+ 		OR = {
+ 			primary_culture = tibetan
++			primary_culture = tibetan_new
+ 			culture_group = tibetan_group
+ 		}
+ 	}
+@@ -560,6 +561,7 @@ tibetan_dual_government_reform = {
+ 		religion_group = eastern
+ 		OR = {
+ 			primary_culture = tibetan
++			primary_culture = tibetan_new
+ 			culture_group = tibetan_group
+ 		}
+ 	}
+-- 
+2.45.2
+
