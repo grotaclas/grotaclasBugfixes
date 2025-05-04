@@ -1,0 +1,38 @@
+From 5de811e03eb60a34dda289e4412796f83e39ef22 Mon Sep 17 00:00:00 2001
+From: grotaclas <grotaclas@gmail.com>
+Date: Sun, 04 May 2025 19:41:54 -0000
+Subject: [PATCH] Add missing perma claims on muslim provinces to arabia
+ mission event "Second Islamic Golden Age"
+
+The tooltip ARB_permanent_claims_on_all_muslim_provinces, but the effect
+was never implemented.
+
+Bugreport: https://forum.paradoxplaza.com/forum/threads/final-arabia-mission-not-giving-permanent-claims.1717208/
+---
+ .../03_scripted_effects_for_mission_rewards.txt        | 10 ++++++++++
+ 1 file changed, 10 insertions(+)
+
+diff --git a/common/scripted_effects/03_scripted_effects_for_mission_rewards.txt b/common/scripted_effects/03_scripted_effects_for_mission_rewards.txt
+index d57faf7d..521e60ec 100755
+--- a/common/scripted_effects/03_scripted_effects_for_mission_rewards.txt
++++ b/common/scripted_effects/03_scripted_effects_for_mission_rewards.txt
+@@ -724,6 +724,16 @@ ARB_flavor_event_6_effect = {
+ 	}
+ 	
+ 	custom_tooltip = ARB_permanent_claims_on_all_muslim_provinces
++	hidden_effect = {
++		every_province = {
++			limit = {
++				religion_group = muslim
++				NOT = { is_core = ROOT }
++				NOT = { is_permanent_claim = ROOT }
++			}
++			add_permanent_claim = ROOT
++		}
++	}
+ 	
+ 	custom_tooltip = " "
+ 	
+-- 
+2.45.2
+
