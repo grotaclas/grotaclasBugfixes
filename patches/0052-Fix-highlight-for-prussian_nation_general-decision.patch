@@ -1,0 +1,42 @@
+From bbaefaefe5d4b97c3df70dd770f93b5a6e4e36e2 Mon Sep 17 00:00:00 2001
+From: grotaclas <grotaclas@gmail.com>
+Date: Sun, 04 May 2025 19:41:52 -0000
+Subject: [PATCH] Fix highlight for prussian_nation_general decision
+
+---
+ decisions/PrussianNation.txt | 19 ++-----------------
+ 1 file changed, 2 insertions(+), 17 deletions(-)
+
+diff --git a/decisions/PrussianNation.txt b/decisions/PrussianNation.txt
+index d2f61743..55017dfb 100755
+--- a/decisions/PrussianNation.txt
++++ b/decisions/PrussianNation.txt
+@@ -457,23 +457,8 @@ country_decisions = {
+ 		provinces_to_highlight = {
+ 			OR = {
+ 				province_id = 41	# Königsberg
+-				AND = {
+-					OR = {
+-						area = west_prussia_area
+-						area = east_prussia_area
+-					}
+-					ROOT = {
+-						NOT = {
+-							num_of_owned_provinces_with = {
+-								value = 5
+-								OR = {
+-									area = west_prussia_area
+-									area = east_prussia_area
+-								}
+-							}
+-						}
+-					}
+-				}
++				province_id = 42	# Warmia
++				province_id = 43	# Danzig
+ 			}
+ 			OR = {
+ 				NOT = { owned_by = ROOT }
+-- 
+2.45.2
+
