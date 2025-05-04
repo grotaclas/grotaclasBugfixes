@@ -1,0 +1,33 @@
+From c7689222e2b343ea17231cdf92ce973df913790d Mon Sep 17 00:00:00 2001
+From: grotaclas <grotaclas@gmail.com>
+Date: Sun, 04 May 2025 12:51:08 -0000
+Subject: [PATCH] prevent Rotten Borough from assigning seat to territory
+
+Bugreport: https://forum.paradoxplaza.com/forum/threads/rotten-boroughs-assigns-seat-to-territory.1624339
+---
+ events/Parlaments.txt | 2 ++
+ 1 file changed, 2 insertions(+)
+
+diff --git a/events/Parlaments.txt b/events/Parlaments.txt
+index 3d814d57..28f4e181 100755
+--- a/events/Parlaments.txt
++++ b/events/Parlaments.txt
+@@ -181,6 +181,7 @@ province_event = {
+ 			any_owned_province = {
+ 				development = 20
+ 				is_core = owner
++				is_state = yes
+ 				has_seat_in_parliament = no
+ 				is_overseas = no
+ 				OR = {
+@@ -212,6 +213,7 @@ province_event = {
+ 					limit = {
+ 						development = 20
+ 						is_core = owner
++						is_state = yes
+ 						has_seat_in_parliament = no
+ 						is_overseas = no
+ 						OR = {
+-- 
+2.45.2
+
