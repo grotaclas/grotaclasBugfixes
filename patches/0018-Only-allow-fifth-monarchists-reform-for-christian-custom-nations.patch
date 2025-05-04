@@ -1,0 +1,29 @@
+From 4eb222dd17c1efc458a87a664cc9784caf773c4a Mon Sep 17 00:00:00 2001
+From: grotaclas <grotaclas@gmail.com>
+Date: Sun, 04 May 2025 12:51:09 -0000
+Subject: [PATCH] Only allow fifth monarchists reform for christian custom
+ nations
+
+Non-christians who would select the reform would immediately lose it,
+because the trigger is religion_group = christian
+
+Bugreport: https://forum.paradoxplaza.com/forum/threads/custom-nations-fifth-monarchist-regime-should-require-catholic-religion-group-otherwise-you-go-bankrupt-on-day-1.1727299
+---
+ common/government_reforms/03_government_reforms_theocracies.txt | 1 +
+ 1 file changed, 1 insertion(+)
+
+diff --git a/common/government_reforms/03_government_reforms_theocracies.txt b/common/government_reforms/03_government_reforms_theocracies.txt
+index 767d61de..a376f0cf 100755
+--- a/common/government_reforms/03_government_reforms_theocracies.txt
++++ b/common/government_reforms/03_government_reforms_theocracies.txt
+@@ -762,6 +762,7 @@ fifth_monarchists_reform = {
+ 	nation_designer_cost = 100
+ 	nation_designer_trigger = {
+ 		has_dlc = "Domination"
++		religion_group = christian
+ 	}
+ 	valid_for_nation_designer = yes
+ 	modifiers = {
+-- 
+2.45.2
+
