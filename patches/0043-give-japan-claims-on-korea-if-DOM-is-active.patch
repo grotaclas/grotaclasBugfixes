@@ -1,0 +1,45 @@
+From 7ab4b81c3043e475a7d01d3b473133e59c6a60d1 Mon Sep 17 00:00:00 2001
+From: grotaclas <grotaclas@gmail.com>
+Date: Sun, 04 May 2025 19:41:51 -0000
+Subject: [PATCH] give japan claims on korea if DOM is active
+
+The claims are needed for one of their starting missions. The patchnotes
+for 1.37 already said "Forming Japan will now grant claims on Korea if
+the Domination DLC is active.", but this was never implemented.
+
+Bugreport: https://forum.paradoxplaza.com/forum/threads/forming-japan-does-not-grant-claims-on-korea-if-the-domination-dlc-is-active.1702742/
+---
+ decisions/JapaneseNation.txt | 3 +++
+ 1 file changed, 3 insertions(+)
+
+diff --git a/decisions/JapaneseNation.txt b/decisions/JapaneseNation.txt
+index c86268f4..a33f0057 100755
+--- a/decisions/JapaneseNation.txt
++++ b/decisions/JapaneseNation.txt
+@@ -76,6 +76,7 @@ country_decisions = {
+ 			}
+ 			if = { 
+ 				limit = { has_dlc = "Domination" }
++				give_claims = { region = korea_region }
+ 				add_country_modifier = {
+ 					name = jap_grant_samurai_modifier
+ 					duration = -1 
+@@ -147,6 +148,7 @@ country_decisions = {
+ 			}
+ 			if = { 
+ 				limit = { has_dlc = "Domination" }
++				give_claims = { region = korea_region }
+ 				add_country_modifier = {
+ 					name = jap_grant_samurai_modifier
+ 					duration = -1 
+@@ -215,6 +217,7 @@ country_decisions = {
+ 			}
+ 			if = { 
+ 				limit = { has_dlc = "Domination" }
++				give_claims = { region = korea_region }
+ 				add_country_modifier = {
+ 					name = jap_grant_samurai_modifier
+ 					duration = -1 
+-- 
+2.45.2
+
