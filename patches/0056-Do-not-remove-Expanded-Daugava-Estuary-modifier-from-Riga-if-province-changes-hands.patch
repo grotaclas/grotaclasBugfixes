@@ -1,0 +1,34 @@
+From e694dfc5f80859e4744a7efb548fadb3109051a5 Mon Sep 17 00:00:00 2001
+From: grotaclas <grotaclas@gmail.com>
+Date: Sun, 04 May 2025 19:41:52 -0000
+Subject: [PATCH] Do not remove "Expanded Daugava Estuary" modifier from Riga
+ if province changes hands
+
+The modifier gets added by the polish mission The Livonian
+Lands(plc_break_livonia), and replaces the permanent modifier "Daugava
+Estuary"(daugava_estuary_modifier), so it should also be permanent. This
+is especially important, because the mission can be completed if the
+province is owned by a subject and then the modifier would be lost when
+the subject gets integrated.
+
+Bugreport: https://forum.paradoxplaza.com/forum/threads/expanded-daugava-estuary-disappears-completely-after-annexing-vassal.1729695/
+---
+ missions/SCA_Polish_Missions.txt | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/missions/SCA_Polish_Missions.txt b/missions/SCA_Polish_Missions.txt
+index 4cbb1d35..647edae2 100755
+--- a/missions/SCA_Polish_Missions.txt
++++ b/missions/SCA_Polish_Missions.txt
+@@ -5650,7 +5650,7 @@ poland_sca_slot_5_plc_3 = {
+ 			hidden_effect = {
+ 				38 = { 
+ 					remove_province_modifier = daugava_estuary_modifier
+-					add_province_modifier = {
++					add_permanent_province_modifier = {
+ 						name = pol_daugava_estuary_modifier
+ 						duration = -1 
+ 					}
+-- 
+2.45.2
+
