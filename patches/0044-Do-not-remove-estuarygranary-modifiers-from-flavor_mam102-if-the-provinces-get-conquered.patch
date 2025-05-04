@@ -1,0 +1,43 @@
+From e389f027f9b672bd0e3a56eed81b1c8354519c6b Mon Sep 17 00:00:00 2001
+From: grotaclas <grotaclas@gmail.com>
+Date: Sun, 04 May 2025 19:41:51 -0000
+Subject: [PATCH] Do not remove estuary/granary modifiers from flavor_mam.102
+ if the provinces get conquered
+
+These modifiers replace the default modifiers nile_estuary_modifier or
+granary_of_the_mediterranean, which are permanent. The technology in eu4
+is not advanced enough to stop the nile from flowing into the sea, so
+the estuary modifier can't just be removed. Bringing the original
+modifier back would require changes in some on_actions, so I think it is
+simpler and clearer to make the new modifiers permanent instead.
+
+Bugreport: https://forum.paradoxplaza.com/forum/threads/expanded-granary-of-the-mediterranean-disappears-when-provinces-change-hands.1701042/
+---
+ events/flavorMAM.txt | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
+
+diff --git a/events/flavorMAM.txt b/events/flavorMAM.txt
+index eadb9cb5..8a00c1c5 100755
+--- a/events/flavorMAM.txt
++++ b/events/flavorMAM.txt
+@@ -1014,7 +1014,7 @@ country_event = {
+ 					has_province_modifier = nile_estuary_modifier
+ 				}
+ 				remove_province_modifier = nile_estuary_modifier
+-				add_province_modifier = {
++				add_permanent_province_modifier = {
+ 					name = expanded_nile_estuary_modifier
+ 					duration = -1 
+ 				}
+@@ -1035,7 +1035,7 @@ country_event = {
+ 					has_province_modifier = granary_of_the_mediterranean
+ 				}
+ 				remove_province_modifier = granary_of_the_mediterranean
+-				add_province_modifier = {
++				add_permanent_province_modifier = {
+ 					name = expanded_granary_of_the_mediterranean_modifier
+ 					duration = -1 
+ 				}
+-- 
+2.45.2
+
