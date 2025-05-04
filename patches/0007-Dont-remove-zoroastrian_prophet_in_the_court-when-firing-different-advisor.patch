@@ -1,0 +1,39 @@
+From 28e75f23b33a5f3db87da0512d8568234974ea75 Mon Sep 17 00:00:00 2001
+From: grotaclas <grotaclas@gmail.com>
+Date: Sun, 04 May 2025 12:51:06 -0000
+Subject: [PATCH] Dont remove zoroastrian_prophet_in_the_court when firing
+ different advisor
+
+The modifier gets set by the event flavor_per.69 and is supposed to last
+"until the recruited advisor is no longer in our service".
+But it also got removed when another advisor type gets removed
+
+Bugreport: https://forum.paradoxplaza.com/forum/threads/persia-loses-modifier-the-neo-zoroastrian-prophet-before-the-corresponding-advisor-dies.1726069/
+---
+ .../scripted_effects/01_scripted_effects_for_on_actions.txt  | 5 +++--
+ 1 file changed, 3 insertions(+), 2 deletions(-)
+
+diff --git a/common/scripted_effects/01_scripted_effects_for_on_actions.txt b/common/scripted_effects/01_scripted_effects_for_on_actions.txt
+index b1209885..1454597e 100755
+--- a/common/scripted_effects/01_scripted_effects_for_on_actions.txt
++++ b/common/scripted_effects/01_scripted_effects_for_on_actions.txt
+@@ -4482,13 +4482,14 @@ on_defender_of_faith_claim_effect = {
+ 	}
+ }
+ 
+-on_advisor_removed_effct_adm = {}
++on_advisor_removed_effct_adm = {
++	remove_country_modifier = zoroastrian_prophet_in_the_court
++}
+ on_advisor_removed_effct_dip = {}
+ on_advisor_removed_effct_mil = {}
+ on_advisor_removed_effct = {
+ 	on_advisor_removed_effct_$type$ = yes
+ 	remove_grand_vizier_modifiers = yes
+-	remove_country_modifier = zoroastrian_prophet_in_the_court
+ }
+ 
+ 
+-- 
+2.45.2
+
