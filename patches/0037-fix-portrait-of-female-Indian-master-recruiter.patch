@@ -1,0 +1,26 @@
+From f0f082c2715cdc2ffa2485b5e50f71486d787b6a Mon Sep 17 00:00:00 2001
+From: grotaclas <grotaclas@gmail.com>
+Date: Sun, 04 May 2025 19:40:59 -0000
+Subject: [PATCH] fix portrait of female Indian master recruiter
+
+Bugreport: https://forum.paradoxplaza.com/forum/threads/wrong-advisor-portraits.1732523/
+---
+ dlc/dlc093_dharma_advisors/interface/countryview_dharma.gfx | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/dlc/dlc093_dharma_advisors/interface/countryview_dharma.gfx b/dlc/dlc093_dharma_advisors/interface/countryview_dharma.gfx
+index d71689fc..9c890a81 100755
+--- a/dlc/dlc093_dharma_advisors/interface/countryview_dharma.gfx
++++ b/dlc/dlc093_dharma_advisors/interface/countryview_dharma.gfx
+@@ -172,7 +172,7 @@ spriteTypes = {
+ 	}
+ 	
+ 	spriteType = {
+-		name = "GFX_advisor_indiangfx_master_recruitmaster_female"
++		name = "GFX_advisor_indiangfx_recruitmaster_female"
+ 		texturefile = "gfx//interface//advisors//indian_master_recruiter_female.dds"
+ 		noOfFrames = 1
+ 		norefcount = yes
+-- 
+2.45.2
+
