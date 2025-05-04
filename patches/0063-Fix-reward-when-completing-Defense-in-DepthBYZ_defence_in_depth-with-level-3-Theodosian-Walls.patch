@@ -1,0 +1,26 @@
+From 908025fc8d3e008b08c6c93a634c944d1435fe45 Mon Sep 17 00:00:00 2001
+From: grotaclas <grotaclas@gmail.com>
+Date: Sun, 04 May 2025 19:41:53 -0000
+Subject: [PATCH] Fix reward when completing Defense in
+ Depth(BYZ_defence_in_depth) with level 3 "Theodosian Walls"
+
+Bugreport: https://forum.paradoxplaza.com/forum/threads/defense-in-depth-mission-borked-again-or-maybe-it-was-never-quite-unborked.1724366/
+---
+ missions/KoK_Byzantine_Missions.txt | 1 +
+ 1 file changed, 1 insertion(+)
+
+diff --git a/missions/KoK_Byzantine_Missions.txt b/missions/KoK_Byzantine_Missions.txt
+index 0e85cb1f..3c9ae968 100755
+--- a/missions/KoK_Byzantine_Missions.txt
++++ b/missions/KoK_Byzantine_Missions.txt
+@@ -1427,6 +1427,7 @@ MEE_BYZ_defense_5 = {
+ 				third_limit = "
+ 					OR = {
+ 						151 = { has_province_modifier = BYZ_theodosian_wall_2 } #should't be possible without ownership anyway.
++						151 = { has_province_modifier = BYZ_theodosian_wall_3 } #should't be possible without ownership anyway.
+ 						4701 = { has_province_modifier = BYZ_hexamilion_wall_2 }
+ 					}
+ 				"
+-- 
+2.45.2
+
