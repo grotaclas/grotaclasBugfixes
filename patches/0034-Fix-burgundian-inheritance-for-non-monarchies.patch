@@ -1,0 +1,42 @@
+From 0e2133e75c42a59cf52b3565c121222012a10e47 Mon Sep 17 00:00:00 2001
+From: grotaclas <grotaclas@gmail.com>
+Date: Sun, 04 May 2025 12:55:49 -0000
+Subject: [PATCH] Fix burgundian inheritance for non-monarchies
+
+1.37.2 allowed non-monarchies with a royal marriage to be chosen as
+bur_strongest_ally, but the event option "[bur_strongest_ally.GetName]
+will defend us again."(incidents_bur_inheritance.1.d) is only available
+if there also is a monarchy which fulfills the conditions for
+bur_strongest_ally. This fix changes the trigger for the event option to
+just check if bur_strongest_ally is set and is independent.
+
+Bugreport: https://forum.paradoxplaza.com/forum/threads/burgundian-inheritance-is-still-restricted-to-monarchies-in-1-37-2.1688983/
+---
+ events/Incident_Burgundian_Inheritance.txt | 10 ++--------
+ 1 file changed, 2 insertions(+), 8 deletions(-)
+
+diff --git a/events/Incident_Burgundian_Inheritance.txt b/events/Incident_Burgundian_Inheritance.txt
+index 07bec1fe..0f091c93 100755
+--- a/events/Incident_Burgundian_Inheritance.txt
++++ b/events/Incident_Burgundian_Inheritance.txt
+@@ -417,15 +417,9 @@ country_event = {
+ 		name = "incidents_bur_inheritance.1.d"
+ 		trigger = {
+ 			has_saved_event_target = bur_strongest_ally
+-			any_country = {
++			event_target:bur_strongest_ally = {
++				exists = yes
+ 				is_free_or_tributary_trigger = yes
+-				government = monarchy
+-				is_emperor = no
+-				NOT = { tag = FRA }
+-				OR = {
+-					has_country_flag = received_burgundian_marriage
+-					marriage_with = ROOT
+-				}
+ 			}
+ 		}
+ 		ai_chance = {
+-- 
+2.45.2
+
