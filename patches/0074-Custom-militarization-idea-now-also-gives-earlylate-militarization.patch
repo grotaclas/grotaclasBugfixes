@@ -1,0 +1,36 @@
+From 0b54adae306c77712c4e461575a788401c9f34df Mon Sep 17 00:00:00 2001
+From: grotaclas <grotaclas@gmail.com>
+Date: Sun, 04 May 2025 19:41:54 -0000
+Subject: [PATCH] Custom militarization idea now also gives early/late
+ militarization
+
+Normally custom nations can only have prussian_monarchy_base which uses
+monthly_militarized_society, but when forming Prussia, the country gets
+access to prussian_monarchy which uses
+monthly_prussian_militarized_society_1,
+monthly_prussian_militarized_society_2, and
+monthly_prussian_militarized_society_3. This patch adds these modifiers
+to the custom idea custom_monthly_militarized_society
+
+Bugreport: https://forum.paradoxplaza.com/forum/threads/custom-nations-militarization-idea-doesnt-work-when-reforming-into-prussia.1613965/
+---
+ common/custom_ideas/02_newer_ideas.txt | 3 +++
+ 1 file changed, 3 insertions(+)
+
+diff --git a/common/custom_ideas/02_newer_ideas.txt b/common/custom_ideas/02_newer_ideas.txt
+index 84046b5d..030207c6 100755
+--- a/common/custom_ideas/02_newer_ideas.txt
++++ b/common/custom_ideas/02_newer_ideas.txt
+@@ -349,6 +349,9 @@ newer_idea_mil_modifiers = {
+ 	}
+ 	custom_monthly_militarized_society = {
+ 		monthly_militarized_society = 0.05
++		monthly_prussian_militarized_society_1 = 0.05
++		monthly_prussian_militarized_society_2 = 0.05
++		monthly_prussian_militarized_society_3 = 0.05
+ 		level_cost_2 = 5
+ 		level_cost_3 = 15		
+ 		level_cost_4 = 30
+-- 
+2.45.2
+
