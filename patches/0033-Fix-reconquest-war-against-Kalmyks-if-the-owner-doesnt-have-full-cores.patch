@@ -1,0 +1,77 @@
+From cf4c162baea8e40dd4ffb03744721d516094c522 Mon Sep 17 00:00:00 2001
+From: grotaclas <grotaclas@gmail.com>
+Date: Sun, 04 May 2025 12:55:48 -0000
+Subject: [PATCH] Fix reconquest war against Kalmyks if the owner doesnt have
+ full cores
+
+When the event "The Arrival of the Kalmyks"(flavor_klm.1) releases the Kalmyk,
+the previous owner loses their territorial core which breaks the
+reconquest CB from the second event option. This fix adds the
+territorial cores back before declaring the war. It also adds a
+territorial core on the wargoal 2417 if the owner doesn't have a core on
+it.
+
+Bugreport: https://forum.paradoxplaza.com/forum/threads/the-kalmyk-error-and-the-problems-of-building-great-projects.1734253/
+---
+ events/flavorKLM.txt | 31 +++++++++++++++++++++++++++++++
+ 1 file changed, 31 insertions(+)
+
+diff --git a/events/flavorKLM.txt b/events/flavorKLM.txt
+index c53e36d9..46586ab1 100755
+--- a/events/flavorKLM.txt
++++ b/events/flavorKLM.txt
+@@ -44,6 +44,12 @@ country_event = {
+ 						area = astrakhan_area
+ 					}
+ 					add_core = KLM
++					if = {
++						limit = {
++							is_territorial_core = ROOT
++						}
++						set_province_flag = territorial_core_before_klm_spawn
++					}
+ 				}
+ 				release = KLM
+ 				KLM = {
+@@ -99,6 +105,23 @@ country_event = {
+ 				}
+ 			}
+ 		}
++		hidden_effect = {
++			# restore territorial cores which were lost when releasing KLM, so that the reconquest CB is useful
++			astrakhan_area = {
++				limit = {
++					has_province_flag = territorial_core_before_klm_spawn
++				}
++				add_territorial_core = ROOT
++			}
++			# make sure that 2417 definitely has a territorial core, because otherwise the reconquest war won't happen
++			if = {
++				limit = {
++					NOT = { is_core = 2417 }
++					NOT = { is_territorial_core = 2417 }
++				}
++				add_territorial_core = 2417
++			}
++		}
+ 		declare_war_with_cb = {
+ 			who = KLM
+ 			casus_belli = cb_core
+@@ -119,5 +142,13 @@ country_event = {
+ 			}
+ 		}
+ 	}
++	after = {
++		astrakhan_area = {
++			limit = {
++				has_province_flag = territorial_core_before_klm_spawn
++			}
++			clr_province_flag = territorial_core_before_klm_spawn
++		}
++	}
+ }
+ 	
+\ No newline at end of file
+-- 
+2.45.2
+
