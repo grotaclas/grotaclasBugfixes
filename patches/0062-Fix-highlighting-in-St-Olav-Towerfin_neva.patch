@@ -1,0 +1,43 @@
+From 6cd24b6cbc029c55ec5606c0266de8c7184e74b7 Mon Sep 17 00:00:00 2001
+From: grotaclas <grotaclas@gmail.com>
+Date: Sun, 04 May 2025 19:41:53 -0000
+Subject: [PATCH] Fix highlighting in "St. Olav Tower"(fin_neva)
+
+---
+ missions/SCA_Finnish_Missions.txt | 20 ++++++++++++++++++--
+ 1 file changed, 18 insertions(+), 2 deletions(-)
+
+diff --git a/missions/SCA_Finnish_Missions.txt b/missions/SCA_Finnish_Missions.txt
+index c7b82371..72d223dd 100755
+--- a/missions/SCA_Finnish_Missions.txt
++++ b/missions/SCA_Finnish_Missions.txt
+@@ -545,8 +545,24 @@ fin_missions_3 = {
+ 		required_missions = { fin_independence }
+ 		position = 3
+ 		provinces_to_highlight = { 
+-			area = karelia_area 
+-			NOT = { country_or_non_sovereign_subject_holds = ROOT } 
++			OR = {
++				AND = {
++					area = karelia_area
++					NOT = { country_or_non_sovereign_subject_holds = ROOT }
++					NOT = { ROOT = { has_country_flag = rus_can_complete_missions_as_subject } }
++				}
++				AND = {
++					province_id = 30
++					OR = {
++						AND = {
++							NOT = { owned_by = ROOT }
++							NOT = { ROOT = { has_country_flag = rus_can_complete_missions_as_subject } }
++						}
++						NOT = { has_fort_building_trigger = yes }
++						NOT = { base_manpower = 8 }
++					}
++				}
++			}
+ 		}
+ 		trigger = {
+ 			if = {
+-- 
+2.45.2
+
