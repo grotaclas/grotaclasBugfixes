@@ -1,0 +1,31 @@
+From ba2cf587a46b5f028550f6c88e4bfe0a5fbb45a6 Mon Sep 17 00:00:00 2001
+From: grotaclas <grotaclas@gmail.com>
+Date: Sun, 04 May 2025 19:41:51 -0000
+Subject: [PATCH] prevent incan event "Policies of Huascar" after the end of
+ the civil war
+
+Bugreport: https://forum.paradoxplaza.com/forum/threads/incan-civil-war-event-policies-of-leader-name-has-incorrect-name-in-event-text.1703452
+---
+ events/flavorINC.txt | 6 ++++++
+ 1 file changed, 6 insertions(+)
+
+diff --git a/events/flavorINC.txt b/events/flavorINC.txt
+index 21a84996..69dc38ef 100755
+--- a/events/flavorINC.txt
++++ b/events/flavorINC.txt
+@@ -773,6 +773,12 @@ country_event = {
+ 			}
+ 		}
+ 	}
++
++	immediate = {
++		# to prevent flavor_inc.12 from happening after the end of the civil war
++		clr_country_flag = inc_civil_war_support_huascar
++		clr_country_flag = inc_civil_war_support_atahualpa
++	}
+ 	
+ 	mean_time_to_happen = {
+ 		months = 6
+-- 
+2.45.2
+
