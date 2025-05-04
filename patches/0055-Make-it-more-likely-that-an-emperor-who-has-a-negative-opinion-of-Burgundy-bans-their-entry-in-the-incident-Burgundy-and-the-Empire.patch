@@ -1,0 +1,30 @@
+From 213165304cb519457324e8c3cfc89ad31fad5a01 Mon Sep 17 00:00:00 2001
+From: grotaclas <grotaclas@gmail.com>
+Date: Sun, 04 May 2025 19:41:52 -0000
+Subject: [PATCH] Make it more likely that an emperor who has a negative
+ opinion of Burgundy bans their entry in the incident Burgundy and the Empire
+
+the factor was already there, but it wasn't working, because the emperor
+checked his opinion of himself
+
+Bugreport: https://forum.paradoxplaza.com/forum/threads/burgundy-and-the-empire-imperial-incident-issue-in-calculation-of-ai-factor.1731899/
+---
+ events/Incident_Burgundy_Joins_Empire.txt | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/events/Incident_Burgundy_Joins_Empire.txt b/events/Incident_Burgundy_Joins_Empire.txt
+index 63298830..5d746a06 100755
+--- a/events/Incident_Burgundy_Joins_Empire.txt
++++ b/events/Incident_Burgundy_Joins_Empire.txt
+@@ -117,7 +117,7 @@ country_event = {
+ 				factor = 1.5
+ 				NOT = {
+ 					has_opinion = {
+-						who = emperor
++						who = BUR
+ 						value = 0
+ 					}
+ 				}
+-- 
+2.45.2
+
