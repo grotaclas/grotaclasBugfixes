@@ -1,0 +1,31 @@
+From e6aeebc20d7b54fc1d198d154ebd55daa0be4462 Mon Sep 17 00:00:00 2001
+From: grotaclas <grotaclas@gmail.com>
+Date: Sun, 04 May 2025 19:41:54 -0000
+Subject: [PATCH] Prevent event "A Zoroastrian Identity" during war
+
+The event "A Zoroastrian Identity"(flavor_per.66) changes the tag to
+Eranshahr, which causes bugs with war participation. Blocking the event
+from happening during war is a partial fix, because the event could
+happen before the war, but the player could click on the event option
+after the war started.
+
+Bugreport: https://forum.paradoxplaza.com/forum/threads/forming-eranshar-during-a-war-does-not-keep-trace-of-your-war-participation.1615632/
+---
+ events/FlavorPER.txt | 1 +
+ 1 file changed, 1 insertion(+)
+
+diff --git a/events/FlavorPER.txt b/events/FlavorPER.txt
+index 76599c84..268e3da5 100755
+--- a/events/FlavorPER.txt
++++ b/events/FlavorPER.txt
+@@ -3664,6 +3664,7 @@ country_event = {
+ 			tag = ERS
+ 		}
+ 		religion_group = zoroastrian_group
++		is_at_war = no
+ 		NOT = { has_country_flag = has_eranshahr_moment }
+ 	}
+ 	immediate = {
+-- 
+2.45.2
+
