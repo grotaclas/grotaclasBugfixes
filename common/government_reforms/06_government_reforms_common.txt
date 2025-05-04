@@ -1241,11 +1241,17 @@ secure_clergy_power_reform = {
 	}
 	post_removed_effect = {
 		hidden_effect = {
-			every_owned_province = {
+			if = {
 				limit = {
-					has_province_modifier = gov_expanded_temple_rights_mod
+					# this check is needed so that the modifier doesn't get removed when switching to another reform with the same effect
+					NOT = { has_government_attribute = temples_modifier }
 				}
-				remove_province_modifier = gov_expanded_temple_rights_mod
+				every_owned_province = {
+					limit = {
+						has_province_modifier = gov_expanded_temple_rights_mod
+					}
+					remove_province_modifier = gov_expanded_temple_rights_mod
+				}
 			}
 		}
 	}
@@ -1437,11 +1443,17 @@ holy_synod_reform = {
 	}
 	post_removed_effect = {
 		hidden_effect = {
-			every_owned_province = {
+			if = {
 				limit = {
-					has_province_modifier = gov_expanded_temple_rights_mod
+					# this check is needed so that the modifier doesn't get removed when switching to another reform with the same effect
+					NOT = { has_government_attribute = temples_modifier }
 				}
-				remove_province_modifier = gov_expanded_temple_rights_mod
+				every_owned_province = {
+					limit = {
+						has_province_modifier = gov_expanded_temple_rights_mod
+					}
+					remove_province_modifier = gov_expanded_temple_rights_mod
+				}
 			}
 		}
 	}
@@ -1528,11 +1540,17 @@ head_of_the_patriarchy_reform = {
 	}
 	post_removed_effect = {
 		hidden_effect = {
-			every_owned_province = {
+			if = {
 				limit = {
-					has_province_modifier = gov_expanded_temple_rights_mod
+					# this check is needed so that the modifier doesn't get removed when switching to another reform with the same effect
+					NOT = { has_government_attribute = temples_modifier }
 				}
-				remove_province_modifier = gov_expanded_temple_rights_mod
+				every_owned_province = {
+					limit = {
+						has_province_modifier = gov_expanded_temple_rights_mod
+					}
+					remove_province_modifier = gov_expanded_temple_rights_mod
+				}
 			}
 		}
 		remove_country_modifier = gov_improved_defender_of_faith_mod

@@ -1,0 +1,89 @@
+From e1ec1c3f2e5493e7cbe2b6c7e46e317753a4310c Mon Sep 17 00:00:00 2001
+From: grotaclas <grotaclas@gmail.com>
+Date: Sun, 04 May 2025 19:41:52 -0000
+Subject: [PATCH] Fix temple bonus when switching between reforms
+
+Enacting a reform which has temples_modifier = yes, gives the modifier
+gov_expanded_temple_rights_mod to all provinces with a tax building and
+removing the reform removes the modifier again. But when switching
+between two reforms which have that attribute, it seems that the effect
+of the new reform happens before the post_removed_effect/removed_effect
+of the removed reform, so the modifier gets removed from all provinces.
+This patch fixes it by only removing the modifier if the country does
+not have the temples_modifier = yes anymore.
+
+Bugreport: https://forum.paradoxplaza.com/forum/threads/russia-fate-of-the-peasantry-mission-head-of-the-patriarchate-reform-bugs.1674468
+---
+ .../06_government_reforms_common.txt          | 36 ++++++++++++++-----
+ 1 file changed, 27 insertions(+), 9 deletions(-)
+
+diff --git a/common/government_reforms/06_government_reforms_common.txt b/common/government_reforms/06_government_reforms_common.txt
+index c57e42a3..2073a3d4 100755
+--- a/common/government_reforms/06_government_reforms_common.txt
++++ b/common/government_reforms/06_government_reforms_common.txt
+@@ -1241,11 +1241,17 @@ secure_clergy_power_reform = {
+ 	}
+ 	post_removed_effect = {
+ 		hidden_effect = {
+-			every_owned_province = {
++			if = {
+ 				limit = {
+-					has_province_modifier = gov_expanded_temple_rights_mod
++					# this check is needed so that the modifier doesn't get removed when switching to another reform with the same effect
++					NOT = { has_government_attribute = temples_modifier }
++				}
++				every_owned_province = {
++					limit = {
++						has_province_modifier = gov_expanded_temple_rights_mod
++					}
++					remove_province_modifier = gov_expanded_temple_rights_mod
+ 				}
+-				remove_province_modifier = gov_expanded_temple_rights_mod
+ 			}
+ 		}
+ 	}
+@@ -1437,11 +1443,17 @@ holy_synod_reform = {
+ 	}
+ 	post_removed_effect = {
+ 		hidden_effect = {
+-			every_owned_province = {
++			if = {
+ 				limit = {
+-					has_province_modifier = gov_expanded_temple_rights_mod
++					# this check is needed so that the modifier doesn't get removed when switching to another reform with the same effect
++					NOT = { has_government_attribute = temples_modifier }
++				}
++				every_owned_province = {
++					limit = {
++						has_province_modifier = gov_expanded_temple_rights_mod
++					}
++					remove_province_modifier = gov_expanded_temple_rights_mod
+ 				}
+-				remove_province_modifier = gov_expanded_temple_rights_mod
+ 			}
+ 		}
+ 	}
+@@ -1528,11 +1540,17 @@ head_of_the_patriarchy_reform = {
+ 	}
+ 	post_removed_effect = {
+ 		hidden_effect = {
+-			every_owned_province = {
++			if = {
+ 				limit = {
+-					has_province_modifier = gov_expanded_temple_rights_mod
++					# this check is needed so that the modifier doesn't get removed when switching to another reform with the same effect
++					NOT = { has_government_attribute = temples_modifier }
++				}
++				every_owned_province = {
++					limit = {
++						has_province_modifier = gov_expanded_temple_rights_mod
++					}
++					remove_province_modifier = gov_expanded_temple_rights_mod
+ 				}
+-				remove_province_modifier = gov_expanded_temple_rights_mod
+ 			}
+ 		}
+ 		remove_country_modifier = gov_improved_defender_of_faith_mod
+-- 
+2.45.2
+
