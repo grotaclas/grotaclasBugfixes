@@ -1,0 +1,105 @@
+From 6b697121fc28d37c1c23deb05d38979dd73112c1 Mon Sep 17 00:00:00 2001
+From: grotaclas <grotaclas@gmail.com>
+Date: Sun, 04 May 2025 19:41:55 -0000
+Subject: [PATCH] Fix second reward for Yuan mission "Reform Civil
+ Registration"
+
+The mission worked like this:
+
+You get the first reward if you fulfill all the following conditions:
+
+* granted land rights to eunuchs or doesn't have the eunuchs estate
+* granted land rights to burghers or doesn't have the burghers estate
+* granted land rights to nobles or doesn't have the nobles estate
+* granted land rights to clergy or doesn't have the clergy estate
+* granted land rights to nomadic tribes or doesn't have the nomadic tribes estate
+* has at least one of the above estates
+
+The second reward looks to be intended for the case that you don't get the first reward. So they put a `NOT = { }` around the first condition. But as cwtools correctly warns you if you do that, "Reminder: NOT does not mean NOT AND". So a `NOT` surrounding multiple conditions means
+
+    NOT = {
+        OR = {
+            condition1
+            condition2
+            ...
+        }
+    }
+
+So all the conditions must be false, so that the `NOT` becomes true and you get the second reward. This can be achieved (in theory) for the land rights conditions by having all those estates, but not granting land rights to any of them. But then the condition "has at least one of the above estates" is true. But if you have none of the estates, all the land rights conditions would be true, because of the "or doesn't have the estate" part. So it's impossible to get it.
+
+This fix turns the NOT = {] into an NOT = { AND = {}}, so that you get
+the second reward if you don't qualify for the first one.
+
+No bugreport, but reddit post: https://www.reddit.com/r/eu4/comments/1kdzikx/how_do_i_get_the_alternative_reward_for_the/
+---
+ ...ripted_triggers_for_mission_conditions.txt | 54 ++++++++++---------
+ 1 file changed, 28 insertions(+), 26 deletions(-)
+
+diff --git a/common/scripted_triggers/02_scripted_triggers_for_mission_conditions.txt b/common/scripted_triggers/02_scripted_triggers_for_mission_conditions.txt
+index c9b2bbba..83816b23 100755
+--- a/common/scripted_triggers/02_scripted_triggers_for_mission_conditions.txt
++++ b/common/scripted_triggers/02_scripted_triggers_for_mission_conditions.txt
+@@ -579,32 +579,34 @@ reform_civil_registration_first_limit = {
+ 
+ reform_civil_registration_second_limit = {
+ 	NOT = {
+-		if = {
+-			limit = { has_estate = estate_eunuchs } 
+-			has_estate_privilege = estate_eunuchs_land_rights_privilege
+-		}
+-		if = {
+-			limit = { has_estate = estate_burghers } 
+-			has_estate_privilege = estate_burghers_land_rights 
+-		}
+-		if = {
+-			limit = { has_estate = estate_nobles } 
+-			has_estate_privilege = estate_nobles_land_rights 
+-		}
+-		if = {
+-			limit = { has_estate = estate_church } 
+-			has_estate_privilege = estate_church_land_rights 
+-		}
+-		if = {
+-			limit = { has_estate = estate_nomadic_tribes } 
+-			has_estate_privilege = estate_nomadic_tribes_land_rights
+-		}
+-		OR = {
+-			has_estate = estate_eunuchs
+-			has_estate = estate_burghers
+-			has_estate = estate_nobles
+-			has_estate = estate_church
+-			has_estate = estate_nomadic_tribes
++		AND = {
++			if = {
++				limit = { has_estate = estate_eunuchs }
++				has_estate_privilege = estate_eunuchs_land_rights_privilege
++			}
++			if = {
++				limit = { has_estate = estate_burghers }
++				has_estate_privilege = estate_burghers_land_rights
++			}
++			if = {
++				limit = { has_estate = estate_nobles }
++				has_estate_privilege = estate_nobles_land_rights
++			}
++			if = {
++				limit = { has_estate = estate_church }
++				has_estate_privilege = estate_church_land_rights
++			}
++			if = {
++				limit = { has_estate = estate_nomadic_tribes }
++				has_estate_privilege = estate_nomadic_tribes_land_rights
++			}
++			OR = {
++				has_estate = estate_eunuchs
++				has_estate = estate_burghers
++				has_estate = estate_nobles
++				has_estate = estate_church
++				has_estate = estate_nomadic_tribes
++			}
+ 		}
+ 	}
+ }
+-- 
+2.45.2
+
