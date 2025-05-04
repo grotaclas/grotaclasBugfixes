@@ -1,0 +1,51 @@
+From 90a587d503327c02a39b520f1966cde1b9a10051 Mon Sep 17 00:00:00 2001
+From: grotaclas <grotaclas@gmail.com>
+Date: Sun, 04 May 2025 12:55:38 -0000
+Subject: [PATCH] allow custom nations to keep livonian reforms
+
+it already worked for most of them, but Livonian Absolute Monarchy and
+Livonian Enlightened Monarchy only had the custom nation condition in
+the potential and not in the trigger
+
+bugreport: https://forum.paradoxplaza.com/forum/threads/multiple-livonian-monarchy-forms-get-removed-and-locked-for-custom-nations.1734968/
+---
+ .../01_government_reforms_monarchies.txt         | 16 ++++++++++++++--
+ 1 file changed, 14 insertions(+), 2 deletions(-)
+
+diff --git a/common/government_reforms/01_government_reforms_monarchies.txt b/common/government_reforms/01_government_reforms_monarchies.txt
+index 49911cd1..92edef7e 100755
+--- a/common/government_reforms/01_government_reforms_monarchies.txt
++++ b/common/government_reforms/01_government_reforms_monarchies.txt
+@@ -4460,7 +4460,13 @@ livonian_absolute_monarchy = {
+ 		}
+ 	}
+ 	trigger = {
+-		has_unlocked_government_reform = { government_reform = livonian_absolute_monarchy }
++		OR = {
++			AND = {
++				is_playing_custom_nation = yes
++				have_had_reform = livonian_absolute_monarchy
++			}
++			has_unlocked_government_reform = { government_reform = livonian_absolute_monarchy }
++		}
+ 	}
+ 	valid_for_nation_designer = yes
+ 	nation_designer_trigger = {
+@@ -4496,7 +4502,13 @@ livonian_enlightened_monarchy = {
+ 		}
+ 	}
+ 	trigger = {
+-		has_unlocked_government_reform = { government_reform = livonian_enlightened_monarchy }
++		OR = {
++			AND = {
++				is_playing_custom_nation = yes
++				have_had_reform = livonian_enlightened_monarchy
++			}
++			has_unlocked_government_reform = { government_reform = livonian_enlightened_monarchy }
++		}
+ 	}
+ 	valid_for_nation_designer = yes
+ 	nation_designer_trigger = {
+-- 
+2.45.2
+
