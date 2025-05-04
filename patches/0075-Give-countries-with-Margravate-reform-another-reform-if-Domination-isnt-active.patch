@@ -1,0 +1,66 @@
+From b448e0b0ee79d6be11f93672115bce3fc84b28da Mon Sep 17 00:00:00 2001
+From: grotaclas <grotaclas@gmail.com>
+Date: Sun, 04 May 2025 19:41:54 -0000
+Subject: [PATCH] Give countries with Margravate reform another reform if
+ Domination isn't active
+
+This affects Baden, Brandenburg and Montferrat
+
+Bugreport: https://forum.paradoxplaza.com/forum/threads/eu-iv-without-domination-montferrat-starts-without-tier-1-government-reform.1578649/
+---
+ history/countries/BAD - Baden.txt       | 6 ++++++
+ history/countries/BRA - Brandenburg.txt | 6 ++++++
+ history/countries/MFA - Montferrat.txt  | 6 ++++++
+ 3 files changed, 18 insertions(+)
+
+diff --git a/history/countries/BAD - Baden.txt b/history/countries/BAD - Baden.txt
+index a2edc1e0..9a90f662 100755
+--- a/history/countries/BAD - Baden.txt	
++++ b/history/countries/BAD - Baden.txt	
+@@ -1,5 +1,11 @@
+ government = monarchy
+ add_government_reform = margraviate_reform
++if = {
++	limit = {
++		NOT = { has_dlc = "Domination" }
++	}
++	add_government_reform = feudalism_reform
++}
+ government_rank = 1
+ primary_culture = swabian
+ religion = catholic
+diff --git a/history/countries/BRA - Brandenburg.txt b/history/countries/BRA - Brandenburg.txt
+index 2ff9a188..6b4ab159 100755
+--- a/history/countries/BRA - Brandenburg.txt	
++++ b/history/countries/BRA - Brandenburg.txt	
+@@ -1,5 +1,11 @@
+ government = monarchy
+ add_government_reform = margraviate_reform
++if = {
++	limit = {
++		NOT = { has_dlc = "Domination" }
++	}
++	add_government_reform = feudalism_reform
++}
+ government_rank = 1
+ elector = yes
+ technology_group = western
+diff --git a/history/countries/MFA - Montferrat.txt b/history/countries/MFA - Montferrat.txt
+index 23fba156..24d497d3 100755
+--- a/history/countries/MFA - Montferrat.txt	
++++ b/history/countries/MFA - Montferrat.txt	
+@@ -1,5 +1,11 @@
+ government = monarchy
+ add_government_reform = margraviate_reform
++if = {
++	limit = {
++		NOT = { has_dlc = "Domination" }
++	}
++	add_government_reform = feudalism_reform
++}
+ government_rank = 1
+ primary_culture = piedmontese
+ religion = catholic
+-- 
+2.45.2
+
