@@ -1,0 +1,120 @@
+From b1ceeee02e042c6230a02c23d8cb15017d2280a0 Mon Sep 17 00:00:00 2001
+From: grotaclas <grotaclas@gmail.com>
+Date: Sun, 04 May 2025 19:41:54 -0000
+Subject: [PATCH] Fix maritime idea reward from venetian mission "Masters of
+ the Sea"
+
+The reward was wrongly applied when having trade ideas instead of
+maritime ideas.
+
+Also prevent giving out the naval ideas reward even when not having
+naval ideas.
+
+And simplify the mission effect by moving the tooltips for the effects
+out of the if/else blocks which are used for the yes/no tooltip lines
+
+Bugreport: https://forum.paradoxplaza.com/forum/threads/venice-mission-doesnt-give-the-rewards-it-says-it-does.1709353/
+---
+ missions/WOC_Venetian_Missions.txt | 52 +++++++++---------------------
+ 1 file changed, 15 insertions(+), 37 deletions(-)
+
+diff --git a/missions/WOC_Venetian_Missions.txt b/missions/WOC_Venetian_Missions.txt
+index 2a391e9a..d86f77f1 100755
+--- a/missions/WOC_Venetian_Missions.txt
++++ b/missions/WOC_Venetian_Missions.txt
+@@ -380,44 +380,28 @@ venice_missions_slot_1_navy = {
+ 			if = {
+ 				limit = { full_idea_group = naval_ideas }
+ 				custom_tooltip = ven_naval_ideas_yes_tt
+-				if = {
+-					limit = { 
+-						OR = { 
+-							has_dlc = "Rule Britannia"
+-							has_dlc = "Domination"
+-							has_dlc = "Golden Century"
+-							has_dlc = "Lions of the North"
+-						}
+-					}
+-					add_country_modifier = {
+-						name = ven_marine_drilling_modifier
+-						duration = -1
+-					}
+-				}
+-				else = {
+-					add_country_modifier = {
+-						name = ven_marine_drilling_modifier2
+-						duration = -1
+-					}
+-				}
+ 			}
+ 			else = {
+ 				custom_tooltip = ven_naval_ideas_no_tt
+-				if = {
+-					limit = { 
+-						OR = { 
+-							has_dlc = "Rule Britannia"
+-							has_dlc = "Domination"
+-							has_dlc = "Golden Century"
+-							has_dlc = "Lions of the North"
+-						}
++			}
++			if = {
++				limit = {
++					OR = {
++						has_dlc = "Rule Britannia"
++						has_dlc = "Domination"
++						has_dlc = "Golden Century"
++						has_dlc = "Lions of the North"
+ 					}
++				}
++				tooltip = {
+ 					add_country_modifier = {
+ 						name = ven_marine_drilling_modifier
+ 						duration = -1
+ 					}
+ 				}
+-				else = {
++			}
++			else = {
++				tooltip = {
+ 					add_country_modifier = {
+ 						name = ven_marine_drilling_modifier2
+ 						duration = -1
+@@ -427,21 +411,19 @@ venice_missions_slot_1_navy = {
+ 			if = {
+ 				limit = { full_idea_group = maritime_ideas }
+ 				custom_tooltip = ven_maritime_ideas_yes_tt
+-				tooltip = { add_navy_tradition = 20 } 
+ 			}
+ 			else = {
+ 				custom_tooltip = ven_maritime_ideas_no_tt
+-				tooltip = { add_navy_tradition = 20 } 
+ 			}
++			tooltip = { add_navy_tradition = 20 }
+ 			if = {
+ 				limit = { full_idea_group = trade_ideas }
+ 				custom_tooltip = ven_trade_ideas_yes_tt
+-				tooltip = { add_mercantilism_or_monarch_power = { amount = 3 } }
+ 			}
+ 			else = {
+ 				custom_tooltip = ven_trade_ideas_no_tt
+-				tooltip = { add_mercantilism_or_monarch_power = { amount = 3 } }
+ 			}
++			tooltip = { add_mercantilism_or_monarch_power = { amount = 3 } }
+ 			hidden_effect = {
+ 				if = {
+ 					limit = { full_idea_group = naval_ideas }
+@@ -468,10 +450,6 @@ venice_missions_slot_1_navy = {
+ 				}
+ 				if = {
+ 					limit = { full_idea_group = maritime_ideas }
+-					
+-				}
+-				if = {
+-					limit = { full_idea_group = trade_ideas }
+ 					every_owned_province = {
+ 						limit = {
+ 							OR = {
+-- 
+2.45.2
+
