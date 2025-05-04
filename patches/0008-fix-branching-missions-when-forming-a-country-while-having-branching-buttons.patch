@@ -1,0 +1,46 @@
+From 103c2c140df852271eddcf2f344f14b2f3a4a2b3 Mon Sep 17 00:00:00 2001
+From: grotaclas <grotaclas@gmail.com>
+Date: Sun, 04 May 2025 12:51:06 -0000
+Subject: [PATCH] fix branching missions when forming a country while having
+ branching buttons
+
+the most common case is forming Persia as Hisn Kayfa, because Hisn Kayfa
+has branching previews without allowing you to actually select the
+branches with them. If you then form another country, the on_change_tag_effect
+triggers update_mission_previews which triggers clear_mismatching_mission_keys_for_batch
+for each batch which changes the variable can_preview_missions_var by -1
+each time. If you have less than three active branches you end up
+with a negative can_preview_missions_var which prevents future branching
+buttons from working. This patch forces can_preview_missions_var to be 0
+afterwards. This is not a perfect solution, because the variable should be
+higher than 0 if there are still active previews, but this would require
+a complete rework of these effects which has a higher risk of breaking
+something else. This fix certainly doesn't break anything which wasn't
+broken before and I don't think there are vanilla situations in which
+you can have some mismatching previews while also having previews which
+should still be displayed.
+
+Bugreport: https://forum.paradoxplaza.com/forum/threads/buttons-for-persian-branching-mission-do-not-appear.1704811/
+---
+ .../scripted_effects/02_scripted_effects_preview_missions.txt | 4 ++++
+ 1 file changed, 4 insertions(+)
+
+diff --git a/common/scripted_effects/02_scripted_effects_preview_missions.txt b/common/scripted_effects/02_scripted_effects_preview_missions.txt
+index 24120bc1..ac888371 100755
+--- a/common/scripted_effects/02_scripted_effects_preview_missions.txt
++++ b/common/scripted_effects/02_scripted_effects_preview_missions.txt
+@@ -1888,6 +1888,10 @@ update_mission_previews = {
+ 			clear_mismatching_mission_keys_for_batch = { batch = 1 }
+ 			clear_mismatching_mission_keys_for_batch = { batch = 2 }
+ 			clear_mismatching_mission_keys_for_batch = { batch = 3 }
++			set_variable = {
++				which = can_preview_missions_var
++				value = 0
++			}
+ 		}
+ 	}
+ }
+\ No newline at end of file
+-- 
+2.45.2
+
