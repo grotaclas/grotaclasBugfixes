@@ -1,0 +1,27 @@
+From 581e061bf225acdbaa73556af300d3fac4b8f74d Mon Sep 17 00:00:00 2001
+From: grotaclas <grotaclas@gmail.com>
+Date: Sun, 04 May 2025 19:41:53 -0000
+Subject: [PATCH] Reduce amount of land gain for successful eunuch rebels from
+ 100% to 10%
+
+Bugreport: https://forum.paradoxplaza.com/forum/threads/eunuch-rebel-success-gives-100-crownland-to-eunuchs.1688585/
+---
+ common/rebel_types/eunuch_rebels.txt | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/common/rebel_types/eunuch_rebels.txt b/common/rebel_types/eunuch_rebels.txt
+index 4f7a4e42..086afbec 100755
+--- a/common/rebel_types/eunuch_rebels.txt
++++ b/common/rebel_types/eunuch_rebels.txt
+@@ -160,7 +160,7 @@ eunuch_rebels = {
+ 			limit = { has_estate = estate_eunuchs }
+ 			change_estate_land_share = {
+ 				estate = estate_eunuchs
+-				share = 100
++				share = 10.0
+ 			}
+ 		}
+ 		add_absolutism = -20
+-- 
+2.45.2
+
