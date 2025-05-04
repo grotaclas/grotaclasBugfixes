@@ -1,0 +1,43 @@
+From 99c637ccb545db0484a8474aa73c95ac85d91173 Mon Sep 17 00:00:00 2001
+From: grotaclas <grotaclas@gmail.com>
+Date: Sun, 04 May 2025 19:41:53 -0000
+Subject: [PATCH] Fix partiarch authority gain when selling titles while having
+ the reform "Superiority of the State" and "Grant Land to the Monasteries"
+
+Bugreport: https://forum.paradoxplaza.com/forum/threads/no-patriarch-authority-gain-with-superiority-of-the-state-government-reform-when-selling-titles.1688572/
+---
+ common/estate_crown_land/00_interactions.txt | 12 ++++++------
+ 1 file changed, 6 insertions(+), 6 deletions(-)
+
+diff --git a/common/estate_crown_land/00_interactions.txt b/common/estate_crown_land/00_interactions.txt
+index f0b75272..ee879f9e 100755
+--- a/common/estate_crown_land/00_interactions.txt
++++ b/common/estate_crown_land/00_interactions.txt
+@@ -57,18 +57,18 @@ interaction = {
+ 				loyalty = 10
+ 				short = yes
+ 			}
+-			if = {
+-				limit = {
+-					has_government_attribute = selling_titles_increases_pa
+-				}
+-				add_patriarch_authority = 0.05
+-			}
+ 		}
+ 		else = {
+ 			country_event = {
+ 				id = estate_privileges_and_agendas_events.6
+ 			}
+ 		}
++		if = {
++			limit = {
++				has_government_attribute = selling_titles_increases_pa
++			}
++			add_patriarch_authority = 0.05
++		}
+ 		if = {
+ 			limit = {
+ 				has_country_flag = recent_land_distribution
+-- 
+2.45.2
+
