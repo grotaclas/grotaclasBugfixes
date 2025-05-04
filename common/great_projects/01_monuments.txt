@@ -20578,6 +20578,10 @@ amsterdam_bourse = {
 		OR = { 
 			culture = dutch
 			owner = { accepted_culture = dutch } 
+			AND = {
+				culture = roman
+				province_is_or_accepts_culture = yes
+			}
 		}
 	}
 	
@@ -20585,6 +20589,10 @@ amsterdam_bourse = {
 		OR = { 
 			culture = dutch
 			owner = { accepted_culture = dutch } 
+			AND = {
+				culture = roman
+				province_is_or_accepts_culture = yes
+			}
 		}
 	}
 
@@ -20592,6 +20600,10 @@ amsterdam_bourse = {
 		OR = { 
 			culture = dutch
 			owner = { accepted_culture = dutch } 
+			AND = {
+				culture = roman
+				province_is_or_accepts_culture = yes
+			}
 		}
 	}
 
