@@ -1,0 +1,30 @@
+From 1289a8e3f5cce958a958b466b05d8a357b17472d Mon Sep 17 00:00:00 2001
+From: grotaclas <grotaclas@gmail.com>
+Date: Sun, 04 May 2025 12:51:07 -0000
+Subject: [PATCH] fix "Italian Coastal Influence" privilege
+
+It gave local modifiers which don't work in the country scope
+
+Bugreport: https://forum.paradoxplaza.com/forum/threads/the-privilege-of-trebizond-italian-coastal-influence-does-not-give-you-the-maluses-it-says-it-gives.1704860/
+---
+ common/estate_privileges/03_burgher_privileges.txt | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
+
+diff --git a/common/estate_privileges/03_burgher_privileges.txt b/common/estate_privileges/03_burgher_privileges.txt
+index 320a644b..cc535870 100755
+--- a/common/estate_privileges/03_burgher_privileges.txt
++++ b/common/estate_privileges/03_burgher_privileges.txt
+@@ -3635,8 +3635,8 @@ estate_burghers_italian_coastal_influence = {
+ 			}
+ 		}
+ 		modifier = { 
+-			province_trade_power_modifier = -0.2
+-			local_sailors_modifier = -0.1
++			global_trade_power = -0.2
++			global_sailors_modifier = -0.1
+ 		}
+ 	}
+ 	conditional_modifier = {
+-- 
+2.45.2
+
