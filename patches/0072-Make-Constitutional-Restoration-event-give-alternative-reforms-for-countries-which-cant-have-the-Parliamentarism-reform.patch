@@ -1,0 +1,71 @@
+From 27630e759f5bbcb457bd347c0fc74926dde5552a Mon Sep 17 00:00:00 2001
+From: grotaclas <grotaclas@gmail.com>
+Date: Sun, 04 May 2025 19:41:53 -0000
+Subject: [PATCH] Make "Constitutional Restoration" event give alternative
+ reforms for countries which can't have the Parliamentarism reform
+
+"Restore the Senate" for Byzantium
+"A Revolutionary Council" for revolutionary countries with emperor DLC.
+Without the DLC, revolutionary countries don't have a parliament reform,
+so the event is now blocked for them.
+
+The event now also makes sure that you have a high enough reform tier to
+for the reform which you get
+
+Bugreport: https://forum.paradoxplaza.com/forum/threads/repeatedly-getting-the-constitutional-restoration-event-despite-being-revolutionary-empire.1615990/
+---
+ events/Governments.txt | 31 +++++++++++++++++++++++++++++--
+ 1 file changed, 29 insertions(+), 2 deletions(-)
+
+diff --git a/events/Governments.txt b/events/Governments.txt
+index 3296823d..ec6b9d0f 100755
+--- a/events/Governments.txt
++++ b/events/Governments.txt
+@@ -10,7 +10,17 @@ country_event = {
+ 	trigger = {
+ 		government = monarchy
+ 		has_parliament = no
+-		reform_level = 5
++		OR = {
++			AND = {
++				is_revolutionary = no
++				reform_level = 6
++			}
++			AND = {
++				is_revolutionary = yes
++				has_dlc = "Emperor"
++				reform_level = 10
++			}
++		}
+ 		NOT = { has_reform = parliamentary_reform }
+ 		NOT = { has_reform = constitutional_monarchy }
+ 		NOT = { has_reform = celestial_empire }
+@@ -35,7 +45,24 @@ country_event = {
+ 	
+ 	option = {
+ 		name = "EVTOPTB9479"
+-		add_government_reform = parliamentary_reform
++		if = {
++			limit = {
++				is_revolutionary = yes
++			}
++			add_government_reform = revolutionary_council_reform
++		}
++		else_if = {
++			limit = {
++				OR = {
++					tag = BYZ
++					was_tag = BYZ
++				}
++			 }
++			add_government_reform = restoration_of_the_senate_reform
++		}
++		else = {
++			add_government_reform = parliamentary_reform
++		}
+ 		add_stability_or_adm_power = yes
+ 	}
+ }
+-- 
+2.45.2
+
