@@ -1,0 +1,65 @@
+From d807f7c9f74137e422281c18a61875aaa0df11b7 Mon Sep 17 00:00:00 2001
+From: grotaclas <grotaclas@gmail.com>
+Date: Sun, 04 May 2025 19:41:54 -0000
+Subject: [PATCH] Fix highlighting for Restore the Mongol Empire
+
+The highlighting didn't reflect that all provinces can be owned by
+non-tributary subjects since version 1.37.
+
+Bugreport: https://forum.paradoxplaza.com/forum/threads/mongol-empire-decision-requirement-description-and-province-highlighting.1713440/
+---
+ decisions/MongolEmpire.txt | 37 ++++++++++++++-----------------------
+ 1 file changed, 14 insertions(+), 23 deletions(-)
+
+diff --git a/decisions/MongolEmpire.txt b/decisions/MongolEmpire.txt
+index 27db25b3..057a09c4 100755
+--- a/decisions/MongolEmpire.txt
++++ b/decisions/MongolEmpire.txt
+@@ -30,30 +30,21 @@ country_decisions = {
+ 		provinces_to_highlight = {
+ 			OR = {
+ 				AND = {
+-					OR = {
+-						AND = {
+-							region = mongolia_region
+-							is_empty = no
+-						}
+-						region = central_asia_region
+-						region = crimea_region
+-						province_id = 1816
+-						province_id = 1821
+-						province_id = 667
+-					}
+-					NOT = { owned_by = ROOT }
+-				}
+-				AND = {
+-					OR = {
+-						region = khorasan_region
+-						region = persia_region
+-						province_id = 295
+-						province_id = 280
+-					}
+-					NOT = {
+-						country_or_non_sovereign_subject_holds = ROOT
+-					}
++					region = mongolia_region
++					is_empty = no
+ 				}
++				region = central_asia_region
++				region = crimea_region
++				region = khorasan_region
++				region = persia_region
++				province_id = 295
++				province_id = 280
++				province_id = 667
++				province_id = 1816
++				province_id = 1821
++			}
++			NOT = {
++				country_or_non_sovereign_subject_holds = ROOT
+ 			}
+ 		}
+ 		allow = {
+-- 
+2.45.2
+
