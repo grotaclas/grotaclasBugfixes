@@ -1,0 +1,43 @@
+From 725bcf1dbdc1272b7db46c8b1dfb66a236e15494 Mon Sep 17 00:00:00 2001
+From: grotaclas <grotaclas@gmail.com>
+Date: Sun, 04 May 2025 19:41:51 -0000
+Subject: [PATCH] Prevent burghers agenda "Expand our Colony in
+ x"(estate_burghers_colonial_nation) for countries which can't spawn CNs
+
+Bugreport: https://forum.paradoxplaza.com/forum/threads/native-nations-in-the-new-world-get-an-unintended-diet-agenda.1702921/
+---
+ common/estate_agendas/03_burgher_agendas.txt | 18 ++++++++++++++++++
+ 1 file changed, 18 insertions(+)
+
+diff --git a/common/estate_agendas/03_burgher_agendas.txt b/common/estate_agendas/03_burgher_agendas.txt
+index caf1fc68..b8257804 100755
+--- a/common/estate_agendas/03_burgher_agendas.txt
++++ b/common/estate_agendas/03_burgher_agendas.txt
+@@ -1720,6 +1720,24 @@ estate_burghers_colonial_nation = {
+ 			}
+ 		}
+ 		NOT = { has_country_modifier = agenda_colonial_administration }
++		# avoid countries which can't spawn a CN.
++		# Former colonial nations which formed a new country,
++		# but never formed a post-colonial-tag cant form CNs either,
++		# but they neither have the flag no_colonial_nations
++		# nor do they count as is_former_colonial_nation,
++		# but I don't know a way to check for them
++		NOT = { has_country_flag = no_colonial_nations }
++		is_former_colonial_nation = no
++		NOT = {
++			capital_scope = {
++				OR = {
++					continent = north_america
++					continent = south_america
++					continent = new_world
++					colonial_region = colonial_australia
++				}
++			}
++		}
+ 	}
+ 	selection_weight = {
+ 		factor = 2.5
+-- 
+2.45.2
+
