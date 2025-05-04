@@ -1,0 +1,61 @@
+From 24a7a614b146e4de00b1e6c8809b4558cb232b60 Mon Sep 17 00:00:00 2001
+From: grotaclas <grotaclas@gmail.com>
+Date: Sun, 04 May 2025 12:55:49 -0000
+Subject: [PATCH] fix "Seljuk Empire" name when forming Rum as Aq and Qara
+ Qoyunlu
+
+It was bugged since the on_change_tag_effect was moved to the bottom
+of the effects in version 1.37.3, because that effect undoes the name change.
+
+This patch moves the name change below on_change_tag_effect
+
+Bugreport https://forum.paradoxplaza.com/forum/threads/aq-qoyunlu-seljuk-empire-name-change-bugged.1707994/
+---
+ decisions/TurkishNation.txt | 24 ++++++++++++------------
+ 1 file changed, 12 insertions(+), 12 deletions(-)
+
+diff --git a/decisions/TurkishNation.txt b/decisions/TurkishNation.txt
+index b3ed8dd9..4bd41ff1 100755
+--- a/decisions/TurkishNation.txt
++++ b/decisions/TurkishNation.txt
+@@ -81,18 +81,6 @@ country_decisions = {
+ 					add_government_reform = sultanate_of_rum_reform
+ 				}
+ 			}
+-			if = {
+-				limit = {
+-					OR = {
+-						tag = AKK
+-						tag = QAR
+-						was_tag = AKK
+-						was_tag = QAR
+-					}
+-				}
+-				override_country_name = SELJUK_EMPIRE
+-				set_country_flag = is_SELJUK_EMPIRE_flag
+-			}
+ 			remove_non_electors_emperors_from_empire_effect = yes
+ 			if = {
+ 				limit = {
+@@ -119,6 +107,18 @@ country_decisions = {
+ 			set_country_flag = formed_rum_flag
+ 			swap_non_generic_missions = yes
+ 			on_change_tag_effect = yes
++			if = {
++				limit = {
++					OR = {
++						tag = AKK
++						tag = QAR
++						was_tag = AKK
++						was_tag = QAR
++					}
++				}
++				override_country_name = SELJUK_EMPIRE
++				set_country_flag = is_SELJUK_EMPIRE_flag
++			}
+ 		}
+ 		ai_will_do = {
+ 			factor = 1
+-- 
+2.45.2
+
