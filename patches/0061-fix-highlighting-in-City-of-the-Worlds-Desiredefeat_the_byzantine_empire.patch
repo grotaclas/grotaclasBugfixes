@@ -1,0 +1,28 @@
+From 6b428ba21aa98f59a8f427483d5d467da1a3c9e8 Mon Sep 17 00:00:00 2001
+From: grotaclas <grotaclas@gmail.com>
+Date: Sun, 04 May 2025 19:41:53 -0000
+Subject: [PATCH] fix highlighting in City of the World's
+ Desire(defeat_the_byzantine_empire)
+
+It didn't highlight provinces owned by subjects even though the mission
+requires that they are owned directly
+---
+ missions/Ottoman_Missions.txt | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/missions/Ottoman_Missions.txt b/missions/Ottoman_Missions.txt
+index 82f0558b..8bd26d71 100755
+--- a/missions/Ottoman_Missions.txt
++++ b/missions/Ottoman_Missions.txt
+@@ -38,7 +38,7 @@ tur_conquerors_of_the_near_east = {
+ 		}
+ 		provinces_to_highlight = {
+ 			province_id = 151
+-			NOT = { country_or_non_sovereign_subject_holds = ROOT }
++			NOT = { owned_by = ROOT }
+ 		}
+ 		effect = {
+ 			add_country_modifier = {
+-- 
+2.45.2
+
