@@ -577,6 +577,11 @@ chinese_kingdoms_1 = {
 					value = 90
 				}
 				is_emperor_of_china = yes
+				NOT = {
+						any_country = {
+								is_emperor_of_china = yes
+						}
+				}
 			}
 			custom_trigger_tooltip = {
 				tooltip = chi_strongest_warlord_tt

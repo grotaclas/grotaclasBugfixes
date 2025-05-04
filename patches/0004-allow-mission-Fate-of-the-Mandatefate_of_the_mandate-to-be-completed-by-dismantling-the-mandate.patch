@@ -1,0 +1,31 @@
+From 4b64e57ee6fd10002b402e6f5269a2aa11487224 Mon Sep 17 00:00:00 2001
+From: grotaclas <grotaclas@gmail.com>
+Date: Sun, 04 May 2025 12:51:05 -0000
+Subject: [PATCH] allow mission "Fate of the Mandate"(fate_of_the_mandate) to
+ be completed by dismantling the mandate
+
+no bugreport, but related to EUIV-35600 which is about another mission
+which has the same problem
+---
+ missions/DOM_Chinese_Missions.txt | 5 +++++
+ 1 file changed, 5 insertions(+)
+
+diff --git a/missions/DOM_Chinese_Missions.txt b/missions/DOM_Chinese_Missions.txt
+index ee8f394e..983ee386 100755
+--- a/missions/DOM_Chinese_Missions.txt
++++ b/missions/DOM_Chinese_Missions.txt
+@@ -577,6 +577,11 @@ chinese_kingdoms_1 = {
+ 					value = 90
+ 				}
+ 				is_emperor_of_china = yes
++				NOT = {
++						any_country = {
++								is_emperor_of_china = yes
++						}
++				}
+ 			}
+ 			custom_trigger_tooltip = {
+ 				tooltip = chi_strongest_warlord_tt
+-- 
+2.45.2
+
