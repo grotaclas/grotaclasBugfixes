@@ -1,0 +1,27 @@
+From 277482bb9989c9d802a20df3826c70bc2adb36cc Mon Sep 17 00:00:00 2001
+From: grotaclas <grotaclas@gmail.com>
+Date: Sun, 04 May 2025 12:51:10 -0000
+Subject: [PATCH] fix tooltip son_own_develop_clothes_and_salt_ct
+
+it said that you gain +25% global trade power, even though the modifier
+gave +15% in all publicly available versions
+---
+ localisation/origins_l_english.yml | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/localisation/origins_l_english.yml b/localisation/origins_l_english.yml
+index b5ddcac8..bf8c4dbf 100755
+--- a/localisation/origins_l_english.yml
++++ b/localisation/origins_l_english.yml
+@@ -1151,7 +1151,7 @@
+  son_build_workshops_desc:0 "The demand for our products is increasing and more merchants want to trade salt and other goods with us. We should construct workshops to increase the production efficiency."
+  son_own_develop_clothes_and_salt_title:0 "Develop Salt and Cloth"
+  son_own_develop_clothes_and_salt_desc:1 "Gold is seen as an immensely valuable resource in the world. However, in West Africa it is only second to another, much more important resource: salt. While gold is useful for our treasury, it is not edible, and as such salt is of high value here.\nThen there are cloths, which are of great importance to protect the body from the heat of the sun.\n\nWe should develop the production of both goods in order to supply our market and to expand our trade even beyond the Sahel and Niger."
+- son_own_develop_clothes_and_salt_ct:0 "[Root.GetName] gets '§YSalt and Cloth Main Production§!' for §Y25 years§!, giving the following effects:\nGlobal Trade Power: §G+25.0%§!\nEvery owned province which produces §YSalt§! or §YCloth§!:\nLocal Goods Produced: §G+0.50§!"
++ son_own_develop_clothes_and_salt_ct:1 "[Root.GetName] gets '§YSalt and Cloth Main Production§!' for §Y25 years§!, giving the following effects:\nGlobal Trade Power: §G+15.0%§!\nEvery owned province which produces §YSalt§! or §YCloth§!:\nLocal Goods Produced: §G+0.50§!"
+  son_gold_of_west_africa_title:0 "Wealth of West Africa"
+  son_gold_of_west_africa_desc:0 "Our home region is known for its rich sources of gold. We should develop the gold mining and establish marketplaces in order to distribute the gold to the many corners of the world."
+  son_dominate_west_african_trade_title:0 "Protect West African Trade"
+-- 
+2.45.2
+
