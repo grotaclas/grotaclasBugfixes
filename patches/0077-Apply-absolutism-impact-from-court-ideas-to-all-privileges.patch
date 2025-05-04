@@ -1,0 +1,212 @@
+From e99bfcdcb5de2fdf60e425e5f697099d70e4a02b Mon Sep 17 00:00:00 2001
+From: grotaclas <grotaclas@gmail.com>
+Date: Sun, 04 May 2025 19:41:54 -0000
+Subject: [PATCH] Apply absolutism impact from court ideas to all privileges
+
+Some privileges were missing the 20% absolutism impact reduction from
+the 5th court idea respected_authority. I also found two which wrongly
+gave absolutism even though the privilege didn't reduce absolutism in
+the first place.
+
+Bugreport: https://forum.paradoxplaza.com/forum/threads/absolutism-malus-reduction-from-court-ideas-does-not-apply-for-some-estate-privileges.1717849/
+---
+ common/estate_privileges/02_noble_privileges.txt      |  6 ++++++
+ common/estate_privileges/03_burgher_privileges.txt    |  3 +++
+ .../estate_privileges/08_janissaries_privileges.txt   |  1 +
+ common/estate_privileges/10_qizilbash_privileges.txt  |  2 +-
+ common/estate_privileges/11_ghulams_privileges.txt    | 11 ++++++++++-
+ 5 files changed, 21 insertions(+), 2 deletions(-)
+
+diff --git a/common/estate_privileges/02_noble_privileges.txt b/common/estate_privileges/02_noble_privileges.txt
+index df79310f..7366547b 100755
+--- a/common/estate_privileges/02_noble_privileges.txt
++++ b/common/estate_privileges/02_noble_privileges.txt
+@@ -3526,6 +3526,7 @@ estate_nobles_expedition_rights = {
+ estate_nobles_highland_fortifications = {
+ 	icon = privilege_fort
+ 	max_absolutism = -5
++	conditional_modifier = { trigger = { has_absolutism_reduction_for_estate_privileges = yes } modifier = { max_absolutism = 1 } }
+ 	loyalty = 0.05
+ 	influence = 0.05
+ 	is_valid = {
+@@ -3595,6 +3596,7 @@ estate_nobles_emirs_of_baghdad = {
+ 	icon = privilege_build_jain_temple
+ 	land_share = 0
+ 	max_absolutism = -15
++	conditional_modifier = { trigger = { has_absolutism_reduction_for_estate_privileges = yes } modifier = { max_absolutism = 3 } }
+ 	loyalty = 0.1
+ 	influence = 0.1
+ 	is_valid = {
+@@ -4000,6 +4002,7 @@ estate_nobles_GER_diploma_andreanum = {
+ 	loyalty = 0.1
+ 	influence = 0.05
+ 	max_absolutism = -5
++	conditional_modifier = { trigger = { has_absolutism_reduction_for_estate_privileges = yes } modifier = { max_absolutism = 1 } }
+ 	is_valid = {
+ 		has_country_flag = GER_unlock_diploma_andreanum_flag
+ 	}
+@@ -4050,6 +4053,7 @@ estate_nobles_orangist_privileges = {
+ estate_nobles_vegvar_system = {
+ 	icon = estate_nobles_vegvar_system
+ 	max_absolutism = -5
++	conditional_modifier = { trigger = { has_absolutism_reduction_for_estate_privileges = yes } modifier = { max_absolutism = 1 } }
+ 	loyalty = 0.1
+ 	influence = 0.05
+ 	is_valid = {
+@@ -4355,6 +4359,7 @@ estate_nobles_AZT_warrior_culture = {
+ estate_nobles_reformatio_sigismundi = {
+ 	icon = privilege_coup_detat
+ 	max_absolutism = -10
++	conditional_modifier = { trigger = { has_absolutism_reduction_for_estate_privileges = yes } modifier = { max_absolutism = 2 } }
+ 	influence = 0.15
+ 	loyalty = 0.10
+ 	is_valid = {
+@@ -4820,6 +4825,7 @@ estate_nobles_MUG_development_of_the_subah = {
+ 	icon = privilege_states
+ 	influence = 0.05
+ 	max_absolutism = -5
++	conditional_modifier = { trigger = { has_absolutism_reduction_for_estate_privileges = yes } modifier = { max_absolutism = 1 } }
+ 	loyalty = 0
+ 	is_valid = {
+ 		has_country_flag = MUG_unlock_privilege_subahs_flag
+diff --git a/common/estate_privileges/03_burgher_privileges.txt b/common/estate_privileges/03_burgher_privileges.txt
+index cc535870..e4166f4b 100755
+--- a/common/estate_privileges/03_burgher_privileges.txt
++++ b/common/estate_privileges/03_burgher_privileges.txt
+@@ -2848,6 +2848,7 @@ estate_burghers_great_works_of_iran = {
+ 	icon = privilege_dev_cost_desert
+ 	land_share = 5
+ 	max_absolutism = -10
++	conditional_modifier = { trigger = { has_absolutism_reduction_for_estate_privileges = yes } modifier = { max_absolutism = 2 } }
+ 	loyalty = 0.05
+ 	influence = 0.05
+ 	is_valid = {
+@@ -4245,6 +4246,7 @@ estate_burghers_voc_privilege = {
+ estate_burghers_hungarian_royal_cities = {
+ 	icon = privilege_development_efficiency
+ 	max_absolutism = -5
++	conditional_modifier = { trigger = { has_absolutism_reduction_for_estate_privileges = yes } modifier = { max_absolutism = 1 } }
+ 	land_share = 5
+ 	loyalty = 0.1
+ 	influence = 0.05
+@@ -4765,6 +4767,7 @@ estate_burghers_AZT_mexican_gold_mines = {
+ estate_burghers_fugger_family = {
+ 	icon = estate_burghers_fugger_family
+ 	max_absolutism = -5
++	conditional_modifier = { trigger = { has_absolutism_reduction_for_estate_privileges = yes } modifier = { max_absolutism = 1 } }
+ 	loyalty = 0
+ 	influence = 0.05
+ 	is_valid = {
+diff --git a/common/estate_privileges/08_janissaries_privileges.txt b/common/estate_privileges/08_janissaries_privileges.txt
+index e9f111c7..71b5bc63 100755
+--- a/common/estate_privileges/08_janissaries_privileges.txt
++++ b/common/estate_privileges/08_janissaries_privileges.txt
+@@ -859,6 +859,7 @@ estate_janissary_military_reactionaries = {
+ estate_janissary_puppet_sultan = {
+ 	icon = privilege_puppet_ruler
+ 	max_absolutism = -30
++	conditional_modifier = { trigger = { has_absolutism_reduction_for_estate_privileges = yes } modifier = { max_absolutism = 6 } }
+ 	loyalty = 0
+ 	influence = 0.1
+ 	land_share = 0
+diff --git a/common/estate_privileges/10_qizilbash_privileges.txt b/common/estate_privileges/10_qizilbash_privileges.txt
+index 7e720884..dddbf166 100755
+--- a/common/estate_privileges/10_qizilbash_privileges.txt
++++ b/common/estate_privileges/10_qizilbash_privileges.txt
+@@ -526,7 +526,7 @@ estate_qizilbash_defensive_policy = {
+ 	loyalty = 0.05
+ 	influence = 0.1
+ 	max_absolutism = 0
+-	conditional_modifier = { trigger = { has_absolutism_reduction_for_estate_privileges = yes } modifier = { max_absolutism = 1 } }
++	#conditional_modifier = { trigger = { has_absolutism_reduction_for_estate_privileges = yes } modifier = { max_absolutism = 1 } }
+ 	is_valid = {
+ 		has_unlocked_estate_privilege = {
+ 			estate_privilege = estate_qizilbash_defensive_policy
+diff --git a/common/estate_privileges/11_ghulams_privileges.txt b/common/estate_privileges/11_ghulams_privileges.txt
+index 1405929c..c26a90e3 100755
+--- a/common/estate_privileges/11_ghulams_privileges.txt
++++ b/common/estate_privileges/11_ghulams_privileges.txt
+@@ -2,6 +2,7 @@ estate_ghulams_land_rights = {
+ 	icon = privilege_grant_autonomy
+ 	land_share = 5
+ 	max_absolutism = -5
++	conditional_modifier = { trigger = { has_absolutism_reduction_for_estate_privileges = yes } modifier = { max_absolutism = 1 } }
+ 	loyalty = 0.05
+ 	influence = 0.05
+ 	can_select = {
+@@ -202,6 +203,7 @@ estate_ghulams_military = {
+ 	icon = privilege_military_power
+ 	land_share = 10
+ 	max_absolutism = -5
++	conditional_modifier = { trigger = { has_absolutism_reduction_for_estate_privileges = yes } modifier = { max_absolutism = 1 } }
+ 	loyalty = -0.05
+ 	is_valid = {
+ 	}
+@@ -260,6 +262,7 @@ estate_ghulams_military = {
+ estate_ghulams_advisor = {
+ 	icon = privilege_limited_war_support
+ 	max_absolutism = -5
++	conditional_modifier = { trigger = { has_absolutism_reduction_for_estate_privileges = yes } modifier = { max_absolutism = 1 } }
+ 	influence = 0.1
+ 	is_valid = {
+ 		NOT = { religion_group = muslim }
+@@ -292,6 +295,7 @@ estate_ghulams_advisor = {
+ estate_ghulams_loyalty_privilege = {
+ 	icon = privilege_royal_authority
+ 	max_absolutism = -10
++	conditional_modifier = { trigger = { has_absolutism_reduction_for_estate_privileges = yes } modifier = { max_absolutism = 2 } }
+ 	loyalty = 0.15
+ 	influence = 0.1
+ 	penalties = {
+@@ -310,6 +314,7 @@ estate_ghulams_loyalty_privilege = {
+ estate_ghulams_levies = {
+ 	icon = privilege_recruit_from_marathi
+ 	max_absolutism = -5
++	conditional_modifier = { trigger = { has_absolutism_reduction_for_estate_privileges = yes } modifier = { max_absolutism = 1 } }
+ 	influence = 0.1
+ 	loyalty = 0.05
+ 	is_valid = {
+@@ -373,6 +378,7 @@ estate_ghulams_levies = {
+ estate_ghulams_levies_non_muslims = {
+ 	icon = privilege_recruit_from_marathi
+ 	max_absolutism = -5
++	conditional_modifier = { trigger = { has_absolutism_reduction_for_estate_privileges = yes } modifier = { max_absolutism = 1 } }
+ 	influence = 0.1
+ 	loyalty = 0.05
+ 	is_valid = {
+@@ -394,6 +400,7 @@ estate_ghulams_levies_non_muslims = {
+ estate_ghulams_special_privilege = {
+ 	icon = privilege_promote_maratha_nobility
+ 	max_absolutism = -5
++	conditional_modifier = { trigger = { has_absolutism_reduction_for_estate_privileges = yes } modifier = { max_absolutism = 1 } }
+ 	loyalty = 0.1
+ 	influence = 0.05
+ 	land_share = 5
+@@ -421,6 +428,7 @@ estate_ghulams_special_privilege = {
+ estate_ghulams_government = {
+ 	icon = privilege_promote_maratha_nobility
+ 	max_absolutism = -10
++	conditional_modifier = { trigger = { has_absolutism_reduction_for_estate_privileges = yes } modifier = { max_absolutism = 2 } }
+ 	cooldown_years = 20
+ 	loyalty = 0.05
+ 	influence = 0.1
+@@ -496,6 +504,7 @@ estate_ghulams_government = {
+ estate_ghulams_ensure_caucasian_sovereignty = {
+ 	icon = privilege_promote_maratha_nobility
+ 	max_absolutism = -5
++	conditional_modifier = { trigger = { has_absolutism_reduction_for_estate_privileges = yes } modifier = { max_absolutism = 1 } }
+ 	loyalty = 0.1
+ 	influence = 0.05
+ 	is_valid = {
+@@ -564,7 +573,7 @@ estate_ghulams_defensive_policy = {
+ 	loyalty = 0.05
+ 	influence = 0.1
+ 	max_absolutism = 0
+-	conditional_modifier = { trigger = { has_absolutism_reduction_for_estate_privileges = yes } modifier = { max_absolutism = 1 } }
++	#conditional_modifier = { trigger = { has_absolutism_reduction_for_estate_privileges = yes } modifier = { max_absolutism = 1 } }
+ 	is_valid = {
+ 		has_unlocked_estate_privilege = {
+ 			estate_privilege = estate_ghulams_defensive_policy
+-- 
+2.45.2
+

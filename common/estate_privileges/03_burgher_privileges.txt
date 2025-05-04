@@ -2848,6 +2848,7 @@ estate_burghers_great_works_of_iran = {
 	icon = privilege_dev_cost_desert
 	land_share = 5
 	max_absolutism = -10
+	conditional_modifier = { trigger = { has_absolutism_reduction_for_estate_privileges = yes } modifier = { max_absolutism = 2 } }
 	loyalty = 0.05
 	influence = 0.05
 	is_valid = {
@@ -4245,6 +4246,7 @@ estate_burghers_voc_privilege = {
 estate_burghers_hungarian_royal_cities = {
 	icon = privilege_development_efficiency
 	max_absolutism = -5
+	conditional_modifier = { trigger = { has_absolutism_reduction_for_estate_privileges = yes } modifier = { max_absolutism = 1 } }
 	land_share = 5
 	loyalty = 0.1
 	influence = 0.05
@@ -4765,6 +4767,7 @@ estate_burghers_AZT_mexican_gold_mines = {
 estate_burghers_fugger_family = {
 	icon = estate_burghers_fugger_family
 	max_absolutism = -5
+	conditional_modifier = { trigger = { has_absolutism_reduction_for_estate_privileges = yes } modifier = { max_absolutism = 1 } }
 	loyalty = 0
 	influence = 0.05
 	is_valid = {
