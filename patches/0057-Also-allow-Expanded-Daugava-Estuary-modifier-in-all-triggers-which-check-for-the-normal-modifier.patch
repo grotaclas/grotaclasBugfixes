@@ -1,0 +1,71 @@
+From 910c043177f7d8351f945137fbc9dce811fcb6ff Mon Sep 17 00:00:00 2001
+From: grotaclas <grotaclas@gmail.com>
+Date: Sun, 04 May 2025 19:41:52 -0000
+Subject: [PATCH] Also allow "Expanded Daugava Estuary" modifier in all
+ triggers which check for the normal modifier
+
+Especially has_river_estuary_trigger and has_no_river_estuary_trigger
+---
+ .../01_scripted_triggers_province_modifiers.txt               | 2 ++
+ events/SiberianColonization.txt                               | 4 ++++
+ 2 files changed, 6 insertions(+)
+
+diff --git a/common/scripted_triggers/01_scripted_triggers_province_modifiers.txt b/common/scripted_triggers/01_scripted_triggers_province_modifiers.txt
+index dd060a6d..ed303c99 100755
+--- a/common/scripted_triggers/01_scripted_triggers_province_modifiers.txt
++++ b/common/scripted_triggers/01_scripted_triggers_province_modifiers.txt
+@@ -69,6 +69,7 @@ has_river_estuary_trigger = {
+ 			#China
+ 			has_province_modifier = mng_bogue_modifier
+ 			has_province_modifier = expanded_nile_estuary_modifier
++			has_province_modifier = pol_daugava_estuary_modifier
+ 		}
+ 	}
+ }
+@@ -141,6 +142,7 @@ has_no_river_estuary_trigger = {
+ 			has_province_modifier = orinoco_estuary_modifier
+ 			has_province_modifier = mng_bogue_modifier
+ 			has_province_modifier = expanded_nile_estuary_modifier
++			has_province_modifier = pol_daugava_estuary_modifier
+ 		}
+ 	}
+ }
+diff --git a/events/SiberianColonization.txt b/events/SiberianColonization.txt
+index 57ac1a67..2bec71a8 100755
+--- a/events/SiberianColonization.txt
++++ b/events/SiberianColonization.txt
+@@ -68,6 +68,7 @@ country_event = {
+ 						has_province_modifier = dnestr_estuary_modifier
+ 						has_province_modifier = don_estuary_modifier
+ 						has_province_modifier = daugava_estuary_modifier
++						has_province_modifier = pol_daugava_estuary_modifier
+ 						has_province_modifier = river_estuary_modifier
+ 						has_province_modifier = mangaeza_estuary_modifier
+ 						has_province_modifier = neman_estuary_modifier
+@@ -83,6 +84,7 @@ country_event = {
+ 					OR = {
+ 						has_province_modifier = neva_estuary_modifier
+ 						has_province_modifier = daugava_estuary_modifier
++						has_province_modifier = pol_daugava_estuary_modifier
+ 					}
+ 				}
+ 				save_event_target_as = russian_center_of_trade
+@@ -261,6 +263,7 @@ country_event = {
+ 						has_province_modifier = dnestr_estuary_modifier
+ 						has_province_modifier = don_estuary_modifier
+ 						has_province_modifier = daugava_estuary_modifier
++						has_province_modifier = pol_daugava_estuary_modifier
+ 						has_province_modifier = river_estuary_modifier
+ 						has_province_modifier = mangaeza_estuary_modifier
+ 						has_province_modifier = neman_estuary_modifier
+@@ -276,6 +279,7 @@ country_event = {
+ 					OR = {
+ 						has_province_modifier = neva_estuary_modifier
+ 						has_province_modifier = daugava_estuary_modifier
++						has_province_modifier = pol_daugava_estuary_modifier
+ 					}
+ 				}
+ 				save_event_target_as = russian_center_of_trade
+-- 
+2.45.2
+
