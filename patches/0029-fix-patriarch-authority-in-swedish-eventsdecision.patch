@@ -1,0 +1,67 @@
+From a8b255cf1f09a0435e2186d6c85e9cdbab6f2ede Mon Sep 17 00:00:00 2001
+From: grotaclas <grotaclas@gmail.com>
+Date: Sun, 04 May 2025 12:55:39 -0000
+Subject: [PATCH] fix patriarch authority in swedish events/decision
+
+The swedish events "The Support of the Estates"(flavor_swe.108) and
+"The Consequences of the Bloodbath of
+[Root.Capital.GetName]"(flavor_swe.1080) gave 2000% patriarch authority
+if Sweden was orthodox and the decision "Repay Debt to the
+Clergy"(swe_repay_estate_church) required 2500% patriarch authority to
+remove the modifier from the first event. This patch reduces the gain to
+20% which I think was the intended value and the cost to 10% to match
+the values for the other religions where the cost is half the gain.
+
+No bugreport, but a reddit post: https://www.reddit.com/r/eu4/comments/1jrkw53/that_might_be_a_bit_difficult/
+---
+ decisions/SwedishDecisions.txt | 4 ++--
+ events/FlavorSWE.txt           | 4 ++--
+ 2 files changed, 4 insertions(+), 4 deletions(-)
+
+diff --git a/decisions/SwedishDecisions.txt b/decisions/SwedishDecisions.txt
+index da4b262c..90ed5cb6 100755
+--- a/decisions/SwedishDecisions.txt
++++ b/decisions/SwedishDecisions.txt
+@@ -36,7 +36,7 @@ country_decisions = {
+ 					religion = orthodox
+ 					has_dlc = "Third Rome"
+ 				}
+-				patriarch_authority = 25
++				patriarch_authority = 0.10
+ 			}
+ 			prestige = 40
+ 			OR = {
+@@ -67,7 +67,7 @@ country_decisions = {
+ 			add_papal_influence = -100
+ 			add_church_power = -100
+ 			add_fervor = -50
+-			add_patriarch_authority = -25
++			add_patriarch_authority = -0.10
+ 			if = {
+ 				limit = {
+ 					estate_loyalty = {
+diff --git a/events/FlavorSWE.txt b/events/FlavorSWE.txt
+index 76781b21..9b69e76f 100755
+--- a/events/FlavorSWE.txt
++++ b/events/FlavorSWE.txt
+@@ -3162,7 +3162,7 @@ country_event = {
+ 			limit = {
+ 				religion = orthodox
+ 			}
+-			add_patriarch_authority = 20
++			add_patriarch_authority = 0.2
+ 			add_years_of_income = 0.25
+ 		}
+ 		else = {
+@@ -3261,7 +3261,7 @@ country_event = {
+ 			limit = {
+ 				religion = orthodox
+ 			}
+-			add_patriarch_authority = 20
++			add_patriarch_authority = 0.2
+ 			add_years_of_income = 0.25
+ 		}
+ 		else = {
+-- 
+2.45.2
+
