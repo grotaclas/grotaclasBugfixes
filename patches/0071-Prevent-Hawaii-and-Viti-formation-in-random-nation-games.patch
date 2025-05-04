@@ -1,0 +1,38 @@
+From d0998d0e02d5a0f1c66c55c7e14b90c2bfe85f60 Mon Sep 17 00:00:00 2001
+From: grotaclas <grotaclas@gmail.com>
+Date: Sun, 04 May 2025 19:41:53 -0000
+Subject: [PATCH] Prevent Hawai'i and Viti formation in random nation games
+
+No bugreport, but mentioned on reddit: https://www.reddit.com/r/eu4/comments/1kcsmpg/why_does_hawaii_care_about_beljamen/
+---
+ decisions/FijiNation.txt   | 1 +
+ decisions/HawaiiNation.txt | 1 +
+ 2 files changed, 2 insertions(+)
+
+diff --git a/decisions/FijiNation.txt b/decisions/FijiNation.txt
+index 60b047d9..f608d4ac 100755
+--- a/decisions/FijiNation.txt
++++ b/decisions/FijiNation.txt
+@@ -3,6 +3,7 @@ country_decisions = {
+ 	unite_fiji = {
+ 		major = yes
+ 		potential = {
++			normal_or_historical_nations = yes
+ 			NOT = { tag = HLR }
+ 			NOT = { tag = PAP }
+ 			NOT = { tag = VIT }
+diff --git a/decisions/HawaiiNation.txt b/decisions/HawaiiNation.txt
+index 66b0b1d7..01ac726d 100755
+--- a/decisions/HawaiiNation.txt
++++ b/decisions/HawaiiNation.txt
+@@ -3,6 +3,7 @@ country_decisions = {
+ 	unite_hawaii = {
+ 		major = yes
+ 		potential = {
++			normal_or_historical_nations = yes
+ 			NOT = { tag = HLR }
+ 			NOT = { tag = PAP }
+ 			NOT = { tag = UHW }
+-- 
+2.45.2
+
