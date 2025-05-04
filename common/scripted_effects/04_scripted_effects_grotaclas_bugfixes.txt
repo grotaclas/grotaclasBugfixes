@@ -1,0 +1,69 @@
+
+# adds $amount$ base unrest, but the total base unrest is capped at 15,
+# to prevent the unrest in the province from reaching absurd highs if
+# the AI repeatedly loses to the janissary rebels and triggers the events again
+
+# assumes that ROOT is the country scope and THIS is a province scope
+add_capped_base_unrest_effect = {
+
+	# attempt to calculate base unrest from the actual unrest in the province ...
+	export_to_variable = {
+		which = baseUnrestVar
+		value = unrest
+	}
+
+	# ... by removing the unrest from national modifiers
+	export_to_variable = {
+		which = globalUnrestVar
+		value = modifier:global_unrest
+		who = ROOT
+	}
+	subtract_variable = {
+		which = baseUnrestVar
+		which = globalUnrestVar
+	}
+
+
+	# ... and the unrest from local unrest modifiers(this seems to include tolerance)
+	export_to_variable = {
+		which = localUnrestVar
+		value = modifier:local_unrest
+	}
+	subtract_variable = {
+		which = baseUnrestVar
+		which = localUnrestVar
+	}
+
+	# to keep track how much unrest we still need to add
+	set_variable = {
+		which = newUnrestVar
+		value = $amount$
+	}
+
+	# add 1 unrest at a time until...
+	while = {
+		limit = {
+			# ... the cap is reached
+			NOT = {
+				check_variable = {
+					which = baseUnrestVar
+					value = 14 # cap base unrest at just below 15
+				}
+			}
+			# ... or we added all the unrest.
+			check_variable = {
+				which = newUnrestVar
+				value = 1
+			}
+		}
+		add_unrest = 1
+		change_variable = {
+			which = baseUnrestVar
+			value = 1
+		}
+		subtract_variable = {
+			which = newUnrestVar
+			value = 1
+		}
+	}
+}

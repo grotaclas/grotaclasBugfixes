@@ -1,0 +1,349 @@
+From e202d1e0968244f844f01ac407112be714d68a0a Mon Sep 17 00:00:00 2001
+From: grotaclas <grotaclas@gmail.com>
+Date: Sun, 04 May 2025 19:41:54 -0000
+Subject: [PATCH] Prevent high base unrest from janissary disaster
+
+The unrest could go into the hundreds, because the Face the Janissaries
+decisions add 10 base unrest to several provinces each time and
+they can be enacted again if the country breaks to rebels. This can
+happen every few months if the Ottomans are small.
+
+This patch prevents the base unrest from the janissary events from going
+above 15 per province and it changes the AI behavior so that they only
+enact the decisions if they have at least 100k troops, so that they have
+a chance of fighting the rebels which are at least 100k in total.
+
+Bugreport: https://forum.paradoxplaza.com/forum/threads/eu-iv-absurdly-high-base-unrest.1597636/
+https://forum.paradoxplaza.com/forum/threads/eu-iv-after-taking-provinces-from-ottomans-during-decadence-disaster-some-have-over-200-unrest-which-does-not-decay.1600952/
+https://forum.paradoxplaza.com/forum/threads/eu-iv-base-unrest-200-in-certain-provinces-no-matter-the-conditions.1590988/
+https://forum.paradoxplaza.com/forum/threads/eu-iv-ai-controlled-ottomans-in-janissary-rebels-doom-loop.1587523/
+https://forum.paradoxplaza.com/forum/threads/eu-iv-conquered-ottoman-lands-with-endless-rebels.1586833
+https://forum.paradoxplaza.com/forum/threads/ottoman-unrest.1614608
+https://forum.paradoxplaza.com/forum/threads/unrest-stacked-to-the-moon.1720465/
+---
+ ...04_scripted_effects_grotaclas_bugfixes.txt | 69 +++++++++++++++++
+ decisions/Ottoman.txt                         | 27 +++++++
+ events/disaster_ottoman_power_struggle.txt    | 76 +++++++++++++++----
+ 3 files changed, 156 insertions(+), 16 deletions(-)
+ create mode 100644 common/scripted_effects/04_scripted_effects_grotaclas_bugfixes.txt
+
+diff --git a/common/scripted_effects/04_scripted_effects_grotaclas_bugfixes.txt b/common/scripted_effects/04_scripted_effects_grotaclas_bugfixes.txt
+new file mode 100644
+index 00000000..de3e7a83
+--- /dev/null
++++ b/common/scripted_effects/04_scripted_effects_grotaclas_bugfixes.txt
+@@ -0,0 +1,69 @@
++
++# adds $amount$ base unrest, but the total base unrest is capped at 15,
++# to prevent the unrest in the province from reaching absurd highs if
++# the AI repeatedly loses to the janissary rebels and triggers the events again
++
++# assumes that ROOT is the country scope and THIS is a province scope
++add_capped_base_unrest_effect = {
++	
++	# attempt to calculate base unrest from the actual unrest in the province ...
++	export_to_variable = {
++		which = baseUnrestVar
++		value = unrest
++	}
++
++	# ... by removing the unrest from national modifiers
++	export_to_variable = {
++		which = globalUnrestVar
++		value = modifier:global_unrest
++		who = ROOT
++	}
++	subtract_variable = {
++		which = baseUnrestVar
++		which = globalUnrestVar
++	}
++
++
++	# ... and the unrest from local unrest modifiers(this seems to include tolerance)
++	export_to_variable = {
++		which = localUnrestVar
++		value = modifier:local_unrest
++	}
++	subtract_variable = {
++		which = baseUnrestVar
++		which = localUnrestVar
++	}
++
++	# to keep track how much unrest we still need to add
++	set_variable = {
++		which = newUnrestVar
++		value = $amount$
++	}
++
++	# add 1 unrest at a time until...
++	while = {
++		limit = {
++			# ... the cap is reached
++			NOT = {
++				check_variable = {
++					which = baseUnrestVar
++					value = 14 # cap base unrest at just below 15
++				}
++			}
++			# ... or we added all the unrest.
++			check_variable = {
++				which = newUnrestVar
++				value = 1
++			}
++		}
++		add_unrest = 1
++		change_variable = {
++			which = baseUnrestVar
++			value = 1
++		}
++		subtract_variable = {
++			which = newUnrestVar
++			value = 1
++		}
++	}
++}
+\ No newline at end of file
+diff --git a/decisions/Ottoman.txt b/decisions/Ottoman.txt
+index ded6fcc2..38364e8a 100755
+--- a/decisions/Ottoman.txt
++++ b/decisions/Ottoman.txt
+@@ -261,6 +261,15 @@ country_decisions = {
+ 		}
+ 		ai_will_do = {
+ 			factor = 1
++			modifier = {
++				# the event spawns between 100k and 250k rebels
++				# the AI has no hope of fighting them if they don't have
++				# a sizable army. This prevents a small Ottoman AI from
++				# repeatedly enacting the decision and quickly breaking
++				# to the rebels
++				factor = 0
++				NOT = { army_size = 100 }
++			}
+ 		}
+ 	}
+ 
+@@ -285,6 +294,15 @@ country_decisions = {
+ 		}
+ 		ai_will_do = {
+ 			factor = 1
++			modifier = {
++				# the event spawns between 100k and 250k rebels
++				# the AI has no hope of fighting them if they don't have
++				# a sizable army. This prevents a small Ottoman AI from
++				# repeatedly enacting the decision and quickly breaking
++				# to the rebels
++				factor = 0
++				NOT = { army_size = 100 }
++			}
+ 		}
+ 	}
+ 
+@@ -308,6 +326,15 @@ country_decisions = {
+ 		}
+ 		ai_will_do = {
+ 			factor = 1
++			modifier = {
++				# the event spawns between 100k and 250k rebels
++				# the AI has no hope of fighting them if they don't have
++				# a sizable army. This prevents a small Ottoman AI from
++				# repeatedly enacting the decision and quickly breaking
++				# to the rebels
++				factor = 0
++				NOT = { army_size = 100 }
++			}
+ 		}
+ 	}
+ 
+diff --git a/events/disaster_ottoman_power_struggle.txt b/events/disaster_ottoman_power_struggle.txt
+index 4b53d012..f5ece494 100755
+--- a/events/disaster_ottoman_power_struggle.txt
++++ b/events/disaster_ottoman_power_struggle.txt
+@@ -633,7 +633,11 @@ country_event = {
+ 					size = 3
+ 					win = yes 
+ 				}
+-				add_unrest = 10 
++				# cap unrest, so that the AI doesn't create hundreds of unrest in the province
++				# if they repeatedly lose to the janissaries
++				add_capped_base_unrest_effect = {
++					amount = 10
++				}
+ 			}
+ 			random_owned_province = { 
+ 				limit = { region = balkan_region } 
+@@ -642,7 +646,9 @@ country_event = {
+ 					size = 3
+ 					win = yes 
+ 				}
+-				add_unrest = 10 
++				add_capped_base_unrest_effect = {
++					amount = 10
++				}
+ 			}
+ 			random_owned_province = { 
+ 				limit = { region = balkan_region } 
+@@ -651,7 +657,9 @@ country_event = {
+ 					size = 3
+ 					win = yes 
+ 				}
+-				add_unrest = 10 
++				add_capped_base_unrest_effect = {
++					amount = 10
++				}
+ 			}
+ 			capital_scope = { 
+ 				spawn_rebels = {
+@@ -718,7 +726,11 @@ country_event = {
+ 					size = 3
+ 					win = yes 
+ 				}
+-				add_unrest = 10
++				# cap unrest, so that the AI doesn't create hundreds of unrest in the province
++				# if they repeatedly lose to the janissaries
++				add_capped_base_unrest_effect = {
++					amount = 10
++				}
+ 			}
+ 			random_owned_province = { 
+ 				limit = {
+@@ -730,7 +742,9 @@ country_event = {
+ 					size = 3
+ 					win = yes 
+ 				}
+-				add_unrest = 10
++				add_capped_base_unrest_effect = {
++					amount = 10
++				}
+ 			}
+ 			random_owned_province = { 
+ 				limit = {
+@@ -742,7 +756,9 @@ country_event = {
+ 					size = 3
+ 					win = yes 
+ 				}
+-				add_unrest = 10
++				add_capped_base_unrest_effect = {
++					amount = 10
++				}
+ 			}
+ 			random_owned_province = { 
+ 				limit = {
+@@ -754,7 +770,9 @@ country_event = {
+ 					size = 3
+ 					win = yes 
+ 				}
+-				add_unrest = 10
++				add_capped_base_unrest_effect = {
++					amount = 10
++				}
+ 			}
+ 			capital_scope = { 
+ 				spawn_rebels = {
+@@ -778,7 +796,11 @@ country_event = {
+ 		anatolia_region = { 
+ 			limit = { owned_by = ROOT } 
+ 			add_devastation = 25 
+-			add_unrest = 10
++			# cap unrest, so that the AI doesn't create hundreds of unrest in the province
++			# if they repeatedly lose to the janissaries
++			add_capped_base_unrest_effect = {
++				amount = 10
++			}
+ 		}
+ 		capital_scope = { 
+ 			spawn_rebels = {
+@@ -816,7 +838,11 @@ country_event = {
+ 					size = 3
+ 					win = yes 
+ 				}
+-				add_unrest = 10
++				# cap unrest, so that the AI doesn't create hundreds of unrest in the province
++				# if they repeatedly lose to the janissaries
++				add_capped_base_unrest_effect = {
++					amount = 10
++				}
+ 			}
+ 			random_owned_province = { 
+ 				limit = {
+@@ -828,7 +854,9 @@ country_event = {
+ 					size = 3
+ 					win = yes 
+ 				}
+-				add_unrest = 10
++				add_capped_base_unrest_effect = {
++					amount = 10
++				}
+ 			}
+ 			random_owned_province = { 
+ 				limit = {
+@@ -840,7 +868,9 @@ country_event = {
+ 					size = 3
+ 					win = yes 
+ 				}
+-				add_unrest = 10
++				add_capped_base_unrest_effect = {
++					amount = 10
++				}
+ 			}
+ 			random_owned_province = { 
+ 				limit = {
+@@ -852,7 +882,9 @@ country_event = {
+ 					size = 2
+ 					win = yes 
+ 				}
+-				add_unrest = 10
++				add_capped_base_unrest_effect = {
++					amount = 10
++				}
+ 			}
+ 			capital_scope = { 
+ 				spawn_rebels = {
+@@ -876,12 +908,18 @@ country_event = {
+ 		anatolia_region = { 
+ 			limit = { owned_by = ROOT } 
+ 			add_devastation = 25 
+-			add_unrest = 10
++			# cap unrest, so that the AI doesn't create hundreds of unrest in the province
++			# if they repeatedly lose to the janissaries
++			add_capped_base_unrest_effect = {
++				amount = 10
++			}
+ 		}
+ 		balkan_region = { 
+ 			limit = { owned_by = ROOT } 
+ 			add_devastation = 25 
+-			add_unrest = 10
++			add_capped_base_unrest_effect = {
++				amount = 10
++			}
+ 		}
+ 		capital_scope = { 
+ 			spawn_rebels = {
+@@ -1401,7 +1439,11 @@ country_event = {
+ 				size = 2
+ 				win = yes 
+ 			}
+-			add_unrest = 10
++			# cap unrest, so that the AI doesn't create hundreds of unrest in the province
++			# if they repeatedly lose to the janissaries
++			add_capped_base_unrest_effect = {
++				amount = 10
++			}
+ 		}
+ 		random_owned_province = { 
+ 			limit = {
+@@ -1413,7 +1455,9 @@ country_event = {
+ 				size = 2
+ 				win = yes 
+ 			}
+-			add_unrest = 10
++			add_capped_base_unrest_effect = {
++				amount = 10
++			}
+ 		}
+ 		add_yearly_manpower = -2
+ 	}
+-- 
+2.45.2
+
