@@ -1,0 +1,119 @@
+From 348cdb1a111e1e163515e3bb7309d6f97664b3ec Mon Sep 17 00:00:00 2001
+From: grotaclas <grotaclas@gmail.com>
+Date: Sat, 10 May 2025 10:35:35 -0000
+Subject: [PATCH] make new ruler traits available to custom nations
+
+No bugreport, but https://steamcommunity.com/app/236850/discussions/0/604155654554329049/
+---
+ common/ruler_personalities/00_core.txt | 53 ++++++++++++++++++++++----
+ 1 file changed, 46 insertions(+), 7 deletions(-)
+
+diff --git a/common/ruler_personalities/00_core.txt b/common/ruler_personalities/00_core.txt
+index fd82f2d6..7fc6c7f4 100755
+--- a/common/ruler_personalities/00_core.txt
++++ b/common/ruler_personalities/00_core.txt
+@@ -3652,7 +3652,15 @@ reformist_personality = {
+ 
+ legendary_conqueror_personality = { 
+ 	
+-	allow = { has_country_flag = TIM_legendary_conqueror_flag }
++	allow = {
++		OR = {
++			AND = {
++				has_game_started = no
++				is_playing_custom_nation = yes
++			}
++			has_country_flag = TIM_legendary_conqueror_flag
++		}
++	}
+ 	
+ 	shock_damage = 0.1 
+ 	years_of_nationalism = -5
+@@ -3668,7 +3676,15 @@ legendary_conqueror_personality = {
+ 
+ great_engineer_personality = {
+ 	
+-	allow = { has_country_flag = TIM_legendary_architect_flag }
++	allow = {
++		OR = {
++			AND = {
++				has_game_started = no
++				is_playing_custom_nation = yes
++			}
++			has_country_flag = TIM_legendary_architect_flag
++		}
++	}
+ 	
+ 	building_budget_multiplier = 1.8
+ 	build_cost = -0.15
+@@ -3760,7 +3776,11 @@ patron_of_arts_personality = {
+ 
+ papal_puppetmaster_personality = {
+ 	
+-	allow = { always = no }
++	allow = {
++		has_game_started = no
++		is_playing_custom_nation = yes
++	}
++
+ 	prestige = 1 
+ 	unrest_catholic_provinces = -2
+ 	nation_designer_cost = 5
+@@ -3768,7 +3788,16 @@ papal_puppetmaster_personality = {
+ 
+ iron_crowned_personality = {
+ 	
+-	allow = { has_country_flag = HLR_enable_iron_crowned_trait_flag }
++	allow = {
++		OR = {
++			AND = {
++				has_game_started = no
++				is_playing_custom_nation = yes
++			}
++			has_country_flag = HLR_enable_iron_crowned_trait_flag
++		}
++	}
++
+ 	core_creation = -0.2
+ 	war_exhaustion = -0.05
+ 	nation_designer_cost = 30
+@@ -3817,7 +3846,9 @@ merchant_basileus_personality = {
+ 
+ orangist_stadholder_personality = {
+ 	allow = {
+-		always = no
++		has_game_started = no
++		is_playing_custom_nation = yes
++		has_reform = dutch_republic
+ 	}
+ 	nation_designer_cost = 40
+ 	yearly_absolutism = 0.5
+@@ -3872,7 +3903,14 @@ reaver_personality = {
+ 		}
+ 	}
+ 	allow = {
+-		has_country_flag = unlocked_reaver_personality_flag
++		OR = {
++			AND = {
++				has_game_started = no
++				is_playing_custom_nation = yes
++				has_reform = steppe_horde
++			}
++			has_country_flag = unlocked_reaver_personality_flag
++		}
+ 	}
+ 
+ 	available_province_loot = 0.15
+@@ -3885,7 +3923,8 @@ reaver_personality = {
+ 
+ last_knight_personality = {
+ 	allow = {
+-		always = no
++		has_game_started = no
++		is_playing_custom_nation = yes
+ 	}
+ 	nation_designer_cost = 60
+ 	
+-- 
+2.45.2
+
