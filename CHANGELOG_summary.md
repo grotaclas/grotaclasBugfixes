@@ -85,3 +85,6 @@
 - Fix maritime idea reward from venetian mission "Masters of the Sea"
 - Disable privilege "Allow Religious Delegation" for the Papal States
 - Fix second reward for Yuan mission "Reform Civil Registration"
+
+# 2025-05-10
+- make new ruler traits available to custom nations

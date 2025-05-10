@@ -21,5 +21,7 @@ Please let me know which script bugs you would like to get fixed(patches welcome
 Links:
 
 GitHub: https://github.com/grotaclas/grotaclasBugfixes
+
 Steam: https://steamcommunity.com/sharedfiles/filedetails/?id=3476043790
+
 Reddit: https://www.reddit.com/r/eu4/comments/1keuamg/announcing_grotaclas_bugfixes/

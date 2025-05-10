@@ -804,3 +804,10 @@ the second reward if you don't qualify for the first one.
 No bugreport, but reddit post: https://www.reddit.com/r/eu4/comments/1kdzikx/how_do_i_get_the_alternative_reward_for_the/
 Patch: [0086-Fix-second-reward-for-Yuan-mission-Reform-Civil-Registration](patches/0086-Fix-second-reward-for-Yuan-mission-Reform-Civil-Registration.patch)
 
+# 2025-05-10
+
+## make new ruler traits available to custom nations
+
+No bugreport, but https://steamcommunity.com/app/236850/discussions/0/604155654554329049/
+Patch: [0087-make-new-ruler-traits-available-to-custom-nations](patches/0087-make-new-ruler-traits-available-to-custom-nations.patch)
+
