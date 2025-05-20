@@ -811,3 +811,16 @@ Patch: [0086-Fix-second-reward-for-Yuan-mission-Reform-Civil-Registration](patch
 No bugreport, but https://steamcommunity.com/app/236850/discussions/0/604155654554329049/
 Patch: [0087-make-new-ruler-traits-available-to-custom-nations](patches/0087-make-new-ruler-traits-available-to-custom-nations.patch)
 
+# 2025-05-20
+
+## remove duplicate gov reform integrated_ottoman_officials
+
+06_government_reforms_common.txt had two identical sections for the
+reform
+Patch: [0088-remove-duplicate-gov-reform-integrated_ottoman_officials](patches/0088-remove-duplicate-gov-reform-integrated_ottoman_officials.patch)
+
+## make asha monarchy work for custom nations
+
+Bugreport: https://forum.paradoxplaza.com/forum/threads/asha-monarchy-reform-becomes-invalid-after-being-chosen-by-a-custom-nation.1755596/
+Patch: [0089-make-asha-monarchy-work-for-custom-nations](patches/0089-make-asha-monarchy-work-for-custom-nations.patch)
+

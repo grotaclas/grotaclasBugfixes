@@ -88,3 +88,6 @@
 
 # 2025-05-10
 - make new ruler traits available to custom nations
+# 2025-05-20
+- remove duplicate gov reform integrated_ottoman_officials
+- make asha monarchy work for custom nations
