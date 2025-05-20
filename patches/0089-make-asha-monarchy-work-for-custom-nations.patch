@@ -1,0 +1,28 @@
+From 37fbdfd894f89a8a69827d11ebcb3c3e38370454 Mon Sep 17 00:00:00 2001
+From: grotaclas <grotaclas@gmail.com>
+Date: Tue, 20 May 2025 19:05:07 -0000
+Subject: [PATCH] make asha monarchy work for custom nations
+
+Bugreport: https://forum.paradoxplaza.com/forum/threads/asha-monarchy-reform-becomes-invalid-after-being-chosen-by-a-custom-nation.1755596/
+---
+ .../government_reforms/01_government_reforms_monarchies.txt   | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
+
+diff --git a/common/government_reforms/01_government_reforms_monarchies.txt b/common/government_reforms/01_government_reforms_monarchies.txt
+index 92edef7e..a2b55562 100755
+--- a/common/government_reforms/01_government_reforms_monarchies.txt
++++ b/common/government_reforms/01_government_reforms_monarchies.txt
+@@ -1582,8 +1582,8 @@ zoroastrian_persian_government_reform = {
+ 			tag = ERS
+ 			AND = {
+ 				OR = {
+-					has_reform = persian_government_reform
+-					have_had_reform = persian_government_reform
++					has_reform = zoroastrian_persian_government_reform
++					have_had_reform = zoroastrian_persian_government_reform
+ 				}
+ 				is_playing_custom_nation = yes
+ 			}
+-- 
+2.45.2
+

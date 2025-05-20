@@ -1582,8 +1582,8 @@ zoroastrian_persian_government_reform = {
 			tag = ERS
 			AND = {
 				OR = {
-					has_reform = persian_government_reform
-					have_had_reform = persian_government_reform
+					has_reform = zoroastrian_persian_government_reform
+					have_had_reform = zoroastrian_persian_government_reform
 				}
 				is_playing_custom_nation = yes
 			}
