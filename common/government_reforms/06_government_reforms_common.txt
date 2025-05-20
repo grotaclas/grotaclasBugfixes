@@ -5128,34 +5128,6 @@ merchant_representation_reform = {
 	}
 }
 
-integrated_ottoman_officials = {
-	icon = "integrated_ottoman_officials"
-	allow_normal_conversion = yes
-	potential = {
-		has_dlc = "King of Kings"
-		OR = {
-			have_had_reform = integrated_ottoman_officials
-			has_unlocked_government_reform = { government_reform = integrated_ottoman_officials }
-		}
-	}
-	modifiers = {
-		global_autonomy = -0.05
-		tolerance_of_heathens_capacity = 1
-	}
-
-	conditional = {
-		allow = { 
-			has_dlc = "Cradle of Civilization"
-		}
-		has_pashas = yes
-		custom_attributes = { reveal_ruler_skills_for_mamluks = yes }
-	}
-
-	ai = {
-		factor = 10
-	}
-}
-
 seven_provinces_reform = {
 	icon = "seven_provinces_reform"
 	allow_normal_conversion = yes

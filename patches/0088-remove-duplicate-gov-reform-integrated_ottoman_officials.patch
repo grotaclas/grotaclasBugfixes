@@ -1,0 +1,53 @@
+From c2e1484c85295364bf9bbfaf62f239396eb21e7a Mon Sep 17 00:00:00 2001
+From: grotaclas <grotaclas@gmail.com>
+Date: Tue, 20 May 2025 19:05:07 -0000
+Subject: [PATCH] remove duplicate gov reform integrated_ottoman_officials
+
+06_government_reforms_common.txt had two identical sections for the
+reform
+---
+ .../06_government_reforms_common.txt          | 28 -------------------
+ 1 file changed, 28 deletions(-)
+
+diff --git a/common/government_reforms/06_government_reforms_common.txt b/common/government_reforms/06_government_reforms_common.txt
+index 2073a3d4..c6b51c9a 100755
+--- a/common/government_reforms/06_government_reforms_common.txt
++++ b/common/government_reforms/06_government_reforms_common.txt
+@@ -5128,34 +5128,6 @@ merchant_representation_reform = {
+ 	}
+ }
+ 
+-integrated_ottoman_officials = {
+-	icon = "integrated_ottoman_officials"
+-	allow_normal_conversion = yes
+-	potential = {
+-		has_dlc = "King of Kings"
+-		OR = {
+-			have_had_reform = integrated_ottoman_officials
+-			has_unlocked_government_reform = { government_reform = integrated_ottoman_officials }
+-		}
+-	}
+-	modifiers = {
+-		global_autonomy = -0.05
+-		tolerance_of_heathens_capacity = 1
+-	}
+-
+-	conditional = {
+-		allow = { 
+-			has_dlc = "Cradle of Civilization"
+-		}
+-		has_pashas = yes
+-		custom_attributes = { reveal_ruler_skills_for_mamluks = yes }
+-	}
+-
+-	ai = {
+-		factor = 10
+-	}
+-}
+-
+ seven_provinces_reform = {
+ 	icon = "seven_provinces_reform"
+ 	allow_normal_conversion = yes
+-- 
+2.45.2
+
