@@ -1,0 +1,108 @@
+From 98af68417f91c38afeb359de9fa851c2c9e32cad Mon Sep 17 00:00:00 2001
+From: grotaclas <grotaclas@gmail.com>
+Date: Sat, 31 May 2025 19:47:52 -0000
+Subject: [PATCH] reduce duration of CBs which last for more than 100 years
+
+They have durations of 3650/1825 months, but the numbers indicate
+that they were meant to be days, so I reduced them to 120/60 months
+instead.
+
+Bugreport https://forum.paradoxplaza.com/forum/threads/issues-with-a-jaunpur-event-chain-related-to-kalpi.1616039/
+---
+ events/flavorBNG.txt | 4 ++--
+ events/flavorETH.txt | 2 +-
+ events/flavorJNP.txt | 8 ++++----
+ events/flavorNOL.txt | 2 +-
+ 4 files changed, 8 insertions(+), 8 deletions(-)
+
+diff --git a/events/flavorBNG.txt b/events/flavorBNG.txt
+index c8ede6fd..b92fc78f 100755
+--- a/events/flavorBNG.txt
++++ b/events/flavorBNG.txt
+@@ -438,7 +438,7 @@ country_event = {
+ 			add_casus_belli = {
+ 				target = BNG
+ 				type = cb_vassalize_mission
+-				months = 1825
++				months = 60
+ 			}
+ 		}
+ 	}
+@@ -459,7 +459,7 @@ country_event = {
+ 			add_casus_belli = {
+ 				target = BNG
+ 				type = cb_vassalize_mission
+-				months = 1825
++				months = 60
+ 			}
+ 		}
+ 	}
+diff --git a/events/flavorETH.txt b/events/flavorETH.txt
+index 2ad8ea43..646bcc64 100755
+--- a/events/flavorETH.txt
++++ b/events/flavorETH.txt
+@@ -544,7 +544,7 @@ country_event = {
+ 				add_casus_belli = {
+ 					target = MAM
+ 					type = cb_insult
+-					months = 1825
++					months = 60
+ 				}
+ 			}
+ 		}
+diff --git a/events/flavorJNP.txt b/events/flavorJNP.txt
+index 9872da95..180ba87f 100755
+--- a/events/flavorJNP.txt
++++ b/events/flavorJNP.txt
+@@ -336,7 +336,7 @@ country_event = {
+ 				add_casus_belli = {
+ 					target = BND
+ 					type = cb_insult
+-					months = 1825
++					months = 60
+ 				}
+ 			}
+ 		}
+@@ -359,7 +359,7 @@ country_event = {
+ 				add_casus_belli = {
+ 					target = MLW
+ 					type = cb_insult
+-					months = 1825
++					months = 60
+ 				}
+ 			}
+ 		}
+@@ -380,7 +380,7 @@ country_event = {
+ 		add_casus_belli = {
+ 			target = BND
+ 			type = cb_insult
+-			months = 1825
++			months = 60
+ 		}
+ 	}
+ }
+@@ -399,7 +399,7 @@ country_event = {
+ 		add_casus_belli = {
+ 			target = MLW
+ 			type = cb_insult
+-			months = 1825
++			months = 60
+ 		}
+ 	}
+ 	
+diff --git a/events/flavorNOL.txt b/events/flavorNOL.txt
+index 7740ccb4..c03166b3 100755
+--- a/events/flavorNOL.txt
++++ b/events/flavorNOL.txt
+@@ -184,7 +184,7 @@ country_event = {
+ 		add_casus_belli = {
+ 			target = NOR
+ 			type = cb_restore_personal_union
+-			months = 3650
++			months = 120
+ 		}
+ 	}
+ 	
+-- 
+2.45.2
+
