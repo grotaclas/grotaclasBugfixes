@@ -1,0 +1,59 @@
+From 7a9b01605cb05d111a4f583827fd723e310ef3df Mon Sep 17 00:00:00 2001
+From: grotaclas <grotaclas@gmail.com>
+Date: Sat, 31 May 2025 19:47:53 -0000
+Subject: [PATCH] make the Kalpi war event chain about Kalpi instead of
+ Bundelkhand
+
+when the event chain was introduced in version 1.8. Kalpi(KLP) did not
+exist, so Bundelkhand(BND) was used as a replacement(I guess they owned the
+area in question). But Kalpi(KLP) was added in 1.26 and using Bundelkhand(BND)
+doesn't make sense anymore.
+
+Bugreport: https://forum.paradoxplaza.com/forum/threads/issues-with-a-jaunpur-event-chain-related-to-kalpi.1616039/
+---
+ events/flavorJNP.txt | 8 ++++----
+ 1 file changed, 4 insertions(+), 4 deletions(-)
+
+diff --git a/events/flavorJNP.txt b/events/flavorJNP.txt
+index 180ba87f..5a895f8d 100755
+--- a/events/flavorJNP.txt
++++ b/events/flavorJNP.txt
+@@ -279,7 +279,7 @@ country_event = {
+ 			religion_group = muslim
+ 			NOT = { alliance_with = JNP }
+ 		}
+-		BND = {
++		KLP = {
+ 			vassal_of = MLW
+ 			is_neighbor_of = JNP
+ 		}
+@@ -326,7 +326,7 @@ country_event = {
+ 		ai_chance = {
+ 			factor = 50
+ 		}
+-		free_vassal = BND
++		free_vassal = KLP
+ 		JNP = {
+ 			country_event = { id = flavor_jnp.10 }
+ 			add_opinion = { who = MLW modifier = opinion_eased_tension }
+@@ -334,7 +334,7 @@ country_event = {
+ 		tooltip = {
+ 			JNP = {
+ 				add_casus_belli = {
+-					target = BND
++					target = KLP
+ 					type = cb_insult
+ 					months = 60
+ 				}
+@@ -378,7 +378,7 @@ country_event = {
+ 	option = {
+ 		name = "flavor_jnp.10.a"	#Great!
+ 		add_casus_belli = {
+-			target = BND
++			target = KLP
+ 			type = cb_insult
+ 			months = 60
+ 		}
+-- 
+2.45.2
+

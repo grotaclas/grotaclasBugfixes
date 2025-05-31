@@ -279,7 +279,7 @@ country_event = {
 			religion_group = muslim
 			NOT = { alliance_with = JNP }
 		}
-		BND = {
+		KLP = {
 			vassal_of = MLW
 			is_neighbor_of = JNP
 		}
@@ -326,7 +326,7 @@ country_event = {
 		ai_chance = {
 			factor = 50
 		}
-		free_vassal = BND
+		free_vassal = KLP
 		JNP = {
 			country_event = { id = flavor_jnp.10 }
 			add_opinion = { who = MLW modifier = opinion_eased_tension }
@@ -334,7 +334,7 @@ country_event = {
 		tooltip = {
 			JNP = {
 				add_casus_belli = {
-					target = BND
+					target = KLP
 					type = cb_insult
 					months = 60
 				}
@@ -378,7 +378,7 @@ country_event = {
 	option = {
 		name = "flavor_jnp.10.a"	#Great!
 		add_casus_belli = {
-			target = BND
+			target = KLP
 			type = cb_insult
 			months = 60
 		}
