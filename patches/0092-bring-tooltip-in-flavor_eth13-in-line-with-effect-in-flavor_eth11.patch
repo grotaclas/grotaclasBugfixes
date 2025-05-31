@@ -1,0 +1,26 @@
+From 719a50bc8f6f822fec81a3849ec7cd95667f0a80 Mon Sep 17 00:00:00 2001
+From: grotaclas <grotaclas@gmail.com>
+Date: Sat, 31 May 2025 19:47:53 -0000
+Subject: [PATCH] bring tooltip in flavor_eth.13 in line with effect in
+ flavor_eth.11
+
+---
+ events/flavorETH.txt | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/events/flavorETH.txt b/events/flavorETH.txt
+index 646bcc64..8f4b9f03 100755
+--- a/events/flavorETH.txt
++++ b/events/flavorETH.txt
+@@ -544,7 +544,7 @@ country_event = {
+ 				add_casus_belli = {
+ 					target = MAM
+ 					type = cb_insult
+-					months = 60
++					months = 120
+ 				}
+ 			}
+ 		}
+-- 
+2.45.2
+

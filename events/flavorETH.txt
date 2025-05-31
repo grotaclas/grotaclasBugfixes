@@ -544,7 +544,7 @@ country_event = {
 				add_casus_belli = {
 					target = MAM
 					type = cb_insult
-					months = 60
+					months = 120
 				}
 			}
 		}
