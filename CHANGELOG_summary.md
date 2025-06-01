@@ -91,3 +91,7 @@
 # 2025-05-20
 - remove duplicate gov reform integrated_ottoman_officials
 - make asha monarchy work for custom nations
+# 2025-05-31
+- reduce duration of CBs which last for more than 100 years
+- make the Kalpi war event chain about Kalpi instead of Bundelkhand
+- bring tooltip in flavor_eth.13 in line with effect in flavor_eth.11

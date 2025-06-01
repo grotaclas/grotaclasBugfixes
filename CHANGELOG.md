@@ -824,3 +824,27 @@ Patch: [0088-remove-duplicate-gov-reform-integrated_ottoman_officials](patches/0
 Bugreport: https://forum.paradoxplaza.com/forum/threads/asha-monarchy-reform-becomes-invalid-after-being-chosen-by-a-custom-nation.1755596/
 Patch: [0089-make-asha-monarchy-work-for-custom-nations](patches/0089-make-asha-monarchy-work-for-custom-nations.patch)
 
+# 2025-05-31
+
+## reduce duration of CBs which last for more than 100 years
+
+They have durations of 3650/1825 months, but the numbers indicate
+that they were meant to be days, so I reduced them to 120/60 months
+instead.
+
+Bugreport https://forum.paradoxplaza.com/forum/threads/issues-with-a-jaunpur-event-chain-related-to-kalpi.1616039/
+Patch: [0090-reduce-duration-of-CBs-which-last-for-more-than-100-years](patches/0090-reduce-duration-of-CBs-which-last-for-more-than-100-years.patch)
+
+## make the Kalpi war event chain about Kalpi instead of Bundelkhand
+
+when the event chain was introduced in version 1.8. Kalpi(KLP) did not
+exist, so Bundelkhand(BND) was used as a replacement(I guess they owned the
+area in question). But Kalpi(KLP) was added in 1.26 and using Bundelkhand(BND)
+doesn't make sense anymore.
+
+Bugreport: https://forum.paradoxplaza.com/forum/threads/issues-with-a-jaunpur-event-chain-related-to-kalpi.1616039/
+Patch: [0091-make-the-Kalpi-war-event-chain-about-Kalpi-instead-of-Bundelkhand](patches/0091-make-the-Kalpi-war-event-chain-about-Kalpi-instead-of-Bundelkhand.patch)
+
+## bring tooltip in flavor_eth.13 in line with effect in flavor_eth.11
+Patch: [0092-bring-tooltip-in-flavor_eth13-in-line-with-effect-in-flavor_eth11](patches/0092-bring-tooltip-in-flavor_eth13-in-line-with-effect-in-flavor_eth11.patch)
+
