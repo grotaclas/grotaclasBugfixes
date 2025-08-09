@@ -1,0 +1,91 @@
+From 6dee8b112ad28143e6a961596ed8efc967df0e57 Mon Sep 17 00:00:00 2001
+From: grotaclas <grotaclas@gmail.com>
+Date: Sat, 09 Aug 2025 10:10:44 -0000
+Subject: [PATCH] fix removing of prestige penalty when changing secondary
+ religion after completing For the Horde
+
+The mission "For the Horde!"(tatars_devout2) had the effects to remove
+the prestige penalty when changing secondary religion and a tooltip
+which claimed that it renamed the clergy to shamans. The renaming didn't
+work, because they already had that name in the cases when it was
+applied, so this was removed in version 1.37.3. But the effect for the
+secondary religion penalty used the same flag and was broken as well
+even though its tooltip remained.
+
+This patch restores the flag and removes the other uses of the flag
+which were related to the renaming of the clergy.
+
+No bugreport, but reddit post: https://www.reddit.com/r/eu4/comments/1j489cm/horde_mission_for_the_horde_is_lying_to_me/
+---
+ common/estates/01_church.txt                     |  7 -------
+ .../00_customizable_localization_FR.txt          | 16 ----------------
+ missions/zzz_WoC_Shared_Horde_Missions.txt       |  1 +
+ 3 files changed, 1 insertion(+), 23 deletions(-)
+
+diff --git a/common/estates/01_church.txt b/common/estates/01_church.txt
+index 081fb038..2a434726 100755
+--- a/common/estates/01_church.txt
++++ b/common/estates/01_church.txt
+@@ -261,13 +261,6 @@ estate_church = {
+ 			}
+ 		}
+ 	}
+-	custom_name = {
+-		desc = HORDE_SHAMANS
+-		trigger = {
+-			has_country_flag = hordes_devout_tengri_completion_flag
+-			religion = tengri_pagan_reformed
+-		}
+-	}
+ 	custom_name = {
+ 		desc = estate_gurus
+ 		trigger = {
+diff --git a/customizable_localization/00_customizable_localization_FR.txt b/customizable_localization/00_customizable_localization_FR.txt
+index 75b7668b..dedd332e 100755
+--- a/customizable_localization/00_customizable_localization_FR.txt
++++ b/customizable_localization/00_customizable_localization_FR.txt
+@@ -147188,14 +147188,6 @@ defined_text = {
+ 			religion = tengri_pagan_reformed
+ 		}
+ 	}
+-	text = {
+-		localisation_key = string_HORDE_SHAMANS_FR
+-		trigger = {
+-			has_estate = estate_church
+-			has_country_flag = hordes_devout_tengri_completion_flag
+-			religion = tengri_pagan_reformed
+-		}
+-	}
+ 	text = {
+ 		localisation_key = string_gurus_FR
+ 		trigger = {
+@@ -147433,14 +147425,6 @@ defined_text = {
+ 			religion = tengri_pagan_reformed
+ 		}
+ 	}
+-	text = {
+-		localisation_key = string_HORDE_SHAMANS_FR
+-		trigger = {
+-			NOT = { has_estate = estate_church }
+-			has_country_flag = hordes_devout_tengri_completion_flag
+-			religion = tengri_pagan_reformed
+-		}
+-	}
+ 	text = {
+ 		localisation_key = string_gurus_FR
+ 		trigger = {
+diff --git a/missions/zzz_WoC_Shared_Horde_Missions.txt b/missions/zzz_WoC_Shared_Horde_Missions.txt
+index a098b336..8e79fc83 100755
+--- a/missions/zzz_WoC_Shared_Horde_Missions.txt
++++ b/missions/zzz_WoC_Shared_Horde_Missions.txt
+@@ -401,6 +401,7 @@ woc_hordes_1_devout = {
+ 					religion = tengri_pagan_reformed
+ 				}
+ 				custom_tooltip = TENGRI_REMOVE_PRESTIGE_PENALTY_FROM_SWITCHING_SECONDARY_RELIGION
++				set_country_flag = hordes_devout_tengri_completion_flag
+ 				
+ 				custom_tooltip = SEPERATOR_TOOLTIP
+ 				
+-- 
+2.45.2
+
