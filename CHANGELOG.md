@@ -848,3 +848,39 @@ Patch: [0091-make-the-Kalpi-war-event-chain-about-Kalpi-instead-of-Bundelkhand](
 ## bring tooltip in flavor_eth.13 in line with effect in flavor_eth.11
 Patch: [0092-bring-tooltip-in-flavor_eth13-in-line-with-effect-in-flavor_eth11](patches/0092-bring-tooltip-in-flavor_eth13-in-line-with-effect-in-flavor_eth11.patch)
 
+# 2025-08-09
+
+## fix removing of prestige penalty when changing secondary religion after completing For the Horde
+
+The mission "For the Horde!"(tatars_devout2) had the effects to remove
+the prestige penalty when changing secondary religion and a tooltip
+which claimed that it renamed the clergy to shamans. The renaming didn't
+work, because they already had that name in the cases when it was
+applied, so this was removed in version 1.37.3. But the effect for the
+secondary religion penalty used the same flag and was broken as well
+even though its tooltip remained.
+
+This patch restores the flag and removes the other uses of the flag
+which were related to the renaming of the clergy.
+
+No bugreport, but reddit post: https://www.reddit.com/r/eu4/comments/1j489cm/horde_mission_for_the_horde_is_lying_to_me/
+Patch: [0093-fix-removing-of-prestige-penalty-when-changing-secondary-religion-after-completing-For-the-Horde](patches/0093-fix-removing-of-prestige-penalty-when-changing-secondary-religion-after-completing-For-the-Horde.patch)
+
+## Pay out rewards for correct nodes in venitian mission "Carve New Routes"(ven_triangle_trade)
+
+No bugreport, but reddit post: https://www.reddit.com/r/eu4/comments/1ilno81/carve_new_routes_bugged/
+Patch: [0094-Pay-out-rewards-for-correct-nodes-in-venitian-mission-Carve-New-Routesven_triangle_trade](patches/0094-Pay-out-rewards-for-correct-nodes-in-venitian-mission-Carve-New-Routesven_triangle_trade.patch)
+
+## Allow Mongol Empire formed by Yuan to keep Yuan missions when switching branches
+Patch: [0095-Allow-Mongol-Empire-formed-by-Yuan-to-keep-Yuan-missions-when-switching-branches](patches/0095-Allow-Mongol-Empire-formed-by-Yuan-to-keep-Yuan-missions-when-switching-branches.patch)
+
+## Prevent error messages when the HRE is dismantled
+
+Dismantling the HRE was spamming messages into the error.log like:
+"Script error! Script Object Token: "is_elector", Error: Trigger
+condition set on the wrong scope: Scope.GetCountryTag().IsValid()"
+They seem to come from the scripted function will_demand_annexation.
+I'm not sure why it happens, but first checking "is_part_of_hre = yes"
+avoids the second check if the HRE doesn't exist
+Patch: [0096-Prevent-error-messages-when-the-HRE-is-dismantled](patches/0096-Prevent-error-messages-when-the-HRE-is-dismantled.patch)
+

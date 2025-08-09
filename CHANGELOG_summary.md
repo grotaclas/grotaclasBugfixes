@@ -95,3 +95,8 @@
 - reduce duration of CBs which last for more than 100 years
 - make the Kalpi war event chain about Kalpi instead of Bundelkhand
 - bring tooltip in flavor_eth.13 in line with effect in flavor_eth.11
+# 2025-08-09
+- fix removing of prestige penalty when changing secondary religion after completing For the Horde
+- Pay out rewards for correct nodes in venitian mission "Carve New Routes"(ven_triangle_trade)
+- Allow Mongol Empire formed by Yuan to keep Yuan missions when switching branches
+- Prevent error messages when the HRE is dismantled
