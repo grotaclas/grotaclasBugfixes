@@ -1,0 +1,30 @@
+From 5b3459441d2a4324e09089068aedbe1276de3a21 Mon Sep 17 00:00:00 2001
+From: grotaclas <grotaclas@gmail.com>
+Date: Sat, 09 Aug 2025 10:10:44 -0000
+Subject: [PATCH] Prevent error messages when the HRE is dismantled
+
+Dismantling the HRE was spamming messages into the error.log like:
+"Script error! Script Object Token: "is_elector", Error: Trigger
+condition set on the wrong scope: Scope.GetCountryTag().IsValid()"
+They seem to come from the scripted function will_demand_annexation.
+I'm not sure why it happens, but first checking "is_part_of_hre = yes"
+avoids the second check if the HRE doesn't exist
+---
+ common/scripted_functions/00_scripted_functions.txt | 1 +
+ 1 file changed, 1 insertion(+)
+
+diff --git a/common/scripted_functions/00_scripted_functions.txt b/common/scripted_functions/00_scripted_functions.txt
+index 0089c963..e32ec14d 100755
+--- a/common/scripted_functions/00_scripted_functions.txt
++++ b/common/scripted_functions/00_scripted_functions.txt
+@@ -248,6 +248,7 @@ is_possible_hre_province = {
+ will_demand_annexation = {
+ 	condition = {
+ 		potential = {
++			is_part_of_hre = yes
+ 			is_elector = yes
+ 		}
+ 		allow = {
+-- 
+2.45.2
+
