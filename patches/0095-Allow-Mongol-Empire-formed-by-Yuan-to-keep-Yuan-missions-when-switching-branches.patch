@@ -1,0 +1,92 @@
+From 902d9dd30fefd669fe1d3271fdaa9b46024ce5cf Mon Sep 17 00:00:00 2001
+From: grotaclas <grotaclas@gmail.com>
+Date: Sat, 09 Aug 2025 10:10:44 -0000
+Subject: [PATCH] Allow Mongol Empire formed by Yuan to keep Yuan missions when
+ switching branches
+
+---
+ missions/WoC_Mongolian_Missions.txt | 40 +++++++++++++++++++++++++----
+ 1 file changed, 35 insertions(+), 5 deletions(-)
+
+diff --git a/missions/WoC_Mongolian_Missions.txt b/missions/WoC_Mongolian_Missions.txt
+index 2602ec4b..6e47929a 100755
+--- a/missions/WoC_Mongolian_Missions.txt
++++ b/missions/WoC_Mongolian_Missions.txt
+@@ -36,7 +36,13 @@ WoC_Mongols_1 = {
+ 			NOT = { was_moghulistan_nation = yes }
+ 		}
+ 		else = {
+-			tag = YUA
++			OR = {
++				tag = YUA
++				AND = {
++					tag = MGE
++					was_tag = YUA
++				}
++			}
+ 		}
+ 		has_dlc = "Winds of Change"
+ 	}
+@@ -271,7 +277,13 @@ WoC_Mongols_2 = {
+ 			NOT = { was_moghulistan_nation = yes }
+ 		}
+ 		else = {
+-			tag = YUA
++			OR = {
++				tag = YUA
++				AND = {
++					tag = MGE
++					was_tag = YUA
++				}
++			}
+ 		}
+ 		has_dlc = "Winds of Change"
+ 	}
+@@ -707,7 +719,13 @@ WoC_Mongols_3 = {
+ 			NOT = { was_moghulistan_nation = yes }
+ 		}
+ 		else = {
+-			tag = YUA
++			OR = {
++				tag = YUA
++				AND = {
++					tag = MGE
++					was_tag = YUA
++				}
++			}
+ 		}
+ 		has_dlc = "Winds of Change"
+ 	}
+@@ -1005,7 +1023,13 @@ WoC_Mongols_4 = {
+ 			NOT = { was_moghulistan_nation = yes }
+ 		}
+ 		else = {
+-			tag = YUA
++			OR = {
++				tag = YUA
++				AND = {
++					tag = MGE
++					was_tag = YUA
++				}
++			}
+ 		}
+ 		has_dlc = "Winds of Change"
+ 	}
+@@ -1340,7 +1364,13 @@ WoC_Mongols_5 = {
+ 			NOT = { was_moghulistan_nation = yes }
+ 		}
+ 		else = {
+-			tag = YUA
++			OR = {
++				tag = YUA
++				AND = {
++					tag = MGE
++					was_tag = YUA
++				}
++			}
+ 		}
+ 		has_dlc = "Winds of Change"
+ 	}
+-- 
+2.45.2
+
