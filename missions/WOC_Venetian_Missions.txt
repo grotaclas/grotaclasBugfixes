@@ -2941,10 +2941,13 @@ venice_missions_slot_5 = {
 							share = 85
 						}
 					}
-					1516 = {
-						trade_share = {
-							country = ROOT
-							share = 50
+					if = {
+						limit = { is_random_new_world = no }
+						1516 = {
+							trade_share = {
+								country = ROOT
+								share = 50
+							}
 						}
 					}
 					1466 = {
@@ -3038,25 +3041,28 @@ venice_missions_slot_5 = {
 								share = 85
 							}
 						}
-						1320 = {
+						if = {
+							limit = { is_random_new_world = no }
+							1516 = {
+								trade_share = {
+									country = ROOT
+									share = 50
+								}
+							}
+						}
+						1466 = {
 							trade_share = {
 								country = ROOT
 								share = 50
 							}
 						}
-						137 = {
-							trade_share = {
-								country = ROOT
-								share = 50
-							}
-						}
-						1322 = {
+						1293 = {
 							trade_share = {
 								country = ROOT
 								share = 25
 							}
 						}
-						4346 = {
+						1295 = {
 							trade_share = {
 								country = ROOT
 								share = 25

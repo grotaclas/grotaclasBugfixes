@@ -1,0 +1,72 @@
+From 58608fd89464edd4cdbaa0a3e0a8663883a75395 Mon Sep 17 00:00:00 2001
+From: grotaclas <grotaclas@gmail.com>
+Date: Sat, 09 Aug 2025 10:10:44 -0000
+Subject: [PATCH] Pay out rewards for correct nodes in venitian mission "Carve
+ New Routes"(ven_triangle_trade)
+
+No bugreport, but reddit post: https://www.reddit.com/r/eu4/comments/1ilno81/carve_new_routes_bugged/
+---
+ missions/WOC_Venetian_Missions.txt | 28 +++++++++++++++++-----------
+ 1 file changed, 17 insertions(+), 11 deletions(-)
+
+diff --git a/missions/WOC_Venetian_Missions.txt b/missions/WOC_Venetian_Missions.txt
+index d86f77f1..4a34a141 100755
+--- a/missions/WOC_Venetian_Missions.txt
++++ b/missions/WOC_Venetian_Missions.txt
+@@ -2941,10 +2941,13 @@ venice_missions_slot_5 = {
+ 							share = 85
+ 						}
+ 					}
+-					1516 = {
+-						trade_share = {
+-							country = ROOT
+-							share = 50
++					if = {
++						limit = { is_random_new_world = no }
++						1516 = {
++							trade_share = {
++								country = ROOT
++								share = 50
++							}
+ 						}
+ 					}
+ 					1466 = {
+@@ -3038,25 +3041,28 @@ venice_missions_slot_5 = {
+ 								share = 85
+ 							}
+ 						}
+-						1320 = {
+-							trade_share = {
+-								country = ROOT
+-								share = 50
++						if = {
++							limit = { is_random_new_world = no }
++							1516 = {
++								trade_share = {
++									country = ROOT
++									share = 50
++								}
+ 							}
+ 						}
+-						137 = {
++						1466 = {
+ 							trade_share = {
+ 								country = ROOT
+ 								share = 50
+ 							}
+ 						}
+-						1322 = {
++						1293 = {
+ 							trade_share = {
+ 								country = ROOT
+ 								share = 25
+ 							}
+ 						}
+-						4346 = {
++						1295 = {
+ 							trade_share = {
+ 								country = ROOT
+ 								share = 25
+-- 
+2.45.2
+
