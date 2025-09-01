@@ -884,3 +884,18 @@ I'm not sure why it happens, but first checking "is_part_of_hre = yes"
 avoids the second check if the HRE doesn't exist
 Patch: [0096-Prevent-error-messages-when-the-HRE-is-dismantled](patches/0096-Prevent-error-messages-when-the-HRE-is-dismantled.patch)
 
+# 2025-09-01
+
+## Make sure that BYZ has correct missions when released from the PLC mission Purple Phoenix
+
+If BYZ forms the Latin Empire(LAE), the BYZ tag in the save game
+switches to generic missions. If BYZ then gets released in some way,
+they still have generic missions.
+
+This patch fixes the missions when releasing BYZ in the event "The Crown
+of Rome"(flavor_pol.30) which gets triggered by the mission "Purple
+Phoenix"(plc_purple_phoenix)
+
+No bugreport, but forum comment: https://forum.paradoxplaza.com/forum/threads/euiv-quick-questions-quick-answers.706726/post-30713176
+Patch: [0097-Make-sure-that-BYZ-has-correct-missions-when-released-from-the-PLC-mission-Purple-Phoenix](patches/0097-Make-sure-that-BYZ-has-correct-missions-when-released-from-the-PLC-mission-Purple-Phoenix.patch)
+

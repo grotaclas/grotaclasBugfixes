@@ -100,3 +100,5 @@
 - Pay out rewards for correct nodes in venitian mission "Carve New Routes"(ven_triangle_trade)
 - Allow Mongol Empire formed by Yuan to keep Yuan missions when switching branches
 - Prevent error messages when the HRE is dismantled
+# 2025-09-01
+- Make sure that BYZ has correct missions when released from the PLC mission Purple Phoenix
