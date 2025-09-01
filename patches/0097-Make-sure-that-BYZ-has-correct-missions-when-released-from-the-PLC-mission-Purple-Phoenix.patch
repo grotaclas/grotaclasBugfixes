@@ -1,0 +1,36 @@
+From 9ada17d245f030c7014e797a73d340ff24ec58e7 Mon Sep 17 00:00:00 2001
+From: grotaclas <grotaclas@gmail.com>
+Date: Mon, 01 Sep 2025 11:48:30 -0000
+Subject: [PATCH] Make sure that BYZ has correct missions when released from
+ the PLC mission Purple Phoenix
+
+If BYZ forms the Latin Empire(LAE), the BYZ tag in the save game
+switches to generic missions. If BYZ then gets released in some way,
+they still have generic missions.
+
+This patch fixes the missions when releasing BYZ in the event "The Crown
+of Rome"(flavor_pol.30) which gets triggered by the mission "Purple
+Phoenix"(plc_purple_phoenix)
+
+No bugreport, but forum comment: https://forum.paradoxplaza.com/forum/threads/euiv-quick-questions-quick-answers.706726/post-30713176
+---
+ events/flavorPOL.txt | 3 +++
+ 1 file changed, 3 insertions(+)
+
+diff --git a/events/flavorPOL.txt b/events/flavorPOL.txt
+index 6c46b70b..c0d0d500 100755
+--- a/events/flavorPOL.txt
++++ b/events/flavorPOL.txt
+@@ -2657,6 +2657,9 @@ country_event = { #The Crown of Rome
+ 		BYZ = { 
+ 			change_religion = orthodox 
+ 			add_historical_friend = ROOT
++			hidden_effect = {
++				swap_non_generic_missions = yes # to make sure that they have BYZ missions, because these might have been lost if BYZ formed LAE at some point
++			}
+ 		}
+ 		add_historical_friend = BYZ 
+ 		151 = { 
+-- 
+2.45.2
+
