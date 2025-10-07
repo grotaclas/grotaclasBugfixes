@@ -1,0 +1,34 @@
+From 1f1bf2da2051e547906bc013e9acdeba8af86944 Mon Sep 17 00:00:00 2001
+From: grotaclas <grotaclas@gmail.com>
+Date: Tue, 07 Oct 2025 18:02:51 -0000
+Subject: [PATCH] Fix separatism reward in oceania_unite_home_region
+
+---
+ missions/Oceania_Missions.txt | 10 ++++------
+ 1 file changed, 4 insertions(+), 6 deletions(-)
+
+diff --git a/missions/Oceania_Missions.txt b/missions/Oceania_Missions.txt
+index 39cee769..1f0452bd 100755
+--- a/missions/Oceania_Missions.txt
++++ b/missions/Oceania_Missions.txt
+@@ -679,13 +679,11 @@ oceania_missions_slot4 = {
+ 				add_nationalism = -10
+ 			}
+ 			hidden_effect = {
+-				capital_scope = {
+-					every_owned_province = {
+-						limit = {
+-							region = PREV
+-						}
+-						add_nationalism = -10
++				every_owned_province = {
++					limit = {
++						region = capital
+ 					}
++					add_nationalism = -10
+ 				}
+ 			}
+ 		}
+-- 
+2.45.2
+
