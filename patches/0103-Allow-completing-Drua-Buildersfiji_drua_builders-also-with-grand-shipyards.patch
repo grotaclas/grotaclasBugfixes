@@ -1,0 +1,29 @@
+From 6788960dfce4b1e6963d89dc8eadf7fd45674b05 Mon Sep 17 00:00:00 2001
+From: grotaclas <grotaclas@gmail.com>
+Date: Tue, 07 Oct 2025 18:02:51 -0000
+Subject: [PATCH] Allow completing Drua Builders(fiji_drua_builders) also with
+ grand shipyards
+
+---
+ missions/Polynesian_TAGs_Missions.txt | 5 ++++-
+ 1 file changed, 4 insertions(+), 1 deletion(-)
+
+diff --git a/missions/Polynesian_TAGs_Missions.txt b/missions/Polynesian_TAGs_Missions.txt
+index 9a92ac69..b5525d43 100755
+--- a/missions/Polynesian_TAGs_Missions.txt
++++ b/missions/Polynesian_TAGs_Missions.txt
+@@ -30,7 +30,10 @@ fijian_missions = {
+ 		trigger = { 
+ 			OR = {
+ 				AND = {
+-					shipyard = 1
++					OR = {
++						shipyard = 1
++						grand_shipyard = 1
++					}
+ 					num_of_light_ship = 5
+ 				}
+ 				num_of_light_ship = 15
+-- 
+2.45.2
+
