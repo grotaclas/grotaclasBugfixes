@@ -1,0 +1,30 @@
+From 79ca7083d37497d670175e62b29d472c1f537f6b Mon Sep 17 00:00:00 2001
+From: grotaclas <grotaclas@gmail.com>
+Date: Tue, 07 Oct 2025 18:02:51 -0000
+Subject: [PATCH] Disable Qizilbash Rebels for countries without the estate
+
+Bugreport: https://forum.paradoxplaza.com/forum/threads/ghilman-rebels-in-burgundian-subject.1630266/#post-29463156
+---
+ common/rebel_types/qizilbash_rebels.txt | 6 ++++++
+ 1 file changed, 6 insertions(+)
+
+diff --git a/common/rebel_types/qizilbash_rebels.txt b/common/rebel_types/qizilbash_rebels.txt
+index 9db63cd4..78de8eed 100755
+--- a/common/rebel_types/qizilbash_rebels.txt
++++ b/common/rebel_types/qizilbash_rebels.txt
+@@ -33,6 +33,12 @@ qizilbash_rebels = {
+ 	# The rebel type with the highest modifier for this province gets picked
+ 	spawn_chance = {
+ 		factor = 1
++		modifier = {
++			factor = 0
++			owner = {
++				NOT = { has_estate = estate_qizilbash }
++			}
++		}
+ 		modifier = {
+ 			factor = 0.01
+ 			is_overseas = yes
+-- 
+2.45.2
+
