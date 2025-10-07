@@ -102,3 +102,12 @@
 - Prevent error messages when the HRE is dismantled
 # 2025-09-01
 - Make sure that BYZ has correct missions when released from the PLC mission Purple Phoenix
+# 2025-10-07
+- Disable Ghilman Rebels for countries without the estate
+- Disable Qizilbash Rebels for countries without the estate
+- prevent native_federations_event.2 from happening over and over again
+- Make Cernida Fortifications bonus available for higher level forts
+- Fix separatism reward in oceania_unite_home_region
+- Allow completing Drua Builders(fiji_drua_builders) also with grand shipyards
+- Prevent HSA from switching to generic ideas in flavor_hsa.26
+- prevent pomeranian ideas from overriding tag specific ideas

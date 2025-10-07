@@ -899,3 +899,71 @@ Phoenix"(plc_purple_phoenix)
 No bugreport, but forum comment: https://forum.paradoxplaza.com/forum/threads/euiv-quick-questions-quick-answers.706726/post-30713176
 Patch: [0097-Make-sure-that-BYZ-has-correct-missions-when-released-from-the-PLC-mission-Purple-Phoenix](patches/0097-Make-sure-that-BYZ-has-correct-missions-when-released-from-the-PLC-mission-Purple-Phoenix.patch)
 
+# 2025-10-07
+
+## Disable Ghilman Rebels for countries without the estate
+
+Bugreport: https://forum.paradoxplaza.com/forum/threads/ghilman-rebels-in-burgundian-subject.1630266/
+Patch: [0098-Disable-Ghilman-Rebels-for-countries-without-the-estate](patches/0098-Disable-Ghilman-Rebels-for-countries-without-the-estate.patch)
+
+## Disable Qizilbash Rebels for countries without the estate
+
+Bugreport: https://forum.paradoxplaza.com/forum/threads/ghilman-rebels-in-burgundian-subject.1630266/#post-29463156
+Patch: [0099-Disable-Qizilbash-Rebels-for-countries-without-the-estate](patches/0099-Disable-Qizilbash-Rebels-for-countries-without-the-estate.patch)
+
+## prevent native_federations_event.2 from happening over and over again
+
+The event "Council Rulership"(native_federations_event.2) asks the
+player if they want to change out of the Federation
+reform(native_federation_reform), but if you don't do that, you can get
+the event again (MTTH 1 year). This allows the player to get 50 adm
+points, from the other option over and over again.
+
+Bugreport: https://forum.paradoxplaza.com/forum/threads/eu-iv-federation-ways-and-council-rulership-events-pop-up-many-times-unlimited.1594673/
+Patch: [0100-prevent-native_federations_event2-from-happening-over-and-over-again](patches/0100-prevent-native_federations_event2-from-happening-over-and-over-again.patch)
+
+## Make Cernida Fortifications bonus available for higher level forts
+
+It is from the venetian mission "The Cernida System"
+(ven_standing_army_mission_1).
+
+Bugreport: https://forum.paradoxplaza.com/forum/threads/cernida-fortifications-bonus-only-comes-from-level-2-fort.1859583/
+Patch: [0101-Make-Cernida-Fortifications-bonus-available-for-higher-level-forts](patches/0101-Make-Cernida-Fortifications-bonus-available-for-higher-level-forts.patch)
+
+## Fix separatism reward in oceania_unite_home_region
+Patch: [0102-Fix-separatism-reward-in-oceania_unite_home_region](patches/0102-Fix-separatism-reward-in-oceania_unite_home_region.patch)
+
+## Allow completing Drua Builders(fiji_drua_builders) also with grand shipyards
+Patch: [0103-Allow-completing-Drua-Buildersfiji_drua_builders-also-with-grand-shipyards](patches/0103-Allow-completing-Drua-Buildersfiji_drua_builders-also-with-grand-shipyards.patch)
+
+## Prevent HSA from switching to generic ideas in flavor_hsa.26
+
+The event "The Crowning of a New Queen" (flavor_hsa.26) which gets
+triggered by the mission Queen of the Hansa (hsa_queen_of_the_hansa),
+has the option to switch the national ideas to FU2_ideas and the country
+name to "The Hanseatic League"(FU2), but this has already happened
+if HSA was fomed with the decision "Declare the Hanseatic League"
+(declare_hanseatic_league) and taking the ideas again would switch the
+country to the next eligible idea set(e.g. generic german ideas with
+germanic culture). This patch removes the option to get the ideas if HSA
+was formed.
+
+No bugreport, but reddit post: https://www.reddit.com/r/eu4/comments/1o0b4xx/generic_national_ideas_as_hansa/
+Patch: [0104-Prevent-HSA-from-switching-to-generic-ideas-in-flavor_hsa26](patches/0104-Prevent-HSA-from-switching-to-generic-ideas-in-flavor_hsa26.patch)
+
+## prevent pomeranian ideas from overriding tag specific ideas
+
+Forming a country and accepting new ideas while having pomeranian
+culture would give pomeranian ideas instead of the tag ideas in many
+cases, because pomeranian ideas have the condition of either having the
+tag POM or the pomeranian culture and they are in the middle of
+00_country_ideas.txt, so they override all the ideas behind them if the
+country has pomeranian culture(e.g. HSA). And it also overrides the
+group ideas(e.g. for colonial nations and pirate republics). This patch
+moves the ideas to zz_group_ideas.txt, after the special group ideas
+client_ideas, trading_city_ideas, colonial_ideas, barbary_pirate_ideas,
+pirate_ideas and cossack_ideas
+
+Bugreport: https://forum.paradoxplaza.com/forum/threads/forming-the-hanseatic-league-granting-pomeranian-ideas.1625822/
+Patch: [0105-prevent-pomeranian-ideas-from-overriding-tag-specific-ideas](patches/0105-prevent-pomeranian-ideas-from-overriding-tag-specific-ideas.patch)
+

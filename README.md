@@ -1,4 +1,4 @@
-**grotaclas Bugfixes** is a mod for the game Europa Universalis IV which fixes bugs in version 1.37.5.
+**grotaclas Bugfixes** is a mod for the game Europa Universalis IV which fixes 105 bugs in version 1.37.5.
 
 Highlights include:
 * Prevent janissary events from creating hundreds of unrest in Ottoman provinces
