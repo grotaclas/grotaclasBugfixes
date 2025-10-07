@@ -1,0 +1,40 @@
+From 8cab4a804758144dec05c68ad44575d516e6d1d5 Mon Sep 17 00:00:00 2001
+From: grotaclas <grotaclas@gmail.com>
+Date: Tue, 07 Oct 2025 18:02:51 -0000
+Subject: [PATCH] prevent native_federations_event.2 from happening over and
+ over again
+
+The event "Council Rulership"(native_federations_event.2) asks the
+player if they want to change out of the Federation
+reform(native_federation_reform), but if you don't do that, you can get
+the event again (MTTH 1 year). This allows the player to get 50 adm
+points, from the other option over and over again.
+
+Bugreport: https://forum.paradoxplaza.com/forum/threads/eu-iv-federation-ways-and-council-rulership-events-pop-up-many-times-unlimited.1594673/
+---
+ events/Native_Federation_Events.txt | 2 ++
+ 1 file changed, 2 insertions(+)
+
+diff --git a/events/Native_Federation_Events.txt b/events/Native_Federation_Events.txt
+index d9df3d81..36d5221c 100755
+--- a/events/Native_Federation_Events.txt
++++ b/events/Native_Federation_Events.txt
+@@ -50,6 +50,7 @@ country_event = {#Change to Clan Council Reform for free
+ 	trigger = {
+ 		is_federation_nation = no
+ 		has_reform = native_federation_reform
++		NOT = { has_country_flag = chose_to_keep_federation_reform }
+ 	}
+ 	
+ 	mean_time_to_happen = {
+@@ -69,6 +70,7 @@ country_event = {#Change to Clan Council Reform for free
+ 			factor = 50 
+ 		}	
+ 		add_adm_power = 50
++		set_country_flag = chose_to_keep_federation_reform
+ 	}
+ }
+ 
+-- 
+2.45.2
+
