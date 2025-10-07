@@ -1,0 +1,132 @@
+From 36290ec0881ede71faeae0758d75f9941f9eb46e Mon Sep 17 00:00:00 2001
+From: grotaclas <grotaclas@gmail.com>
+Date: Tue, 07 Oct 2025 18:02:51 -0000
+Subject: [PATCH] prevent pomeranian ideas from overriding tag specific ideas
+
+Forming a country and accepting new ideas while having pomeranian
+culture would give pomeranian ideas instead of the tag ideas in many
+cases, because pomeranian ideas have the condition of either having the
+tag POM or the pomeranian culture and they are in the middle of
+00_country_ideas.txt, so they override all the ideas behind them if the
+country has pomeranian culture(e.g. HSA). And it also overrides the
+group ideas(e.g. for colonial nations and pirate republics). This patch
+moves the ideas to zz_group_ideas.txt, after the special group ideas
+client_ideas, trading_city_ideas, colonial_ideas, barbary_pirate_ideas,
+pirate_ideas and cossack_ideas
+
+Bugreport: https://forum.paradoxplaza.com/forum/threads/forming-the-hanseatic-league-granting-pomeranian-ideas.1625822/
+---
+ common/ideas/00_country_ideas.txt | 42 ------------------------------
+ common/ideas/zz_group_ideas.txt   | 43 +++++++++++++++++++++++++++++++
+ 2 files changed, 43 insertions(+), 42 deletions(-)
+
+diff --git a/common/ideas/00_country_ideas.txt b/common/ideas/00_country_ideas.txt
+index 7dc108ab..61e51f43 100755
+--- a/common/ideas/00_country_ideas.txt
++++ b/common/ideas/00_country_ideas.txt
+@@ -6876,48 +6876,6 @@ TUA_ideas = {
+ 	}
+ }
+ 
+-POM_ideas = {
+-	start = {
+-		light_ship_cost = -0.2
+-		land_morale = 0.1
+-	}
+-	
+-	bonus = {
+- 		global_trade_power = 0.1
+-	}
+-	
+-	trigger = {
+-		OR = {
+-			tag = POM
+-			primary_culture = pommeranian
+-		}
+-	}
+-	free = yes
+-	
+-	pom_idea_1 = {
+-		embargo_efficiency = 0.1
+-		privateer_efficiency = 0.15
+-	}
+-	pom_idea_2 = {
+-		merchants = 1
+-	}
+-	pom_idea_3 = {
+-		trade_steering = 0.25
+-	}
+-	pom_idea_4 = {
+-		tolerance_heretic = 2		
+-	}
+-	pom_idea_5 = {
+-		merc_maintenance_modifier = -0.15
+-	}
+-	pom_idea_6 = {
+-		trade_efficiency = 0.1
+-	}
+-	pom_idea_7 = {
+-		naval_forcelimit_modifier = 0.25
+-	}
+-}
+-
+ KAZ_ideas = {
+ 	start = {
+ 		ae_impact = -0.10		
+diff --git a/common/ideas/zz_group_ideas.txt b/common/ideas/zz_group_ideas.txt
+index 3b4d9c70..02c115bb 100755
+--- a/common/ideas/zz_group_ideas.txt
++++ b/common/ideas/zz_group_ideas.txt
+@@ -258,6 +258,49 @@ cossack_ideas = {
+ }
+ 
+ 
++POM_ideas = {
++	start = {
++		light_ship_cost = -0.2
++		land_morale = 0.1
++	}
++
++	bonus = {
++		global_trade_power = 0.1
++	}
++
++	trigger = {
++		OR = {
++			tag = POM
++			primary_culture = pommeranian
++		}
++	}
++	free = yes
++
++	pom_idea_1 = {
++		embargo_efficiency = 0.1
++		privateer_efficiency = 0.15
++	}
++	pom_idea_2 = {
++		merchants = 1
++	}
++	pom_idea_3 = {
++		trade_steering = 0.25
++	}
++	pom_idea_4 = {
++		tolerance_heretic = 2
++	}
++	pom_idea_5 = {
++		merc_maintenance_modifier = -0.15
++	}
++	pom_idea_6 = {
++		trade_efficiency = 0.1
++	}
++	pom_idea_7 = {
++		naval_forcelimit_modifier = 0.25
++	}
++}
++
++
+ berber_ideas = {
+ 	start = {
+ 		naval_attrition = -0.25
+-- 
+2.45.2
+
