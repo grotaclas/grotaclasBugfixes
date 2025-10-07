@@ -1,0 +1,30 @@
+From dea70cabe6ca6160882e471521cd944bec021532 Mon Sep 17 00:00:00 2001
+From: grotaclas <grotaclas@gmail.com>
+Date: Tue, 07 Oct 2025 18:02:51 -0000
+Subject: [PATCH] Disable Ghilman Rebels for countries without the estate
+
+Bugreport: https://forum.paradoxplaza.com/forum/threads/ghilman-rebels-in-burgundian-subject.1630266/
+---
+ common/rebel_types/ghulams_rebels.txt | 6 ++++++
+ 1 file changed, 6 insertions(+)
+
+diff --git a/common/rebel_types/ghulams_rebels.txt b/common/rebel_types/ghulams_rebels.txt
+index 6737fca7..d58e7066 100755
+--- a/common/rebel_types/ghulams_rebels.txt
++++ b/common/rebel_types/ghulams_rebels.txt
+@@ -33,6 +33,12 @@ ghulams_rebels = {
+ 	# The rebel type with the highest modifier for this province gets picked
+ 	spawn_chance = {
+ 		factor = 1
++		modifier = {
++			factor = 0
++			owner = {
++				NOT = { has_estate = estate_ghulams }
++			}
++		}
+ 		modifier = {
+ 			factor = 0.01
+ 			is_overseas = yes
+-- 
+2.45.2
+
