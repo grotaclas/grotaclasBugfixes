@@ -1,0 +1,114 @@
+From fdb54335d55cafdc484a37aab59f7f512dcc66de Mon Sep 17 00:00:00 2001
+From: grotaclas <grotaclas@gmail.com>
+Date: Tue, 07 Oct 2025 18:02:51 -0000
+Subject: [PATCH] Make Cernida Fortifications bonus available for higher level
+ forts
+
+It is from the venetian mission "The Cernida System"
+(ven_standing_army_mission_1).
+
+Bugreport: https://forum.paradoxplaza.com/forum/threads/cernida-fortifications-bonus-only-comes-from-level-2-fort.1859583/
+---
+ common/buildings/00_buildings.txt | 51 +++++++++++++++++++++++++++++++
+ 1 file changed, 51 insertions(+)
+
+diff --git a/common/buildings/00_buildings.txt b/common/buildings/00_buildings.txt
+index aed57b3b..5e02202c 100755
+--- a/common/buildings/00_buildings.txt
++++ b/common/buildings/00_buildings.txt
+@@ -1001,6 +1001,17 @@ fort_16th = {
+ 				hidden = yes
+ 			}
+ 		}
++		if = {
++			limit = {
++				owner = { has_country_flag = ven_defensive_reward_flag }
++				NOT = { has_province_modifier = ven_defensive_stance_modifier }
++			}
++			add_province_modifier = {
++				name = ven_defensive_stance_modifier
++				duration = -1
++				hidden = yes
++			}
++		}
+ 		if = {
+ 			limit = {
+ 				owner = {
+@@ -1031,6 +1042,12 @@ fort_16th = {
+ 			}
+ 			remove_province_modifier = estate_nobles_development_of_castles_mod
+ 		}
++		if = {
++			limit = {
++				has_province_modifier = ven_defensive_stance_modifier
++			}
++			remove_province_modifier = ven_defensive_stance_modifier
++		}
+ 		if = {
+ 			limit = {
+ 				has_province_modifier = ned_low_countries_fort_buff
+@@ -1618,6 +1635,17 @@ fort_17th = {
+ 				hidden = yes
+ 			}
+ 		}
++		if = {
++			limit = {
++				owner = { has_country_flag = ven_defensive_reward_flag }
++				NOT = { has_province_modifier = ven_defensive_stance_modifier }
++			}
++			add_province_modifier = {
++				name = ven_defensive_stance_modifier
++				duration = -1
++				hidden = yes
++			}
++		}
+ 		if = {
+ 			limit = {
+ 				owner = {
+@@ -1648,6 +1676,12 @@ fort_17th = {
+ 			}
+ 			remove_province_modifier = estate_nobles_development_of_castles_mod
+ 		}
++		if = {
++			limit = {
++				has_province_modifier = ven_defensive_stance_modifier
++			}
++			remove_province_modifier = ven_defensive_stance_modifier
++		}
+ 		if = {
+ 			limit = {
+ 				has_province_modifier = ned_low_countries_fort_buff
+@@ -2148,6 +2182,17 @@ fort_18th = {
+ 				hidden = yes
+ 			}
+ 		}
++		if = {
++			limit = {
++				owner = { has_country_flag = ven_defensive_reward_flag }
++				NOT = { has_province_modifier = ven_defensive_stance_modifier }
++			}
++			add_province_modifier = {
++				name = ven_defensive_stance_modifier
++				duration = -1
++				hidden = yes
++			}
++		}
+ 		if = {
+ 			limit = {
+ 				owner = {
+@@ -2178,6 +2223,12 @@ fort_18th = {
+ 			}
+ 			remove_province_modifier = estate_nobles_development_of_castles_mod
+ 		}
++		if = {
++			limit = {
++				has_province_modifier = ven_defensive_stance_modifier
++			}
++			remove_province_modifier = ven_defensive_stance_modifier
++		}
+ 		if = {
+ 			limit = {
+ 				has_province_modifier = ned_low_countries_fort_buff
+-- 
+2.45.2
+
