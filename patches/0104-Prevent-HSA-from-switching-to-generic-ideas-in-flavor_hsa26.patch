@@ -1,0 +1,55 @@
+From a66983fa5b6d6a75190b6ab9847a1973993a4625 Mon Sep 17 00:00:00 2001
+From: grotaclas <grotaclas@gmail.com>
+Date: Tue, 07 Oct 2025 18:02:51 -0000
+Subject: [PATCH] Prevent HSA from switching to generic ideas in flavor_hsa.26
+
+The event "The Crowning of a New Queen" (flavor_hsa.26) which gets
+triggered by the mission Queen of the Hansa (hsa_queen_of_the_hansa),
+has the option to switch the national ideas to FU2_ideas and the country
+name to "The Hanseatic League"(FU2), but this has already happened
+if HSA was fomed with the decision "Declare the Hanseatic League"
+(declare_hanseatic_league) and taking the ideas again would switch the
+country to the next eligible idea set(e.g. generic german ideas with
+germanic culture). This patch removes the option to get the ideas if HSA
+was formed.
+
+No bugreport, but reddit post: https://www.reddit.com/r/eu4/comments/1o0b4xx/generic_national_ideas_as_hansa/
+---
+ events/flavorHSA.txt | 14 ++++++--------
+ 1 file changed, 6 insertions(+), 8 deletions(-)
+
+diff --git a/events/flavorHSA.txt b/events/flavorHSA.txt
+index 0a921fed..58276f12 100755
+--- a/events/flavorHSA.txt
++++ b/events/flavorHSA.txt
+@@ -1025,10 +1025,10 @@ country_event = { #The Crowning of a Queen
+ 		name = flavor_hsa.26.a 
+ 		
+ 		trigger = {
+-			OR = { 
+-				NOT = { was_tag = BRE } 
+-				NOT = { was_tag = HAM } 
+-			}
++			# if HSA was formed, it already has this flag, the name FU2,
++			# and it had the option to take the new ideas. Selecting the ideas again
++			# would switch the country to generic ideas
++			NOT = { has_country_flag = hsa_proclaimed_queen_of_the_hansa_flag }
+ 		}
+ 		if = {
+ 			limit = {
+@@ -1062,10 +1062,8 @@ country_event = { #The Crowning of a Queen
+ 		
+ 		if = { 
+ 			limit = { 
+-				OR = { 
+-					was_tag = BRE 
+-					was_tag = HAM 
+-				}
++				# this is the case if HSA was formed
++				has_country_flag = hsa_proclaimed_queen_of_the_hansa_flag
+ 			}
+ 			add_country_modifier = { 
+ 				name = hsa_maritime_hegemon_modifier
+-- 
+2.45.2
+
