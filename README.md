@@ -25,3 +25,5 @@ GitHub: https://github.com/grotaclas/grotaclasBugfixes
 Steam: https://steamcommunity.com/sharedfiles/filedetails/?id=3476043790
 
 Reddit: https://www.reddit.com/r/eu4/comments/1keuamg/announcing_grotaclas_bugfixes/
+
+Paradox mods: https://mods.paradoxplaza.com/mods/121656/Any
