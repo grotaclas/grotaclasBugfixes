@@ -1,0 +1,47 @@
+From 72bee29965d37b20c06df8637841a6d4071b6bb3 Mon Sep 17 00:00:00 2001
+From: grotaclas <grotaclas@gmail.com>
+Date: Thu, 16 Oct 2025 18:02:45 -0000
+Subject: [PATCH] Give florentine missions when forming Tuscany
+
+unless the country already has them(because they were florence before
+and didn't change missions inbetween). This check was already there, but
+because it checked for
+
+    OR = {
+        tag = LAN
+        tag = TUS
+    }
+
+it also prevented Tuscany from getting the missions, because the country
+is already Tuscany at that point. I changed the condition to
+
+    NOT = { has_mission = emp_lan_confront_the_lombards }
+
+which is the first mission in EMP_Florentine_missions.txt
+
+Bugreport: https://forum.paradoxplaza.com/forum/threads/tuscany-dont-get-new-missions-when-formed.1676404/
+---
+ decisions/TuscanNation.txt | 7 +------
+ 1 file changed, 1 insertion(+), 6 deletions(-)
+
+diff --git a/decisions/TuscanNation.txt b/decisions/TuscanNation.txt
+index 1e45b13e..0d2836d2 100755
+--- a/decisions/TuscanNation.txt
++++ b/decisions/TuscanNation.txt
+@@ -99,12 +99,7 @@ country_decisions = {
+ 			if = {
+ 				limit = { 
+ 					has_dlc = "Emperor" 
+-					NOT = { 
+-						OR = { 
+-							tag = LAN 
+-							tag = TUS
+-						}
+-					}
++					NOT = { has_mission = emp_lan_confront_the_lombards }
+ 				}
+ 				swap_non_generic_missions = yes
+ 			}
+-- 
+2.45.2
+
