@@ -1,0 +1,67 @@
+From 3e6b8849cf054c6ef5cd139df744ac7d1c7bc35a Mon Sep 17 00:00:00 2001
+From: grotaclas <grotaclas@gmail.com>
+Date: Thu, 16 Oct 2025 18:02:45 -0000
+Subject: [PATCH] prevent building temple in colonial_nation.191 if the
+ province already has a cathedral
+
+No bugreport, but reddit post: https://www.reddit.com/r/eu4/comments/1o85e4v/does_anyone_know_what_causes_bugged_cathedrals/
+---
+ events/ColonialNation.txt | 31 ++++++++++++++++++++++++++-----
+ 1 file changed, 26 insertions(+), 5 deletions(-)
+
+diff --git a/events/ColonialNation.txt b/events/ColonialNation.txt
+index 35533863..1a6f2ba3 100755
+--- a/events/ColonialNation.txt
++++ b/events/ColonialNation.txt
+@@ -5050,9 +5050,17 @@ province_event = {
+ 	
+ 	option = { #exploit the pilgrims
+ 		name = colonial_nation.191.a
++		trigger = {
++			OR = {
++				has_tax_building_trigger = no
++				owner = {
++					has_estate = estate_church
++				}
++			}
++		}
+ 		if = {
+ 			limit = {
+-				NOT = { has_building = temple }
++				has_tax_building_trigger = no
+ 			}
+ 			add_building = temple
+ 		}
+@@ -5082,11 +5090,24 @@ province_event = {
+ 		name = colonial_nation.191.c
+ 		owner = {
+ 			add_adm_power = 50
+-			add_estate_loyalty = {
+-				estate = estate_church
+-				loyalty = -5
++		}
++
++		if = {
++			limit = {
++				owner = {
++					has_estate = estate_church
++				}
++			}
++			owner = {
++				add_estate_loyalty = {
++					estate = estate_church
++					loyalty = -5
++				}
+ 			}
++			add_unrest = 1
++		} else = {
++			# extra unrest if we cant make the clergy unhappy
++			add_unrest = 3
+ 		}
+-		add_unrest = 1
+ 	}
+ }
+\ No newline at end of file
+-- 
+2.45.2
+
