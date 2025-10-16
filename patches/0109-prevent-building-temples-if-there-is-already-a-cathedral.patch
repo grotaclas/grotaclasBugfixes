@@ -1,0 +1,186 @@
+From 0082e0a0784de118eaea452c75d01568cf253b83 Mon Sep 17 00:00:00 2001
+From: grotaclas <grotaclas@gmail.com>
+Date: Thu, 16 Oct 2025 18:02:45 -0000
+Subject: [PATCH] prevent building temples if there is already a cathedral
+
+similar to the previous patch, but for several more events and one
+mission
+---
+ events/Inti.txt               |  2 +-
+ events/OrderEvents.txt        |  2 +-
+ events/SikhEvents.txt         |  7 ++++---
+ events/Totemism.txt           |  9 +++------
+ events/flavorAIMARA.txt       | 10 +++++-----
+ events/flavorETH.txt          |  2 +-
+ events/flavorTEU.txt          |  2 +-
+ missions/AFR_Oyo_Missions.txt |  2 +-
+ 8 files changed, 17 insertions(+), 19 deletions(-)
+
+diff --git a/events/Inti.txt b/events/Inti.txt
+index e65dbf10..6cc40a16 100755
+--- a/events/Inti.txt
++++ b/events/Inti.txt
+@@ -485,7 +485,7 @@ province_event = {
+ 		}
+ 		is_city = yes
+ 		has_siege = no
+-		NOT = { has_building = temple }
++		NOT = { has_tax_building_trigger = yes }
+ 		num_free_building_slots = 1
+ 		not = { is_capital = yes }
+ 	}
+diff --git a/events/OrderEvents.txt b/events/OrderEvents.txt
+index 5f277645..d15c851d 100755
+--- a/events/OrderEvents.txt
++++ b/events/OrderEvents.txt
+@@ -293,7 +293,7 @@ country_event = {
+ 		name = order_events.3.b
+ 		trigger = {
+ 			event_target:dominican_university_province = {
+-				NOT = { has_building = temple }
++				NOT = { has_tax_building_trigger = yes }
+ 			}
+ 		}
+ 		add_treasury = -50
+diff --git a/events/SikhEvents.txt b/events/SikhEvents.txt
+index 17b1f48a..d698ae85 100755
+--- a/events/SikhEvents.txt
++++ b/events/SikhEvents.txt
+@@ -209,7 +209,7 @@ country_event = {
+ 			limit = {
+ 				owns = 2075 # Punjab
+ 				2075 = {
+-					NOT = { has_building = temple }
++					has_tax_building_trigger = no
+ 					num_free_building_slots = 1
+ 				}
+ 			}
+@@ -220,12 +220,13 @@ country_event = {
+ 		else_if = {
+ 			limit = {
+ 				any_owned_province = {
+-					NOT = { has_building = temple }
++					has_tax_building_trigger = no
++					num_free_building_slots = 1
+ 				}
+ 			}
+ 			random_owned_province = {
+ 				limit = {
+-					NOT = { has_building = temple }
++					has_tax_building_trigger = no
+ 					num_free_building_slots = 1
+ 				}
+ 				add_building = temple
+diff --git a/events/Totemism.txt b/events/Totemism.txt
+index 7ed537a5..3cbe63eb 100755
+--- a/events/Totemism.txt
++++ b/events/Totemism.txt
+@@ -407,14 +407,11 @@ country_event = {
+ 		}
+ 		if = {
+ 			limit = {
+-				OR = {
+-					has_reform = native_becomes_monarchy_reform
+-					has_reform = native_becomes_republic_reform
+-					has_reform = native_becomes_theocracy_reform
+-					has_reform = native_becomes_horde_reform
++				NOT = {
++					government = native
+ 				}
+ 				event_target:legendary_location = {	
+-					NOT = { has_building = temple }
++					has_tax_building_trigger = no
+ 				}
+ 			}
+ 			event_target:legendary_location = {	
+diff --git a/events/flavorAIMARA.txt b/events/flavorAIMARA.txt
+index 4d09bb53..6daac6f3 100755
+--- a/events/flavorAIMARA.txt
++++ b/events/flavorAIMARA.txt
+@@ -61,7 +61,7 @@ country_event = {
+ 				2947 = {
+ 					num_free_building_slots = 1
+ 					NOT = {
+-						has_building = temple
++						has_tax_building_trigger = yes
+ 					}
+ 				}
+ 			}
+@@ -69,7 +69,7 @@ country_event = {
+ 				owns = 2831
+ 				2831 = {
+ 					NOT = {
+-						has_building = temple
++						has_tax_building_trigger = yes
+ 					}
+ 				}
+ 			}
+@@ -78,7 +78,7 @@ country_event = {
+ 				804 = {
+ 					num_free_building_slots = 1
+ 					NOT = {
+-						has_building = temple
++						has_tax_building_trigger = yes
+ 					}
+ 				}
+ 			}
+@@ -87,7 +87,7 @@ country_event = {
+ 				802 = {
+ 					num_free_building_slots = 1
+ 					NOT = {
+-						has_building = temple
++						has_tax_building_trigger = yes
+ 					}
+ 				}
+ 			}
+@@ -104,7 +104,7 @@ country_event = {
+ 		random_owned_province = {
+ 			limit = {
+ 				NOT = {
+-					has_building = temple
++					has_tax_building_trigger = yes
+ 				}
+ 				num_free_building_slots = 1
+ 				OR = {
+diff --git a/events/flavorETH.txt b/events/flavorETH.txt
+index 8f4b9f03..976652a8 100755
+--- a/events/flavorETH.txt
++++ b/events/flavorETH.txt
+@@ -325,7 +325,7 @@ country_event = {
+ 		set_capital = 1213
+ 		1213 = {
+ 			rename_capital = "Debre Berhan"
+-			add_building = temple
++			add_or_upgrade_tax_building = yes
+ 		}
+ 		every_owned_province = {
+ 			limit = {
+diff --git a/events/flavorTEU.txt b/events/flavorTEU.txt
+index acb9d903..c9ebca15 100755
+--- a/events/flavorTEU.txt
++++ b/events/flavorTEU.txt
+@@ -2199,7 +2199,7 @@ country_event = {
+ 		295 = {
+ 			add_base_tax = 3
+ 			change_religion = ROOT
+-			if = { limit = { NOT = { has_building = temple } } add_building = temple }
++			if = { limit = { NOT = { has_tax_building_trigger = yes } } add_building = temple }
+ 			spawn_rebels = {
+ 				type = orthodox_rebels
+ 				size = 1
+diff --git a/missions/AFR_Oyo_Missions.txt b/missions/AFR_Oyo_Missions.txt
+index 5ea4251d..360bfb88 100755
+--- a/missions/AFR_Oyo_Missions.txt
++++ b/missions/AFR_Oyo_Missions.txt
+@@ -602,7 +602,7 @@ oyo_ogboni_missions_slot = {
+ 		}
+ 		effect = {
+ 			capital_scope = {
+-				add_building = temple
++				add_or_upgrade_tax_building = yes
+ 			}
+ 			if = {
+ 				limit = {
+-- 
+2.45.2
+
