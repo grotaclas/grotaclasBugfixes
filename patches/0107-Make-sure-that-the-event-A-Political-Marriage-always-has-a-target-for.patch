@@ -1,0 +1,30 @@
+From d43defe872c2b648c627308ebc9a7859c0a02c2f Mon Sep 17 00:00:00 2001
+From: grotaclas <grotaclas@gmail.com>
+Date: Thu, 16 Oct 2025 18:02:45 -0000
+Subject: [PATCH] Make sure that the event "A Political Marriage" always has a
+ target for the PU
+
+the trigger for the event "A Political Marriage"(dynastic_events.5) were
+less strict than the random_neighbor_country in immediate which could
+make the event fire in a situation in which there is no eligible country
+for the PU which would break the first event option and the event text
+---
+ events/Dynastic.txt | 2 ++
+ 1 file changed, 2 insertions(+)
+
+diff --git a/events/Dynastic.txt b/events/Dynastic.txt
+index d14dace4..cab89ebc 100755
+--- a/events/Dynastic.txt
++++ b/events/Dynastic.txt
+@@ -2237,6 +2237,8 @@ country_event = {
+ 			government = monarchy
+ 			NOT = { has_government_attribute = has_harem_events }
+ 			NOT = { has_reform = elective_monarchy }
++			NOT = { has_reform = polish_elective_monarchy }
++			NOT = { has_reform = mamluk_government }
+ 			religion_group = christian
+ 			has_heir = no
+ 			ruler_age = 16
+-- 
+2.45.2
+
