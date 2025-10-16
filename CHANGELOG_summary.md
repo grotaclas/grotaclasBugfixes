@@ -111,3 +111,8 @@
 - Allow completing Drua Builders(fiji_drua_builders) also with grand shipyards
 - Prevent HSA from switching to generic ideas in flavor_hsa.26
 - prevent pomeranian ideas from overriding tag specific ideas
+# 2025-10-16
+- Give florentine missions when forming Tuscany
+- Make sure that the event "A Political Marriage" always has a target for
+- prevent building temple in colonial_nation.191 if the province already has a cathedral
+- prevent building temples if there is already a cathedral

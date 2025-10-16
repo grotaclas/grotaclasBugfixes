@@ -967,3 +967,46 @@ pirate_ideas and cossack_ideas
 Bugreport: https://forum.paradoxplaza.com/forum/threads/forming-the-hanseatic-league-granting-pomeranian-ideas.1625822/
 Patch: [0105-prevent-pomeranian-ideas-from-overriding-tag-specific-ideas](patches/0105-prevent-pomeranian-ideas-from-overriding-tag-specific-ideas.patch)
 
+# 2025-10-16
+
+## Give florentine missions when forming Tuscany
+
+unless the country already has them(because they were florence before
+and didn't change missions inbetween). This check was already there, but
+because it checked for
+
+    OR = {
+        tag = LAN
+        tag = TUS
+    }
+
+it also prevented Tuscany from getting the missions, because the country
+is already Tuscany at that point. I changed the condition to
+
+    NOT = { has_mission = emp_lan_confront_the_lombards }
+
+which is the first mission in EMP_Florentine_missions.txt
+
+Bugreport: https://forum.paradoxplaza.com/forum/threads/tuscany-dont-get-new-missions-when-formed.1676404/
+Patch: [0106-Give-florentine-missions-when-forming-Tuscany](patches/0106-Give-florentine-missions-when-forming-Tuscany.patch)
+
+## Make sure that the event "A Political Marriage" always has a target for
+the PU
+
+the trigger for the event "A Political Marriage"(dynastic_events.5) were
+less strict than the random_neighbor_country in immediate which could
+make the event fire in a situation in which there is no eligible country
+for the PU which would break the first event option and the event text
+Patch: [0107-Make-sure-that-the-event-A-Political-Marriage-always-has-a-target-for](patches/0107-Make-sure-that-the-event-A-Political-Marriage-always-has-a-target-for.patch)
+
+## prevent building temple in colonial_nation.191 if the province already has a cathedral
+
+No bugreport, but reddit post: https://www.reddit.com/r/eu4/comments/1o85e4v/does_anyone_know_what_causes_bugged_cathedrals/
+Patch: [0108-prevent-building-temple-in-colonial_nation191-if-the-province-already-has-a-cathedral](patches/0108-prevent-building-temple-in-colonial_nation191-if-the-province-already-has-a-cathedral.patch)
+
+## prevent building temples if there is already a cathedral
+
+similar to the previous patch, but for several more events and one
+mission
+Patch: [0109-prevent-building-temples-if-there-is-already-a-cathedral](patches/0109-prevent-building-temples-if-there-is-already-a-cathedral.patch)
+
