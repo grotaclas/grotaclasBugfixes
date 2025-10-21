@@ -1010,3 +1010,18 @@ similar to the previous patch, but for several more events and one
 mission
 Patch: [0109-prevent-building-temples-if-there-is-already-a-cathedral](patches/0109-prevent-building-temples-if-there-is-already-a-cathedral.patch)
 
+# 2025-10-21
+
+## release VOC with idea groups filled and correct national ideas
+
+because they were released with cede_province, they didn't have any idea
+groups and because they had an unconditional swap_free_idea_group, their
+national ideas changed to colonial_ideas(because they normally already
+have voc_ideas). Now they are created with release = VOC, which also
+seems to give them the province discoveries of their parent country(If I
+see it correctly they only saw the provinces which they could see due to
+their tech group/religion).
+
+Bugreport: https://forum.paradoxplaza.com/forum/threads/1-37-voc-spawns-with-0-ideas-filled.1675302/
+Patch: [0110-release-VOC-with-idea-groups-filled-and-correct-national-ideas](patches/0110-release-VOC-with-idea-groups-filled-and-correct-national-ideas.patch)
+

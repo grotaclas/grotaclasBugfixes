@@ -116,3 +116,5 @@
 - Make sure that the event "A Political Marriage" always has a target for
 - prevent building temple in colonial_nation.191 if the province already has a cathedral
 - prevent building temples if there is already a cathedral
+# 2025-10-21
+- release VOC with idea groups filled and correct national ideas
