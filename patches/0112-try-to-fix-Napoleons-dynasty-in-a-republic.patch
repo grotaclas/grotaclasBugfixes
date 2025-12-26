@@ -1,0 +1,24 @@
+From c823cc0639bc10d87de12609db3a3ff5d36b9ddd Mon Sep 17 00:00:00 2001
+From: grotaclas <grotaclas@gmail.com>
+Date: Fri, 26 Dec 2025 00:09:41 -0000
+Subject: [PATCH] try to fix Napoleons dynasty in a republic
+
+---
+ events/disaster_french_revolution.txt | 1 +
+ 1 file changed, 1 insertion(+)
+
+diff --git a/events/disaster_french_revolution.txt b/events/disaster_french_revolution.txt
+index 74f5aaf2..3f42eff1 100755
+--- a/events/disaster_french_revolution.txt
++++ b/events/disaster_french_revolution.txt
+@@ -1030,6 +1030,7 @@ country_event = {
+ 
+ 		hidden_effect = {
+ 			country_event = { id = french_revolution.8 days = 1460 random = 2190 }
++			set_dynasty = "Bonaparte" # To work around a bug in republic which removes the dynasty which is set in define_ruler
+ 			define_ruler_to_general = {
+ 				fire = 6
+ 				shock = 6
+-- 
+2.51.0
+
