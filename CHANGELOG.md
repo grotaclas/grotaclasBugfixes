@@ -1025,3 +1025,36 @@ their tech group/religion).
 Bugreport: https://forum.paradoxplaza.com/forum/threads/1-37-voc-spawns-with-0-ideas-filled.1675302/
 Patch: [0110-release-VOC-with-idea-groups-filled-and-correct-national-ideas](patches/0110-release-VOC-with-idea-groups-filled-and-correct-national-ideas.patch)
 
+# 2025-12-26
+
+## Restrict trigger of flavor_brapru.1 to prevent unintenional situations
+
+The event "The incorporation of Prussia into Brandenburg" (flavor_brapru.1)
+turns Prussia into a junior partner of Brandenburg. This patch adds
+additional requirements:
+
+* both countries are christian
+* both countries are at peace(to avoid weir interactions if they are
+  both in the same war and to avoid taking Prussia out of a war in which
+the player intended to take something from them)
+* Brandenburg must be valid_for_personal_unions_trigger(especially it
+  must not be a subject, because otherwise Prussia would become the
+junior partner of Brandenburg's overlord instead)
+* Prussia must either be is_free_or_tributary_trigger or a vassal(but
+  not a vassal of Brandenburg). This allows the historical situation
+that Prussia is a vassal of Poland/PLC, and allows taking them away from
+another country which takes Poland's place, but it prevents possibly
+more problematic interactions if they are another subject type. E.g. the
+event mentions that Prussia has been ruled by Hohenzollern's for
+generations so it would be weird taking it if it is a junior partner of
+another country.
+
+A possible improvement which I didn't implement would be to require that
+Prussia has at least 50% liberty desire if they are a subject.
+
+Bugreport: https://forum.paradoxplaza.com/forum/threads/getting-the-brandenburg-prussia-pu-event-as-sweden-while-having-both-as-vassals.1697129/
+Patch: [0111-Restrict-trigger-of-flavor_brapru1-to-prevent-unintenional-situations](patches/0111-Restrict-trigger-of-flavor_brapru1-to-prevent-unintenional-situations.patch)
+
+## try to fix Napoleons dynasty in a republic
+Patch: [0112-try-to-fix-Napoleons-dynasty-in-a-republic](patches/0112-try-to-fix-Napoleons-dynasty-in-a-republic.patch)
+

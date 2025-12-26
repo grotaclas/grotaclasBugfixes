@@ -118,3 +118,6 @@
 - prevent building temples if there is already a cathedral
 # 2025-10-21
 - release VOC with idea groups filled and correct national ideas
+# 2025-12-26
+- Restrict trigger of flavor_brapru.1 to prevent unintenional situations
+- try to fix Napoleons dynasty in a republic
