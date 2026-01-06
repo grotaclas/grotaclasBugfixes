@@ -1,0 +1,30 @@
+From 81dc81910a26a5d3aa7c18bfac7e85c10639ca7c Mon Sep 17 00:00:00 2001
+From: grotaclas <grotaclas@gmail.com>
+Date: Tue, 06 Jan 2026 11:43:00 -0000
+Subject: [PATCH] Don't upgrade MAM_ideas if the country has other ideas
+
+Changed the mission Merchant Escort (mam_establish_merchant_escorts)
+to only change the national ideas if the tag is MAM and has MAM_ideas
+and not just when the tag is MAM, so that players who choose to keep
+their old ideas can keep them
+
+Bugreport: By user UjinK in the comments of my mod
+---
+ missions/KoK_Mamluks_Missions.txt | 1 +
+ 1 file changed, 1 insertion(+)
+
+diff --git a/missions/KoK_Mamluks_Missions.txt b/missions/KoK_Mamluks_Missions.txt
+index 17b500d3..6ca3ec89 100755
+--- a/missions/KoK_Mamluks_Missions.txt
++++ b/missions/KoK_Mamluks_Missions.txt
+@@ -233,6 +233,7 @@ mam_missions_1 = {
+ 			if = {
+ 				limit = {
+ 					tag = MAM 
++					has_idea_group = MAM_ideas
+ 				}
+ 				custom_tooltip = mam_upgrade_national_idea_tt 
+ 				set_country_flag = mam_upgrade_national_idea_flag
+-- 
+2.51.0
+
