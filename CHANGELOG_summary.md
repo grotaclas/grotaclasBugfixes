@@ -121,3 +121,5 @@
 # 2025-12-26
 - Restrict trigger of flavor_brapru.1 to prevent unintenional situations
 - try to fix Napoleons dynasty in a republic
+# 2026-01-06
+- Don't upgrade MAM_ideas if the country has other ideas

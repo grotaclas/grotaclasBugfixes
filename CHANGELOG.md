@@ -1058,3 +1058,15 @@ Patch: [0111-Restrict-trigger-of-flavor_brapru1-to-prevent-unintenional-situatio
 ## try to fix Napoleons dynasty in a republic
 Patch: [0112-try-to-fix-Napoleons-dynasty-in-a-republic](patches/0112-try-to-fix-Napoleons-dynasty-in-a-republic.patch)
 
+# 2026-01-06
+
+## Don't upgrade MAM_ideas if the country has other ideas
+
+Changed the mission Merchant Escort (mam_establish_merchant_escorts)
+to only change the national ideas if the tag is MAM and has MAM_ideas
+and not just when the tag is MAM, so that players who choose to keep
+their old ideas can keep them
+
+Bugreport: By user UjinK in the comments of my mod
+Patch: [0113-Dont-upgrade-MAM_ideas-if-the-country-has-other-ideas](patches/0113-Dont-upgrade-MAM_ideas-if-the-country-has-other-ideas.patch)
+
