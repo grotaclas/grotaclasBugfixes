@@ -1,0 +1,40 @@
+From a8df5fc6ccf926dc41b04f209fcb9b294b968ddd Mon Sep 17 00:00:00 2001
+From: grotaclas <grotaclas@gmail.com>
+Date: Wed, 07 Jan 2026 16:30:10 -0000
+Subject: [PATCH] prevent "Raze our Enemies" if you can't raze
+
+The tribes agenda "Raze our Enemies"
+(estate_nomadic_tribes_raze_a_province) could trigger for countries which
+can't raze. Either because they are not a horde and unlocked the estate
+in another way, or because they have neither the cossacks DLC nor the
+winds of change DLC which enable razing. This patch changes the
+OR-requirement to having either DLC and it adds the additional
+requirement that the country must have the raze_province gov attribute.
+This also enables the agenda for the case that a non-horde with razing
+somehow gets the tribes estate.
+
+Bugreport: By user UjinK in the comments of my mod
+---
+ common/estate_agendas/05_nomadic_tribe_agendas.txt | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
+
+diff --git a/common/estate_agendas/05_nomadic_tribe_agendas.txt b/common/estate_agendas/05_nomadic_tribe_agendas.txt
+index 454e0d4b..34564a04 100755
+--- a/common/estate_agendas/05_nomadic_tribe_agendas.txt
++++ b/common/estate_agendas/05_nomadic_tribe_agendas.txt
+@@ -124,10 +124,10 @@ estate_nomadic_tribes_fire_advisor = {
+ #Raze a province
+ estate_nomadic_tribes_raze_a_province = {
+ 	can_select = {
++		has_government_attribute = raze_province
+ 		OR = {
+-			has_reform = great_mongol_state_reform
+-			has_reform = steppe_horde
+ 			has_dlc = "The Cossacks"
++			has_dlc = "Winds of Change"
+ 		}
+ 		OR = {
+ 			NOT = {
+-- 
+2.51.0
+
