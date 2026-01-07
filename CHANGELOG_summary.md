@@ -123,3 +123,5 @@
 - try to fix Napoleons dynasty in a republic
 # 2026-01-06
 - Don't upgrade MAM_ideas if the country has other ideas
+# 2026-01-07
+- prevent "Raze our Enemies" if you can't raze

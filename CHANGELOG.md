@@ -1070,3 +1070,20 @@ their old ideas can keep them
 Bugreport: By user UjinK in the comments of my mod
 Patch: [0113-Dont-upgrade-MAM_ideas-if-the-country-has-other-ideas](patches/0113-Dont-upgrade-MAM_ideas-if-the-country-has-other-ideas.patch)
 
+# 2026-01-07
+
+## prevent "Raze our Enemies" if you can't raze
+
+The tribes agenda "Raze our Enemies"
+(estate_nomadic_tribes_raze_a_province) could trigger for countries which
+can't raze. Either because they are not a horde and unlocked the estate
+in another way, or because they have neither the cossacks DLC nor the
+winds of change DLC which enable razing. This patch changes the
+OR-requirement to having either DLC and it adds the additional
+requirement that the country must have the raze_province gov attribute.
+This also enables the agenda for the case that a non-horde with razing
+somehow gets the tribes estate.
+
+Bugreport: By user UjinK in the comments of my mod
+Patch: [0114-prevent-Raze-our-Enemies-if-you-cant-raze](patches/0114-prevent-Raze-our-Enemies-if-you-cant-raze.patch)
+
