@@ -125,3 +125,5 @@
 - Don't upgrade MAM_ideas if the country has other ideas
 # 2026-01-07
 - prevent "Raze our Enemies" if you can't raze
+# 2026-01-08
+- Don't show new missions when forming Rum if you don't get new missions

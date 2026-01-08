@@ -1087,3 +1087,22 @@ somehow gets the tribes estate.
 Bugreport: By user UjinK in the comments of my mod
 Patch: [0114-prevent-Raze-our-Enemies-if-you-cant-raze](patches/0114-prevent-Raze-our-Enemies-if-you-cant-raze.patch)
 
+# 2026-01-08
+
+## Don't show new missions when forming Rum if you don't get new missions
+
+Aq/Qara Qoyunlu keep their missions when forming Rum, but decision
+tooltip still showed the obtain new missions effect. This patch removes
+the effect if the country is or was AKK or QAR which both prevents the
+tooltip and also the mission change effect. This has the side effect
+that you don't get the Aq/Qara missions back if you don't have them
+anymore if you formed a different tag inbetween. It depends on the
+campaign if that's better or not(if you still have unfinished aq/qara missions,
+you might want them back, but if your current mission tree is unfinished
+you might want to keep it). Potentially a further improvement would be
+to allow Rum missions(the non-DLC Ottoman missions) if you were aq/qara,
+but don't have their missions anymore at the moment when you form Rum.
+
+Bugreport: By user UjinK in the comments of my mod
+Patch: [0115-Dont-show-new-missions-when-forming-Rum-if-you-dont-get-new-missions](patches/0115-Dont-show-new-missions-when-forming-Rum-if-you-dont-get-new-missions.patch)
+
