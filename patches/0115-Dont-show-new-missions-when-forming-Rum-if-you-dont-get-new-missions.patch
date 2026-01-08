@@ -1,0 +1,50 @@
+From cc1c2b8b9c002bd28351ece3c538d02b2c03e3d6 Mon Sep 17 00:00:00 2001
+From: grotaclas <grotaclas@gmail.com>
+Date: Thu, 08 Jan 2026 16:40:42 -0000
+Subject: [PATCH] Don't show new missions when forming Rum if you don't get new
+ missions
+
+Aq/Qara Qoyunlu keep their missions when forming Rum, but decision
+tooltip still showed the obtain new missions effect. This patch removes
+the effect if the country is or was AKK or QAR which both prevents the
+tooltip and also the mission change effect. This has the side effect
+that you don't get the Aq/Qara missions back if you don't have them
+anymore if you formed a different tag inbetween. It depends on the
+campaign if that's better or not(if you still have unfinished aq/qara missions,
+you might want them back, but if your current mission tree is unfinished
+you might want to keep it). Potentially a further improvement would be
+to allow Rum missions(the non-DLC Ottoman missions) if you were aq/qara,
+but don't have their missions anymore at the moment when you form Rum.
+
+Bugreport: By user UjinK in the comments of my mod
+---
+ decisions/TurkishNation.txt | 13 ++++++++++++-
+ 1 file changed, 12 insertions(+), 1 deletion(-)
+
+diff --git a/decisions/TurkishNation.txt b/decisions/TurkishNation.txt
+index 4bd41ff1..dfa8e2c6 100755
+--- a/decisions/TurkishNation.txt
++++ b/decisions/TurkishNation.txt
+@@ -105,7 +105,18 @@ country_decisions = {
+ 			}
+ 			add_prestige = 25
+ 			set_country_flag = formed_rum_flag
+-			swap_non_generic_missions = yes
++			if = {
++				limit = {
++					OR = {
++						AND = {
++							NOT = { is_or_was_tag = { tag = AKK } }
++							NOT = { is_or_was_tag = { tag = QAR } }
++						}
++						NOT = { has_dlc = "King of Kings" }
++					}
++				}
++				swap_non_generic_missions = yes
++			}
+ 			on_change_tag_effect = yes
+ 			if = {
+ 				limit = {
+-- 
+2.51.0
+

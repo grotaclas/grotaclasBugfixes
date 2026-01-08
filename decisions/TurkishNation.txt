@@ -105,7 +105,18 @@ country_decisions = {
 			}
 			add_prestige = 25
 			set_country_flag = formed_rum_flag
-			swap_non_generic_missions = yes
+			if = {
+				limit = {
+					OR = {
+						AND = {
+							NOT = { is_or_was_tag = { tag = AKK } }
+							NOT = { is_or_was_tag = { tag = QAR } }
+						}
+						NOT = { has_dlc = "King of Kings" }
+					}
+				}
+				swap_non_generic_missions = yes
+			}
 			on_change_tag_effect = yes
 			if = {
 				limit = {
