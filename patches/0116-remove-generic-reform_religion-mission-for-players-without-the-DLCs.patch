@@ -1,0 +1,34 @@
+From 6459327381b19dece4fbb705068713a229ba6f92 Mon Sep 17 00:00:00 2001
+From: grotaclas <grotaclas@gmail.com>
+Date: Tue, 10 Feb 2026 15:29:46 -0000
+Subject: [PATCH] remove generic reform_religion mission for players without
+ the DLCs
+
+Players who have neither the El Dorado nor Winds of Change DLC, can't
+reform their religion, which prevents them from completing the mission
+"Reform Religion"
+
+No bugreport, but reddit post: https://www.reddit.com/r/eu4/comments/1qnqslr/question/
+---
+ missions/New_World_Missions.txt | 5 +++++
+ 1 file changed, 5 insertions(+)
+
+diff --git a/missions/New_World_Missions.txt b/missions/New_World_Missions.txt
+index 06af96d2..e0e9ac44 100755
+--- a/missions/New_World_Missions.txt
++++ b/missions/New_World_Missions.txt
+@@ -177,6 +177,11 @@ new_world_natives_missions_no_reg = {
+ 	generic = yes
+ 	ai = no
+ 	potential = {
++		OR = {
++			# without those DLCs, reforming the religion is not possible
++			has_dlc = "El Dorado"
++			has_dlc = "Winds of Change"
++		}
+ 		capital_scope = {
+ 			OR = {
+ 				continent = north_america
+-- 
+2.51.0
+
