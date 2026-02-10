@@ -1,0 +1,49 @@
+From 94dc600e2fd2f841ac2c00921507b540d3e9b17a Mon Sep 17 00:00:00 2001
+From: grotaclas <grotaclas@gmail.com>
+Date: Tue, 10 Feb 2026 15:29:46 -0000
+Subject: [PATCH] remove modifier geo_rus_alliance when alliance is broken
+
+The modifier "Alliance with the Tsar" (geo_rus_alliance) from the
+georgian mission "An Envoy to the Tsar" (geo_envoy_to_the_tsar) has the
+description  "for as long as we are allied to Muscovy"/"... to Russia",
+but there was nothing which removed the modifier. This patch removes the
+modifier in the on_alliance_broken_effect if the country is neither
+allied to MOS nor to RUS.
+
+Reported by UjinK in the comments to my mod
+---
+ .../01_scripted_effects_for_on_actions.txt     | 18 ++++++++++++++++++
+ 1 file changed, 18 insertions(+)
+
+diff --git a/common/scripted_effects/01_scripted_effects_for_on_actions.txt b/common/scripted_effects/01_scripted_effects_for_on_actions.txt
+index 1454597e..66df4a8c 100755
+--- a/common/scripted_effects/01_scripted_effects_for_on_actions.txt
++++ b/common/scripted_effects/01_scripted_effects_for_on_actions.txt
+@@ -3639,6 +3639,24 @@ on_alliance_broken_effect = {
+ 			remove_country_modifier = mam_ven_cooperation_modifier
+ 		}
+ 	}
++	if = {
++		limit = {
++			has_country_modifier = geo_rus_alliance
++			NOT = { alliance_with = MOS }
++			NOT = { alliance_with = RUS }
++		}
++		remove_country_modifier = geo_rus_alliance
++	}
++	FROM = {
++		if = {
++			limit = {
++				has_country_modifier = geo_rus_alliance
++				NOT = { alliance_with = MOS }
++				NOT = { alliance_with = RUS }
++			}
++			remove_country_modifier = geo_rus_alliance
++		}
++	}
+ }
+ 
+ on_adm_development_effect = {
+-- 
+2.51.0
+

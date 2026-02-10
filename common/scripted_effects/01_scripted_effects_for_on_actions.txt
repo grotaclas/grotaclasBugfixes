@@ -3639,6 +3639,24 @@ on_alliance_broken_effect = {
 			remove_country_modifier = mam_ven_cooperation_modifier
 		}
 	}
+	if = {
+		limit = {
+			has_country_modifier = geo_rus_alliance
+			NOT = { alliance_with = MOS }
+			NOT = { alliance_with = RUS }
+		}
+		remove_country_modifier = geo_rus_alliance
+	}
+	FROM = {
+		if = {
+			limit = {
+				has_country_modifier = geo_rus_alliance
+				NOT = { alliance_with = MOS }
+				NOT = { alliance_with = RUS }
+			}
+			remove_country_modifier = geo_rus_alliance
+		}
+	}
 }
 
 on_adm_development_effect = {
