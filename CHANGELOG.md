@@ -1106,3 +1106,26 @@ but don't have their missions anymore at the moment when you form Rum.
 Bugreport: By user UjinK in the comments of my mod
 Patch: [0115-Dont-show-new-missions-when-forming-Rum-if-you-dont-get-new-missions](patches/0115-Dont-show-new-missions-when-forming-Rum-if-you-dont-get-new-missions.patch)
 
+# 2026-02-10
+
+## remove generic reform_religion mission for players without the DLCs
+
+Players who have neither the El Dorado nor Winds of Change DLC, can't
+reform their religion, which prevents them from completing the mission
+"Reform Religion"
+
+No bugreport, but reddit post: https://www.reddit.com/r/eu4/comments/1qnqslr/question/
+Patch: [0116-remove-generic-reform_religion-mission-for-players-without-the-DLCs](patches/0116-remove-generic-reform_religion-mission-for-players-without-the-DLCs.patch)
+
+## remove modifier geo_rus_alliance when alliance is broken
+
+The modifier "Alliance with the Tsar" (geo_rus_alliance) from the
+georgian mission "An Envoy to the Tsar" (geo_envoy_to_the_tsar) has the
+description  "for as long as we are allied to Muscovy"/"... to Russia",
+but there was nothing which removed the modifier. This patch removes the
+modifier in the on_alliance_broken_effect if the country is neither
+allied to MOS nor to RUS.
+
+Reported by UjinK in the comments to my mod
+Patch: [0117-remove-modifier-geo_rus_alliance-when-alliance-is-broken](patches/0117-remove-modifier-geo_rus_alliance-when-alliance-is-broken.patch)
+

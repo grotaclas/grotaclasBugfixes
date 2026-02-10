@@ -127,3 +127,6 @@
 - prevent "Raze our Enemies" if you can't raze
 # 2026-01-08
 - Don't show new missions when forming Rum if you don't get new missions
+# 2026-02-10
+- remove generic reform_religion mission for players without the DLCs
+- remove modifier geo_rus_alliance when alliance is broken
