@@ -1,0 +1,82 @@
+From a210b65f528abd06c8215f17328529fb0b3e1ae7 Mon Sep 17 00:00:00 2001
+From: grotaclas <grotaclas@gmail.com>
+Date: Thu, 19 Feb 2026 12:52:29 -0000
+Subject: [PATCH] Unlock the republic and monarchy reforms when proclaiming
+ emperor as Russia
+
+There were already tooltips for this unlocking, but they were not used
+
+Bugreport: https://forum.paradoxplaza.com/forum/threads/eu-iv-great-russian-federation-not-available-after-turning-into-a-republic.1587629/
+---
+ .../01_government_reforms_monarchies.txt           |  5 +++--
+ .../02_government_reforms_republics.txt            |  5 +++--
+ events/FlavorRUS.txt                               | 14 ++++++++++++++
+ 3 files changed, 20 insertions(+), 4 deletions(-)
+
+diff --git a/common/government_reforms/01_government_reforms_monarchies.txt b/common/government_reforms/01_government_reforms_monarchies.txt
+index a2b55562..abae13f4 100755
+--- a/common/government_reforms/01_government_reforms_monarchies.txt
++++ b/common/government_reforms/01_government_reforms_monarchies.txt
+@@ -2644,8 +2644,9 @@ russian_empire_reform = {
+ 	allow_normal_conversion = yes
+ 	potential = {
+ 		OR = {
+-			has_reform = russian_empire_reform
+-			have_had_reform = russian_empire_reform
++			has_unlocked_government_reform = { government_reform = russian_empire_reform }
++			has_reform = russian_empire_reform # kept for backwards compatibility with older saves
++			have_had_reform = russian_empire_reform # kept for backwards compatibility with older saves
+ 			AND = {
+ 				is_playing_custom_nation = yes
+ 				have_had_reform = russian_empire_reform
+diff --git a/common/government_reforms/02_government_reforms_republics.txt b/common/government_reforms/02_government_reforms_republics.txt
+index 62b74403..911b8bee 100755
+--- a/common/government_reforms/02_government_reforms_republics.txt
++++ b/common/government_reforms/02_government_reforms_republics.txt
+@@ -1204,8 +1204,9 @@ great_russian_republic_reform = {
+ 	allow_normal_conversion = yes
+ 	potential = {
+ 		OR = {
+-			has_reform = great_russian_republic_reform
+-			have_had_reform = great_russian_republic_reform
++			has_unlocked_government_reform = { government_reform = great_russian_republic_reform }
++			has_reform = great_russian_republic_reform # kept for backwards compatibility with older saves
++			have_had_reform = great_russian_republic_reform # kept for backwards compatibility with older saves
+ 			AND = {
+ 				is_playing_custom_nation = yes
+ 				have_had_reform = great_russian_republic_reform
+diff --git a/events/FlavorRUS.txt b/events/FlavorRUS.txt
+index 0317db39..46454173 100755
+--- a/events/FlavorRUS.txt
++++ b/events/FlavorRUS.txt
+@@ -3755,6 +3755,13 @@ country_event = {
+ 			limit = { NOT = { government = monarchy } }
+ 			change_government = monarchy
+ 		}
++		# unlock both reforms so that the player can use the other one when changing government types
++		unlock_government_reform = {
++			government_reform = russian_empire_reform
++		}
++		unlock_government_reform = {
++			government_reform = great_russian_republic_reform
++		}
+ 		add_government_reform = russian_empire_reform
+ 		ai_chance = { 
+ 			factor = 1 
+@@ -3767,6 +3774,13 @@ country_event = {
+ 		trigger = {
+ 			government = republic
+ 		}
++		# unlock both reforms so that the player can use the other one when changing government types
++		unlock_government_reform = {
++			government_reform = russian_empire_reform
++		}
++		unlock_government_reform = {
++			government_reform = great_russian_republic_reform
++		}
+ 		add_government_reform = great_russian_republic_reform
+ 		ai_chance = { 
+ 			factor = 1 
+-- 
+2.51.0
+

@@ -2644,8 +2644,9 @@ russian_empire_reform = {
 	allow_normal_conversion = yes
 	potential = {
 		OR = {
-			has_reform = russian_empire_reform
-			have_had_reform = russian_empire_reform
+			has_unlocked_government_reform = { government_reform = russian_empire_reform }
+			has_reform = russian_empire_reform # kept for backwards compatibility with older saves
+			have_had_reform = russian_empire_reform # kept for backwards compatibility with older saves
 			AND = {
 				is_playing_custom_nation = yes
 				have_had_reform = russian_empire_reform
