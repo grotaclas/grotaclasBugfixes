@@ -1129,3 +1129,13 @@ allied to MOS nor to RUS.
 Reported by UjinK in the comments to my mod
 Patch: [0117-remove-modifier-geo_rus_alliance-when-alliance-is-broken](patches/0117-remove-modifier-geo_rus_alliance-when-alliance-is-broken.patch)
 
+# 2026-02-19
+
+## Unlock the republic and monarchy reforms when proclaiming emperor as
+Russia
+
+There were already tooltips for this unlocking, but they were not used
+
+Bugreport: https://forum.paradoxplaza.com/forum/threads/eu-iv-great-russian-federation-not-available-after-turning-into-a-republic.1587629/
+Patch: [0118-Unlock-the-republic-and-monarchy-reforms-when-proclaiming-emperor-as](patches/0118-Unlock-the-republic-and-monarchy-reforms-when-proclaiming-emperor-as.patch)
+

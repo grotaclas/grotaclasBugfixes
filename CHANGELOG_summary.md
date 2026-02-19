@@ -130,3 +130,5 @@
 # 2026-02-10
 - remove generic reform_religion mission for players without the DLCs
 - remove modifier geo_rus_alliance when alliance is broken
+# 2026-02-19
+- Unlock the republic and monarchy reforms when proclaiming emperor as
