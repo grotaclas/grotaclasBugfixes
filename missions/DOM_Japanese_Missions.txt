@@ -3278,7 +3278,7 @@ DOM_japanse_missions_5 = {
 				tooltip = {
 					add_country_modifier = {
 						name = jap_presence_global_markets
-						duration = -1
+						duration = 7300
 					}
 				}
 				
@@ -3286,7 +3286,7 @@ DOM_japanse_missions_5 = {
 				tooltip = {
 					add_country_modifier = {
 						name = jap_mixed_commercial_policy_modifier
-						duration = -1
+						duration = 7300
 					}
 				}
 				
@@ -3294,7 +3294,7 @@ DOM_japanse_missions_5 = {
 				tooltip = {
 					add_country_modifier = {
 						name = jap_enforced_mercantilism_modifier
-						duration = -1
+						duration = 7300
 					}
 				}
 				hidden_effect = {

@@ -1,0 +1,48 @@
+From b1c05812a6bc4e762d48443460090b0fccc7db29 Mon Sep 17 00:00:00 2001
+From: grotaclas <grotaclas@gmail.com>
+Date: Wed, 01 Jul 2026 12:25:23 -0000
+Subject: [PATCH] fix modifier duration in tooltips of
+ jap_japanese_economic_miracle
+
+the tooltips for the mission use -1 for the duration, while the hidden
+effect has 7300.
+
+Bugreport: https://forum.paradoxplaza.com/forum/threads/enforced-mercantilism-country-modifier-error-for-japan.1658753/
+---
+ missions/DOM_Japanese_Missions.txt | 6 +++---
+ 1 file changed, 3 insertions(+), 3 deletions(-)
+
+diff --git a/missions/DOM_Japanese_Missions.txt b/missions/DOM_Japanese_Missions.txt
+index 40fe49ea..7267f332 100755
+--- a/missions/DOM_Japanese_Missions.txt
++++ b/missions/DOM_Japanese_Missions.txt
+@@ -3278,7 +3278,7 @@ DOM_japanse_missions_5 = {
+ 				tooltip = {
+ 					add_country_modifier = {
+ 						name = jap_presence_global_markets
+-						duration = -1
++						duration = 7300
+ 					}
+ 				}
+ 				
+@@ -3286,7 +3286,7 @@ DOM_japanse_missions_5 = {
+ 				tooltip = {
+ 					add_country_modifier = {
+ 						name = jap_mixed_commercial_policy_modifier
+-						duration = -1
++						duration = 7300
+ 					}
+ 				}
+ 				
+@@ -3294,7 +3294,7 @@ DOM_japanse_missions_5 = {
+ 				tooltip = {
+ 					add_country_modifier = {
+ 						name = jap_enforced_mercantilism_modifier
+-						duration = -1
++						duration = 7300
+ 					}
+ 				}
+ 				hidden_effect = {
+-- 
+2.53.0
+
