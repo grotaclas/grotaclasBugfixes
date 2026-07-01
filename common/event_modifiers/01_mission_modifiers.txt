@@ -7169,12 +7169,12 @@ aju_gold_trade_deal_ajuuraan = {
 aju_gold_trade_deal_ally = {
 	inflation_reduction = 0.05
 	global_prosperity_growth = 0.1
-	trade_goods_size_modifier = 0.05
+	global_trade_goods_size_modifier = 0.05
 }
 
 #Country modifier
 aju_gold_trade_deal_refused = {
-	trade_goods_size_modifier = 0.2
+	global_trade_goods_size_modifier = 0.2
 }
 
 #Province modifier

@@ -1,0 +1,43 @@
+From 27c5682b18c4199f8d7902ebb7d9cc2e9cd9162c Mon Sep 17 00:00:00 2001
+From: grotaclas <grotaclas@gmail.com>
+Date: Wed, 01 Jul 2026 12:25:23 -0000
+Subject: [PATCH] fix goods produced modifiers from event flavor_aju.1
+
+Change the local goods produced to global_trade_goods_size_modifier in
+the country modifiers "Focus on own Economy"(aju_gold_trade_deal_refused)
+and "Ajuuraan Gold Deal"(aju_gold_trade_deal_ally).
+
+They are given by the event "Gold Deal with
+[From.GetName]"(flavor_aju.1) which gets triggered for an ally of
+Ajuuraan by the mission "Gain Gold Access"(aju_gold_minting)
+
+No bugreport, but reddit post: https://www.reddit.com/r/eu4/comments/1ukit51/what_does_this_modifier_even_do/
+---
+ common/event_modifiers/01_mission_modifiers.txt | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
+ mode change 100755 => 100644 common/event_modifiers/01_mission_modifiers.txt
+
+diff --git a/common/event_modifiers/01_mission_modifiers.txt b/common/event_modifiers/01_mission_modifiers.txt
+old mode 100755
+new mode 100644
+index 87d15e3b..1d9f95f4
+--- a/common/event_modifiers/01_mission_modifiers.txt
++++ b/common/event_modifiers/01_mission_modifiers.txt
+@@ -7169,12 +7169,12 @@ aju_gold_trade_deal_ajuuraan = {
+ aju_gold_trade_deal_ally = {
+ 	inflation_reduction = 0.05
+ 	global_prosperity_growth = 0.1
+-	trade_goods_size_modifier = 0.05
++	global_trade_goods_size_modifier = 0.05
+ }
+ 
+ #Country modifier
+ aju_gold_trade_deal_refused = {
+-	trade_goods_size_modifier = 0.2
++	global_trade_goods_size_modifier = 0.2
+ }
+ 
+ #Province modifier
+-- 
+2.53.0
+
