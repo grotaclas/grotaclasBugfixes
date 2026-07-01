@@ -132,3 +132,6 @@
 - remove modifier geo_rus_alliance when alliance is broken
 # 2026-02-19
 - Unlock the republic and monarchy reforms when proclaiming emperor as
+# 2026-07-01
+- fix modifier duration in tooltips of jap_japanese_economic_miracle
+- fix goods produced modifiers from event flavor_aju.1

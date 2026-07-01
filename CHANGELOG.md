@@ -1139,3 +1139,26 @@ There were already tooltips for this unlocking, but they were not used
 Bugreport: https://forum.paradoxplaza.com/forum/threads/eu-iv-great-russian-federation-not-available-after-turning-into-a-republic.1587629/
 Patch: [0118-Unlock-the-republic-and-monarchy-reforms-when-proclaiming-emperor-as](patches/0118-Unlock-the-republic-and-monarchy-reforms-when-proclaiming-emperor-as.patch)
 
+# 2026-07-01
+
+## fix modifier duration in tooltips of jap_japanese_economic_miracle
+
+the tooltips for the mission use -1 for the duration, while the hidden
+effect has 7300.
+
+Bugreport: https://forum.paradoxplaza.com/forum/threads/enforced-mercantilism-country-modifier-error-for-japan.1658753/
+Patch: [0119-fix-modifier-duration-in-tooltips-of-jap_japanese_economic_miracle](patches/0119-fix-modifier-duration-in-tooltips-of-jap_japanese_economic_miracle.patch)
+
+## fix goods produced modifiers from event flavor_aju.1
+
+Change the local goods produced to global_trade_goods_size_modifier in
+the country modifiers "Focus on own Economy"(aju_gold_trade_deal_refused)
+and "Ajuuraan Gold Deal"(aju_gold_trade_deal_ally).
+
+They are given by the event "Gold Deal with
+[From.GetName]"(flavor_aju.1) which gets triggered for an ally of
+Ajuuraan by the mission "Gain Gold Access"(aju_gold_minting)
+
+No bugreport, but reddit post: https://www.reddit.com/r/eu4/comments/1ukit51/what_does_this_modifier_even_do/
+Patch: [0120-fix-goods-produced-modifiers-from-event-flavor_aju1](patches/0120-fix-goods-produced-modifiers-from-event-flavor_aju1.patch)
+
