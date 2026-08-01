@@ -21,7 +21,7 @@ iroquoians_1 = {
 			owned_by = ROOT
 			OR = {
 				AND = {
-					NOT = { has_building = courthouse }
+					has_courthouse_building_trigger = no
 					NOT = { has_building = native_longhouse }
 				}
 				local_autonomy = 30
@@ -32,7 +32,7 @@ iroquoians_1 = {
 		trigger = {
 			all_owned_province = {
 				OR = {
-					has_building = courthouse
+					has_courthouse_building_trigger = yes
 					has_building = native_longhouse
 				}
 				NOT = { local_autonomy = 30 }
@@ -280,7 +280,7 @@ iroquoians_2 = {
 			OR = {
 				trade_goods = grain
 				AND = {
-					NOT = { has_building = workshop }
+					has_production_building_trigger = no
 					NOT = { has_building = native_storehouse }
 				}
 			}
@@ -290,7 +290,7 @@ iroquoians_2 = {
 		trigger = {
 			all_owned_province = {
 				OR = {
-					has_building = workshop
+					has_production_building_trigger = yes
 					has_building = native_storehouse
 				}
 			}

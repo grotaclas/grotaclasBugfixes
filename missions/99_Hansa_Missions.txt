@@ -554,22 +554,14 @@ lubeck_missions_2 = {
 		position = 6 
 		provinces_to_highlight = {
 			province_id = 45 
-			NOT = {
-				OR = {
-					has_building = marketplace 
-					has_building = trade_depot
-					has_building = stock_exchange
-				}
-				num_of_times_improved = 4 
+			OR = {
+				has_trade_building_trigger = no
+				NOT = { num_of_times_improved = 4 }
 			}
 		}
 		trigger = {
 			45 = {
-				OR = {
-					has_building = marketplace 
-					has_building = trade_depot
-					has_building = stock_exchange
-				}
+				has_trade_building_trigger = yes
 				num_of_times_improved = 4 
 			}
 		}

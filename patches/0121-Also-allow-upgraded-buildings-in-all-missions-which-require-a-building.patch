@@ -1,0 +1,274 @@
+From b0ca2b3ef6d230fab667195599a55c8e45a2cf92 Mon Sep 17 00:00:00 2001
+From: grotaclas <grotaclas@gmail.com>
+Date: Sat, 01 Aug 2026 19:36:32 -0000
+Subject: [PATCH] Also allow upgraded buildings in all missions which require a
+ building
+
+e.g. change "has_building = marketplace" to "has_trade_building_trigger = yes"
+
+fixes #1
+---
+ missions/99_Hansa_Missions.txt       | 16 ++++------------
+ missions/Cherokee_Missions.txt       |  1 +
+ missions/DH_Bahmani_Missions.txt     |  8 ++++----
+ missions/GC_Granadan_Missions.txt    |  4 ++--
+ missions/GC_Moroccan_Missions.txt    | 14 +++++++-------
+ missions/GC_Tunis_Missions.txt       |  4 ++--
+ missions/Iroquoians_Missions.txt     |  8 ++++----
+ missions/TR_Novgorodian_Missions.txt |  8 ++++----
+ 8 files changed, 28 insertions(+), 35 deletions(-)
+
+diff --git a/missions/99_Hansa_Missions.txt b/missions/99_Hansa_Missions.txt
+index bfa6568a..04bce570 100755
+--- a/missions/99_Hansa_Missions.txt
++++ b/missions/99_Hansa_Missions.txt
+@@ -554,22 +554,14 @@ lubeck_missions_2 = {
+ 		position = 6 
+ 		provinces_to_highlight = {
+ 			province_id = 45 
+-			NOT = {
+-				OR = {
+-					has_building = marketplace 
+-					has_building = trade_depot
+-					has_building = stock_exchange
+-				}
+-				num_of_times_improved = 4 
++			OR = {
++				has_trade_building_trigger = no
++				NOT = { num_of_times_improved = 4 }
+ 			}
+ 		}
+ 		trigger = {
+ 			45 = {
+-				OR = {
+-					has_building = marketplace 
+-					has_building = trade_depot
+-					has_building = stock_exchange
+-				}
++				has_trade_building_trigger = yes
+ 				num_of_times_improved = 4 
+ 			}
+ 		}
+diff --git a/missions/Cherokee_Missions.txt b/missions/Cherokee_Missions.txt
+index 8b200381..74f282b0 100755
+--- a/missions/Cherokee_Missions.txt
++++ b/missions/Cherokee_Missions.txt
+@@ -155,6 +155,7 @@ cherokee_2 = {
+ 			owned_by = ROOT
+ 			NOT = { has_building = native_great_trail }
+ 			NOT = { has_building = workshop }
++			NOT = { has_building = counting_house }
+ 		}
+ 		
+ 		trigger = {
+diff --git a/missions/DH_Bahmani_Missions.txt b/missions/DH_Bahmani_Missions.txt
+index 9a4b3fdf..5326cdba 100755
+--- a/missions/DH_Bahmani_Missions.txt
++++ b/missions/DH_Bahmani_Missions.txt
+@@ -80,11 +80,11 @@ bah_indigenization = {
+ 			}
+ 			544 = {
+ 				owned_by = ROOT
+-				has_building = workshop
++				has_production_building_trigger = yes
+ 			}
+ 			569 = {
+ 				owned_by = ROOT
+-				has_building = workshop
++				has_production_building_trigger = yes
+ 			}
+ 		}
+ 		effect = {
+@@ -226,7 +226,7 @@ bah_gharbians = {
+ 		trigger = {
+ 			2089 = {
+ 				owned_by = ROOT
+-				has_building = marketplace
++				has_trade_building_trigger = yes
+ 				province_has_center_of_trade_of_level = 2
+ 			}
+ 		}
+@@ -271,7 +271,7 @@ bah_gharbians = {
+ 		trigger = {
+ 			capital_scope = {
+ 				development = 17 #4 more than at start
+-				has_building = temple
++				has_tax_building_trigger = yes
+ 			}
+ 		}
+ 		effect = {
+diff --git a/missions/GC_Granadan_Missions.txt b/missions/GC_Granadan_Missions.txt
+index 2377d96e..ac313fef 100755
+--- a/missions/GC_Granadan_Missions.txt
++++ b/missions/GC_Granadan_Missions.txt
+@@ -62,7 +62,7 @@ granada_development_missions = {
+ 			223 = {
+ 				owned_by = ROOT
+ 				development = 20
+-				has_building = temple
++				has_tax_building_trigger = yes
+ 			}
+ 		}
+ 		
+@@ -118,7 +118,7 @@ andalusia_slot_1_missions = {
+ 				owned_by = ROOT
+ 				OR = {
+ 					development = 15
+-					has_building = temple
++					has_tax_building_trigger = yes
+ 				}
+ 			}
+ 			lower_andalucia_area = {
+diff --git a/missions/GC_Moroccan_Missions.txt b/missions/GC_Moroccan_Missions.txt
+index 6b0d56fc..7dbf3b16 100755
+--- a/missions/GC_Moroccan_Missions.txt
++++ b/missions/GC_Moroccan_Missions.txt
+@@ -25,7 +25,7 @@ gc_morocco_1 = {
+ 			}
+ 			NOT = {
+ 				OR = {
+-					has_building = temple
++					has_tax_building_trigger = yes
+ 					development = 15
+ 				}
+ 			}
+@@ -35,28 +35,28 @@ gc_morocco_1 = {
+ 			343 = {
+ 				owned_by = ROOT
+ 				OR = {
+-					has_building = temple
++					has_tax_building_trigger = yes
+ 					development = 15
+ 				}
+ 			}
+ 			344 = {
+ 				owned_by = ROOT
+ 				OR = {
+-					has_building = temple
++					has_tax_building_trigger = yes
+ 					development = 15
+ 				}
+ 			}
+ 			2467 = {
+ 				owned_by = ROOT
+ 				OR = {
+-					has_building = temple
++					has_tax_building_trigger = yes
+ 					development = 15
+ 				}
+ 			}
+ 			342 = {
+ 				owned_by = ROOT
+ 				OR = {
+-					has_building = temple
++					has_tax_building_trigger = yes
+ 					development = 15
+ 				}
+ 			}
+@@ -90,13 +90,13 @@ gc_morocco_1 = {
+ 				2466 = {
+ 					OR = {
+ 						province_has_center_of_trade_of_level = 2
+-						has_building = marketplace
++						has_trade_building_trigger = yes
+ 					}
+ 				}
+ 			}
+ 			else = {
+ 				2466 = {
+-					has_building = marketplace
++					has_trade_building_trigger = yes
+ 				}
+ 			}
+ 		}		
+diff --git a/missions/GC_Tunis_Missions.txt b/missions/GC_Tunis_Missions.txt
+index c6a3c7cc..93a30335 100755
+--- a/missions/GC_Tunis_Missions.txt
++++ b/missions/GC_Tunis_Missions.txt
+@@ -72,7 +72,7 @@ gc_tunis_1 = {
+ 					province_id = 354
+ 					OR = {
+ 						NOT = {	owned_by = ROOT }
+-						NOT = { has_building = marketplace }
++						has_trade_building_trigger = no 
+ 					}
+ 				}
+ 				AND = {
+@@ -87,7 +87,7 @@ gc_tunis_1 = {
+ 		
+ 		trigger = {
+ 			354 = {
+-				has_building = marketplace
++				has_trade_building_trigger = yes
+ 				owned_by = ROOT
+ 			}
+ 			owns_core_province = 2448
+diff --git a/missions/Iroquoians_Missions.txt b/missions/Iroquoians_Missions.txt
+index 5bd1d380..663796f6 100755
+--- a/missions/Iroquoians_Missions.txt
++++ b/missions/Iroquoians_Missions.txt
+@@ -21,7 +21,7 @@ iroquoians_1 = {
+ 			owned_by = ROOT
+ 			OR = {
+ 				AND = {
+-					NOT = { has_building = courthouse }
++					has_courthouse_building_trigger = no
+ 					NOT = { has_building = native_longhouse }
+ 				}
+ 				local_autonomy = 30
+@@ -32,7 +32,7 @@ iroquoians_1 = {
+ 		trigger = {
+ 			all_owned_province = {
+ 				OR = {
+-					has_building = courthouse
++					has_courthouse_building_trigger = yes
+ 					has_building = native_longhouse
+ 				}
+ 				NOT = { local_autonomy = 30 }
+@@ -280,7 +280,7 @@ iroquoians_2 = {
+ 			OR = {
+ 				trade_goods = grain
+ 				AND = {
+-					NOT = { has_building = workshop }
++					has_production_building_trigger = no
+ 					NOT = { has_building = native_storehouse }
+ 				}
+ 			}
+@@ -290,7 +290,7 @@ iroquoians_2 = {
+ 		trigger = {
+ 			all_owned_province = {
+ 				OR = {
+-					has_building = workshop
++					has_production_building_trigger = yes
+ 					has_building = native_storehouse
+ 				}
+ 			}
+diff --git a/missions/TR_Novgorodian_Missions.txt b/missions/TR_Novgorodian_Missions.txt
+index e9a2bcfd..f79917e3 100755
+--- a/missions/TR_Novgorodian_Missions.txt
++++ b/missions/TR_Novgorodian_Missions.txt
+@@ -375,8 +375,8 @@ tr_novgorod_3 = {
+ 		trigger = {
+ 			33 = {
+ 				owned_by = ROOT
+-				has_building = marketplace
+-				has_building = dock
++				has_trade_building_trigger = yes
++				has_dock_building_trigger = yes
+ 				is_strongest_trade_power = ROOT
+ 			}
+ 			navy_size_percentage = 1
+@@ -603,8 +603,8 @@ tr_novgorod_4 = {
+ 			owns = 1955
+ 			1955 = {
+ 				OR = {
+-					has_building = marketplace
+-					has_building = dock
++					has_trade_building_trigger = yes
++					has_dock_building_trigger = yes
+ 				}
+ 			}
+ 		}
+-- 
+2.53.0
+
