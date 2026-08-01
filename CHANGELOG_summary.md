@@ -135,3 +135,5 @@
 # 2026-07-01
 - fix modifier duration in tooltips of jap_japanese_economic_miracle
 - fix goods produced modifiers from event flavor_aju.1
+# 2026-08-01
+- Also allow upgraded buildings in all missions which require a building

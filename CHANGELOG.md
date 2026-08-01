@@ -1162,3 +1162,12 @@ Ajuuraan by the mission "Gain Gold Access"(aju_gold_minting)
 No bugreport, but reddit post: https://www.reddit.com/r/eu4/comments/1ukit51/what_does_this_modifier_even_do/
 Patch: [0120-fix-goods-produced-modifiers-from-event-flavor_aju1](patches/0120-fix-goods-produced-modifiers-from-event-flavor_aju1.patch)
 
+# 2026-08-01
+
+## Also allow upgraded buildings in all missions which require a building
+
+e.g. change "has_building = marketplace" to "has_trade_building_trigger = yes"
+
+fixes #1
+Patch: [0121-Also-allow-upgraded-buildings-in-all-missions-which-require-a-building](patches/0121-Also-allow-upgraded-buildings-in-all-missions-which-require-a-building.patch)
+
