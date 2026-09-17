@@ -1,0 +1,142 @@
+From fd72ba98a77db4d76014d95b27ca4d340893164d Mon Sep 17 00:00:00 2001
+From: grotaclas <grotaclas@gmail.com>
+Date: Thu, 17 Sep 2026 18:04:05 -0000
+Subject: [PATCH] make mission rewards for forts available for all fort
+ buildings
+
+---
+ common/buildings/00_buildings.txt | 61 +++++++++++++++++++++++++++++--
+ 1 file changed, 57 insertions(+), 4 deletions(-)
+
+diff --git a/common/buildings/00_buildings.txt b/common/buildings/00_buildings.txt
+index 5e02202c..389e7047 100755
+--- a/common/buildings/00_buildings.txt
++++ b/common/buildings/00_buildings.txt
+@@ -474,7 +474,7 @@ fort_15th = {
+ 		}
+ 		if = {
+ 			limit = {
+-				FROM = {
++				owner = {
+ 					has_country_flag = orm_forts_trade_power_buff_flag
+ 				}
+ 			}
+@@ -515,9 +515,9 @@ fort_15th = {
+ 			}
+ 		}
+ 		if = {
+-			limit = { 
++			limit = {
+ 				owner = { has_country_flag = ven_defensive_reward_flag }
+-				NOT = { has_province_modifier = ven_defensive_stance_modifier } 
++				NOT = { has_province_modifier = ven_defensive_stance_modifier }
+ 			}
+ 			add_province_modifier = {
+ 				name = ven_defensive_stance_modifier
+@@ -971,6 +971,18 @@ fort_16th = {
+ 				duration = -1
+ 			}
+ 		}
++		if = {
++			limit = {
++				owner = {
++					has_country_flag = orm_forts_trade_power_buff_flag
++				}
++			}
++			add_province_modifier = {
++				name = orm_forts_buff
++				duration = -1
++				hidden = yes
++			}
++		}
+ 		if = {
+ 			limit = {
+ 				owner = {
+@@ -1048,6 +1060,12 @@ fort_16th = {
+ 			}
+ 			remove_province_modifier = ven_defensive_stance_modifier
+ 		}
++		if = {
++			limit = {
++				has_province_modifier = orm_forts_buff
++			}
++			remove_province_modifier = orm_forts_buff
++		}
+ 		if = {
+ 			limit = {
+ 				has_province_modifier = ned_low_countries_fort_buff
+@@ -1605,6 +1623,18 @@ fort_17th = {
+ 				duration = -1
+ 			}
+ 		}
++		if = {
++			limit = {
++				owner = {
++					has_country_flag = orm_forts_trade_power_buff_flag
++				}
++			}
++			add_province_modifier = {
++				name = orm_forts_buff
++				duration = -1
++				hidden = yes
++			}
++		}
+ 		if = {
+ 			limit = {
+ 				owner = {
+@@ -1682,6 +1712,12 @@ fort_17th = {
+ 			}
+ 			remove_province_modifier = ven_defensive_stance_modifier
+ 		}
++		if = {
++			limit = {
++				has_province_modifier = orm_forts_buff
++			}
++			remove_province_modifier = orm_forts_buff
++		}
+ 		if = {
+ 			limit = {
+ 				has_province_modifier = ned_low_countries_fort_buff
+@@ -1694,7 +1730,6 @@ fort_17th = {
+ 			}
+ 			remove_province_modifier = ned_low_countries_fort_buff_buffed
+ 		}
+-		
+ 	}
+ 
+ 	# THIS = Province, FROM = Destroyer, Will not be called on buildings destroyed!
+@@ -2152,6 +2187,18 @@ fort_18th = {
+ 				duration = -1
+ 			}
+ 		}
++		if = {
++			limit = {
++				owner = {
++					has_country_flag = orm_forts_trade_power_buff_flag
++				}
++			}
++			add_province_modifier = {
++				name = orm_forts_buff
++				duration = -1
++				hidden = yes
++			}
++		}
+ 		if = {
+ 			limit = {
+ 				owner = {
+@@ -2229,6 +2276,12 @@ fort_18th = {
+ 			}
+ 			remove_province_modifier = ven_defensive_stance_modifier
+ 		}
++		if = {
++			limit = {
++				has_province_modifier = orm_forts_buff
++			}
++			remove_province_modifier = orm_forts_buff
++		}
+ 		if = {
+ 			limit = {
+ 				has_province_modifier = ned_low_countries_fort_buff
+-- 
+2.53.0
+

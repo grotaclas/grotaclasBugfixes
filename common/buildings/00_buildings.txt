@@ -474,7 +474,7 @@ fort_15th = {
 		}
 		if = {
 			limit = {
-				FROM = {
+				owner = {
 					has_country_flag = orm_forts_trade_power_buff_flag
 				}
 			}
@@ -515,9 +515,9 @@ fort_15th = {
 			}
 		}
 		if = {
-			limit = { 
+			limit = {
 				owner = { has_country_flag = ven_defensive_reward_flag }
-				NOT = { has_province_modifier = ven_defensive_stance_modifier } 
+				NOT = { has_province_modifier = ven_defensive_stance_modifier }
 			}
 			add_province_modifier = {
 				name = ven_defensive_stance_modifier
@@ -974,6 +974,18 @@ fort_16th = {
 		if = {
 			limit = {
 				owner = {
+					has_country_flag = orm_forts_trade_power_buff_flag
+				}
+			}
+			add_province_modifier = {
+				name = orm_forts_buff
+				duration = -1
+				hidden = yes
+			}
+		}
+		if = {
+			limit = {
+				owner = {
 					has_country_flag = ned_buffed_forts_flag
 					NOT = {
 						full_idea_group = defensive_ideas
@@ -1047,6 +1059,12 @@ fort_16th = {
 				has_province_modifier = ven_defensive_stance_modifier
 			}
 			remove_province_modifier = ven_defensive_stance_modifier
+		}
+		if = {
+			limit = {
+				has_province_modifier = orm_forts_buff
+			}
+			remove_province_modifier = orm_forts_buff
 		}
 		if = {
 			limit = {
@@ -1608,6 +1626,18 @@ fort_17th = {
 		if = {
 			limit = {
 				owner = {
+					has_country_flag = orm_forts_trade_power_buff_flag
+				}
+			}
+			add_province_modifier = {
+				name = orm_forts_buff
+				duration = -1
+				hidden = yes
+			}
+		}
+		if = {
+			limit = {
+				owner = {
 					has_country_flag = ned_buffed_forts_flag
 					NOT = {
 						full_idea_group = defensive_ideas
@@ -1684,6 +1714,12 @@ fort_17th = {
 		}
 		if = {
 			limit = {
+				has_province_modifier = orm_forts_buff
+			}
+			remove_province_modifier = orm_forts_buff
+		}
+		if = {
+			limit = {
 				has_province_modifier = ned_low_countries_fort_buff
 			}
 			remove_province_modifier = ned_low_countries_fort_buff
@@ -1694,7 +1730,6 @@ fort_17th = {
 			}
 			remove_province_modifier = ned_low_countries_fort_buff_buffed
 		}
-		
 	}
 
 	# THIS = Province, FROM = Destroyer, Will not be called on buildings destroyed!
@@ -2155,6 +2190,18 @@ fort_18th = {
 		if = {
 			limit = {
 				owner = {
+					has_country_flag = orm_forts_trade_power_buff_flag
+				}
+			}
+			add_province_modifier = {
+				name = orm_forts_buff
+				duration = -1
+				hidden = yes
+			}
+		}
+		if = {
+			limit = {
+				owner = {
 					has_country_flag = ned_buffed_forts_flag
 					NOT = {
 						full_idea_group = defensive_ideas
@@ -2228,6 +2275,12 @@ fort_18th = {
 				has_province_modifier = ven_defensive_stance_modifier
 			}
 			remove_province_modifier = ven_defensive_stance_modifier
+		}
+		if = {
+			limit = {
+				has_province_modifier = orm_forts_buff
+			}
+			remove_province_modifier = orm_forts_buff
 		}
 		if = {
 			limit = {
