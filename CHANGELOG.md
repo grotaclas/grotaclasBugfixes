@@ -1171,3 +1171,8 @@ e.g. change "has_building = marketplace" to "has_trade_building_trigger = yes"
 fixes #1
 Patch: [0121-Also-allow-upgraded-buildings-in-all-missions-which-require-a-building](patches/0121-Also-allow-upgraded-buildings-in-all-missions-which-require-a-building.patch)
 
+# 2026-09-17
+
+## make mission rewards for forts available for all fort buildings
+Patch: [0122-make-mission-rewards-for-forts-available-for-all-fort-buildings](patches/0122-make-mission-rewards-for-forts-available-for-all-fort-buildings.patch)
+

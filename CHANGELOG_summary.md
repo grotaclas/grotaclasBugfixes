@@ -137,3 +137,5 @@
 - fix goods produced modifiers from event flavor_aju.1
 # 2026-08-01
 - Also allow upgraded buildings in all missions which require a building
+# 2026-09-17
+- make mission rewards for forts available for all fort buildings
