@@ -211,9 +211,23 @@ polynesian_missions_slot1 = {
 					estate = estate_burghers
 					loyalty = 65
 				}
-				estate_loyalty = {
-					estate = estate_church
-					loyalty = 65
+				if = {
+					limit = {
+						has_estate = estate_church
+					}
+					estate_loyalty = {
+						estate = estate_church
+						loyalty = 65
+					}
+				}
+				else_if = {
+					limit = {
+						has_estate = estate_brahmins
+					}
+					estate_loyalty = {
+						estate = estate_brahmins
+						loyalty = 65
+					}
 				}
 				estate_loyalty = {
 					estate = estate_nobles
@@ -225,10 +239,26 @@ polynesian_missions_slot1 = {
 						influence = 40
 					}
 				}
-				NOT = {
-					estate_influence = {
-						estate = estate_church
-						influence = 40
+				if = {
+					limit = {
+						has_estate = estate_church
+					}
+					NOT = {
+						estate_influence = {
+							estate = estate_church
+							influence = 40
+						}
+					}
+				}
+				else_if = {
+					limit = {
+						has_estate = estate_brahmins
+					}
+					NOT = {
+						estate_influence = {
+							estate = estate_brahmins
+							influence = 40
+						}
 					}
 				}
 				NOT = {

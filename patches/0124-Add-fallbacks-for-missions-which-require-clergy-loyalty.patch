@@ -1,0 +1,138 @@
+From b5f0b50086f1ea439697dce5a3ba60c78a7a42d3 Mon Sep 17 00:00:00 2001
+From: grotaclas <grotaclas@gmail.com>
+Date: Fri, 18 Sep 2026 08:08:55 -0000
+Subject: [PATCH] Add fallbacks for missions which require clergy loyalty
+
+Allow the oceanian mission "Loyal Subjects"(loyal_subjects)
+to be completed with the Brahmins estate or with neither clergy nor
+brahmins.
+And allow the missions "Emblem of Faith"(lit_emblem_faith) and "The
+University of Kobenhavn"(dan_university_of_coppenhagen) to be completed
+without a clergy
+
+Bugreport: https://forum.paradoxplaza.com/forum/threads/eu-iv-not-detecting-high-brahmins-loyalty-in-samoan-mission-loyal-subjects.1595944/
+---
+ missions/Oceania_Missions.txt       | 44 ++++++++++++++++++++++++-----
+ missions/SCA_Danish_Missions.txt    | 19 ++++++++-----
+ missions/SCA_Lithuania_Missions.txt | 13 ++++++---
+ 3 files changed, 58 insertions(+), 18 deletions(-)
+
+diff --git a/missions/Oceania_Missions.txt b/missions/Oceania_Missions.txt
+index 1f0452bd..d6be10a4 100755
+--- a/missions/Oceania_Missions.txt
++++ b/missions/Oceania_Missions.txt
+@@ -211,9 +211,23 @@ polynesian_missions_slot1 = {
+ 					estate = estate_burghers
+ 					loyalty = 65
+ 				}
+-				estate_loyalty = {
+-					estate = estate_church
+-					loyalty = 65
++				if = {
++					limit = {
++						has_estate = estate_church
++					}
++					estate_loyalty = {
++						estate = estate_church
++						loyalty = 65
++					}
++				}
++				else_if = {
++					limit = {
++						has_estate = estate_brahmins
++					}
++					estate_loyalty = {
++						estate = estate_brahmins
++						loyalty = 65
++					}
+ 				}
+ 				estate_loyalty = {
+ 					estate = estate_nobles
+@@ -225,10 +239,26 @@ polynesian_missions_slot1 = {
+ 						influence = 40
+ 					}
+ 				}
+-				NOT = {
+-					estate_influence = {
+-						estate = estate_church
+-						influence = 40
++				if = {
++					limit = {
++						has_estate = estate_church
++					}
++					NOT = {
++						estate_influence = {
++							estate = estate_church
++							influence = 40
++						}
++					}
++				}
++				else_if = {
++					limit = {
++						has_estate = estate_brahmins
++					}
++					NOT = {
++						estate_influence = {
++							estate = estate_brahmins
++							influence = 40
++						}
+ 					}
+ 				}
+ 				NOT = {
+diff --git a/missions/SCA_Danish_Missions.txt b/missions/SCA_Danish_Missions.txt
+index c4e77447..c0cb60bb 100755
+--- a/missions/SCA_Danish_Missions.txt
++++ b/missions/SCA_Danish_Missions.txt
+@@ -1254,13 +1254,18 @@ dan_norway_holstein_mission_slot = {
+ 					value = 100
+ 				}
+ 			}
+-			estate_loyalty = {
+-				estate = estate_church
+-				loyalty = 60
+-			}
+-			estate_influence = {
+-				estate = estate_church
+-				influence = 50
++			if = {
++				limit = {
++					has_estate = estate_church
++				}
++				estate_loyalty = {
++					estate = estate_church
++					loyalty = 60
++				}
++				estate_influence = {
++					estate = estate_church
++					influence = 50
++				}
+ 			}
+ 		}
+ 		effect = {
+diff --git a/missions/SCA_Lithuania_Missions.txt b/missions/SCA_Lithuania_Missions.txt
+index adb27ad9..0bfd75f4 100755
+--- a/missions/SCA_Lithuania_Missions.txt
++++ b/missions/SCA_Lithuania_Missions.txt
+@@ -16,10 +16,15 @@ lit_dlc_1 = {
+ 		icon = catholic_confraternity 
+ 		required_missions = { lit_stabilize_interior } 
+ 		position = 2 
+-		trigger = { 
+-			estate_loyalty = {
+-				estate = estate_church
+-				loyalty = 60 
++		trigger = {
++			if = {
++				limit = {
++					has_estate = estate_church
++				}
++				estate_loyalty = {
++					estate = estate_church
++					loyalty = 60
++				}
+ 			}
+ 			num_of_owned_provinces_with = {
+ 				has_tax_building_trigger = yes 
+-- 
+2.53.0
+
