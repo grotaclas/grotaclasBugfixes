@@ -142,3 +142,5 @@
 # 2026-09-18
 - Allow mission Stones of Ganesh be completed without Brahmins estate
 - Add fallbacks for missions which require clergy loyalty
+# 2026-09-18
+- Add fallbacks for missions which require clergy influence

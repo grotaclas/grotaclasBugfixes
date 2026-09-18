@@ -1203,3 +1203,18 @@ without a clergy
 Bugreport: https://forum.paradoxplaza.com/forum/threads/eu-iv-not-detecting-high-brahmins-loyalty-in-samoan-mission-loyal-subjects.1595944/
 Patch: [0124-Add-fallbacks-for-missions-which-require-clergy-loyalty](patches/0124-Add-fallbacks-for-missions-which-require-clergy-loyalty.patch)
 
+# 2026-09-18
+
+## Add fallbacks for missions which require clergy influence
+
+Allow the Taungo mission "Restore Pagodas" (tau_restore_pagodas) and
+the bahmanis mission "Persianate Empire"(persianate_empire) to be
+completed with the brahmins estate or with neither clergy nor
+brahmins.
+
+Also give their rewards to the brahmins if they are present and the
+clergy is not present
+
+Bugreport: https://forum.paradoxplaza.com/forum/threads/eu-iv-taungu-restore-pagodas-mission-cannot-be-completed.1449182/
+Patch: [0125-Add-fallbacks-for-missions-which-require-clergy-influence](patches/0125-Add-fallbacks-for-missions-which-require-clergy-influence.patch)
+
