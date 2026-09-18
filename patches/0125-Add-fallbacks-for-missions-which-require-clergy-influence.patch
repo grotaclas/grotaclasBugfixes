@@ -1,0 +1,152 @@
+From a8275da7a12152d4382fab020c48ebe7d0a78fd6 Mon Sep 17 00:00:00 2001
+From: grotaclas <grotaclas@gmail.com>
+Date: Fri, 18 Sep 2026 08:26:48 -0000
+Subject: [PATCH] Add fallbacks for missions which require clergy influence
+
+Allow the Taungo mission "Restore Pagodas" (tau_restore_pagodas) and
+the bahmanis mission "Persianate Empire"(persianate_empire) to be
+completed with the brahmins estate or with neither clergy nor
+brahmins.
+
+Also give their rewards to the brahmins if they are present and the
+clergy is not present
+
+Bugreport: https://forum.paradoxplaza.com/forum/threads/eu-iv-taungu-restore-pagodas-mission-cannot-be-completed.1449182/
+---
+ missions/DH_Bahmani_Missions.txt | 57 +++++++++++++++++++++++++-------
+ missions/DH_Taungu_Missions.txt  | 40 ++++++++++++++++++----
+ 2 files changed, 79 insertions(+), 18 deletions(-)
+
+diff --git a/missions/DH_Bahmani_Missions.txt b/missions/DH_Bahmani_Missions.txt
+index 5326cdba..76a55276 100755
+--- a/missions/DH_Bahmani_Missions.txt
++++ b/missions/DH_Bahmani_Missions.txt
+@@ -329,14 +329,31 @@ bah_gharbians = {
+ 			else = {
+ 				total_development = 1000
+ 			}
+-			estate_influence = {
+-				estate = estate_church
+-				influence = 50
++			if = {
++				limit = {
++					has_estate = estate_church
++				}
++				estate_influence = {
++					estate = estate_church
++					influence = 50
++				}
++				num_of_estate_privileges = {
++					estate = estate_church
++					value = 2
++				}
+ 			}
+-			num_of_estate_privileges = {
+-				estate = estate_church
+-				value = 2
+-				
++			else_if = {
++				limit = {
++					has_estate = estate_brahmins
++				}
++				estate_influence = {
++					estate = estate_brahmins
++					influence = 50
++				}
++				num_of_estate_privileges = {
++					estate = estate_brahmins
++					value = 2
++				}
+ 			}
+ 			409 = {
+ 				owned_by = ROOT
+@@ -375,11 +392,27 @@ bah_gharbians = {
+ 				add_base_production = 2
+ 				add_base_manpower = 2
+ 			}
+-			add_estate_loyalty_modifier = {
+-				estate = estate_church
+-				desc = EST_VAL_PERSIANATE_EMPIRE
+-				loyalty = 10
+-				duration = 10950
++			if = {
++				limit = {
++					has_estate = estate_church
++				}
++				add_estate_loyalty_modifier = {
++					estate = estate_church
++					desc = EST_VAL_PERSIANATE_EMPIRE
++					loyalty = 10
++					duration = 10950
++				}
++			}
++			else_if = {
++				limit = {
++					has_estate = estate_brahmins
++				}
++				add_estate_loyalty_modifier = {
++					estate = estate_brahmins
++					desc = EST_VAL_PERSIANATE_EMPIRE
++					loyalty = 10
++					duration = 10950
++				}
+ 			}
+ 			add_country_modifier = {
+ 				name = "bah_persianate_empire"
+diff --git a/missions/DH_Taungu_Missions.txt b/missions/DH_Taungu_Missions.txt
+index 8067e2e8..f169604e 100755
+--- a/missions/DH_Taungu_Missions.txt
++++ b/missions/DH_Taungu_Missions.txt
+@@ -860,15 +860,43 @@ tau_slot_4 = {
+ 				has_tax_building_trigger = yes
+ 				value = 15
+ 			}
+-			estate_influence = {
+-				estate = estate_church
+-				influence = 40
++			if = {
++				limit = {
++					has_estate = estate_church
++				}
++				estate_influence = {
++					estate = estate_church
++					influence = 40
++				}
++			}
++			else_if = {
++				limit = {
++					has_estate = estate_brahmins
++				}
++				estate_influence = {
++					estate = estate_brahmins
++					influence = 40
++				}
+ 			}
+ 		}
+ 		effect = {
+-			add_estate_loyalty = {
+-				estate = estate_church
+-				loyalty = 20
++			if = {
++					limit = {
++						has_estate = estate_church
++					}
++					add_estate_loyalty = {
++						estate = estate_church
++						loyalty = 20
++					}
++			}
++			else_if = {
++					limit = {
++						has_estate = estate_brahmins
++					}
++					add_estate_loyalty = {
++						estate = estate_brahmins
++						loyalty = 20
++					}
+ 			}
+ 			if = {
+ 				limit = {
+-- 
+2.53.0
+

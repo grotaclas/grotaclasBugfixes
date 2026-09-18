@@ -329,14 +329,31 @@ bah_gharbians = {
 			else = {
 				total_development = 1000
 			}
-			estate_influence = {
-				estate = estate_church
-				influence = 50
+			if = {
+				limit = {
+					has_estate = estate_church
+				}
+				estate_influence = {
+					estate = estate_church
+					influence = 50
+				}
+				num_of_estate_privileges = {
+					estate = estate_church
+					value = 2
+				}
 			}
-			num_of_estate_privileges = {
-				estate = estate_church
-				value = 2
-				
+			else_if = {
+				limit = {
+					has_estate = estate_brahmins
+				}
+				estate_influence = {
+					estate = estate_brahmins
+					influence = 50
+				}
+				num_of_estate_privileges = {
+					estate = estate_brahmins
+					value = 2
+				}
 			}
 			409 = {
 				owned_by = ROOT
@@ -375,11 +392,27 @@ bah_gharbians = {
 				add_base_production = 2
 				add_base_manpower = 2
 			}
-			add_estate_loyalty_modifier = {
-				estate = estate_church
-				desc = EST_VAL_PERSIANATE_EMPIRE
-				loyalty = 10
-				duration = 10950
+			if = {
+				limit = {
+					has_estate = estate_church
+				}
+				add_estate_loyalty_modifier = {
+					estate = estate_church
+					desc = EST_VAL_PERSIANATE_EMPIRE
+					loyalty = 10
+					duration = 10950
+				}
+			}
+			else_if = {
+				limit = {
+					has_estate = estate_brahmins
+				}
+				add_estate_loyalty_modifier = {
+					estate = estate_brahmins
+					desc = EST_VAL_PERSIANATE_EMPIRE
+					loyalty = 10
+					duration = 10950
+				}
 			}
 			add_country_modifier = {
 				name = "bah_persianate_empire"
