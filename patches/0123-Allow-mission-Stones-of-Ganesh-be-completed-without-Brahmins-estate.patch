@@ -1,0 +1,53 @@
+From 1e75315949f78111b9686de8b4cf362728a278a6 Mon Sep 17 00:00:00 2001
+From: grotaclas <grotaclas@gmail.com>
+Date: Fri, 18 Sep 2026 08:08:55 -0000
+Subject: [PATCH] Allow mission Stones of Ganesh be completed without Brahmins
+ estate
+
+The Tondo mission "Stones of Ganesh"(tdo_stones_of_ganesh) required that
+the Brahmins(estate_brahmins) has 55 loyalty, but without the Dharma
+and Winds of Change DLCs, a country does not have that estate and
+instead the clergy is called Brahmins.
+This patch allows the mission to be completed with 55 clergy loyalty if
+there is no estate_brahmins and removes the requirement if neither are
+present(e.g. in a pirate republic).
+
+No bugreport, but reddit post: https://www.reddit.com/r/eu4/comments/1wjgp3w/i_dont_get_it_why_the_brahmin_loyalty_is_not/
+---
+ missions/MND_Tondo_Missions.txt | 20 +++++++++++++++++---
+ 1 file changed, 17 insertions(+), 3 deletions(-)
+
+diff --git a/missions/MND_Tondo_Missions.txt b/missions/MND_Tondo_Missions.txt
+index 61a2084d..58f5bda2 100755
+--- a/missions/MND_Tondo_Missions.txt
++++ b/missions/MND_Tondo_Missions.txt
+@@ -210,9 +210,23 @@ tdo_1 = {
+ 		provinces_to_highlight = {	}
+ 		
+ 		trigger = {
+-			estate_loyalty = { 
+-				estate = estate_brahmins
+-				loyalty = 55
++			if = {
++				limit = {
++					has_estate = estate_brahmins
++				}
++				estate_loyalty = {
++					estate = estate_brahmins
++					loyalty = 55
++				}
++			}
++			else_if = {
++				limit = {
++					has_estate = estate_church
++				}
++				estate_loyalty = {
++					estate = estate_church
++					loyalty = 55
++				}
+ 			}
+ 			calc_true_if = {
+ 				all_owned_province = {
+-- 
+2.53.0
+
