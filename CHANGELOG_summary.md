@@ -139,3 +139,6 @@
 - Also allow upgraded buildings in all missions which require a building
 # 2026-09-17
 - make mission rewards for forts available for all fort buildings
+# 2026-09-18
+- Allow mission Stones of Ganesh be completed without Brahmins estate
+- Add fallbacks for missions which require clergy loyalty

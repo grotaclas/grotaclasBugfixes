@@ -1176,3 +1176,30 @@ Patch: [0121-Also-allow-upgraded-buildings-in-all-missions-which-require-a-build
 ## make mission rewards for forts available for all fort buildings
 Patch: [0122-make-mission-rewards-for-forts-available-for-all-fort-buildings](patches/0122-make-mission-rewards-for-forts-available-for-all-fort-buildings.patch)
 
+# 2026-09-18
+
+## Allow mission Stones of Ganesh be completed without Brahmins estate
+
+The Tondo mission "Stones of Ganesh"(tdo_stones_of_ganesh) required that
+the Brahmins(estate_brahmins) has 55 loyalty, but without the Dharma
+and Winds of Change DLCs, a country does not have that estate and
+instead the clergy is called Brahmins.
+This patch allows the mission to be completed with 55 clergy loyalty if
+there is no estate_brahmins and removes the requirement if neither are
+present(e.g. in a pirate republic).
+
+No bugreport, but reddit post: https://www.reddit.com/r/eu4/comments/1wjgp3w/i_dont_get_it_why_the_brahmin_loyalty_is_not/
+Patch: [0123-Allow-mission-Stones-of-Ganesh-be-completed-without-Brahmins-estate](patches/0123-Allow-mission-Stones-of-Ganesh-be-completed-without-Brahmins-estate.patch)
+
+## Add fallbacks for missions which require clergy loyalty
+
+Allow the oceanian mission "Loyal Subjects"(loyal_subjects)
+to be completed with the Brahmins estate or with neither clergy nor
+brahmins.
+And allow the missions "Emblem of Faith"(lit_emblem_faith) and "The
+University of Kobenhavn"(dan_university_of_coppenhagen) to be completed
+without a clergy
+
+Bugreport: https://forum.paradoxplaza.com/forum/threads/eu-iv-not-detecting-high-brahmins-loyalty-in-samoan-mission-loyal-subjects.1595944/
+Patch: [0124-Add-fallbacks-for-missions-which-require-clergy-loyalty](patches/0124-Add-fallbacks-for-missions-which-require-clergy-loyalty.patch)
+
